@@ -1,0 +1,120 @@
+<ng-container class="container" *ngIf="word !== null">
+  <div class="alert alert-secondary text-center font-weight-bold" role="alert">
+    {{ state.bibleRange}} ({{wordIndex}} of {{words.length}} words)
+  </div>
+
+  <div class="card card-style" [class.bg-success]="goodAnswers.includes(word)"
+       [class.bg-danger]="wrongAnswers.includes(wrongAnswerObject) && !goodAnswers.includes(word)"
+       [class.bg-light]="!currentWordIsUnanswered">
+    <div class="card-body">
+      <h5 class="card-title greek">{{word.word}}</h5>
+      <p class="card-text">G{{word.strongsNr}} <span
+        *ngIf="word.lexiconEntry.usage !== undefined || word.lexiconEntry !== undefined">({{word.lexiconEntry.usage}}
+        )</span></p>
+      <p class="card-text greek">{{word.lexiconEntry.wordComplete}}</p>
+      <p class="card-text">{{word.morphology}}</p>
+      <p class="card-text">{{word.occurrencesInRange}}x in selected Bible range</p>
+      <p class="card-text">
+        <span *ngFor="let i of word.partsOfSpeech">{{i.name}} </span>
+      </p>
+    </div>
+  </div>
+
+  <br/>
+  <div style="text-align: right; ">
+    <button (click)="nextWord()" class="btn btn-primary">Next</button>
+  </div>
+  <br/>
+
+  <div class="d-flex justify-content-center align-items-center container card">
+    <form (submit)="submit($event)" [formGroup]="parsingForm" class="form-group">
+      <div class="row">
+        <!--Type-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="tenseCtrl">Type</label>
+          <select class="form-control" id="typeCtrl" formControlName="type" (change)="typeOfWordSelected($event)">
+            <option selected>Choose...</option>
+            <option *ngFor="let type of types" [selected]="type.isChecked"
+                    [value]="type.abbreviation">{{type.name}}
+            </option>
+          </select>
+        </div>
+
+        <!--Tenses-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="tenseCtrl">Tense</label>
+          <select class="form-control" id="tenseCtrl" formControlName="tense">
+            <option selected>Choose...</option>
+            <option *ngFor="let tense of verbTenses" [selected]="tense.isChecked"
+                    [value]="tense.abbreviation">{{tense.name}}</option>
+          </select>
+        </div>
+
+        <!--Voices-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="voiceCtrl">Voice</label>
+          <select class="form-control" id="voiceCtrl" formControlName="voice">
+            <option selected>Choose...</option>
+            <option *ngFor="let voice of voices" [selected]="voice.isChecked"
+                    [value]="voice.abbreviation">{{voice.name}}</option>
+          </select>
+        </div>
+
+        <!--Mood-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="moodCtrl">Mood</label>
+          <select class="form-control" id="moodCtrl" formControlName="mood">
+            <option selected>Choose...</option>
+            <option *ngFor="let mood of moods" [selected]="mood.isChecked"
+                    [value]="mood.abbreviation">{{mood.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Persons-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="personCtrl">Person</label>
+          <select class="form-control" id="personCtrl" formControlName="person">
+            <option selected>Choose...</option>
+            <option *ngFor="let person of persons" [selected]="person.isChecked"
+                    [value]="person.abbreviation">{{person.name}}</option>
+          </select>
+        </div>
+
+        <!--Cases-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="caseCtrl">Case</label>
+          <select class="form-control" id="caseCtrl" formControlName="case">
+            <option selected>Choose...</option>
+            <option *ngFor="let case of cases" [selected]="case.isChecked"
+                    [value]="case.abbreviation">{{case.name}}</option>
+          </select>
+        </div>
+
+        <!--Numbers-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="numberCtrl">Number</label>
+          <select class="form-control" id="numberCtrl"
+                  formControlName="number">
+            <option selected>Choose...</option>
+            <option *ngFor="let number of numbers" [selected]="number.isChecked"
+                    [value]="number.abbreviation">{{number.name}}</option>
+          </select>
+        </div>
+
+        <!--Genders-->
+        <div class="form-group col-sm">
+          <label class="mr-sm-2" for="genderCtrl">Gender</label>
+          <select class="form-control" id="genderCtrl" formControlName="gender">
+            <option selected>Choose...</option>
+            <option *ngFor="let gender of genders" [selected]="gender.isChecked"
+                    [value]="gender.abbreviation">{{gender.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-primary float-right" type="submit" (submit)="submit($event)">Answer</button>
+    </form>
+  </div>
+</ng-container>

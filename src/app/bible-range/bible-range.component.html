@@ -1,0 +1,144 @@
+<div ngxUiLoaderBlurred>
+  <form [formGroup]="bibleRangeForm" (ngSubmit)="submit($event)">
+    <div class="form-group">
+      <label for="bibleBook">Bible range</label>
+      <div class="form-inline col-sm">
+        <select class="form-control" formControlName="bibleBook" id="bibleBook" (ngModelChange)="bookSelected()">
+          <option value="{{book.number}}" *ngFor="let book of bibleBooks">{{book.name}}</option>
+        </select>
+        <select class="form-control" formControlName="bibleBookChapterFrom"
+                (ngModelChange)="beginningChapterSelected()">
+          <option value="{{item}}" *ngFor="let item of this.amountOfChaptersArray; let i = index">{{item}}</option>
+        </select>
+        <select class="form-control" formControlName="bibleBookChapterTo">
+          <option value="{{item}}"
+                  *ngFor="let item of this.amountOfChaptersToRangeArray; let i = index">{{item}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-inline" style="border: p1px red solid">
+        <label class="label">Types of words</label>
+        <div class="pl-2 form-check-inline">
+          <input type="checkbox" class="form-check-inline" id="allTypesCtrl"
+                 (change)="checkAll($event, types)">
+          <label class="form-check-label" for="allTypesCtrl">All</label>
+        </div>
+      </div>
+      <div class="col-sm" formGroupName="types">
+        <div *ngFor="let type of types" class="form-check form-check-inline">
+          <input type="checkbox" [value]="type.abbreviation" class="form-check-input" id="{{type.name}}-type"
+                 (change)="checkboxChange(type, $event)" formControlName="{{type.controlId}}"
+                 [checked]="type.isChecked"/>
+          <label class="form-check-label" for="{{type.name}}-type">{{type.name}}s</label>
+        </div>
+      </div>
+    </div>
+
+    <!--######## NOUN STUFF ##########-->
+    <!-- Number -->
+    <div class="form-group" [hidden]="!showNumberSection">
+      <div class="form-inline">
+        <label class="control-label">Number</label>
+        <input type="checkbox" class="form-check-input" style="margin-left: 10px" id="allNumbers"
+               (change)="checkAll($event, numbers)">
+        <label class="form-check-label" for="allNumbers">All</label>
+      </div>
+      <div class="col-sm" formGroupName="numbers">
+        <div *ngFor="let number of numbers" class="form-check form-check-inline">
+          <input type="checkbox" [value]="number.abbreviation" class="form-check-input" id="{{number.name}}-number"
+                 formControlName="{{number.controlId}}" [checked]="number.isChecked"/>
+          <label class="form-check-label" for="{{number.name}}-number">{{number.name}}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gender  -->
+    <div class="form-group" [hidden]="!showNounSection">
+      <div class="form-inline">
+        <label class="control-label">Gender</label>
+        <input type="checkbox" class="form-check-input" style="margin-left: 10px" (change)="checkAll($event, genders)">
+        <label class="form-check-label">All</label>
+      </div>
+      <div class="col-sm" formGroupName="genders">
+        <div *ngFor="let gender of genders" class="form-check form-check-inline">
+          <input type="checkbox" [value]="gender.abbreviation" class="form-check-input" id="{{gender.name}}-gender"
+                 formControlName="{{gender.controlId}}" [checked]="gender.isChecked"/>
+          <label class="form-check-label" for="{{gender.name}}-gender">{{gender.name}}</label>
+        </div>
+      </div>
+    </div>
+
+    <!--######## VERB STUFF ##########-->
+    <!-- Tenses -->
+    <div class="form-group" [hidden]="!showVerbsSection">
+      <div class="form-inline">
+        <label class="control-label">Tense</label>
+        <input type="checkbox" class="form-check-input" style="margin-left: 10px"
+               (change)="checkAll($event, verbTenses)">
+        <label class="form-check-label">All</label>
+        <input type="checkbox" class="form-check-input" style="margin-left: 10px"
+               (change)="checkboxSecondaryChange($event, 'tenses')">
+        <label class="form-check-label">Secondary tenses</label>
+      </div>
+      <div class="col-sm" formGroupName="tenses">
+        <div *ngFor="let tense of verbTenses" class="form-check form-check-inline">
+          <input type="checkbox" [value]="tense.abbreviation" class="form-check-input" id="{{tense.name}}-tense"
+                 formControlName="{{tense.controlId}}" [checked]="tense.isChecked"/>
+          <label class="form-check-label" for="{{tense.name}}-tense">{{tense.name}}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moods  -->
+    <div class="form-group" [hidden]="!showVerbsSection">
+      <div class="form-inline">
+        <label class="control-label">Mood</label>
+        <input type="checkbox" class="form-check-input" style="margin-left: 10px" (change)="checkAll($event, moods)">
+        <label class="form-check-label">All</label>
+      </div>
+      <div class="col-sm" formGroupName="moods">
+        <div *ngFor="let mood of moods" class="form-check form-check-inline">
+          <input type="checkbox" [value]="mood.abbreviation" class="form-check-input" id="{{mood.name}}-mood"
+                 formControlName="{{mood.controlId}}" [checked]="mood.isChecked"/>
+          <label class="form-check-label" for="{{mood.name}}-mood">{{mood.name}}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voice  -->
+    <div class="form-group" [hidden]="!showVerbsSection">
+      <div class="form-inline">
+        <label class="control-label">Voice</label>
+        <input type="checkbox" class="form-check-input" style="margin-left: 10px" (change)="checkAll($event, voices)">
+        <label class="form-check-label">All</label>
+      </div>
+      <div class="col-sm" formGroupName="voices">
+        <div *ngFor="let voice of voices" class="form-check form-check-inline">
+          <input type="checkbox" [value]="voice.abbreviation" class="form-check-input" id="{{voice.name}}-voice"
+                 formControlName="{{voice.controlId}}" [checked]="voice.isChecked"/>
+          <label class="form-check-label" for="{{voice.name}}-voice">{{voice.name}}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Persons  -->
+    <div class="form-group" [hidden]="!showVerbsSection">
+      <div class="form-inline">
+        <label class="control-label">Persons</label>
+        <input type="checkbox" class="form-check-input" style="margin-left: 10px" (change)="checkAll($event, persons)">
+        <label class="form-check-label">All</label>
+      </div>
+      <div class="col-sm" formGroupName="persons">
+        <div *ngFor="let person of persons" class="form-check form-check-inline">
+          <input type="checkbox" [value]="person.abbreviation" class="form-check-input" id="{{person.name}}-person"
+                 formControlName="{{person.controlId}}" [checked]="person.isChecked"/>
+          <label class="form-check-label" for="{{person.name}}-person">{{person.name}}</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (submit)="submit($event)">Submit</button>
+  </form>
+</div>
+<ngx-ui-loader></ngx-ui-loader>

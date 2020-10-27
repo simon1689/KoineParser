@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {KoineParserService} from './koine-parser.service';
+import {TypeOfWords} from './interfaces/word';
+import {WordModel} from './word.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'koine-greek-parser';
+  title = 'Koine Greek Parser';
 }
