@@ -1,5 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+/*@import "~@angular/material/prebuilt-themes/purple-green.css";*/
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+
+@font-face {
+  font-family: "SBL Greek";
+  src: url(assets/SBL_grk.ttf);
+  src: url(assets/SBL_grk.ttf);
+  src: local("fonts/SBL_grk.ttf"), url(assets/SBL_grk.ttf) format("ttf")
+}
+
+@font-face {
+  font-family: "Ancient Geek";
+  src: url(assets/geek.ttf);
+  src: url(assets/geek.ttf);
+  src: local("fonts/geek.ttf"), url(assets/geek.ttf) format("ttf")
+}
 
 html, body {
   height: 100%;
@@ -14,17 +31,15 @@ body {
   padding: 20px;
 }
 
-@font-face {
-  font-family: "SBL Greek";
-  src: url(assets/SBL_grk.ttf);
-  src: url(assets/SBL_grk.ttf);
-  src: local("fonts/SBL_grk.ttf"), url(assets/SBL_grk.ttf) format("ttf")
-}
-
 .greek {
   font-family: 'SBL Greek', serif;
   font-size: 120%;
   letter-spacing: 2px
 }
 
+.banner {
+  font-family: "Ancient Geek", serif;
+  font-size: 18px;
+  text-transform: capitalize;
+}
 

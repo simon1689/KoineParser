@@ -1,24 +1,35 @@
 <ng-container class="container" *ngIf="word !== null">
   <div class="alert alert-secondary text-center font-weight-bold" role="alert">
     {{ state.bibleRange}} ({{wordIndex}} of {{words.length}} words)
-  </div>
-
-  <div class="card card-style" [class.bg-success]="goodAnswers.includes(word)"
-       [class.bg-danger]="wrongAnswers.includes(wrongAnswerObject) && !goodAnswers.includes(word)"
-       [class.bg-light]="!currentWordIsUnanswered">
-    <div class="card-body">
-      <h5 class="card-title greek">{{word.word}}</h5>
-      <p class="card-text">G{{word.strongsNr}} <span
-        *ngIf="word.lexiconEntry.usage !== undefined || word.lexiconEntry !== undefined">({{word.lexiconEntry.usage}}
-        )</span></p>
-      <p class="card-text greek">{{word.lexiconEntry.wordComplete}}</p>
-      <p class="card-text">{{word.morphology}}</p>
-      <p class="card-text">{{word.occurrencesInRange}}x in selected Bible range</p>
-      <p class="card-text">
-        <span *ngFor="let i of word.partsOfSpeech">{{i.name}} </span>
-      </p>
+    <div>
+      <span style="color: green" class="mr-2"><fa-icon [icon]="thumbsUp"></fa-icon>
+        {{goodAnswers.length}}</span>
+      <span style="color: red"><fa-icon [icon]="thumbsDown"></fa-icon>
+        {{wrongAnswers.length}}</span>
     </div>
   </div>
+
+  <mat-accordion togglePosition="after">
+    <mat-expansion-panel #expansionPanel>
+      <mat-expansion-panel-header class="text-center" style="font-size: 18px;">
+        <mat-panel-title class="greek" style="display: block; text-align: center;">{{word.word}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="text-center">
+        <p class="card-text">G{{word.strongsNr}}
+          <span
+            *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.usage !== undefined">({{word.lexiconEntry.usage}}
+            )</span>
+          <span
+            *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.shortDefinition !== undefined">{{word.lexiconEntry.shortDefinition}}
+              </span>
+        </p>
+        <p class="card-text greek"
+           *ngIf="(word.lexiconEntry !== undefined && word.lexiconEntry.wordComplete !== undefined) && word.lexiconEntry.wordComplete.trim() !== word.word.trim()">{{word.lexiconEntry.wordComplete}}</p>
+        <p class="card-text"
+           title="{{ morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true)}}">{{word.morphology}}</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
 
   <br/>
   <div style="text-align: right; ">
@@ -26,95 +37,84 @@
   </div>
   <br/>
 
-  <div class="d-flex justify-content-center align-items-center container card">
-    <form (submit)="submit($event)" [formGroup]="parsingForm" class="form-group">
-      <div class="row">
-        <!--Type-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="tenseCtrl">Type</label>
-          <select class="form-control" id="typeCtrl" formControlName="type" (change)="typeOfWordSelected($event)">
-            <option selected>Choose...</option>
-            <option *ngFor="let type of types" [selected]="type.isChecked"
-                    [value]="type.abbreviation">{{type.name}}
-            </option>
-          </select>
-        </div>
+  <form (submit)="submit($event)" [formGroup]="parsingForm">
+    <mat-horizontal-stepper labelPosition="bottom" #stepper [linear]="false">
+      <mat-step label="Type">
+        <mat-radio-group (change)="determineAvailableControlsWhenOptionIsSelected(null)" id="typeCtrl"
+                         formControlName="type">
+          <mat-radio-button *ngFor="let type of types" [value]="type.abbreviation">{{type.name}}</mat-radio-button>
+        </mat-radio-group>
+      </mat-step>
 
-        <!--Tenses-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="tenseCtrl">Tense</label>
-          <select class="form-control" id="tenseCtrl" formControlName="tense">
-            <option selected>Choose...</option>
-            <option *ngFor="let tense of verbTenses" [selected]="tense.isChecked"
-                    [value]="tense.abbreviation">{{tense.name}}</option>
-          </select>
-        </div>
+      <mat-step label="Tense" [completed]="parsingForm.controls.tense.disabled"
+                [editable]="parsingForm.controls.tense.enabled">
+        <mat-radio-group id="tenseCtrl" formControlName="tense">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let tense of verbTenses"
+                            value="{{tense.abbreviation}}">{{tense.name}}</mat-radio-button>
+        </mat-radio-group>
+      </mat-step>
 
-        <!--Voices-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="voiceCtrl">Voice</label>
-          <select class="form-control" id="voiceCtrl" formControlName="voice">
-            <option selected>Choose...</option>
-            <option *ngFor="let voice of voices" [selected]="voice.isChecked"
-                    [value]="voice.abbreviation">{{voice.name}}</option>
-          </select>
-        </div>
+      <mat-step label="Voice" [completed]="parsingForm.controls.voice.disabled"
+                [editable]="parsingForm.controls.voice.enabled">
+        <mat-radio-group id="voiceCtrl" formControlName="voice">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let voice of voices"
+                            value="{{voice.abbreviation}}">{{voice.name}}</mat-radio-button>
+        </mat-radio-group>
+      </mat-step>
 
-        <!--Mood-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="moodCtrl">Mood</label>
-          <select class="form-control" id="moodCtrl" formControlName="mood">
-            <option selected>Choose...</option>
-            <option *ngFor="let mood of moods" [selected]="mood.isChecked"
-                    [value]="mood.abbreviation">{{mood.name}}</option>
-          </select>
-        </div>
-      </div>
+      <mat-step label="Mood" [completed]="parsingForm.controls.mood.disabled"
+                [editable]="parsingForm.controls.mood.enabled">
+        <mat-radio-group id="moodCtrl" formControlName="mood">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let mood of moods"
+                            value="{{mood.abbreviation}}">{{mood.name}}</mat-radio-button>
+        </mat-radio-group>
+      </mat-step>
 
-      <div class="row">
-        <!--Persons-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="personCtrl">Person</label>
-          <select class="form-control" id="personCtrl" formControlName="person">
-            <option selected>Choose...</option>
-            <option *ngFor="let person of persons" [selected]="person.isChecked"
-                    [value]="person.abbreviation">{{person.name}}</option>
-          </select>
-        </div>
+      <mat-step label="Person"
+                [completed]="this.parsingForm.controls.person.disabled "
+                [editable]="this.parsingForm.controls.person.enabled">
+        <mat-radio-group id="personCtrl" formControlName="person">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let person of persons"
+                            value="{{person.abbreviation}}">{{person.name}}</mat-radio-button>
+        </mat-radio-group>
+      </mat-step>
 
-        <!--Cases-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="caseCtrl">Case</label>
-          <select class="form-control" id="caseCtrl" formControlName="case">
-            <option selected>Choose...</option>
-            <option *ngFor="let case of cases" [selected]="case.isChecked"
-                    [value]="case.abbreviation">{{case.name}}</option>
-          </select>
-        </div>
+      <mat-step label="Case, gender, number"
+                [completed]="this.parsingForm.controls.case.disabled && this.parsingForm.controls.gender.disabled &&  this.parsingForm.controls.number.disabled"
+                [editable]="this.parsingForm.controls.case.enabled && this.parsingForm.controls.gender.enabled && this.parsingForm.controls.number.enabled">
 
-        <!--Numbers-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="numberCtrl">Number</label>
-          <select class="form-control" id="numberCtrl"
-                  formControlName="number">
-            <option selected>Choose...</option>
-            <option *ngFor="let number of numbers" [selected]="number.isChecked"
-                    [value]="number.abbreviation">{{number.name}}</option>
-          </select>
-        </div>
+        <mat-radio-group id="caseCtrl" formControlName="case">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let case of cases"
+                            value="{{case.abbreviation}}">{{case.name}}</mat-radio-button>
+        </mat-radio-group>
 
-        <!--Genders-->
-        <div class="form-group col-sm">
-          <label class="mr-sm-2" for="genderCtrl">Gender</label>
-          <select class="form-control" id="genderCtrl" formControlName="gender">
-            <option selected>Choose...</option>
-            <option *ngFor="let gender of genders" [selected]="gender.isChecked"
-                    [value]="gender.abbreviation">{{gender.name}}</option>
-          </select>
-        </div>
-      </div>
+        <br/>
 
-      <button class="btn btn-primary float-right" type="submit" (submit)="submit($event)">Answer</button>
-    </form>
-  </div>
+        <mat-radio-group id="genderCtrl" formControlName="gender">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let gender of genders"
+                            value="{{gender.abbreviation}}">{{gender.name}}</mat-radio-button>
+        </mat-radio-group>
+        <br/>
+
+        <mat-radio-group id="numberCtrl" formControlName="number">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let number of numbers"
+                            value="{{number.abbreviation}}">{{number.name}}</mat-radio-button>
+        </mat-radio-group>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+
+    <br/>
+
+    <div class="text-right">
+      <button mat-raised-button color="accent" type="submit" (submit)="submit($event)">Answer</button>
+    </div>
+  </form>
 </ng-container>

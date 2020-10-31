@@ -1,7 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {KoineParserService} from './koine-parser.service';
-import {TypeOfWords} from './interfaces/word';
-import {WordModel} from './word.model';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',

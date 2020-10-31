@@ -1,7 +1,6 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {KoineParserService} from '../koine-parser.service';
-import {TypeOfWords, Word} from '../interfaces/word';
 import {WordModel} from '../word.model';
 
 @Component({

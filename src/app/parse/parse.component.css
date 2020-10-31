@@ -6,3 +6,15 @@ select {
 .card-style {
   text-align: center;
 }
+
+.answers-selects {
+  width: 150px;
+}
+
+.answers-selects {
+  margin-right: 15px;
+}
+
+.mat-radio-button {
+  margin-right: 16px;
+}

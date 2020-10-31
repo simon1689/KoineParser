@@ -19,6 +19,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxUiLoaderModule} from 'ngx-ui-loader';
 import {StateService} from '../state.service';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatExpansionModule, MatExpansionPanel} from '@angular/material/expansion';
+import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -26,6 +32,7 @@ import {StateService} from '../state.service';
     BibleRangeComponent,
     ParseComponent,
     WordsComponent,
+    ParseAnswerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +53,12 @@ import {StateService} from '../state.service';
     ReactiveFormsModule,
     MatButtonModule,
     NgxUiLoaderModule,
+    FontAwesomeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    MatExpansionModule,
+    MatDialogModule,
   ],
   exports: [
     BibleRangeComponent,

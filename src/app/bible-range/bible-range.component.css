@@ -1,13 +1,24 @@
-.mat-radio-button ~ .mat-radio-button {
-  margin-left: 16px;
-}
-
-.mat-checkbox ~ .mat-checkbox {
-  margin-left: 16px;
-}
-
-
 .example-additional-selection {
   opacity: 0.75;
   font-size: 0.75em;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+.selectFromToBook {
+  width: 100px;
+  margin-left: 5px;
+}
+
+.type-of-words-checkbox {
+  margin-right: 10px;
 }

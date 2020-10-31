@@ -1,0 +1,27 @@
+<ng-container>
+  <div *ngIf="!answerIsRight">
+    <h2 mat-dialog-title>Wrong answer :(</h2>
+    <div mat-dialog-content>
+      Do you want to try again or should I give you the answer?
+    </div>
+    <br/>
+    <div [hidden]="dontShowTheAnswer"
+         [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.partsOfSpeech, true)"
+         style="margin-left: 25px">
+    </div>
+    <br/>
+    <div mat-dialog-actions>
+      <button mat-button (click)="dontShowTheAnswer = false;">Give me the answer</button>
+      <button mat-button mat-dialog-close>Close</button>
+    </div>
+  </div>
+
+  <div *ngIf="answerIsRight">
+    <h2 mat-dialog-title>Good job!</h2>
+    <div mat-dialog-content>Keep going!</div>
+    <div mat-dialog-actions>
+      <button mat-button [disabled]="hasNextWord" (click)="goToNextWord()">Go to the next word</button>
+      <button mat-button mat-dialog-close>Close</button>
+    </div>
+  </div>
+</ng-container>

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {WordModel} from './word.model';
-import {Book} from '../assets/bible';
+import {Book} from './bible';
+import * as __ from 'lodash-es';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,14 @@ export class StateService {
   constructor() {
   }
 
-  setWordsForParsing(words: WordModel[]): void {
-    this.wordsForParsing = words;
+  setWordsForParsing(words: WordModel[], amountOfWords: number, shuffle: boolean = true): void {
+    if (shuffle) {
+      this.wordsForParsing = __.shuffle(words);
+    } else {
+      this.wordsForParsing = words;
+    }
+
+    this.wordsForParsing = __.slice(this.wordsForParsing, 0, amountOfWords);
   }
 
   getWordsForParsing(): WordModel[] {

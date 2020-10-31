@@ -9,7 +9,12 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {KoineParserService} from './koine-parser.service';
-import { NavbarComponent } from './navbar/navbar.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {ParseAnswerDialogComponent} from './parse-answer-dialog/parse-answer-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     KoineParserModule,
     AppRoutingModule,
+    FontAwesomeModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   providers: [KoineParserService],
   bootstrap: [AppComponent],

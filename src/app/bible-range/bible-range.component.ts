@@ -1,13 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {BibleBooks, Book} from '../../assets/bible';
-import {Genders, Moods, NounCases, Numbers, PartOfSpeech, Persons, TypeOfWords, Types, VerbTenses, Voices} from '../interfaces/word';
+import {BibleBooks, Book} from '../bible';
+import {Genders, Moods, NounCases, Numbers, PartOfSpeech, Persons, Types, VerbTenses, Voices} from '../interfaces/word';
 import {KoineParserService} from '../koine-parser.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
-import {WordModel} from '../word.model';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
+import {WordPart} from '../wordPart';
+import {
+  adjective, adverb,
+  allTypesOfPronouns,
+  article,
+  conjunction,
+  indeclinable,
+  infinitiveMood,
+  noun,
+  participleMood,
+  preposition,
+  verb
+} from '../wordTypeConstants';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -18,7 +31,6 @@ import {Subscription} from 'rxjs';
 
 export class BibleRangeComponent implements OnInit {
   bibleRangeForm: FormGroup;
-  words: WordModel[];
 
   bibleBooks = BibleBooks;
   verbTenses = VerbTenses.filter(x => x.secondary === false);
@@ -38,6 +50,11 @@ export class BibleRangeComponent implements OnInit {
   showNounSection = false;
   showNumberSection = false;
 
+  amountOfWordsForRange?: number = null;
+  typesFormGroup: FormGroup;
+  zoomIcon = faSearch;
+  panelOpenState: boolean;
+
   constructor(private service: KoineParserService,
               private state: StateService,
               private ngxLoader: NgxUiLoaderService,
@@ -51,19 +68,23 @@ export class BibleRangeComponent implements OnInit {
   }
 
   initForm(): void {
+    this.typesFormGroup = this.createFormGroup(this.types, Validators.required);
     this.bibleRangeForm = new FormGroup({
       bibleBook: new FormControl('', Validators.required),
       bibleBookChapterFrom: new FormControl('', Validators.required),
       bibleBookChapterTo: new FormControl(''),
 
-      types: this.createFormGroup(this.types, Validators.required),
+      types: this.typesFormGroup,
       persons: this.createFormGroup(this.persons),
       numbers: this.createFormGroup(this.numbers),
       cases: this.createFormGroup(NounCases),
       tenses: this.createFormGroup(VerbTenses),
       moods: this.createFormGroup(Moods),
       voices: this.createFormGroup(Voices),
-      genders: this.createFormGroup(this.genders)
+      genders: this.createFormGroup(this.genders),
+
+      randomizeWords: new FormControl({value: true}),
+      amountOfWords: new FormControl(null),
     });
 
     this.bibleRangeForm.controls.bibleBook.setValue(40);
@@ -89,10 +110,9 @@ export class BibleRangeComponent implements OnInit {
       return;
     }
 
-    this.currentlySelectedBook = BibleBooks.find(x => x.number === Number(this.bibleRangeForm.value.bibleBook));
-    this.amountOfChapters = this.currentlySelectedBook.amountOfChapters;
+    this.currentlySelectedBook = BibleBooks.find(x => x.number === this.bibleRangeForm.value.bibleBook);
     this.amountOfChaptersArray = [];
-    for (let i = 1; i <= this.amountOfChapters; i++) {
+    for (let i = 1; i <= this.currentlySelectedBook.amountOfChapters; i++) {
       this.amountOfChaptersArray.push(i);
     }
 
@@ -106,12 +126,33 @@ export class BibleRangeComponent implements OnInit {
 
     if (startChapter === 0) {
       startChapter = this.bibleRangeForm.value.bibleBookChapterFrom;
+    } else if (startChapter === 1) {
+      this.bibleRangeForm.controls.bibleBookChapterFrom.setValue(1);
     }
 
     this.amountOfChaptersToRangeArray = [];
     for (let i = startChapter; i < this.currentlySelectedBook.amountOfChapters + 1; i++) {
       this.amountOfChaptersToRangeArray.push(i);
     }
+
+    this.setAmountOfWords();
+  }
+
+  endingChapterSelected(): void {
+    this.setAmountOfWords();
+  }
+
+  setAmountOfWords(): void {
+    this.ngxLoader.start();
+    this.service.getWordsCount(this.determineFilters(),
+      this.bibleRangeForm.value.bibleBook,
+      this.bibleRangeForm.value.bibleBookChapterFrom,
+      this.bibleRangeForm.value.bibleBookChapterTo)
+      .subscribe(res => {
+        this.amountOfWordsForRange = res.count;
+        this.bibleRangeForm.controls.amountOfWords.setValue(res.count);
+      });
+    this.ngxLoader.stop();
   }
 
   checkboxChange(object: any, event: any): void {
@@ -130,6 +171,8 @@ export class BibleRangeComponent implements OnInit {
       this.showNounSection = false;
       this.showNumberSection = false;
     }
+
+    this.setAmountOfWords();
   }
 
   checkboxSecondaryChange(event: any, part: string): void {
@@ -162,17 +205,30 @@ export class BibleRangeComponent implements OnInit {
 
   getAllWords(book = null, startChapter = null, endChapter = null): Subscription {
     this.ngxLoader.start();
-    return this.service.getAllWords(TypeOfWords.All, book, startChapter, endChapter)
+    const filters = this.determineFilters();
+    return this.service.getAllWords(filters, book, startChapter, endChapter)
       .subscribe(
         (response) => {
-          this.words = response;
-          this.words = this.words.filter((v, i, a) => a.findIndex(t => (t.word === v.word)) === i);
-
           this.router.navigate(['parsing'], {
             relativeTo: this.route.parent
           });
 
-          this.state.setWordsForParsing(this.words);
+          // exclude indeclinable words
+          let words = response.filter(x => !x.partsOfSpeech.includes(indeclinable));
+
+          // let result: WordModel[] = [];
+          // const filters = this.determineTypesOfWords();
+          // if (filters.length > 0) {
+          //   for (const f of filters) {
+          //     const filterResults = response.filter(x => x.partsOfSpeech.includes(f));
+          //     result = result.concat(filterResults);
+          //   }
+          //
+          //   words = result;
+          // }
+
+          // console.log(words);
+          this.state.setWordsForParsing(words, this.bibleRangeForm.value.amountOfWords, this.bibleRangeForm.value.randomizeWords);
           this.state.setBibleRange(this.currentlySelectedBook,
             this.bibleRangeForm.controls.bibleBookChapterFrom.value,
             this.bibleRangeForm.controls.bibleBookChapterTo.value);
@@ -183,5 +239,50 @@ export class BibleRangeComponent implements OnInit {
           console.error('error', error);
         }
       );
+  }
+
+  determineFilters(): WordPart[] {
+    const result: WordPart[] = [];
+
+    Object.keys(this.typesFormGroup.controls).forEach(key => {
+      if (this.typesFormGroup.controls[key] !== undefined && this.typesFormGroup.controls[key].value === true) {
+        switch (key) {
+          case 'VerbsCtrl':
+            result.push(verb);
+            break;
+          case 'NounsCtrl':
+            result.push(noun);
+            break;
+          case 'AdjectivesCtrl':
+            result.push(adjective);
+            break;
+          case 'ArticlesCtrl':
+            result.push(article);
+            break;
+          case 'ConjunctionCtrl':
+            result.push(conjunction);
+            break;
+          case 'ParticiplesCtrl':
+            result.push(participleMood);
+            break;
+          case 'PronounsCtrl':
+            allTypesOfPronouns.forEach(x => result.push(x));
+            break;
+          case 'PrepositionCtrl':
+            result.push(preposition);
+            break;
+          case 'InfinitivesCtrl':
+            result.push(infinitiveMood);
+            break;
+          case 'AdverbsCtrl':
+            result.push(adverb);
+            break;
+          default:
+            break;
+        }
+      }
+    });
+
+    return result;
   }
 }
