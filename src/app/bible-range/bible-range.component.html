@@ -1,6 +1,6 @@
 <div ngxUiLoaderBlurred>
   <form [formGroup]="bibleRangeForm" (ngSubmit)="submit($event)">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="selectBook">
       <mat-label>Book</mat-label>
       <mat-select required formControlName="bibleBook"
                   (selectionChange)="bookSelected()">
@@ -47,7 +47,7 @@
 
     <mat-card *ngIf="amountOfWordsForRange !== null">
       <fa-icon [icon]="zoomIcon"></fa-icon>
-      {{amountOfWordsForRange}} word forms found!
+      {{amountOfWordsForRange}} unique and declinable word forms found!
     </mat-card>
 
     <br/>
@@ -60,3 +60,8 @@
 </div>
 
 <ngx-ui-loader></ngx-ui-loader>
+<ngx-ui-loader loaderId="smallLoader" bgsOpacity="0" bgsColor="" overlayColor="" fgsSize="60"
+               fgsPosition="center-center"
+               fgsType="three-bounce"
+               gap="10"
+               [hasProgressBar]="false"></ngx-ui-loader>

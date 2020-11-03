@@ -1,4 +1,4 @@
-<ng-container>
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
   <div *ngIf="!answerIsRight">
     <h2 mat-dialog-title>Wrong answer :(</h2>
     <div mat-dialog-content>
@@ -9,19 +9,26 @@
          [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.partsOfSpeech, true)"
          style="margin-left: 25px">
     </div>
+    <div [hidden]="dontShowTheHint" *ngIf="hint !== undefined" style="margin-left: 25px">
+      <p>Hint: The {{hint.type.toLowerCase()}} is <span class="font-italic">{{hint.name.toLowerCase()}}</span></p>
+    </div>
     <br/>
     <div mat-dialog-actions>
-      <button mat-button (click)="dontShowTheAnswer = false;">Give me the answer</button>
+      <button mat-button (click)="dontShowTheHint = !dontShowTheHint;">Give me a hint</button>
+      <button mat-button (click)="dontShowTheAnswer = !dontShowTheAnswer;">Give me the answer</button>
       <button mat-button mat-dialog-close>Close</button>
     </div>
   </div>
 
   <div *ngIf="answerIsRight">
     <h2 mat-dialog-title>Good job!</h2>
-    <div mat-dialog-content>Keep going!</div>
+    <br/>
+    <div mat-dialog-content *ngIf="!correctedAnswer">Keep going!</div>
+    <div mat-dialog-content *ngIf="correctedAnswer">Good correction, but it will not be counted.</div>
+    <br/>
     <div mat-dialog-actions>
       <button mat-button [disabled]="hasNextWord" (click)="goToNextWord()">Go to the next word</button>
       <button mat-button mat-dialog-close>Close</button>
     </div>
   </div>
-</ng-container>
+</div>

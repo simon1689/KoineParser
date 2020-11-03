@@ -15,7 +15,12 @@
 }
 
 .selectFromToBook {
-  width: 100px;
+  width: 80px;
+  margin-left: 5px;
+}
+
+.selectBook {
+  width: 140px;
   margin-left: 5px;
 }
 

@@ -41,7 +41,7 @@ import {
   subjunctiveMood,
   thirdPerson,
   verb,
-  vocativeCase
+  vocativeCase, conditionalType
 } from '../wordTypeConstants';
 
 export interface PartOfSpeech {
@@ -152,6 +152,7 @@ export const Types: PartOfSpeech[] = [
   {name: 'Adjective', abbreviation: 'A', controlId: 'AdjectivesCtrl', wordPart: adjective},
   {name: 'Adverb', abbreviation: 'ADV', controlId: 'AdverbsCtrl', wordPart: adverb},
   {name: 'Conjunction', abbreviation: 'CONJ', controlId: 'ConjunctionCtrl', wordPart: conjunction},
-  {name: 'Participle', abbreviation: 'Ptc', controlId: 'ParticiplesCtrl', wordPart: participleMood},
-  {name: 'Infinitive', abbreviation: 'N', controlId: 'InfinitivesCtrl', wordPart: infinitiveMood},
+  // {name: 'Participle', abbreviation: 'Ptc', controlId: 'ParticiplesCtrl', wordPart: participleMood},
+  // {name: 'Infinitive', abbreviation: 'N', controlId: 'InfinitivesCtrl', wordPart: infinitiveMood},
+  {name: 'Conditional participle/conjunction', abbreviation: 'COND', controlId: 'ConditionalCtrl', wordPart: conditionalType},
 ];

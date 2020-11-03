@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../interfaces/word';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -11,7 +11,9 @@ import {
   adjective,
   adverb,
   allPartsOfSpeech,
+  allSuffixes,
   article,
+  conditionalType,
   conjunction,
   infinitiveMood,
   noun,
@@ -26,6 +28,7 @@ import {MatStepper} from '@angular/material/stepper';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
 import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
+import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
 
 interface WrongAnswer {
   word: WordModel;
@@ -37,7 +40,7 @@ interface WrongAnswer {
   templateUrl: './parse.component.html',
   styleUrls: ['./parse.component.css']
 })
-export class ParseComponent implements OnInit, AfterViewChecked {
+export class ParseComponent implements OnInit {
   word: WordModel = null;
   words: WordModel[] = [];
   wordIndex = 0;
@@ -125,14 +128,15 @@ export class ParseComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  openDialog(answer: boolean, answerMorphologyCode: string): void {
+  openDialog(answer: boolean, givenAnswerParts: WordPart[], correctedAnswer = false): void {
     this.dialog.open(ParseAnswerDialogComponent, {
       data: {
-        givenAnswer: answerMorphologyCode,
+        givenAnswer: givenAnswerParts,
         currentWord: this.word,
         answerIsRight: answer,
         nextWordMethod: () => this.nextWord(),
-        hasNextWord: this.wordIndex >= this.words.length
+        hasNextWord: this.wordIndex >= this.words.length,
+        correctedAnswer
       },
     });
   }
@@ -141,34 +145,42 @@ export class ParseComponent implements OnInit, AfterViewChecked {
     if (this.parsingForm.valid) {
       const answerParts = this.formulateAnswerParts();
       const answerMorphologyCode = this.morphologyGenerator.generateMorphologyFromWordParts(answerParts);
+
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
         const answerIsRight: boolean = __.isEqualWith(this.word.partsOfSpeech, answerParts, this.customEqualsComparable);
 
-        if (answerIsRight) { // answer.toUpperCase() === this.word.morphology.toUpperCase()
-          this.goodAnswers.push(this.word);
-          this.openDialog(true, answerMorphologyCode);
+        if (answerIsRight) {
+          // if answer is given for the first time
+          if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
+            this.goodAnswers.push(this.word);
+            this.openDialog(true, answerParts, false);
+          } else {
+            this.openDialog(true, answerParts, true);
+          }
         } else {
+
           // check if the word has multiple morphologies
           const multipleMorphologies = this.getMultipleMorphologiesForWord(this.word);
           if (multipleMorphologies.find(x => x === this.word.morphology) !== undefined) {
-            if (this.wrongAnswers.find(x => x.word === this.word) === undefined) { // do not accept the right answer after a wrong answer
-              this.goodAnswers.push(this.word);
-            } else {
-              // give a feedback
+            // do not accept the right answer after a wrong answer
+            if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) !== undefined) {
+              this.openDialog(true, answerParts, true);
             }
           } else {
+            // if the last given answer is the same as the current, then do nothing
             if (__.last(this.wrongAnswers) !== undefined && __.last(this.wrongAnswers).given_answer === answerMorphologyCode) {
               return;
             }
 
-            this.openDialog(false, answerMorphologyCode);
-
-            if (this.goodAnswers.find(x => x === this.word) === undefined) {
+            // if the answer is wrong and given for the first time, then register it
+            if (this.goodAnswers.find(x => x === this.word) === undefined &&
+              this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
               this.wrongAnswerObject = {word: this.word, given_answer: answerMorphologyCode};
               this.wrongAnswers.push(this.wrongAnswerObject);
-            } else { // when changing the good answer for the bad
-
+              this.openDialog(false, answerParts);
+            } else {
+              this.openDialog(false, answerParts);
             }
           }
         }
@@ -200,7 +212,6 @@ export class ParseComponent implements OnInit, AfterViewChecked {
         }
       }, error => console.error(error));
 
-
     return result;
   }
 
@@ -209,6 +220,7 @@ export class ParseComponent implements OnInit, AfterViewChecked {
       return false;
     }
 
+    wordPartsOfSpeech = wordPartsOfSpeech.filter(x => !allSuffixes.includes(x));
     if (wordPartsOfSpeech.length !== givenAnswer.length) {
       return false;
     }
@@ -218,9 +230,14 @@ export class ParseComponent implements OnInit, AfterViewChecked {
     }
 
     for (let i = 0; i <= wordPartsOfSpeech.length; i++) {
-      if (wordPartsOfSpeech[i] !== givenAnswer[i]) { // if they are not the same, then check the headCategories
+      // first check whether they're the same
+      if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
+
+        // if they are not the same, then check the headCategories
         if (wordPartsOfSpeech[i].headCategory !== undefined) {
-          if (wordPartsOfSpeech[i].headCategory !== givenAnswer[i]) {
+
+          // if (wordPartsOfSpeech[i].headCategory !== givenAnswer[i]) {
+          if (!__.isEqual(wordPartsOfSpeech[i].headCategory, givenAnswer[i])) {
             return false;
           }
         } else { // if the objects are not equal and the partsOfSpeech of the word doesn't have a category, then it's a wrong answer
@@ -232,59 +249,63 @@ export class ParseComponent implements OnInit, AfterViewChecked {
     return true;
   }
 
-  determineAvailableControlsWhenOptionIsSelected($event: Event): void {
+  determineAvailableControlsWhenTypeIsSelected($event: Event): void {
     this.parsingForm.enable();
 
+    switch (this.parsingForm.controls.type.value) {
+      case verb.abbreviation:
+        this.parsingForm.controls.case.disable();
+        this.parsingForm.controls.gender.disable();
+        break;
+      case noun.abbreviation:
+      case article.abbreviation:
+      case adjective.abbreviation:
+        this.parsingForm.controls.tense.disable();
+        this.parsingForm.controls.voice.disable();
+        this.parsingForm.controls.mood.disable();
+        this.parsingForm.controls.person.disable();
+        break;
+      case preposition.abbreviation:
+        this.parsingForm.disable();
+        this.parsingForm.controls.type.enable();
+        break;
+      case personalPronoun.abbreviation: // this includes all types of pronouns
+        this.parsingForm.controls.tense.disable();
+        this.parsingForm.controls.voice.disable();
+        this.parsingForm.controls.mood.disable();
+        break;
+      case conjunction.abbreviation:
+      case adverb.abbreviation:
+        this.parsingForm.disable();
+        this.parsingForm.controls.type.enable();
+        break;
+
+      case conditionalType.abbreviation:
+        this.parsingForm.disable();
+        this.parsingForm.controls.type.enable();
+        break;
+      default:
+        break;
+    }
+  }
+
+  determineAvailableControlsWhenMoodIsSelected(): void {
     if (this.parsingForm.controls.mood.value === participleMood.abbreviation) {
       this.parsingForm.controls.person.disable();
       this.parsingForm.controls.case.enable();
       this.parsingForm.controls.gender.enable();
+      this.parsingForm.controls.number.enable();
     } else if (this.parsingForm.controls.mood.value === infinitiveMood.abbreviation) {
       this.parsingForm.controls.case.disable();
       this.parsingForm.controls.gender.disable();
       this.parsingForm.controls.number.disable();
       this.parsingForm.controls.person.disable();
     } else {
-      switch (this.parsingForm.controls.type.value) {
-        case verb.abbreviation:
-          this.parsingForm.controls.case.disable();
-          this.parsingForm.controls.gender.disable();
-          break;
-        case noun.abbreviation:
-        case article.abbreviation:
-        case adjective.abbreviation:
-          this.parsingForm.controls.tense.disable();
-          this.parsingForm.controls.voice.disable();
-          this.parsingForm.controls.mood.disable();
-          this.parsingForm.controls.person.disable();
-          break;
-        case preposition.abbreviation:
-          this.parsingForm.disable();
-          this.parsingForm.controls.type.enable();
-          break;
-        case personalPronoun.abbreviation: // this includes all types of pronouns
-          this.parsingForm.controls.tense.disable();
-          this.parsingForm.controls.voice.disable();
-          this.parsingForm.controls.mood.disable();
-          // this.parsingForm.controls.gender.disable();
-          break;
-        case conjunction.abbreviation:
-        case adverb.abbreviation:
-          this.parsingForm.disable();
-          this.parsingForm.controls.type.enable();
-          break;
-        // case participleMood.abbreviation:
-        //   this.parsingForm.controls.type.setValue('Verbs');
-        //   this.parsingForm.controls.mood.setValue('Participle');
-        //   break;
-        default:
-          break;
-      }
+      this.parsingForm.controls.person.enable();
+      this.parsingForm.controls.case.disable();
+      this.parsingForm.controls.gender.disable();
+      this.parsingForm.controls.number.disable();
     }
-  }
-
-  ngAfterViewChecked(): void {
-    // document.querySelector('#mainContent').scrollIntoView(true);
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -292,5 +313,11 @@ export class ParseComponent implements OnInit, AfterViewChecked {
     if ($event.code === 'ArrowRight') {
       this.nextWord();
     }
+  }
+
+  openErrorDialog(parseComponent: ParseComponent): void {
+    this.dialog.open(ReportErrorOnPageDialogComponent, {
+      data: parseComponent
+    });
   }
 }

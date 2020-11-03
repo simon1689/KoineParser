@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BibleBooks, Book} from '../bible';
 import {Genders, Moods, NounCases, Numbers, PartOfSpeech, Persons, Types, VerbTenses, Voices} from '../interfaces/word';
 import {KoineParserService} from '../koine-parser.service';
-import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {NgxUiLoaderConfig, NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
@@ -11,7 +11,7 @@ import {WordPart} from '../wordPart';
 import {
   adjective, adverb,
   allTypesOfPronouns,
-  article,
+  article, conditionalType,
   conjunction,
   indeclinable,
   infinitiveMood,
@@ -53,7 +53,6 @@ export class BibleRangeComponent implements OnInit {
   amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
   zoomIcon = faSearch;
-  panelOpenState: boolean;
 
   constructor(private service: KoineParserService,
               private state: StateService,
@@ -143,7 +142,7 @@ export class BibleRangeComponent implements OnInit {
   }
 
   setAmountOfWords(): void {
-    this.ngxLoader.start();
+    this.ngxLoader.startLoader('smallLoader');
     this.service.getWordsCount(this.determineFilters(),
       this.bibleRangeForm.value.bibleBook,
       this.bibleRangeForm.value.bibleBookChapterFrom,
@@ -152,7 +151,7 @@ export class BibleRangeComponent implements OnInit {
         this.amountOfWordsForRange = res.count;
         this.bibleRangeForm.controls.amountOfWords.setValue(res.count);
       });
-    this.ngxLoader.stop();
+    this.ngxLoader.stopLoader('smallLoader');
   }
 
   checkboxChange(object: any, event: any): void {
@@ -194,7 +193,6 @@ export class BibleRangeComponent implements OnInit {
 
   submit($event: any): void {
     if (!this.bibleRangeForm.valid) {
-      console.log(this.bibleRangeForm.errors);
       return;
     }
 
@@ -214,7 +212,7 @@ export class BibleRangeComponent implements OnInit {
           });
 
           // exclude indeclinable words
-          let words = response.filter(x => !x.partsOfSpeech.includes(indeclinable));
+          const words = response.filter(x => !x.partsOfSpeech.includes(indeclinable));
 
           // let result: WordModel[] = [];
           // const filters = this.determineTypesOfWords();
@@ -276,6 +274,9 @@ export class BibleRangeComponent implements OnInit {
             break;
           case 'AdverbsCtrl':
             result.push(adverb);
+            break;
+          case 'ConditionalCtrl':
+            result.push(conditionalType);
             break;
           default:
             break;

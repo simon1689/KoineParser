@@ -5,7 +5,7 @@ import {catchError, map, shareReplay} from 'rxjs/operators';
 import {MultipleMorphologyWord, WordModel} from './word.model';
 import {LexiconEntry} from './lexicon.entry';
 import {WordPart} from './wordPart';
-import {adverb, conjunction, infinitiveMood, participleMood, preposition} from './wordTypeConstants';
+import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './wordTypeConstants';
 import {MorphologyGenerator} from './morphologyGenerator';
 import {forEachComment} from 'tslint';
 
@@ -33,6 +33,7 @@ export class KoineParserService {
         case conjunction:
         case adverb:
         case preposition:
+        case conditionalType:
           result += `${type.abbreviation}${comma}`;
           break;
         case participleMood:

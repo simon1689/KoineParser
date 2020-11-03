@@ -2,6 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {WordModel} from '../word.model';
 import {MorphologyGenerator} from '../morphologyGenerator';
+import {WordPart} from '../wordPart';
+import * as  __ from 'lodash-es';
 
 @Component({
   selector: 'app-parse-answer-dialog',
@@ -12,12 +14,15 @@ export class ParseAnswerDialogComponent {
 
   dialog: MatDialogRef<ParseAnswerDialogComponent> = null;
   currentWord: WordModel;
-  givenAnswer: string;
+  givenAnswer: WordPart[];
   answerIsRight: boolean;
   morphologyGenerator = MorphologyGenerator;
   dontShowTheAnswer = true;
+  dontShowTheHint = true;
   nextWordMethod: () => void;
   hasNextWord: boolean;
+  hint: WordPart;
+  correctedAnswer: boolean;
 
   constructor(dialogRef: MatDialogRef<ParseAnswerDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -28,8 +33,9 @@ export class ParseAnswerDialogComponent {
     this.dialog = dialogRef;
     this.nextWordMethod = data.nextWordMethod;
     this.hasNextWord = data.hasNextWord;
-
-    console.log(data);
+    this.correctedAnswer = data.correctedAnswer;
+    // console.log('parts not included in the given answer', this.currentWord.partsOfSpeech.filter(x => !this.givenAnswer.includes(x)));
+    this.hint = __.sample(this.currentWord.partsOfSpeech.filter(x => !this.givenAnswer.includes(x)));
   }
 
   goToNextWord(): any {

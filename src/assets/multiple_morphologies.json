@@ -1,5 +1,50 @@
 [
   {
+    "strongs": "1096",
+    "morphology": "D-GSM",
+    "word": "ἐκείνου"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-GSN",
+    "word": "ἐκείνου"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-DSM",
+    "word": "τούτῳ"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-DSN",
+    "word": "τούτῳ"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-GPN",
+    "word": "τούτων"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-GPM",
+    "word": "τούτων"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-GPF",
+    "word": "τούτων"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-DPM",
+    "word": "τούτοις"
+  },
+  {
+    "strongs": "1096",
+    "morphology": "D-DPN",
+    "word": "τούτοις"
+  },
+  {
     "strongs": "3588",
     "morphology": "T-GSM",
     "word": "τοῦ"
@@ -10,9 +55,54 @@
     "word": "τοῦ"
   },
   {
-    "strongs": "1",
-    "morphology": "N-LI",
-    "word": "Α"
+    "strongs": "3588",
+    "morphology": "T-DPM",
+    "word": "τοῖς"
+  },
+  {
+    "strongs": "3588",
+    "morphology": "T-DPN",
+    "word": "τοῖς"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3GPM",
+    "word": "ἑαυτῶν"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3GPF",
+    "word": "ἑαυτῶν"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3GSM",
+    "word": "ἑαυτοῦ"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3GSF",
+    "word": "ἑαυτοῦ"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3DPM",
+    "word": "ἑαυτοῖς"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3DPF",
+    "word": "ἑαυτοῖς"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3DSF",
+    "word": "ἑαυτῷ"
+  },
+  {
+    "strongs": "1438",
+    "morphology": "F-3DSM",
+    "word": "ἑαυτῷ"
   },
   {
     "strongs": "3739",
@@ -815,6 +905,21 @@
     "word": "ἁμαρτίας"
   },
   {
+    "strongs": "266",
+    "morphology": "N-GPF",
+    "word": "ἁμαρτιῶν"
+  },
+  {
+    "strongs": "266",
+    "morphology": "N-GPM",
+    "word": "ἁμαρτιῶν"
+  },
+  {
+    "strongs": "266",
+    "morphology": "N-GPN",
+    "word": "ἁμαρτιῶν"
+  },
+  {
     "strongs": "268",
     "morphology": "A-NPM",
     "word": "ἁμαρτωλοὶ"
@@ -1573,6 +1678,16 @@
     "strongs": "846",
     "morphology": "P-GPN",
     "word": "αὐτῶν"
+  },
+  {
+    "strongs": "846",
+    "morphology": "P-APN",
+    "word": "αὐτά"
+  },
+  {
+    "strongs": "846",
+    "morphology": "P-ΝPN",
+    "word": "αὐτά"
   },
   {
     "strongs": "862",
@@ -7365,6 +7480,11 @@
     "word": "πάντων"
   },
   {
+    "strongs": "3956",
+    "morphology": "A-GPF",
+    "word": "πάντων"
+  },
+  {
     "strongs": "3850",
     "morphology": "N-DSF",
     "word": "παραβολῇ"
@@ -9591,6 +9711,11 @@
   },
   {
     "strongs": "5100",
+    "morphology": "X-NPN",
+    "word": "τινά"
+  },
+  {
+    "strongs": "5100",
     "morphology": "X-ASM",
     "word": "τινὰ"
   },
@@ -9605,8 +9730,18 @@
     "word": "τίνας"
   },
   {
+    "strongs": "5101",
+    "morphology": "I-APM",
+    "word": "τίνας"
+  },
+  {
     "strongs": "5100",
     "morphology": "X-APF",
+    "word": "τινάς"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-APM",
     "word": "τινάς"
   },
   {
@@ -9640,6 +9775,11 @@
     "word": "τίνι"
   },
   {
+    "strongs": "5101",
+    "morphology": "I-DSF",
+    "word": "τίνι"
+  },
+  {
     "strongs": "5100",
     "morphology": "X-DSF",
     "word": "τινι"
@@ -9662,6 +9802,11 @@
   {
     "strongs": "5101",
     "morphology": "I-GSN",
+    "word": "τίνος"
+  },
+  {
+    "strongs": "5101",
+    "morphology": "I-GSF",
     "word": "τίνος"
   },
   {
@@ -9690,8 +9835,23 @@
     "word": "τίνων"
   },
   {
+    "strongs": "5101",
+    "morphology": "I-GPF",
+    "word": "τίνων"
+  },
+  {
     "strongs": "5100",
     "morphology": "X-GPF",
+    "word": "τινῶν"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-GPM",
+    "word": "τινῶν"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-GPN",
     "word": "τινῶν"
   },
   {
@@ -9702,6 +9862,11 @@
   {
     "strongs": "5100",
     "morphology": "X-GPN",
+    "word": "τινων"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-GPF",
     "word": "τινων"
   },
   {
@@ -9725,13 +9890,68 @@
     "word": "τις"
   },
   {
+    "strongs": "5100",
+    "morphology": "X-NSN",
+    "word": "τις"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-GSM",
+    "word": "τινός"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-GSN",
+    "word": "τινός"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-GSF",
+    "word": "τινός"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-DSM",
+    "word": "τινί"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-DSN",
+    "word": "τινί"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-DSF",
+    "word": "τινί"
+  },
+  {
     "strongs": "5101",
     "morphology": "I-DPM",
     "word": "τίσιν"
   },
   {
+    "strongs": "5101",
+    "morphology": "I-DPF",
+    "word": "τίσιν"
+  },
+  {
+    "strongs": "5101",
+    "morphology": "I-DPN",
+    "word": "τίσιν"
+  },
+  {
     "strongs": "5100",
     "morphology": "X-DPM",
+    "word": "τισιν"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-DPN",
+    "word": "τισιν"
+  },
+  {
+    "strongs": "5100",
+    "morphology": "X-DPF",
     "word": "τισιν"
   },
   {

@@ -14,7 +14,8 @@ import {
   attic,
   correlativePronoun,
   disjunctiveParticiple,
-  indeclinable, indeclinableNounOrOtherPart,
+  indeclinable,
+  indeclinableNounOrOtherPart,
   infinitiveMood,
   negativeSuffix,
   noun,
@@ -23,8 +24,15 @@ import {
   personalPronoun,
   reciprocalPronoun,
   relativePronoun,
-  verb, allTypesOfPronouns
+  verb,
+  allTypesOfPronouns,
+  demonstrativePronoun,
+  reflexivePronoun,
+  correlativeOrInterrogativePronoun,
+  interrogativePronoun,
+  indefinitePronoun, genderType
 } from './wordTypeConstants';
+import * as __ from 'lodash-es';
 
 export class MorphologyGenerator {
 
@@ -50,14 +58,13 @@ export class MorphologyGenerator {
 
   public static generateMorphologyFromWordParts(wordParts: WordPart[]): string {
     let morphology = '';
-
     if (wordParts.length === 1) {
       return wordParts[0].abbreviation;
     } else {
       const type = allWordTypes.find(x => wordParts.includes(x));
       if (type !== undefined) {
-        switch (type.abbreviation) {
-          case verb.abbreviation:
+        switch (type) {
+          case verb:
             morphology = type.abbreviation + '-';
             morphology += this.searchForPart(allTenses, wordParts);
             morphology += this.searchForPart(allVoices, wordParts);
@@ -75,23 +82,45 @@ export class MorphologyGenerator {
 
             break;
 
-          case noun.abbreviation:
-          case article.abbreviation:
-          case adjective.abbreviation:
+          case noun:
+          case article:
+          case adjective:
             morphology = type.abbreviation + '-';
             morphology += this.searchForPart(allCases, wordParts);
             morphology += this.searchForPart(allNumbers, wordParts);
             morphology += this.searchForPart(allGenders, wordParts);
             break;
 
-          case personalPronoun.abbreviation:
+          case personalPronoun:
+          case relativePronoun:
+          case reciprocalPronoun:
+          case possessivePronoun:
+          case correlativePronoun:
+          case demonstrativePronoun:
+          case reflexivePronoun:
+          case interrogativePronoun:
+          case correlativeOrInterrogativePronoun:
+          case indefinitePronoun:
             morphology = type.abbreviation + '-';
-            morphology += this.searchForPart(allPersons, wordParts);
-            morphology += this.searchForPart(allCases, wordParts);
+
+            const person = this.searchForPart(allPersons, wordParts);
+            if (!isNaN(Number(person))) {
+              morphology += person;
+            }
+
+            const nominalCase = this.searchForPart(allCases, wordParts);
+            if (nominalCase !== '?') {
+              morphology += nominalCase;
+            }
+
             morphology += this.searchForPart(allNumbers, wordParts);
+            const gender = this.searchForPart(allGenders, wordParts);
+            if (gender !== '?') {
+              morphology += gender;
+            }
             break;
 
-          case disjunctiveParticiple.abbreviation:
+          case disjunctiveParticiple:
             morphology = type.abbreviation + '-';
             morphology += this.searchForPart(allSuffixes, wordParts);
 
@@ -103,12 +132,14 @@ export class MorphologyGenerator {
       }
     }
 
-    // console.log(morphology);
     return morphology;
   }
 
   private static searchForPart(allTypesConstants: WordPart[], wordParts: WordPart[]): string {
-    const part = allTypesConstants.find(x => wordParts.includes(x));
+    let part = allTypesConstants.find(x => wordParts.includes(x));
+    if (allTypesConstants.find(x => x.type === genderType)) {
+      part = allGenders.find(x => wordParts.map(y => y.abbreviation).includes(x.abbreviation));
+    }
     return (part === undefined) ? '?' : part.abbreviation;
   }
 
@@ -125,7 +156,8 @@ export class MorphologyGenerator {
       if (i === 1) {
         if (result.includes(verb) && part.includes(infinitiveMood.abbreviation)) {
           result = this.processVerbTenseVoiceMood(part, result);
-// pronouns stuff
+
+          // pronouns stuff
         } else if (result.find(x => allTypesOfPronouns.includes(x))) {
           result = this.processPronounParts(part, result);
         }
@@ -217,7 +249,17 @@ export class MorphologyGenerator {
   }
 
   private static processPronounParts(part: string, result: WordPart[]): WordPart[] {
-    if (part.length === 3) {
+    if (part.length === 4) {
+      if (!isNaN(Number(part[0]))) {
+        result.push(allPersons.find(x => x.abbreviation === part[0]));
+        result.push(allCases.find(x => x.abbreviation === part[0]));
+        result.push(allNumbers.find(x => x.abbreviation === part[2]));
+        result.push(allGenders.find(x => x.abbreviation === part[3]));
+      } else {
+
+      }
+
+    } else if (part.length === 3) {
       if (!isNaN(Number(part[0]))) {
         result.push(allPersons.find(x => x.abbreviation === part[0]));
         result.push(allCases.find(x => x.abbreviation === part[1]));
@@ -232,14 +274,15 @@ export class MorphologyGenerator {
     return result;
   }
 
-  public static convertWordPartsToReadableForm(wordParts: WordPart[], formatting: boolean = false): string {
+  public static convertWordPartsToReadableForm(wordParts: WordPart[], formatting: boolean = false, newLine = false): string {
     if (formatting === false) {
       return wordParts.map(x => x.name).join(' ');
     }
 
     let result = '';
+    const newLiner = formatting ? (newLine) ? '\n' : '<br />' : '';
     for (const wordPart of wordParts) {
-      result += `${wordPart.type}: ${wordPart.name}<br/>`;
+      result += `${wordPart.type}: ${wordPart.name}${newLiner}`;
     }
 
     return result;

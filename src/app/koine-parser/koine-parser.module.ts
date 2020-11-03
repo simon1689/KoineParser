@@ -25,6 +25,9 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatExpansionModule, MatExpansionPanel} from '@angular/material/expansion';
 import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatDividerModule} from '@angular/material/divider';
+import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     BibleRangeComponent,
     ParseComponent,
     WordsComponent,
-    ParseAnswerDialogComponent
+    ParseAnswerDialogComponent,
+    ReportErrorOnPageDialogComponent
   ],
   imports: [
     CommonModule,
@@ -59,6 +63,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatStepperModule,
     MatExpansionModule,
     MatDialogModule,
+    DragDropModule,
+    MatDividerModule,
   ],
   exports: [
     BibleRangeComponent,

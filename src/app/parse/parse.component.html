@@ -26,21 +26,17 @@
         <p class="card-text greek"
            *ngIf="(word.lexiconEntry !== undefined && word.lexiconEntry.wordComplete !== undefined) && word.lexiconEntry.wordComplete.trim() !== word.word.trim()">{{word.lexiconEntry.wordComplete}}</p>
         <p class="card-text"
-           title="{{ morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true)}}">{{word.morphology}}</p>
+           title="{{ morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true, true)}}">{{word.morphology}}</p>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
 
   <br/>
-  <div style="text-align: right; ">
-    <button (click)="nextWord()" class="btn btn-primary">Next</button>
-  </div>
-  <br/>
 
   <form (submit)="submit($event)" [formGroup]="parsingForm">
     <mat-horizontal-stepper labelPosition="bottom" #stepper [linear]="false">
       <mat-step label="Type">
-        <mat-radio-group (change)="determineAvailableControlsWhenOptionIsSelected(null)" id="typeCtrl"
+        <mat-radio-group (change)="determineAvailableControlsWhenTypeIsSelected(null)" id="typeCtrl"
                          formControlName="type">
           <mat-radio-button *ngFor="let type of types" [value]="type.abbreviation">{{type.name}}</mat-radio-button>
         </mat-radio-group>
@@ -66,7 +62,7 @@
 
       <mat-step label="Mood" [completed]="parsingForm.controls.mood.disabled"
                 [editable]="parsingForm.controls.mood.enabled">
-        <mat-radio-group id="moodCtrl" formControlName="mood">
+        <mat-radio-group id="moodCtrl" formControlName="mood" (change)="determineAvailableControlsWhenMoodIsSelected()">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let mood of moods"
                             value="{{mood.abbreviation}}">{{mood.name}}</mat-radio-button>
@@ -87,34 +83,47 @@
                 [completed]="this.parsingForm.controls.case.disabled && this.parsingForm.controls.gender.disabled &&  this.parsingForm.controls.number.disabled"
                 [editable]="this.parsingForm.controls.case.enabled && this.parsingForm.controls.gender.enabled && this.parsingForm.controls.number.enabled">
 
+        <h5>Case</h5>
         <mat-radio-group id="caseCtrl" formControlName="case">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let case of cases"
                             value="{{case.abbreviation}}">{{case.name}}</mat-radio-button>
         </mat-radio-group>
 
-        <br/>
+        <mat-divider></mat-divider>
 
-        <mat-radio-group id="genderCtrl" formControlName="gender">
-          <mat-radio-button [checked]="true">None</mat-radio-button>
-          <mat-radio-button *ngFor="let gender of genders"
-                            value="{{gender.abbreviation}}">{{gender.name}}</mat-radio-button>
-        </mat-radio-group>
-        <br/>
-
+        <h5>Number</h5>
         <mat-radio-group id="numberCtrl" formControlName="number">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let number of numbers"
                             value="{{number.abbreviation}}">{{number.name}}</mat-radio-button>
         </mat-radio-group>
 
+        <mat-divider></mat-divider>
+
+        <h5>Gender</h5>
+        <mat-radio-group id="genderCtrl" formControlName="gender">
+          <mat-radio-button [checked]="true">None</mat-radio-button>
+          <mat-radio-button *ngFor="let gender of genders"
+                            value="{{gender.abbreviation}}">{{gender.name}}</mat-radio-button>
+        </mat-radio-group>
       </mat-step>
     </mat-horizontal-stepper>
 
-    <br/>
-
-    <div class="text-right">
-      <button mat-raised-button color="accent" type="submit" (submit)="submit($event)">Answer</button>
+    <div class="d-flex">
+      <div class="mr-auto p-2">
+        <button mat-raised-button color="warn" (click)="openErrorDialog(this)">Report an error on this page</button>
+      </div>
+      <div class="p-2">
+        <button mat-raised-button color="primary" type="submit" (submit)="submit($event)" style="margin-right: 10px">
+          Answer
+        </button>
+      </div>
+      <div class="p-2">
+        <button mat-raised-button (click)="nextWord()" type="button" color="primary"
+                [disabled]="wordIndex >= words.length || currentWordIsUnanswered">Next
+        </button>
+      </div>
     </div>
   </form>
 </ng-container>
