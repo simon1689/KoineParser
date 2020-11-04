@@ -9,6 +9,7 @@ import * as __ from 'lodash-es';
 export class StateService {
   wordsForParsing: WordModel[] = [];
   bibleRange = '';
+  verbSecondaryTensesEnabled = false;
 
   constructor() {
   }
@@ -37,5 +38,13 @@ export class StateService {
 
   getBibleRange(): string {
     return this.bibleRange;
+  }
+
+  setSecondaryTensesEnabled(verbSecondaryTenses: boolean): void {
+    this.verbSecondaryTensesEnabled = verbSecondaryTenses;
+  }
+
+  getSecondaryTensesEnabled(): boolean {
+    return this.verbSecondaryTensesEnabled;
   }
 }

@@ -34,7 +34,6 @@ export class ParseAnswerDialogComponent {
     this.nextWordMethod = data.nextWordMethod;
     this.hasNextWord = data.hasNextWord;
     this.correctedAnswer = data.correctedAnswer;
-    // console.log('parts not included in the given answer', this.currentWord.partsOfSpeech.filter(x => !this.givenAnswer.includes(x)));
     this.hint = __.sample(this.currentWord.partsOfSpeech.filter(x => !this.givenAnswer.includes(x)));
   }
 

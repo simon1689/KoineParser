@@ -6,9 +6,7 @@
     <mat-card-content>
       <mat-form-field class="example-full-width">
         <mat-label>Email</mat-label>
-        <input type="email" matInput formControlName="email"
-               placeholder="Ex. pat@example.com">
-        <mat-hint>Errors appear instantly!</mat-hint>
+        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
         <mat-error
           *ngIf="reportForm.controls.email.hasError('email') && !reportForm.controls.email.hasError('required')">
           Please enter a valid email address

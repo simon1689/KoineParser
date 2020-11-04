@@ -3,15 +3,17 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BibleBooks, Book} from '../bible';
 import {Genders, Moods, NounCases, Numbers, PartOfSpeech, Persons, Types, VerbTenses, Voices} from '../interfaces/word';
 import {KoineParserService} from '../koine-parser.service';
-import {NgxUiLoaderConfig, NgxUiLoaderService} from 'ngx-ui-loader';
+import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
 import {WordPart} from '../wordPart';
 import {
-  adjective, adverb,
+  adjective,
+  adverb,
   allTypesOfPronouns,
-  article, conditionalType,
+  article,
+  conditionalType,
   conjunction,
   indeclinable,
   infinitiveMood,
@@ -21,7 +23,6 @@ import {
   verb
 } from '../wordTypeConstants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
-
 
 @Component({
   selector: 'app-bible-range',
@@ -33,14 +34,7 @@ export class BibleRangeComponent implements OnInit {
   bibleRangeForm: FormGroup;
 
   bibleBooks = BibleBooks;
-  verbTenses = VerbTenses.filter(x => x.secondary === false);
-  persons = Persons;
-  types = Types;
-  moods = Moods;
-  numbers = Numbers;
-  cases = NounCases;
-  genders = Genders;
-  voices = Voices;
+  types = Types.filter(x => x.wordPart !== conditionalType);
 
   amountOfChapters: number;
   amountOfChaptersArray: any[];
@@ -53,6 +47,7 @@ export class BibleRangeComponent implements OnInit {
   amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
   zoomIcon = faSearch;
+  verbSecondaryTenses = false;
 
   constructor(private service: KoineParserService,
               private state: StateService,
@@ -73,14 +68,15 @@ export class BibleRangeComponent implements OnInit {
       bibleBookChapterFrom: new FormControl('', Validators.required),
       bibleBookChapterTo: new FormControl(''),
 
+      verbSecondaryTenses: new FormControl(''),
       types: this.typesFormGroup,
-      persons: this.createFormGroup(this.persons),
-      numbers: this.createFormGroup(this.numbers),
-      cases: this.createFormGroup(NounCases),
-      tenses: this.createFormGroup(VerbTenses),
-      moods: this.createFormGroup(Moods),
-      voices: this.createFormGroup(Voices),
-      genders: this.createFormGroup(this.genders),
+      // persons: this.createFormGroup(this.persons),
+      // numbers: this.createFormGroup(this.numbers),
+      // cases: this.createFormGroup(NounCases),
+      // tenses: this.createFormGroup(VerbTenses),
+      // moods: this.createFormGroup(Moods),
+      // voices: this.createFormGroup(Voices),
+      // genders: this.createFormGroup(this.genders),
 
       randomizeWords: new FormControl({value: true}),
       amountOfWords: new FormControl(null),
@@ -174,23 +170,6 @@ export class BibleRangeComponent implements OnInit {
     this.setAmountOfWords();
   }
 
-  checkboxSecondaryChange(event: any, part: string): void {
-    if (event.target.checked && part === 'tenses') {
-      this.verbTenses = VerbTenses;
-    } else if (!event.target.checked && part === 'tenses') {
-      this.verbTenses = this.verbTenses.filter(x => x.secondary === false);
-    }
-  }
-
-  checkAll(event: Event, parts: PartOfSpeech[]): void {
-    // @ts-ignore
-    if (event.target.checked) {
-      parts.forEach(x => x.isChecked = true);
-    } else {
-      parts.forEach(x => x.isChecked = false);
-    }
-  }
-
   submit($event: any): void {
     if (!this.bibleRangeForm.valid) {
       return;
@@ -214,18 +193,7 @@ export class BibleRangeComponent implements OnInit {
           // exclude indeclinable words
           const words = response.filter(x => !x.partsOfSpeech.includes(indeclinable));
 
-          // let result: WordModel[] = [];
-          // const filters = this.determineTypesOfWords();
-          // if (filters.length > 0) {
-          //   for (const f of filters) {
-          //     const filterResults = response.filter(x => x.partsOfSpeech.includes(f));
-          //     result = result.concat(filterResults);
-          //   }
-          //
-          //   words = result;
-          // }
-
-          // console.log(words);
+          this.state.setSecondaryTensesEnabled(this.verbSecondaryTenses);
           this.state.setWordsForParsing(words, this.bibleRangeForm.value.amountOfWords, this.bibleRangeForm.value.randomizeWords);
           this.state.setBibleRange(this.currentlySelectedBook,
             this.bibleRangeForm.controls.bibleBookChapterFrom.value,

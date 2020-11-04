@@ -37,6 +37,14 @@
       </mat-checkbox>
     </div>
 
+    <div *ngIf="bibleRangeForm.value.types.VerbsCtrl == true">
+      <mat-checkbox labelPosition="before" color="accent" class="mat-checkbox type-of-words-checkbox"
+                    formControlName="verbSecondaryTenses" (change)="verbSecondaryTenses = !verbSecondaryTenses;"
+                    [disabled]="bibleRangeForm.value.types['VerbsCtrl'] != true">Enable
+        secondary tenses
+      </mat-checkbox>
+    </div>
+
     <mat-form-field appearance="fill">
       <mat-label>Amount of words</mat-label>
       <input matInput type="number" class="form-control" id="amountOfWords" formControlName="amountOfWords"/>

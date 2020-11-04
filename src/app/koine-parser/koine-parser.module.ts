@@ -1,7 +1,6 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BibleRangeComponent} from '../bible-range/bible-range.component';
-import {WordsComponent} from '../words/words.component';
 import {ParseComponent} from '../parse/parse.component';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule, routes} from '../app-routing';
@@ -22,21 +21,25 @@ import {StateService} from '../state.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
-import {MatExpansionModule, MatExpansionPanel} from '@angular/material/expansion';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDividerModule} from '@angular/material/divider';
 import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
+import {AboutComponent} from '../about/about.component';
+import {NavbarComponent} from '../navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
   declarations: [
     BibleRangeComponent,
     ParseComponent,
-    WordsComponent,
     ParseAnswerDialogComponent,
-    ReportErrorOnPageDialogComponent
+    ReportErrorOnPageDialogComponent,
+    AboutComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -65,10 +68,12 @@ import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-e
     MatDialogModule,
     DragDropModule,
     MatDividerModule,
+    MatToolbarModule,
   ],
   exports: [
     BibleRangeComponent,
     ParseComponent,
+    NavbarComponent,
   ],
   providers: [
     StateService

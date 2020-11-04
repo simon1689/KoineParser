@@ -19,7 +19,7 @@ export class ReportErrorOnPageDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.reportForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl(''), // , [Validators.required, Validators.email]
       message: new FormControl('', Validators.required)
     });
   }
@@ -30,6 +30,8 @@ export class ReportErrorOnPageDialogComponent implements OnInit {
         message: this.reportForm.controls.message.value,
         component: this.componentAndData
       };
+
+
     }
   }
 }

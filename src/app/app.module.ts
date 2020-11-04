@@ -7,16 +7,15 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {KoineParserService} from './koine-parser.service';
-import {NavbarComponent} from './navbar/navbar.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +27,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatDialogModule,
     MatButtonModule,
+    MatIconModule,
   ],
   providers: [KoineParserService],
   bootstrap: [AppComponent],

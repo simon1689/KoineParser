@@ -55,7 +55,7 @@ export class ParseComponent implements OnInit {
   // form stuff
   types = Types;
   parsingForm: FormGroup;
-  verbTenses = VerbTenses.filter(x => x.secondary === false);
+  verbTenses = VerbTenses;
   persons = Persons;
   moods = Moods;
   numbers = Numbers;
@@ -81,6 +81,7 @@ export class ParseComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.determineSecondaryTenses();
     this.words = this.state.getWordsForParsing();
     this.word = this.words[this.wordIndex];
     this.usedWords.push(this.word);
@@ -148,7 +149,7 @@ export class ParseComponent implements OnInit {
 
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
-        const answerIsRight: boolean = __.isEqualWith(this.word.partsOfSpeech, answerParts, this.customEqualsComparable);
+        const answerIsRight: boolean = __.isEqualWith(this.word.partsOfSpeech, answerParts, this.customEqualsComparable(this.word.partsOfSpeech, answerParts, this.state.getSecondaryTensesEnabled()));
 
         if (answerIsRight) {
           // if answer is given for the first time
@@ -169,7 +170,9 @@ export class ParseComponent implements OnInit {
             }
           } else {
             // if the last given answer is the same as the current, then do nothing
-            if (__.last(this.wrongAnswers) !== undefined && __.last(this.wrongAnswers).given_answer === answerMorphologyCode) {
+            if (__.last(this.wrongAnswers) !== undefined
+              && __.last(this.wrongAnswers).given_answer === answerMorphologyCode
+              && __.isEqual(__.last(this.wrongAnswers).word, this.word)) {
               return;
             }
 
@@ -215,7 +218,7 @@ export class ParseComponent implements OnInit {
     return result;
   }
 
-  customEqualsComparable(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[]): boolean {
+  customEqualsComparable(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[], secondaryTensesEnabled: boolean): boolean {
     if (wordPartsOfSpeech === undefined || givenAnswer === undefined || wordPartsOfSpeech === null || givenAnswer === null) {
       return false;
     }
@@ -227,6 +230,10 @@ export class ParseComponent implements OnInit {
 
     if (__.isEqual(__.sortBy(wordPartsOfSpeech), __.sortBy(givenAnswer)) === true) {
       return true;
+    }
+
+    if (secondaryTensesEnabled) {
+      return false;
     }
 
     for (let i = 0; i <= wordPartsOfSpeech.length; i++) {
@@ -302,9 +309,9 @@ export class ParseComponent implements OnInit {
       this.parsingForm.controls.person.disable();
     } else {
       this.parsingForm.controls.person.enable();
+      this.parsingForm.controls.number.enable();
       this.parsingForm.controls.case.disable();
       this.parsingForm.controls.gender.disable();
-      this.parsingForm.controls.number.disable();
     }
   }
 
@@ -319,5 +326,13 @@ export class ParseComponent implements OnInit {
     this.dialog.open(ReportErrorOnPageDialogComponent, {
       data: parseComponent
     });
+  }
+
+  determineSecondaryTenses(): void {
+    if (this.state.getSecondaryTensesEnabled()) {
+      this.verbTenses = VerbTenses;
+    } else {
+      this.verbTenses = this.verbTenses.filter(x => x.secondary === false);
+    }
   }
 }
