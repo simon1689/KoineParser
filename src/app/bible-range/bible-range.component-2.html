@@ -1,0 +1,77 @@
+<div ngxUiLoaderBlurred>
+  <form [formGroup]="bibleRangeForm" (ngSubmit)="submit($event)">
+
+    <mat-form-field appearance="fill" class="selectBook">
+      <mat-label>Book</mat-label>
+      <mat-select formControlName="bibleBook"
+                  (selectionChange)="bookSelected()">
+        <mat-option *ngFor="let book of bibleBooks" [value]="book.number">
+          {{book.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="chapter-verse-selectbox">
+      <mat-label>From</mat-label>
+      <mat-select formControlName="bibleBookChapterFrom" (selectionChange)="beginningChapterSelected()">
+        <mat-option *ngFor="let item of this.amountOfChaptersArray; let i = index" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="chapter-verse-selectbox">
+      <mat-label>To</mat-label>
+      <mat-select formControlName="bibleBookChapterTo" (selectionChange)="endingChapterSelected()">
+        <mat-option *ngFor="let item of this.amountOfChaptersToRangeArray; let i = index" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div formGroupName="types">
+      <p>Type of words</p>
+      <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
+                    *ngFor="let type of types" formControlName="{{type.controlId}}"
+                    (change)="checkboxChange(type, $event)">
+        {{type.name}}s
+      </mat-checkbox>
+    </div>
+
+    <div>
+      <mat-checkbox labelPosition="before" color="accent" class="mat-checkbox type-of-words-checkbox"
+                    formControlName="verbSecondaryTenses" (change)="verbSecondaryTenses = !verbSecondaryTenses;"
+                    matTooltip="Options for choosing secondary tenses like 2nd Aorist and 1-2 Perfect are enabled">
+        Enable secondary tenses
+      </mat-checkbox>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Amount of words</mat-label>
+      <input matInput type="number" class="form-control" id="amountOfWords" formControlName="amountOfWords"
+             [max]="amountOfWordsForRange"/>
+
+      <mat-checkbox formControlName="randomizeWords" labelPosition="before">Randomize word order
+      </mat-checkbox>
+    </mat-form-field>
+
+    <mat-card *ngIf="amountOfWordsForRange !== null">
+      <fa-icon [icon]="zoomIcon"></fa-icon>
+      {{amountOfWordsForRange}} unique and declinable word forms found!
+    </mat-card>
+
+    <br/>
+    <button mat-raised-button (submit)="submit($event)"
+            [disabled]="bibleRangeForm.controls.amountOfWords.value === 0">
+      Start parsing!
+    </button>
+
+  </form>
+</div>
+
+<ngx-ui-loader></ngx-ui-loader>
+<ngx-ui-loader loaderId="smallLoader" bgsOpacity="0" bgsColor="" overlayColor="" fgsSize="60"
+               fgsPosition="center-center"
+               fgsType="three-bounce"
+               gap="10"
+               [hasProgressBar]="false"></ngx-ui-loader>

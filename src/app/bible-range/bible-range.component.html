@@ -1,33 +1,61 @@
 <div ngxUiLoaderBlurred>
   <form [formGroup]="bibleRangeForm" (ngSubmit)="submit($event)">
-
-    <mat-form-field appearance="fill" class="selectBook">
-      <mat-label>Book</mat-label>
-      <mat-select formControlName="bibleBook"
-                  (selectionChange)="bookSelected()">
-        <mat-option *ngFor="let book of bibleBooks" [value]="book.number">
-          {{book.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="selectFromToBook">
+    <div>
       <mat-label>From</mat-label>
-      <mat-select formControlName="bibleBookChapterFrom" (selectionChange)="beginningChapterSelected()">
-        <mat-option *ngFor="let item of this.amountOfChaptersArray; let i = index" [value]="item">
-          {{item}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="selectBook">
+        <mat-label>Book</mat-label>
+        <mat-select formControlName="bibleBook"
+                    (selectionChange)="bookSelected()">
+          <mat-option *ngFor="let book of bibleBooks" [value]="book.number">
+            {{book.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="fill" class="selectFromToBook">
+      <mat-form-field appearance="outline" class="chapter-verse-selectbox">
+        <mat-label>Chapter</mat-label>
+        <mat-select formControlName="bibleBookFromChapter" (selectionChange)="beginningChapterSelected()">
+          <mat-option *ngFor="let item of selectedBook.chapters" [value]="item.chapter">
+            {{item.chapter}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-label style="margin-left: 5px">:</mat-label>
+
+      <mat-form-field appearance="outline" class="chapter-verse-selectbox">
+        <mat-label>Verse</mat-label>
+        <mat-select formControlName="bibleBookFromVerse" (selectionChange)="setAmountOfWords()">
+          <mat-option *ngFor="let x of counter(this.beginningChapter.verses); let i = index" [value]="i+1">
+            {{i + 1}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
       <mat-label>To</mat-label>
-      <mat-select formControlName="bibleBookChapterTo" (selectionChange)="endingChapterSelected()">
-        <mat-option *ngFor="let item of this.amountOfChaptersToRangeArray; let i = index" [value]="item">
-          {{item}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="chapter-verse-selectbox">
+        <mat-label>Chapter</mat-label>
+        <mat-select formControlName="bibleBookToChapter" (selectionChange)="endingChapterSelected()">
+          <mat-option *ngFor="let item of selectedBook.chapters.slice(beginningChapter.chapter - 1)"
+                      [value]="item.chapter">
+            {{item.chapter}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-label style="margin-left: 5px">:</mat-label>
+
+      <mat-form-field appearance="outline" class="chapter-verse-selectbox">
+        <mat-label>Verse</mat-label>
+        <mat-select formControlName="bibleBookToVerse" (selectionChange)="setAmountOfWords()">
+          <mat-option *ngFor="let x of giveMeVerseNumbers(this.endingChapter)" [value]="x">
+            {{x}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
     <div formGroupName="types">
       <p>Type of words</p>

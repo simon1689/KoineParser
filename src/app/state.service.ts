@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {WordModel} from './models/word.model';
 import {Book} from './bible';
 import * as __ from 'lodash-es';
+import {FormControl} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -28,12 +29,8 @@ export class StateService {
     return this.wordsForParsing;
   }
 
-  setBibleRange(book: Book, beginningChapter: string, endingChapter: string): void {
-    if (endingChapter) {
-      this.bibleRange = book.name + ' ' + beginningChapter + '-' + endingChapter;
-    } else {
-      this.bibleRange = book.name + ' ' + beginningChapter;
-    }
+  setBibleRange(book: Book, bibleBookFromChapter: string, bibleBookFromVerse: string, bibleBookToChapter: string, bibleBookToVerse: string): void {
+    this.bibleRange = book.name + ' ' + bibleBookFromChapter + ':' + bibleBookFromVerse + ' - ' + bibleBookToChapter + ':' + bibleBookToVerse;
   }
 
   getBibleRange(): string {

@@ -13,8 +13,9 @@ import {forEachComment} from 'tslint';
   providedIn: 'root'
 })
 export class KoineParserService {
-  endpoint = 'https://www.thecalvinist.net/pages/api/greek/words-get.php';
-  lexiconEndpoint = 'https://www.thecalvinist.net/pages/api/greek/lexicon-get.php';
+  // endpoint = 'https://www.thecalvinist.net/pages/api/greek/words-get.php';
+  endpoint = 'https://www.thecalvinist.net/api/bible-words/';
+  lexiconEndpoint = 'https://www.thecalvinist.net/api/lexicon.php';
   lexiconEntries: LexiconEntry[];
 
   constructor(private http: HttpClient) {
@@ -22,7 +23,7 @@ export class KoineParserService {
   }
 
   getTypesQueryString(types: WordPart[]): string {
-    let result = '&types=';
+    let result = 'types=';
     let comma = ',';
     let x = 1;
     for (const type of types) {
@@ -52,18 +53,13 @@ export class KoineParserService {
     return result;
   }
 
-  getAllWords(types: WordPart[], book: string = null, startChapter: string = null, endChapter: string = null): Observable<WordModel[]> {
-    let endpoint = this.endpoint;
-
-    if (book !== null && startChapter !== null && endChapter !== null) {
-      endpoint = this.endpoint + '?bookNr=' + book + '&startChapter=' + startChapter + '&endChapter=' + endChapter;
-    } else if (book !== null && startChapter !== null) {
-      endpoint = this.endpoint + '?bookNr=' + book + '&startChapter=' + startChapter;
-    }
+  getAllWords(types: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
+              endChapter: string = '1', endVerse: string = '2'): Observable<WordModel[]> {
+    let endpoint = this.endpoint + book + '/' + startChapter + '/' + startVerse
+      + '/' + endChapter + '/' + endVerse;
 
     if (types.length > 0) {
-      //    endpoint += '&types=' + types.map(x => x === participleMood ? 'Ptc' : x === infinitiveMood ? 'Inf' : x.abbreviation).join(',');
-      endpoint += this.getTypesQueryString(types);
+      endpoint += '?' + this.getTypesQueryString(types);
     }
 
     return this.http.get(endpoint)
@@ -71,24 +67,18 @@ export class KoineParserService {
         map((data: any[]) => data.map((item: any) => {
           const model = new WordModel();
           Object.assign(model, item);
-          // model.occurrencesInRange = data.filter(x => x.word === item.word).length;
           model.lexiconEntry = this.lexiconEntries.find(x => x.strongsNr === Number(model.strongsNr));
           model.partsOfSpeech = MorphologyGenerator.generateWordPartsFromMorphologyCode(model.morphology);
           return model;
         })));
   }
 
-  getWordsCount(types: WordPart[], book: string = null, startChapter: string = null, endChapter: string = null): Observable<any> {
-    let endpoint = this.endpoint;
-
-    if (book !== null && startChapter !== null && endChapter !== null) {
-      endpoint = this.endpoint + '?bookNr=' + book + '&startChapter=' + startChapter + '&endChapter=' + endChapter + '&count=x';
-    } else if (book !== null && startChapter !== null) {
-      endpoint = this.endpoint + '?bookNr=' + book + '&startChapter=' + startChapter + '&count=x';
-    }
+  getWordsCount(types: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1', endChapter: string = '1', endVerse: string = '2'): Observable<any> {
+    let endpoint = this.endpoint + book + '/' + startChapter + '/' + startVerse
+      + '/' + endChapter + '/' + endVerse + '?count=x';
 
     if (types.length > 0) {
-      endpoint += this.getTypesQueryString(types);
+      endpoint += '&' + this.getTypesQueryString(types);
     }
 
     return this.http.get(endpoint)

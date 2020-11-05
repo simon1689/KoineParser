@@ -35,7 +35,7 @@ export const correlativeOrInterrogativePronoun: WordPart = {
 export const indefinitePronoun: WordPart = {name: 'Indefinite pronoun', abbreviation: 'X', headCategory: personalPronoun, type};
 export const preposition: WordPart = {name: 'Preposition', abbreviation: 'PREP', type};
 export const disjunctiveParticiple: WordPart = {name: 'Disjunctive participle', abbreviation: 'PRT', type};
-export const conditionalType: WordPart = {name: 'Conditional participle/conjunction', abbreviation: 'COND', type};
+export const conditionalType: WordPart = {name: 'Conditional particle/conjunction', abbreviation: 'COND', type};
 export const particleType: WordPart = {name: 'Particle', abbreviation: 'PRT', type};
 
 export const allTypesOfPronouns: WordPart[] = [personalPronoun, relativePronoun, reciprocalPronoun, possessivePronoun, correlativePronoun,

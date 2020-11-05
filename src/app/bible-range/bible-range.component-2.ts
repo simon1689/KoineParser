@@ -24,7 +24,6 @@ import {
   verb
 } from '../word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
-import {Chapter} from '../chapters';
 
 @Component({
   selector: 'app-bible-range',
@@ -38,8 +37,10 @@ export class BibleRangeComponent implements OnInit {
   bibleBooks = BibleBooks;
   types = Types.filter(x => x.wordPart !== conditionalType);
 
-  selectedBook: Book;
-
+  amountOfChapters: number;
+  amountOfChaptersArray: any[];
+  currentlySelectedBook: Book;
+  amountOfChaptersToRangeArray: any;
   showVerbsSection = false;
   showNounSection = false;
   showNumberSection = false;
@@ -48,8 +49,6 @@ export class BibleRangeComponent implements OnInit {
   typesFormGroup: FormGroup;
   zoomIcon = faSearch;
   verbSecondaryTenses = false;
-  beginningChapter: Chapter = null;
-  endingChapter: Chapter = null;
 
   constructor(private service: KoineParserService,
               private state: StateService,
@@ -57,10 +56,6 @@ export class BibleRangeComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) {
     this.state = state;
-
-    this.selectedBook = BibleBooks[0];
-    this.beginningChapter = this.selectedBook.chapters[0];
-    this.endingChapter = this.beginningChapter;
   }
 
   ngOnInit(): void {
@@ -71,27 +66,26 @@ export class BibleRangeComponent implements OnInit {
     this.typesFormGroup = this.createFormGroup(this.types, Validators.required);
     this.bibleRangeForm = new FormGroup({
       bibleBook: new FormControl('', Validators.required),
-      bibleBookFromChapter: new FormControl('', Validators.required),
-      bibleBookFromVerse: new FormControl('', Validators.required),
-      bibleBookToChapter: new FormControl(''),
-      bibleBookToVerse: new FormControl(''),
+      bibleBookChapterFrom: new FormControl('', Validators.required),
+      bibleBookChapterTo: new FormControl(''),
 
       verbSecondaryTenses: new FormControl(''),
       types: this.typesFormGroup,
+      // persons: this.createFormGroup(this.persons),
+      // numbers: this.createFormGroup(this.numbers),
+      // cases: this.createFormGroup(NounCases),
+      // tenses: this.createFormGroup(VerbTenses),
+      // moods: this.createFormGroup(Moods),
+      // voices: this.createFormGroup(Voices),
+      // genders: this.createFormGroup(this.genders),
+
       randomizeWords: new FormControl({value: true}),
       amountOfWords: new FormControl(null),
     });
 
-    this.selectedBook = BibleBooks[0];
-    this.bibleRangeForm.controls.bibleBook.setValue(this.selectedBook.number);
-
-    this.bibleRangeForm.controls.bibleBookFromChapter.setValue(this.beginningChapter.chapter);
-    this.bibleRangeForm.controls.bibleBookFromVerse.setValue(1);
-
-    this.bibleRangeForm.controls.bibleBookToChapter.setValue(this.endingChapter.chapter);
-    this.bibleRangeForm.controls.bibleBookToVerse.setValue(this.endingChapter.verses);
-
-    this.setAmountOfWords();
+    this.bibleRangeForm.controls.bibleBook.setValue(40);
+    this.bibleRangeForm.controls.bibleBookChapterFrom.setValue(1);
+    this.bookSelected();
   }
 
   createFormGroup(parts: PartOfSpeech[], validators = null): FormGroup {
@@ -112,40 +106,35 @@ export class BibleRangeComponent implements OnInit {
       return;
     }
 
-    this.selectedBook = BibleBooks.find(x => x.number === this.bibleRangeForm.value.bibleBook);
-    this.beginningChapterSelected('1');
+    this.currentlySelectedBook = BibleBooks.find(x => x.number === this.bibleRangeForm.value.bibleBook);
+    this.amountOfChaptersArray = [];
+    for (let i = 1; i <= this.currentlySelectedBook.amountOfChapters; i++) {
+      this.amountOfChaptersArray.push(i);
+    }
+
+    this.beginningChapterSelected(1);
   }
 
-  beginningChapterSelected(startChapter?: string): void {
-    if (startChapter === undefined) {
-      this.beginningChapter = this.selectedBook.chapters.find(x => x.chapter === this.bibleRangeForm.value.bibleBookFromChapter);
-      this.bibleRangeForm.controls.bibleBookToChapter.setValue(this.beginningChapter.chapter);
-    } else {
-      this.beginningChapter = this.selectedBook.chapters.find(x => x.chapter === Number(startChapter));
-      this.bibleRangeForm.controls.bibleBookFromChapter.setValue(this.beginningChapter.chapter);
-      this.bibleRangeForm.controls.bibleBookToChapter.setValue(this.beginningChapter.chapter);
+  beginningChapterSelected(startChapter: number = 0): void {
+    if (this.bibleRangeForm.value.bibleBookChapterFrom === undefined) {
+      return;
     }
 
-    this.bibleRangeForm.controls.bibleBookFromVerse.setValue(1);
-    this.endingChapterSelected();
+    if (startChapter === 0) {
+      startChapter = this.bibleRangeForm.value.bibleBookChapterFrom;
+    } else if (startChapter === 1) {
+      this.bibleRangeForm.controls.bibleBookChapterFrom.setValue(1);
+    }
+
+    this.amountOfChaptersToRangeArray = [];
+    for (let i = startChapter; i < this.currentlySelectedBook.amountOfChapters + 1; i++) {
+      this.amountOfChaptersToRangeArray.push(i);
+    }
+
+    this.setAmountOfWords();
   }
 
-  endingChapterSelected(chapterNr?: string): void {
-    if (chapterNr === undefined) {
-      this.endingChapter = this.selectedBook.chapters.find(x =>
-        x.chapter === this.bibleRangeForm.value.bibleBookToChapter);
-    } else {
-      this.endingChapter = this.selectedBook.chapters.find(x =>
-        x.chapter === Number(chapterNr));
-    }
-
-    if (this.beginningChapter === this.endingChapter) {
-      this.bibleRangeForm.controls.bibleBookToVerse.setValue(this.endingChapter.verses);
-    } else {
-      this.bibleRangeForm.controls.bibleBookToChapter.setValue(this.endingChapter.chapter);
-      this.bibleRangeForm.controls.bibleBookToVerse.setValue(this.endingChapter.verses);
-    }
-
+  endingChapterSelected(): void {
     this.setAmountOfWords();
   }
 
@@ -153,10 +142,8 @@ export class BibleRangeComponent implements OnInit {
     this.ngxLoader.startLoader('smallLoader');
     this.service.getWordsCount(this.determineFilters(),
       this.bibleRangeForm.value.bibleBook,
-      this.bibleRangeForm.value.bibleBookFromChapter,
-      this.bibleRangeForm.value.bibleBookFromVerse,
-      this.bibleRangeForm.value.bibleBookToChapter,
-      this.bibleRangeForm.value.bibleBookToVerse)
+      this.bibleRangeForm.value.bibleBookChapterFrom,
+      this.bibleRangeForm.value.bibleBookChapterTo)
       .subscribe(res => {
         this.amountOfWordsForRange = res.count;
         this.bibleRangeForm.controls.amountOfWords.setValue(res.count);
@@ -189,17 +176,15 @@ export class BibleRangeComponent implements OnInit {
       return;
     }
 
-    this.getAllWords(this.selectedBook.number,
-      this.bibleRangeForm.value.bibleBookFromChapter,
-      this.bibleRangeForm.value.bibleBookFromVerse,
-      this.bibleRangeForm.value.bibleBookToChapter,
-      this.bibleRangeForm.value.bibleBookToVerse);
+    this.getAllWords(this.currentlySelectedBook.number,
+      this.bibleRangeForm.value.bibleBookChapterFrom,
+      this.bibleRangeForm.value.bibleBookChapterTo);
   }
 
-  getAllWords(book = null, startChapter = null, startVerse = null, endChapter = null, endVerse = null): Subscription {
+  getAllWords(book = null, startChapter = null, endChapter = null): Subscription {
     this.ngxLoader.start();
     const filters = this.determineFilters();
-    return this.service.getAllWords(filters, book, startChapter, startVerse, endChapter, endVerse)
+    return this.service.getAllWords(filters, book, startChapter, endChapter)
       .subscribe(
         (response) => {
           this.router.navigate(['parsing'], {
@@ -211,11 +196,7 @@ export class BibleRangeComponent implements OnInit {
 
           this.state.setSecondaryTensesEnabled(this.verbSecondaryTenses);
           this.state.setWordsForParsing(words, this.bibleRangeForm.value.amountOfWords, this.bibleRangeForm.value.randomizeWords);
-          this.state.setBibleRange(this.selectedBook,
-            this.bibleRangeForm.value.bibleBookFromChapter,
-            this.bibleRangeForm.value.bibleBookFromVerse,
-            this.bibleRangeForm.value.bibleBookToChapter,
-            this.bibleRangeForm.value.bibleBookToVerse);
+          this.state.setBibleRange(this.currentlySelectedBook, this.bibleRangeForm.value.bibleBookFromChapter, this.bibleRangeForm.value.bibleBookFromVerse, this.bibleRangeForm.value.bibleBookToChapter, this.bibleRangeForm.value.bibleBookToVerse);
           this.ngxLoader.stop();
         },
         (error) => {
@@ -272,26 +253,6 @@ export class BibleRangeComponent implements OnInit {
         }
       }
     });
-
-    return result;
-  }
-
-  counter(i: number): Array<number> {
-    return new Array(i);
-  }
-
-  giveMeVerseNumbers(endingChapter: Chapter): Array<number> {
-    const result: Array<number> = new Array<number>();
-
-    if (this.bibleRangeForm.value.bibleBookFromChapter === this.bibleRangeForm.value.bibleBookToChapter) {
-      for (let i = this.bibleRangeForm.value.bibleBookFromVerse + 1; i <= endingChapter.verses; i++) {
-        result.push(i);
-      }
-    } else {
-      for (let i = 1; i <= endingChapter.verses; i++) {
-        result.push(i);
-      }
-    }
 
     return result;
   }

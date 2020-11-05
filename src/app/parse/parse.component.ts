@@ -86,10 +86,7 @@ export class ParseComponent implements OnInit {
     this.initForm();
     this.determineSecondaryTenses();
     this.words = this.state.getWordsForParsing();
-    this.word = this.words[this.wordIndex];
-    this.usedWords.push(this.word);
-    this.wordIndex++;
-    console.log(this.word);
+    this.goToNextWord(this.usedWords);
 
     if (this.word == null) {
       this.router.navigate(['bible']);
@@ -98,29 +95,28 @@ export class ParseComponent implements OnInit {
 
   nextWord(): void {
     if (this.wordIndex < this.words.length) {
-      this.word = this.words[this.wordIndex];
-      this.usedWords.push(this.word);
-      this.wordIndex++;
-      this.resetForm();
-      this.currentWordIsUnanswered = true;
-      this.stepper.reset();
-      this.expansionPanel.expanded = false;
-
-      console.clear();
-      console.log(this.word);
+      this.goToNextWord(this.usedWords, true);
     }
   }
 
-
   skipWord(): void {
     if (this.wordIndex < this.words.length) {
+      this.goToNextWord(this.skippedWords, true);
+    }
+  }
+
+  private goToNextWord(wordShouldBeAddedHere: WordModel[], reset: boolean = false): void {
+    if (this.wordIndex < this.words.length) {
       this.word = this.words[this.wordIndex];
-      this.skippedWords.push(this.word);
+      wordShouldBeAddedHere.push(this.word);
       this.wordIndex++;
-      this.resetForm();
-      this.currentWordIsUnanswered = true;
-      this.stepper.reset();
-      this.expansionPanel.expanded = false;
+
+      if (reset) {
+        this.resetForm();
+        this.currentWordIsUnanswered = true;
+        this.stepper.reset();
+        this.expansionPanel.expanded = false;
+      }
 
       console.clear();
       console.log(this.word);

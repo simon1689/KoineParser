@@ -162,5 +162,5 @@ export const Types: PartOfSpeech[] = [
   // {name: 'Participle', abbreviation: 'Ptc', controlId: 'ParticiplesCtrl', wordPart: participleMood},
   // {name: 'Infinitive', abbreviation: 'Inf', controlId: 'InfinitivesCtrl', wordPart: infinitiveMood},
   {name: 'Particle', abbreviation: 'PRT', controlId: 'ParticleCtrl', wordPart: particleType},
-  {name: 'Conditional participle/conjunction', abbreviation: 'COND', controlId: 'ConditionalCtrl', wordPart: conditionalType},
+  {name: 'Conditional particle/conjunction', abbreviation: 'COND', controlId: 'ConditionalCtrl', wordPart: conditionalType},
 ];
