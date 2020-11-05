@@ -4,8 +4,10 @@
     <div>
       <span style="color: green" class="mr-2"><fa-icon [icon]="thumbsUp"></fa-icon>
         {{goodAnswers.length}}</span>
-      <span style="color: red"><fa-icon [icon]="thumbsDown"></fa-icon>
+      <span style="color: red" class="mr-2"><fa-icon [icon]="thumbsDown"></fa-icon>
         {{wrongAnswers.length}}</span>
+      <span class="mr-2"><fa-icon [icon]="skip"></fa-icon>
+        {{skippedWords.length}} </span>
     </div>
   </div>
 
@@ -33,12 +35,14 @@
 
   <br/>
 
-  <form (submit)="submit($event)" [formGroup]="parsingForm">
+  <form (submit)="submit()" [formGroup]="parsingForm">
     <mat-horizontal-stepper labelPosition="bottom" #stepper [linear]="false">
       <mat-step label="Type">
         <mat-radio-group (change)="determineAvailableControlsWhenTypeIsSelected(null)" id="typeCtrl"
                          formControlName="type">
-          <mat-radio-button *ngFor="let type of types" [value]="type.abbreviation">{{type.name}}</mat-radio-button>
+          <mat-radio-button *ngFor="let type of types" [value]="type.abbreviation"
+                            matTooltip="{{type.abbreviation}}"
+                            matTooltipPosition="above">{{type.name}}</mat-radio-button>
         </mat-radio-group>
       </mat-step>
 
@@ -47,7 +51,9 @@
         <mat-radio-group id="tenseCtrl" formControlName="tense">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let tense of verbTenses"
-                            value="{{tense.abbreviation}}">{{tense.name}}</mat-radio-button>
+                            value="{{tense.abbreviation}}"
+                            matTooltip="{{tense.abbreviation}}"
+                            matTooltipPosition="above">{{tense.name}}</mat-radio-button>
         </mat-radio-group>
       </mat-step>
 
@@ -56,8 +62,11 @@
         <mat-radio-group id="voiceCtrl" formControlName="voice">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let voice of voices"
-                            value="{{voice.abbreviation}}">{{voice.name}}</mat-radio-button>
+                            value="{{voice.abbreviation}}"
+                            matTooltip="{{voice.abbreviation}}"
+                            matTooltipPosition="above">{{voice.name}}</mat-radio-button>
         </mat-radio-group>
+        <p>All other voices such as 'middle or passive' or 'passive deponent' fall under the 'Deponent' option.</p>
       </mat-step>
 
       <mat-step label="Mood" [completed]="parsingForm.controls.mood.disabled"
@@ -65,7 +74,9 @@
         <mat-radio-group id="moodCtrl" formControlName="mood" (change)="determineAvailableControlsWhenMoodIsSelected()">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let mood of moods"
-                            value="{{mood.abbreviation}}">{{mood.name}}</mat-radio-button>
+                            value="{{mood.abbreviation}}"
+                            matTooltip="{{mood.abbreviation}}"
+                            matTooltipPosition="above">{{mood.name}}</mat-radio-button>
         </mat-radio-group>
       </mat-step>
 
@@ -75,7 +86,9 @@
         <mat-radio-group id="personCtrl" formControlName="person">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let person of persons"
-                            value="{{person.abbreviation}}">{{person.name}}</mat-radio-button>
+                            value="{{person.abbreviation}}"
+                            matTooltip="{{person.abbreviation}}"
+                            matTooltipPosition="above">{{person.name}}</mat-radio-button>
         </mat-radio-group>
       </mat-step>
 
@@ -87,7 +100,9 @@
         <mat-radio-group id="caseCtrl" formControlName="case">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let case of cases"
-                            value="{{case.abbreviation}}">{{case.name}}</mat-radio-button>
+                            value="{{case.abbreviation}}"
+                            matTooltip="{{case.abbreviation}}"
+                            matTooltipPosition="above">{{case.name}}</mat-radio-button>
         </mat-radio-group>
 
         <mat-divider></mat-divider>
@@ -96,7 +111,9 @@
         <mat-radio-group id="numberCtrl" formControlName="number">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let number of numbers"
-                            value="{{number.abbreviation}}">{{number.name}}</mat-radio-button>
+                            value="{{number.abbreviation}}"
+                            matTooltip="{{number.abbreviation}}"
+                            matTooltipPosition="above">{{number.name}}</mat-radio-button>
         </mat-radio-group>
 
         <mat-divider></mat-divider>
@@ -105,7 +122,9 @@
         <mat-radio-group id="genderCtrl" formControlName="gender">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let gender of genders"
-                            value="{{gender.abbreviation}}">{{gender.name}}</mat-radio-button>
+                            value="{{gender.abbreviation}}"
+                            matTooltip="{{gender.abbreviation}}"
+                            matTooltipPosition="above">{{gender.name}}</mat-radio-button>
         </mat-radio-group>
       </mat-step>
     </mat-horizontal-stepper>
@@ -114,14 +133,20 @@
       <div class="mr-auto p-2">
         <button mat-raised-button color="warn" (click)="openErrorDialog(this)">Report an error on this page</button>
       </div>
-      <div class="p-2">
-        <button mat-raised-button color="primary" type="submit" (submit)="submit($event)" style="margin-right: 10px">
+      <div class="p-1">
+        <button mat-raised-button (click)="skipWord()" [disabled]="wordIndex >= words.length" type="button"
+                color="accent">Skip
+        </button>
+      </div>
+      <div class="p-1">
+        <button mat-raised-button color="primary" type="submit" (submit)="submit()" style="margin-right: 10px">
           Answer
         </button>
       </div>
-      <div class="p-2">
-        <button mat-raised-button (click)="nextWord()" type="button" color="primary"
-                [disabled]="wordIndex >= words.length || currentWordIsUnanswered">Next
+      <div class="p-1">
+        <button mat-raised-button [disabled]="wordIndex >= words.length || currentWordIsUnanswered" (click)="nextWord()"
+                type="button" color="primary"
+        >Next
         </button>
       </div>
     </div>

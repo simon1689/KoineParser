@@ -1,0 +1,30 @@
+import {LexiconEntry} from './lexicon.entry';
+import {WordPart} from './wordPart';
+
+export interface Word {
+  word: string;
+  morphology: string;
+  book: number;
+  chapter: number;
+  verse: number;
+  strongsNr: string;
+}
+
+export class WordModel implements Word {
+  book: number;
+  chapter: number;
+  morphology: string;
+  strongsNr: string;
+  verse: number;
+  word: string;
+  occurrencesInRange: number;
+  lexiconEntry: LexiconEntry;
+  wordComplete: string;
+  partsOfSpeech: WordPart[];
+}
+
+export interface MultipleMorphologyWord {
+  strongs: string;
+  morphology: string;
+  word: string;
+}

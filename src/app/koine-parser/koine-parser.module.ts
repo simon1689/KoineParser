@@ -30,6 +30,8 @@ import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-e
 import {AboutComponent} from '../about/about.component';
 import {NavbarComponent} from '../navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     DragDropModule,
     MatDividerModule,
     MatToolbarModule,
+    MatAutocompleteModule,
+    MatTooltipModule,
   ],
   exports: [
     BibleRangeComponent,

@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BibleBooks, Book} from '../bible';
-import {Genders, Moods, NounCases, Numbers, PartOfSpeech, Persons, Types, VerbTenses, Voices} from '../interfaces/word';
+import {PartOfSpeech, Types} from '../models/part-of-speech-objects';
 import {KoineParserService} from '../koine-parser.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
-import {WordPart} from '../wordPart';
+import {WordPart} from '../models/wordPart';
 import {
   adjective,
   adverb,
@@ -19,9 +19,10 @@ import {
   infinitiveMood,
   noun,
   participleMood,
+  particleType,
   preposition,
   verb
-} from '../wordTypeConstants';
+} from '../word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -245,6 +246,9 @@ export class BibleRangeComponent implements OnInit {
             break;
           case 'ConditionalCtrl':
             result.push(conditionalType);
+            break;
+          case 'ParticleCtrl':
+            result.push(particleType);
             break;
           default:
             break;

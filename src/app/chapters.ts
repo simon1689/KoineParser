@@ -1,4 +1,4 @@
-interface Chapter {
+export interface Chapter {
   chapter: number;
   verses: number;
 }

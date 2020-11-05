@@ -5,12 +5,13 @@
       Do you want to try again or should I give you the answer?
     </div>
     <br/>
-    <div [hidden]="dontShowTheAnswer"
+    <div *ngIf="!dontShowTheAnswer"
          [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.partsOfSpeech, true)"
          style="margin-left: 25px">
     </div>
-    <div [hidden]="dontShowTheHint" *ngIf="hint !== undefined" style="margin-left: 25px">
-      <p>Hint: The {{hint.type.toLowerCase()}} is <span class="font-italic">{{hint.name.toLowerCase()}}</span></p>
+    <div *ngIf="hint !== undefined && !dontShowTheHint" style="margin-left: 25px">
+      <p>Hint: The {{hint.type.toLowerCase()}} is <span class="font-italic">{{hint.name.toLowerCase()}}</span>
+        <span *ngIf="hint.headCategory !== undefined"> ({{hint.headCategory.name}})</span></p>
     </div>
     <br/>
     <div mat-dialog-actions>

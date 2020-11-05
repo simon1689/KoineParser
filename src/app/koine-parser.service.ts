@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {Observable, throwError, throwError as observableThrowError} from 'rxjs';
+import {Component, Injectable} from '@angular/core';
+import {Observable, Subscription, throwError, throwError as observableThrowError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError, map, shareReplay} from 'rxjs/operators';
-import {MultipleMorphologyWord, WordModel} from './word.model';
-import {LexiconEntry} from './lexicon.entry';
-import {WordPart} from './wordPart';
-import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './wordTypeConstants';
+import {MultipleMorphologyWord, WordModel} from './models/word.model';
+import {LexiconEntry} from './models/lexicon.entry';
+import {WordPart} from './models/wordPart';
+import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './word-type-constants';
 import {MorphologyGenerator} from './morphologyGenerator';
 import {forEachComment} from 'tslint';
 
@@ -88,7 +88,6 @@ export class KoineParserService {
     }
 
     if (types.length > 0) {
-      //  endpoint += '&types=' + types.map(x => x === participleMood ? 'Ptc' : x === infinitiveMood ? 'Inf' : x.abbreviation + '-').join(',');
       endpoint += this.getTypesQueryString(types);
     }
 
@@ -138,5 +137,15 @@ export class KoineParserService {
           },
           error => console.error(error));
     }
+  }
+
+  sendErrorMessageMail(content: any): Observable<any> {
+    const endpoint = 'https://www.thecalvinist.net/pages/api/email-post.php';
+
+    return this.http
+      .post(endpoint, {content})
+      .pipe(catchError(error => {
+        return observableThrowError(error);
+      }));
   }
 }

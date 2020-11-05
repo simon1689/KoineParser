@@ -1,8 +1,9 @@
 <div ngxUiLoaderBlurred>
   <form [formGroup]="bibleRangeForm" (ngSubmit)="submit($event)">
+
     <mat-form-field appearance="fill" class="selectBook">
       <mat-label>Book</mat-label>
-      <mat-select required formControlName="bibleBook"
+      <mat-select formControlName="bibleBook"
                   (selectionChange)="bookSelected()">
         <mat-option *ngFor="let book of bibleBooks" [value]="book.number">
           {{book.name}}
@@ -12,7 +13,7 @@
 
     <mat-form-field appearance="fill" class="selectFromToBook">
       <mat-label>From</mat-label>
-      <mat-select required formControlName="bibleBookChapterFrom" (selectionChange)="beginningChapterSelected()">
+      <mat-select formControlName="bibleBookChapterFrom" (selectionChange)="beginningChapterSelected()">
         <mat-option *ngFor="let item of this.amountOfChaptersArray; let i = index" [value]="item">
           {{item}}
         </mat-option>
@@ -37,17 +38,18 @@
       </mat-checkbox>
     </div>
 
-    <div *ngIf="bibleRangeForm.value.types.VerbsCtrl == true">
+    <div>
       <mat-checkbox labelPosition="before" color="accent" class="mat-checkbox type-of-words-checkbox"
                     formControlName="verbSecondaryTenses" (change)="verbSecondaryTenses = !verbSecondaryTenses;"
-                    [disabled]="bibleRangeForm.value.types['VerbsCtrl'] != true">Enable
-        secondary tenses
+                    matTooltip="Options for choosing secondary tenses like 2nd Aorist and 1-2 Perfect are enabled">
+        Enable secondary tenses
       </mat-checkbox>
     </div>
 
     <mat-form-field appearance="fill">
       <mat-label>Amount of words</mat-label>
-      <input matInput type="number" class="form-control" id="amountOfWords" formControlName="amountOfWords"/>
+      <input matInput type="number" class="form-control" id="amountOfWords" formControlName="amountOfWords"
+             [max]="amountOfWordsForRange"/>
 
       <mat-checkbox formControlName="randomizeWords" labelPosition="before">Randomize word order
       </mat-checkbox>

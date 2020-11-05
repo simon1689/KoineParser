@@ -1,9 +1,11 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {WordModel} from '../word.model';
+import {WordModel} from '../models/word.model';
 import {MorphologyGenerator} from '../morphologyGenerator';
-import {WordPart} from '../wordPart';
+import {WordPart} from '../models/wordPart';
 import * as  __ from 'lodash-es';
+import {StateService} from '../state.service';
+import {allTenses} from '../word-type-constants';
 
 @Component({
   selector: 'app-parse-answer-dialog',
@@ -12,7 +14,6 @@ import * as  __ from 'lodash-es';
 })
 export class ParseAnswerDialogComponent {
 
-  dialog: MatDialogRef<ParseAnswerDialogComponent> = null;
   currentWord: WordModel;
   givenAnswer: WordPart[];
   answerIsRight: boolean;
@@ -24,21 +25,37 @@ export class ParseAnswerDialogComponent {
   hint: WordPart;
   correctedAnswer: boolean;
 
-  constructor(dialogRef: MatDialogRef<ParseAnswerDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private dialogRef: MatDialogRef<ParseAnswerDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private state: StateService) {
     this.data = data;
     this.currentWord = data.currentWord;
     this.givenAnswer = data.givenAnswer;
     this.answerIsRight = data.answerIsRight;
-    this.dialog = dialogRef;
     this.nextWordMethod = data.nextWordMethod;
     this.hasNextWord = data.hasNextWord;
     this.correctedAnswer = data.correctedAnswer;
-    this.hint = __.sample(this.currentWord.partsOfSpeech.filter(x => !this.givenAnswer.includes(x)));
+
+    let notIncludedInGivenAnswer = null;
+    if (this.state.getSecondaryTensesEnabled()) {
+      notIncludedInGivenAnswer = this.currentWord.partsOfSpeech.filter(x => {
+        return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined && !allTenses.includes(x)
+          ? x.headCategory.name
+          : x.name);
+      });
+    } else {
+      notIncludedInGivenAnswer = this.currentWord.partsOfSpeech.filter(x => {
+        return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined
+          ? x.headCategory.name
+          : x.name);
+      });
+    }
+
+    this.hint = __.sample(notIncludedInGivenAnswer);
   }
 
   goToNextWord(): any {
-    this.dialog.close();
+    this.dialogRef.close();
     this.nextWordMethod();
   }
 }

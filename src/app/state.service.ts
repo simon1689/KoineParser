@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {WordModel} from './word.model';
+import {WordModel} from './models/word.model';
 import {Book} from './bible';
 import * as __ from 'lodash-es';
 

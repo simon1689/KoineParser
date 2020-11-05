@@ -1,12 +1,12 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../interfaces/word';
+import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../models/part-of-speech-objects';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
-import {WordModel} from '../word.model';
+import {WordModel} from '../models/word.model';
 import {StateService} from '../state.service';
 import * as  __ from 'lodash-es';
-import {faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
-import {WordPart} from '../wordPart';
+import {faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import {WordPart} from '../models/wordPart';
 import {
   adjective,
   adverb,
@@ -16,12 +16,12 @@ import {
   conditionalType,
   conjunction,
   infinitiveMood,
-  noun,
+  noun, particleType,
   participleMood,
   personalPronoun,
   preposition,
-  verb
-} from '../wordTypeConstants';
+  verb, allTenses
+} from '../word-type-constants';
 import {KoineParserService} from '../koine-parser.service';
 import {MorphologyGenerator} from '../morphologyGenerator';
 import {MatStepper} from '@angular/material/stepper';
@@ -41,13 +41,15 @@ interface WrongAnswer {
   styleUrls: ['./parse.component.css']
 })
 export class ParseComponent implements OnInit {
+  // words and answers
+  wordIndex = 0;
   word: WordModel = null;
   words: WordModel[] = [];
-  wordIndex = 0;
-
   usedWords: WordModel[] = [];
   goodAnswers: WordModel[] = [];
+  skippedWords: WordModel[] = [];
   wrongAnswers: WrongAnswer[] = [];
+  wrongAnswerObject: WrongAnswer;
   partsOfSpeech: string[] = ['type', 'tense', 'voice', 'mood', 'person', 'case', 'number', 'gender'];
   answer: string;
   currentWordIsUnanswered = true;
@@ -61,12 +63,13 @@ export class ParseComponent implements OnInit {
   numbers = Numbers;
   cases = NounCases;
   genders = Genders;
-  voices = Voices;
-  // defaultControlValue = 'Choose...';
+  voices = Voices.filter(x => !x.secondary);
   defaultControlValue = 'None';
-  wrongAnswerObject: WrongAnswer;
+
+  // icons
   thumbsUp = faThumbsUp;
   thumbsDown = faThumbsDown;
+  skip = faForward;
   morphologyGenerator = MorphologyGenerator;
   @ViewChild('mainContent') mainContent: ElementRef;
   @ViewChild('stepper') stepper: MatStepper;
@@ -86,6 +89,7 @@ export class ParseComponent implements OnInit {
     this.word = this.words[this.wordIndex];
     this.usedWords.push(this.word);
     this.wordIndex++;
+    console.log(this.word);
 
     if (this.word == null) {
       this.router.navigate(['bible']);
@@ -96,6 +100,22 @@ export class ParseComponent implements OnInit {
     if (this.wordIndex < this.words.length) {
       this.word = this.words[this.wordIndex];
       this.usedWords.push(this.word);
+      this.wordIndex++;
+      this.resetForm();
+      this.currentWordIsUnanswered = true;
+      this.stepper.reset();
+      this.expansionPanel.expanded = false;
+
+      console.clear();
+      console.log(this.word);
+    }
+  }
+
+
+  skipWord(): void {
+    if (this.wordIndex < this.words.length) {
+      this.word = this.words[this.wordIndex];
+      this.skippedWords.push(this.word);
       this.wordIndex++;
       this.resetForm();
       this.currentWordIsUnanswered = true;
@@ -142,15 +162,23 @@ export class ParseComponent implements OnInit {
     });
   }
 
-  submit($event: Event): void {
+  submit(): void {
     if (this.parsingForm.valid) {
       const answerParts = this.formulateAnswerParts();
       const answerMorphologyCode = this.morphologyGenerator.generateMorphologyFromWordParts(answerParts);
 
+
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
-        const answerIsRight: boolean = __.isEqualWith(this.word.partsOfSpeech, answerParts, this.customEqualsComparable(this.word.partsOfSpeech, answerParts, this.state.getSecondaryTensesEnabled()));
 
+        let answerIsRight: boolean;
+        if (this.state.getSecondaryTensesEnabled()) {
+          answerIsRight = __.isEqualWith(this.word.partsOfSpeech, answerParts,
+            this.customEqualsComparableWithSecondaryTenses);
+        } else {
+          answerIsRight = __.isEqualWith(this.word.partsOfSpeech, answerParts,
+            this.customEqualsComparable);
+        }
         if (answerIsRight) {
           // if answer is given for the first time
           if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
@@ -177,11 +205,13 @@ export class ParseComponent implements OnInit {
             }
 
             // if the answer is wrong and given for the first time, then register it
-            if (this.goodAnswers.find(x => x === this.word) === undefined &&
+            if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined &&
               this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
+
               this.wrongAnswerObject = {word: this.word, given_answer: answerMorphologyCode};
               this.wrongAnswers.push(this.wrongAnswerObject);
               this.openDialog(false, answerParts);
+
             } else {
               this.openDialog(false, answerParts);
             }
@@ -218,7 +248,7 @@ export class ParseComponent implements OnInit {
     return result;
   }
 
-  customEqualsComparable(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[], secondaryTensesEnabled: boolean): boolean {
+  customEqualsComparable(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[]): boolean {
     if (wordPartsOfSpeech === undefined || givenAnswer === undefined || wordPartsOfSpeech === null || givenAnswer === null) {
       return false;
     }
@@ -232,18 +262,47 @@ export class ParseComponent implements OnInit {
       return true;
     }
 
-    if (secondaryTensesEnabled) {
-      return false;
-    }
-
     for (let i = 0; i <= wordPartsOfSpeech.length; i++) {
       // first check whether they're the same
       if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
+        // if (JSON.stringify(wordPartsOfSpeech[i]) !== JSON.stringify(givenAnswer[i])) {
 
         // if they are not the same, then check the headCategories
         if (wordPartsOfSpeech[i].headCategory !== undefined) {
 
-          // if (wordPartsOfSpeech[i].headCategory !== givenAnswer[i]) {
+          // if (JSON.stringify(wordPartsOfSpeech[i].headCategory) !== JSON.stringify(givenAnswer[i])) {
+          if (!__.isEqual(wordPartsOfSpeech[i].headCategory, givenAnswer[i])) {
+            return false;
+          }
+        } else { // if the objects are not equal and the partsOfSpeech of the word doesn't have a category, then it's a wrong answer
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  customEqualsComparableWithSecondaryTenses(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[]): boolean {
+    if (wordPartsOfSpeech === undefined || givenAnswer === undefined || wordPartsOfSpeech === null || givenAnswer === null) {
+      return false;
+    }
+
+    wordPartsOfSpeech = wordPartsOfSpeech.filter(x => !allSuffixes.includes(x));
+    if (wordPartsOfSpeech.length !== givenAnswer.length) {
+      return false;
+    }
+
+    if (__.isEqual(__.sortBy(wordPartsOfSpeech), __.sortBy(givenAnswer)) === true) {
+      return true;
+    }
+
+    for (let i = 0; i < wordPartsOfSpeech.length; i++) {
+      // first check whether they're the same
+      if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
+
+        // if they are not the same, then check the headCategories
+        if (wordPartsOfSpeech[i].headCategory !== undefined && !allTenses.includes(wordPartsOfSpeech[i])) {
           if (!__.isEqual(wordPartsOfSpeech[i].headCategory, givenAnswer[i])) {
             return false;
           }
@@ -288,6 +347,7 @@ export class ParseComponent implements OnInit {
         break;
 
       case conditionalType.abbreviation:
+      case particleType.abbreviation:
         this.parsingForm.disable();
         this.parsingForm.controls.type.enable();
         break;
@@ -324,7 +384,9 @@ export class ParseComponent implements OnInit {
 
   openErrorDialog(parseComponent: ParseComponent): void {
     this.dialog.open(ReportErrorOnPageDialogComponent, {
-      data: parseComponent
+      data: {
+        component: parseComponent
+      }
     });
   }
 

@@ -1,4 +1,4 @@
-import {WordPart} from './wordPart';
+import {WordPart} from './models/wordPart';
 import {
   adjective,
   allCases,
@@ -8,30 +8,32 @@ import {
   allPersons,
   allSuffixes,
   allTenses,
+  allTypesOfPronouns,
   allVoices,
   allWordTypes,
   article,
   attic,
+  correlativeOrInterrogativePronoun,
   correlativePronoun,
+  demonstrativePronoun,
   disjunctiveParticiple,
+  genderType,
   indeclinable,
   indeclinableNounOrOtherPart,
+  indefinitePronoun,
   infinitiveMood,
+  interrogativePronoun,
   negativeSuffix,
   noun,
   participleMood,
-  possessivePronoun,
+  particleType,
   personalPronoun,
+  possessivePronoun,
   reciprocalPronoun,
-  relativePronoun,
-  verb,
-  allTypesOfPronouns,
-  demonstrativePronoun,
   reflexivePronoun,
-  correlativeOrInterrogativePronoun,
-  interrogativePronoun,
-  indefinitePronoun, genderType
-} from './wordTypeConstants';
+  relativePronoun,
+  verb
+} from './word-type-constants';
 import * as __ from 'lodash-es';
 
 export class MorphologyGenerator {
@@ -121,6 +123,7 @@ export class MorphologyGenerator {
             break;
 
           case disjunctiveParticiple:
+          case particleType:
             morphology = type.abbreviation + '-';
             morphology += this.searchForPart(allSuffixes, wordParts);
 
