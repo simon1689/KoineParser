@@ -164,27 +164,7 @@ export class BibleRangeComponent implements OnInit {
     this.ngxLoader.stopLoader('smallLoader');
   }
 
-  checkboxChange(object: any, event: any): void {
-    if (object.name === 'Verbs' && event.target.checked) {
-      this.showVerbsSection = true;
-      this.showNumberSection = true;
-    } else if (object.name === 'Verbs' && !event.target.checked) {
-      this.showVerbsSection = false;
-      this.showNumberSection = false;
-    }
-
-    if (object.name === 'Nouns' && event.target.checked) {
-      this.showNounSection = true;
-      this.showNumberSection = true;
-    } else if (object.name === 'Nouns' && !event.target.checked) {
-      this.showNounSection = false;
-      this.showNumberSection = false;
-    }
-
-    this.setAmountOfWords();
-  }
-
-  submit($event: any): void {
+  submit(): void {
     if (!this.bibleRangeForm.valid) {
       return;
     }

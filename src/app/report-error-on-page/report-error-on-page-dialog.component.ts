@@ -37,9 +37,9 @@ export class ReportErrorOnPageDialogComponent implements OnInit {
         component: {
           currentWord: this.component.word,
           givenAnswer: this.component.answer,
+          wordIndex: this.component.wordIndex,
           range: this.state.getBibleRange(),
           words: this.component.words,
-          wordIndex: this.component.wordIndex
         }
       };
 

@@ -13,7 +13,6 @@ import {forEachComment} from 'tslint';
   providedIn: 'root'
 })
 export class KoineParserService {
-  // endpoint = 'https://www.thecalvinist.net/pages/api/greek/words-get.php';
   endpoint = 'https://www.thecalvinist.net/api/bible-words/';
   lexiconEndpoint = 'https://www.thecalvinist.net/api/lexicon.php';
   lexiconEntries: LexiconEntry[];
@@ -73,7 +72,8 @@ export class KoineParserService {
         })));
   }
 
-  getWordsCount(types: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1', endChapter: string = '1', endVerse: string = '2'): Observable<any> {
+  getWordsCount(types: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
+                endChapter: string = '1', endVerse: string = '2'): Observable<any> {
     let endpoint = this.endpoint + book + '/' + startChapter + '/' + startVerse
       + '/' + endChapter + '/' + endVerse + '?count=x';
 
@@ -130,7 +130,7 @@ export class KoineParserService {
   }
 
   sendErrorMessageMail(content: any): Observable<any> {
-    const endpoint = 'https://www.thecalvinist.net/pages/api/email-post.php';
+    const endpoint = 'https://www.thecalvinist.net/api/email';
 
     return this.http
       .post(endpoint, {content})

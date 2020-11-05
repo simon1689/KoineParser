@@ -12,15 +12,17 @@ import {
   adverb,
   allPartsOfSpeech,
   allSuffixes,
+  allTenses,
   article,
   conditionalType,
   conjunction,
   infinitiveMood,
-  noun, particleType,
+  noun,
   participleMood,
+  particleType,
   personalPronoun,
   preposition,
-  verb, allTenses
+  verb
 } from '../word-type-constants';
 import {KoineParserService} from '../koine-parser.service';
 import {MorphologyGenerator} from '../morphologyGenerator';
@@ -145,19 +147,6 @@ export class ParseComponent implements OnInit {
     });
   }
 
-  openDialog(answer: boolean, givenAnswerParts: WordPart[], correctedAnswer = false): void {
-    this.dialog.open(ParseAnswerDialogComponent, {
-      data: {
-        givenAnswer: givenAnswerParts,
-        currentWord: this.word,
-        answerIsRight: answer,
-        nextWordMethod: () => this.nextWord(),
-        hasNextWord: this.wordIndex >= this.words.length,
-        correctedAnswer
-      },
-    });
-  }
-
   submit(): void {
     if (this.parsingForm.valid) {
       const answerParts = this.formulateAnswerParts();
@@ -207,7 +196,6 @@ export class ParseComponent implements OnInit {
               this.wrongAnswerObject = {word: this.word, given_answer: answerMorphologyCode};
               this.wrongAnswers.push(this.wrongAnswerObject);
               this.openDialog(false, answerParts);
-
             } else {
               this.openDialog(false, answerParts);
             }
@@ -228,6 +216,27 @@ export class ParseComponent implements OnInit {
     }
 
     return answerParts;
+  }
+
+  openErrorDialog(parseComponent: ParseComponent): void {
+    this.dialog.open(ReportErrorOnPageDialogComponent, {
+      data: {
+        component: parseComponent
+      }
+    });
+  }
+
+  openDialog(answer: boolean, givenAnswerParts: WordPart[], correctedAnswer = false): void {
+    this.dialog.open(ParseAnswerDialogComponent, {
+      data: {
+        givenAnswer: givenAnswerParts,
+        currentWord: this.word,
+        answerIsRight: answer,
+        nextWordMethod: () => this.nextWord(),
+        hasNextWord: this.wordIndex >= this.words.length,
+        correctedAnswer
+      },
+    });
   }
 
   getMultipleMorphologiesForWord(word: WordModel): string[] {
@@ -261,12 +270,10 @@ export class ParseComponent implements OnInit {
     for (let i = 0; i <= wordPartsOfSpeech.length; i++) {
       // first check whether they're the same
       if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
-        // if (JSON.stringify(wordPartsOfSpeech[i]) !== JSON.stringify(givenAnswer[i])) {
 
         // if they are not the same, then check the headCategories
         if (wordPartsOfSpeech[i].headCategory !== undefined) {
 
-          // if (JSON.stringify(wordPartsOfSpeech[i].headCategory) !== JSON.stringify(givenAnswer[i])) {
           if (!__.isEqual(wordPartsOfSpeech[i].headCategory, givenAnswer[i])) {
             return false;
           }
@@ -376,14 +383,6 @@ export class ParseComponent implements OnInit {
     if ($event.code === 'ArrowRight') {
       this.nextWord();
     }
-  }
-
-  openErrorDialog(parseComponent: ParseComponent): void {
-    this.dialog.open(ReportErrorOnPageDialogComponent, {
-      data: {
-        component: parseComponent
-      }
-    });
   }
 
   determineSecondaryTenses(): void {

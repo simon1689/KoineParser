@@ -1,5 +1,5 @@
 <div ngxUiLoaderBlurred>
-  <form [formGroup]="bibleRangeForm" (ngSubmit)="submit($event)">
+  <form [formGroup]="bibleRangeForm" (ngSubmit)="submit()">
     <div>
       <mat-label>From</mat-label>
       <mat-form-field appearance="outline" class="selectBook">
@@ -61,7 +61,7 @@
       <p>Type of words</p>
       <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
                     *ngFor="let type of types" formControlName="{{type.controlId}}"
-                    (change)="checkboxChange(type, $event)">
+                    (change)="setAmountOfWords()">
         {{type.name}}s
       </mat-checkbox>
     </div>
@@ -89,11 +89,11 @@
     </mat-card>
 
     <br/>
-    <button mat-raised-button (submit)="submit($event)"
-            [disabled]="bibleRangeForm.controls.amountOfWords.value === 0">
-      Start parsing!
-    </button>
-
+    <div>
+      <button mat-raised-button [disabled]="bibleRangeForm.controls.amountOfWords.value === 0">
+        Start parsing!
+      </button>
+    </div>
   </form>
 </div>
 
