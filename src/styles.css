@@ -4,6 +4,7 @@
 /*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
 /*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
 
+
 @font-face {
   font-family: "SBL Greek";
   src: url(assets/SBL_grk.ttf);
@@ -18,13 +19,13 @@
   src: local("fonts/geek.ttf"), url(assets/geek.ttf) format("ttf")
 }
 
+
 html, body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .content {

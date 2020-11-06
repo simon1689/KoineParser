@@ -5,7 +5,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {WordModel} from '../models/word.model';
 import {StateService} from '../state.service';
 import * as  __ from 'lodash-es';
-import {faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import {faExclamationCircle, faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import {WordPart} from '../models/word-part';
 import {
   adjective,
@@ -72,6 +72,7 @@ export class ParseComponent implements OnInit {
   thumbsUp = faThumbsUp;
   thumbsDown = faThumbsDown;
   skip = faForward;
+  exclamation = faExclamationCircle;
   morphologyGenerator = MorphologyGenerator;
   @ViewChild('mainContent') mainContent: ElementRef;
   @ViewChild('stepper') stepper: MatStepper;

@@ -34,7 +34,6 @@ export class ContactComponent implements OnInit {
         message: this.contactForm.value.message
       }).subscribe(
         result => {
-          console.log(result);
           this.messageSent = true;
           this.contactForm.disable();
         });

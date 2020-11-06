@@ -28,12 +28,18 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDividerModule} from '@angular/material/divider';
 import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
 import {AboutComponent} from '../about/about.component';
-import {NavbarComponent} from '../navbar/navbar.component';
+import {NavbarComponent} from '../navigation/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ContactComponent} from '../contact/contact.component';
-
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
+import {MatIconModule} from '@angular/material/icon';
+import {SideNavComponent} from '../navigation/side-nav/side-nav.component';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,8 @@ import {ContactComponent} from '../contact/contact.component';
     ReportErrorOnPageDialogComponent,
     AboutComponent,
     NavbarComponent,
-    ContactComponent
+    ContactComponent,
+    SideNavComponent,
   ],
   imports: [
     CommonModule,
@@ -61,12 +68,10 @@ import {ContactComponent} from '../contact/contact.component';
     MatCardModule,
     MatInputModule,
     MatCheckboxModule,
-    ReactiveFormsModule,
     MatButtonModule,
     NgxUiLoaderModule,
     FontAwesomeModule,
     MatFormFieldModule,
-    MatInputModule,
     MatStepperModule,
     MatExpansionModule,
     MatDialogModule,
@@ -75,11 +80,26 @@ import {ContactComponent} from '../contact/contact.component';
     MatToolbarModule,
     MatAutocompleteModule,
     MatTooltipModule,
+    FlexModule,
+    ExtendedModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatTabsModule,
+    MatSidenavModule,
   ],
   exports: [
     BibleRangeComponent,
     ParseComponent,
     NavbarComponent,
+    MatTabsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatMenuModule,
+    SideNavComponent,
   ],
   providers: [
     StateService
@@ -89,5 +109,6 @@ import {ContactComponent} from '../contact/contact.component';
     NO_ERRORS_SCHEMA
   ]
 })
+
 export class KoineParserModule {
 }
