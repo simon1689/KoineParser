@@ -1,27 +1,24 @@
 # Koine Parser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+Live: www.KoineParser.com
 
-## Development server
+This is a project which I created because I wanted to achieve a goal. I set the goal to read, translate, and parse 1-3 John by the end of 2020, but there was no tool to help me parse through biblical texts.
+I came across [MasterGreek.com](https://mastergreek.com), but it did not offer parsing for biblical text. This project offers the solution.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Many GitHub projects made this possible, especially:
+<ul>
+  <li>The Greek text is from <a href="https://github.com/bibleforge/BibleForgeDB">BibleForgeDB</a> with the
+      morphological codes of Robinson
+    </li>
+    <li>
+      Various parts of the following projects:
+      <ul>
+        <li>The OpenGNT project which is tremendous: <a href="https://github.com/eliranwong/OpenGNT">GitHub</a>
+        </li>
+        <li><a href="https://github.com/biblicalhumanities/Dodson-Greek-Lexicon">Jeffrey Dodson's Greek Lexicon</a></li>
+        <li><a href="https://github.com/billmounce/dictionary">William D. Mounce's Lexicon</a></li>
+      </ul>
+    </li>
+  </ul>
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I've also included MySQL database exports in /databases for the database I've used.
