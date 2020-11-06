@@ -9,8 +9,7 @@ import {faExclamationCircle, faForward, faThumbsDown, faThumbsUp} from '@fortawe
 import {WordPart} from '../models/word-part';
 import {
   adjective,
-  adverb,
-  allPartsOfSpeech,
+  adverb, allPartsOfSpeech,
   allSuffixes,
   allTenses,
   article,
@@ -25,7 +24,7 @@ import {
   verb
 } from '../etc/word-type-constants';
 import {KoineParserService} from '../koine-parser.service';
-import {MorphologyGenerator} from '../etc/morphologyGenerator';
+import {MorphologyGenerator} from '../etc/morphology-generator';
 import {MatStepper} from '@angular/material/stepper';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
@@ -123,7 +122,7 @@ export class ParseComponent implements OnInit {
         this.answerExpansionPanel.expanded = false;
       }
 
-      console.clear();
+      // console.clear();
       console.log(this.word);
     }
   }

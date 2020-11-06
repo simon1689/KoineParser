@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {WordModel} from '../models/word.model';
-import {MorphologyGenerator} from '../etc/morphologyGenerator';
+import {MorphologyGenerator} from '../etc/morphology-generator';
 import {WordPart} from '../models/word-part';
 import * as  __ from 'lodash-es';
 import {StateService} from '../state.service';

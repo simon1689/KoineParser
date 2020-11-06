@@ -6,7 +6,7 @@ import {MultipleMorphologyWord, WordModel} from './models/word.model';
 import {LexiconEntry} from './models/lexicon.entry';
 import {WordPart} from './models/word-part';
 import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './etc/word-type-constants';
-import {MorphologyGenerator} from './etc/morphologyGenerator';
+import {MorphologyGenerator} from './etc/morphology-generator';
 
 @Injectable({
   providedIn: 'root'

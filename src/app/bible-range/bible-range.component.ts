@@ -25,6 +25,7 @@ import {
 } from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
+import * as __ from 'lodash-es';
 
 @Component({
   selector: 'app-bible-range',
@@ -39,11 +40,6 @@ export class BibleRangeComponent implements OnInit {
   types = Types.filter(x => x.wordPart !== conditionalType);
 
   selectedBook: Book;
-
-  showVerbsSection = false;
-  showNounSection = false;
-  showNumberSection = false;
-
   amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
   zoomIcon = faSearch;
@@ -83,6 +79,7 @@ export class BibleRangeComponent implements OnInit {
     });
 
     this.selectedBook = BibleBooks[0];
+    this.beginningChapter = this.endingChapter = __.first(this.selectedBook.chapters);
     this.bibleRangeForm.controls.bibleBook.setValue(this.selectedBook.number);
 
     this.bibleRangeForm.controls.bibleBookFromChapter.setValue(this.beginningChapter.chapter);

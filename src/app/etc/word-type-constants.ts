@@ -1,5 +1,4 @@
 import {WordPart} from '../models/word-part';
-import * as __ from 'lodash-es';
 
 const type = 'Type';
 const tenseType = 'Tense';
@@ -119,23 +118,15 @@ export const neuterGender: WordPart = {name: 'Neuter', abbreviation: 'N', type: 
 export const allGenders: WordPart[] = [masculineGender, feminineGender, neuterGender];
 
 // etc
-export const attic: WordPart = {name: 'Attic word', abbreviation: 'A', type: suffixType};
+export const atticSuffix: WordPart = {name: 'Attic word', abbreviation: 'ATT', type: suffixType};
 export const negativeSuffix: WordPart = {name: 'Negative', abbreviation: 'N', type: suffixType};
 export const indeclinable: WordPart = {name: 'Indeclinable', abbreviation: 'PRI', type: suffixType};
-export const participleAttached: WordPart = {name: 'Participle attached', abbreviation: 'P', type: suffixType};
-export const contractedOrComparativeForm: WordPart = {name: 'Contracted/Comparative form', abbreviation: 'C', type: suffixType};
-export const indeclinableNounOrOtherPart: WordPart = {name: 'Indeclinable noun or other part', abbreviation: 'OI', type: suffixType};
-export const indeclinableNumeral: WordPart = {name: 'Indeclinable numeral', abbreviation: 'NUI', type: suffixType};
-export const allSuffixes: WordPart[] = [attic, negativeSuffix, indeclinable, indeclinableNumeral,
-  indeclinableNounOrOtherPart, contractedOrComparativeForm, participleAttached];
+export const participleAttachedSuffix: WordPart = {name: 'Participle attached', abbreviation: 'P', type: suffixType};
+export const contractedOrComparativeFormSuffix: WordPart = {name: 'Contracted/Comparative form', abbreviation: 'C', type: suffixType};
+export const indeclinableNounOrOtherPartSuffix: WordPart = {name: 'Indeclinable noun or other part', abbreviation: 'OI', type: suffixType};
+export const indeclinableNumeralSuffix: WordPart = {name: 'Indeclinable numeral', abbreviation: 'NUI', type: suffixType};
+export const allSuffixes: WordPart[] = [atticSuffix, negativeSuffix, indeclinable, indeclinableNumeralSuffix,
+  indeclinableNounOrOtherPartSuffix, contractedOrComparativeFormSuffix, participleAttachedSuffix];
 
-let allParts: WordPart[] = __.merge(allSuffixes, allGenders);
-allParts = __.union(allParts, allCases);
-allParts = __.union(allParts, allNumbers);
-allParts = __.union(allParts, allPersons);
-allParts = __.union(allParts, allMoods);
-allParts = __.union(allParts, allVoices);
-allParts = __.union(allParts, allTenses);
-allParts = __.union(allParts, allWordTypes);
-
-export const allPartsOfSpeech = allParts;
+export const allPartsOfSpeech = [...allSuffixes, ...allGenders, ...allCases, ...allNumbers,
+  ...allPersons, ...allMoods, ...allVoices, ...allTenses, ...allWordTypes];

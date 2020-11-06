@@ -11,15 +11,14 @@ import {
   allTypesOfPronouns,
   allVoices,
   allWordTypes,
-  article,
-  attic,
+  article, atticSuffix,
   correlativeOrInterrogativePronoun,
   correlativePronoun,
   demonstrativePronoun,
   disjunctiveParticiple,
   genderType,
   indeclinable,
-  indeclinableNounOrOtherPart,
+  indeclinableNounOrOtherPartSuffix,
   indefinitePronoun,
   infinitiveMood,
   interrogativePronoun,
@@ -48,9 +47,9 @@ export class MorphologyGenerator {
     } else if (splitValue.length === 3) { // verbs
       result = this.processThreePartMorphology(splitValue);
     } else if (splitValue.length === 4) {
-      if (splitValue[3] === attic.abbreviation) {
-        result = this.processThreePartMorphology(splitValue);
-        result.push(attic);
+      result = this.processThreePartMorphology(splitValue);
+      if (splitValue[3] === atticSuffix.abbreviation) {
+        result.push(atticSuffix);
       }
     }
 
@@ -167,8 +166,8 @@ export class MorphologyGenerator {
         // noun related
         else if (result.includes(noun) && part === indeclinable.abbreviation) {
           result.push(indeclinable);
-        } else if (result.includes(noun) && part === indeclinableNounOrOtherPart.abbreviation) {
-          result.push(indeclinableNounOrOtherPart);
+        } else if (result.includes(noun) && part === indeclinableNounOrOtherPartSuffix.abbreviation) {
+          result.push(indeclinableNounOrOtherPartSuffix);
 
         } else if (result.includes(noun) || result.includes(article)
           || result.includes(relativePronoun) || result.includes(adjective)
