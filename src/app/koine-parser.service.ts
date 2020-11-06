@@ -1,20 +1,19 @@
-import {Component, Injectable} from '@angular/core';
-import {Observable, Subscription, throwError, throwError as observableThrowError} from 'rxjs';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable, throwError as observableThrowError} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 import {catchError, map, shareReplay} from 'rxjs/operators';
 import {MultipleMorphologyWord, WordModel} from './models/word.model';
 import {LexiconEntry} from './models/lexicon.entry';
 import {WordPart} from './models/wordPart';
 import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './word-type-constants';
 import {MorphologyGenerator} from './morphologyGenerator';
-import {forEachComment} from 'tslint';
 
 @Injectable({
   providedIn: 'root'
 })
 export class KoineParserService {
   endpoint = 'https://www.thecalvinist.net/api/bible-words/';
-  lexiconEndpoint = 'https://www.thecalvinist.net/api/lexicon.php';
+  lexiconEndpoint = 'https://www.thecalvinist.net/api/lexicon';
   lexiconEntries: LexiconEntry[];
 
   constructor(private http: HttpClient) {
@@ -94,21 +93,11 @@ export class KoineParserService {
       }));
   }
 
+  // Dodson, Mounce, and if these are not available then 'greek_lexicon' which I'm not sure which lexicon is that
   get allLexiconEntries(): Observable<LexiconEntry[]> {
     return this.http.get(this.lexiconEndpoint)
       .pipe(
-        shareReplay(100),
-        map((data: any[]) => data.map((item: any) => {
-          const model = new LexiconEntry();
-          Object.assign(model, item);
-          return model;
-        })));
-  }
-
-  get allDodsonLexiconEntries(): Observable<LexiconEntry[]> {
-    return this.http.get(this.lexiconEndpoint + '?lexicon=dodson')
-      .pipe(
-        shareReplay(100),
+        shareReplay(1),
         map((data: any[]) => data.map((item: any) => {
           const model = new LexiconEntry();
           Object.assign(model, item);
@@ -120,7 +109,7 @@ export class KoineParserService {
     if ('lexicon' in localStorage) {
       this.lexiconEntries = JSON.parse(localStorage.getItem('lexicon'));
     } else {
-      this.allDodsonLexiconEntries
+      this.allLexiconEntries
         .subscribe((response) => {
             this.lexiconEntries = response;
             localStorage.setItem('lexicon', JSON.stringify(this.lexiconEntries));

@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {BibleRangeComponent} from './bible-range/bible-range.component';
 import {ParseComponent} from './parse/parse.component';
 import {AboutComponent} from './about/about.component';
+import {APP_BASE_HREF} from '@angular/common';
 
 export const routes: Routes = [
   {path: '', component: BibleRangeComponent},
@@ -14,7 +15,8 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {enableTracing: false})],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  // providers: [{provide: APP_BASE_HREF, useValue: '/koine-greek-parser/'}]
 })
 
 export class AppRoutingModule {

@@ -30,8 +30,13 @@ export class StateService {
 
   setBibleRange(book: Book, bibleBookFromChapter: string, bibleBookFromVerse: string,
                 bibleBookToChapter: string, bibleBookToVerse: string): void {
-    this.bibleRange = book.name + ' ' + bibleBookFromChapter + ':' + bibleBookFromVerse
-      + ' - ' + bibleBookToChapter + ':' + bibleBookToVerse;
+    if (bibleBookFromChapter === bibleBookToChapter) {
+      this.bibleRange = book.name + ' ' + bibleBookFromChapter + ':' + bibleBookFromVerse
+        + '-' + bibleBookToVerse;
+    } else {
+      this.bibleRange = book.name + ' ' + bibleBookFromChapter + ':' + bibleBookFromVerse
+        + ' - ' + bibleBookToChapter + ':' + bibleBookToVerse;
+    }
   }
 
   getBibleRange(): string {

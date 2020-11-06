@@ -18,18 +18,31 @@
       </mat-expansion-panel-header>
       <div class="text-center">
         <p class="card-text">G{{word.strongsNr}}
-          <span
-            *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.usage !== undefined">({{word.lexiconEntry.usage}}
-            )</span>
-          <span
-            *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.shortDefinition !== undefined">{{word.lexiconEntry.shortDefinition}}
-              </span>
-        </p>
-        <p class="card-text greek"
-           *ngIf="(word.lexiconEntry !== undefined && word.lexiconEntry.wordComplete !== undefined) && word.lexiconEntry.wordComplete.trim() !== word.word.trim()">{{word.lexiconEntry.wordComplete}}</p>
-        <p class="card-text"
-           title="{{ morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true, true)}}">{{word.morphology}}</p>
+          <span class="card-text greek"
+                *ngIf="(word.lexiconEntry !== undefined && word.lexiconEntry.wordComplete !== undefined) && word.lexiconEntry.wordComplete.trim() !== word.word.trim()">
+            {{word.lexiconEntry.wordComplete}}</span></p>
+
+        <p
+          *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.lexicon !== undefined">{{word.lexiconEntry.shortDefinition}}</p>
+        <p *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.shortDefinition !== undefined
+        && word.lexiconEntry.lexicon === undefined"><span
+          class="font-italic">Dodson Greek Lexicon:</span> {{word.lexiconEntry.shortDefinition}}</p>
+
+        <p *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.mounce !== undefined"><span
+          class="font-italic">Mounce (Gk. {{word.lexiconEntry.gkNr}}):</span> {{word.lexiconEntry.mounce}}</p>
       </div>
+
+      <mat-expansion-panel style="background: #e2e3e5; color: black" togglePosition="before" #answerExpansionPanel>
+        <mat-expansion-panel-header>
+          <mat-panel-title
+            style="display: block; text-align: center; color: black">Answer
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="font-weight-bold text-center">{{word.morphology}}</p>
+        <div class="text-center"
+             [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true, false)"></div>
+      </mat-expansion-panel>
+
     </mat-expansion-panel>
   </mat-accordion>
 
@@ -139,7 +152,7 @@
         </button>
       </div>
       <div class="p-1">
-        <button mat-raised-button color="primary" type="submit" (submit)="submit()" style="margin-right: 10px">
+        <button mat-raised-button color="primary" type="submit" (submit)="submit()">
           Answer
         </button>
       </div>

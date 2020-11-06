@@ -6,3 +6,7 @@ mat-toolbar a {
   text-decoration: inherit;
   color: inherit;
 }
+
+mat-toolbar {
+  font-size: inherit;
+}

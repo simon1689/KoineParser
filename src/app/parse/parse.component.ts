@@ -76,6 +76,7 @@ export class ParseComponent implements OnInit {
   @ViewChild('mainContent') mainContent: ElementRef;
   @ViewChild('stepper') stepper: MatStepper;
   @ViewChild('expansionPanel') expansionPanel: MatExpansionPanel;
+  @ViewChild('answerExpansionPanel') answerExpansionPanel: MatExpansionPanel;
 
   constructor(private router: Router,
               private activeRoute: ActivatedRoute,
@@ -91,7 +92,7 @@ export class ParseComponent implements OnInit {
     this.goToNextWord(this.usedWords);
 
     if (this.word == null) {
-      this.router.navigate(['bible']);
+      this.router.navigate(['']); // 'bible'
     }
   }
 
@@ -118,6 +119,7 @@ export class ParseComponent implements OnInit {
         this.currentWordIsUnanswered = true;
         this.stepper.reset();
         this.expansionPanel.expanded = false;
+        this.answerExpansionPanel.expanded = false;
       }
 
       console.clear();
