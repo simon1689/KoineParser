@@ -1,4 +1,4 @@
-import {WordPart} from './models/wordPart';
+import {WordPart} from '../models/word-part';
 import * as __ from 'lodash-es';
 
 const type = 'Type';

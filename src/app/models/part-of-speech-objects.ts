@@ -1,4 +1,4 @@
-import {WordPart} from './wordPart';
+import {WordPart} from './word-part';
 import {
   accusativeCase,
   activeVoice,
@@ -47,7 +47,7 @@ import {
   thirdPerson,
   verb,
   vocativeCase
-} from '../word-type-constants';
+} from '../etc/word-type-constants';
 
 export interface PartOfSpeech {
   name: string;

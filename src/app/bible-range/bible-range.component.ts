@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {BibleBooks, Book} from '../bible';
+import {BibleBooks, Book} from '../etc/bible';
 import {PartOfSpeech, Types} from '../models/part-of-speech-objects';
 import {KoineParserService} from '../koine-parser.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
-import {WordPart} from '../models/wordPart';
+import {WordPart} from '../models/word-part';
 import {
   adjective,
   adverb,
@@ -22,9 +22,9 @@ import {
   particleType,
   preposition,
   verb
-} from '../word-type-constants';
+} from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
-import {Chapter} from '../chapters';
+import {Chapter} from '../etc/chapters';
 
 @Component({
   selector: 'app-bible-range',

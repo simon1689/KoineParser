@@ -32,6 +32,7 @@ import {NavbarComponent} from '../navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {ContactComponent} from '../contact/contact.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ParseAnswerDialogComponent,
     ReportErrorOnPageDialogComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

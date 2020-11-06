@@ -1,4 +1,4 @@
-import {WordPart} from './models/wordPart';
+import {WordPart} from '../models/word-part';
 import {
   adjective,
   allCases,
@@ -34,7 +34,6 @@ import {
   relativePronoun,
   verb
 } from './word-type-constants';
-import * as __ from 'lodash-es';
 
 export class MorphologyGenerator {
 
@@ -258,10 +257,7 @@ export class MorphologyGenerator {
         result.push(allCases.find(x => x.abbreviation === part[0]));
         result.push(allNumbers.find(x => x.abbreviation === part[2]));
         result.push(allGenders.find(x => x.abbreviation === part[3]));
-      } else {
-
       }
-
     } else if (part.length === 3) {
       if (!isNaN(Number(part[0]))) {
         result.push(allPersons.find(x => x.abbreviation === part[0]));

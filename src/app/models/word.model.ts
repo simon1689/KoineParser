@@ -1,5 +1,5 @@
 import {LexiconEntry} from './lexicon.entry';
-import {WordPart} from './wordPart';
+import {WordPart} from './word-part';
 
 export interface Word {
   word: string;

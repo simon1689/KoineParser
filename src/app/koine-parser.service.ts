@@ -4,9 +4,9 @@ import {HttpClient} from '@angular/common/http';
 import {catchError, map, shareReplay} from 'rxjs/operators';
 import {MultipleMorphologyWord, WordModel} from './models/word.model';
 import {LexiconEntry} from './models/lexicon.entry';
-import {WordPart} from './models/wordPart';
-import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './word-type-constants';
-import {MorphologyGenerator} from './morphologyGenerator';
+import {WordPart} from './models/word-part';
+import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './etc/word-type-constants';
+import {MorphologyGenerator} from './etc/morphologyGenerator';
 
 @Injectable({
   providedIn: 'root'

@@ -1,11 +1,11 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {WordModel} from '../models/word.model';
-import {MorphologyGenerator} from '../morphologyGenerator';
-import {WordPart} from '../models/wordPart';
+import {MorphologyGenerator} from '../etc/morphologyGenerator';
+import {WordPart} from '../models/word-part';
 import * as  __ from 'lodash-es';
 import {StateService} from '../state.service';
-import {allTenses} from '../word-type-constants';
+import {allTenses} from '../etc/word-type-constants';
 
 @Component({
   selector: 'app-parse-answer-dialog',

@@ -12,10 +12,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {ContactComponent} from './contact/contact.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [KoineParserService],
   bootstrap: [AppComponent],

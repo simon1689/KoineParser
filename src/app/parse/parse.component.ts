@@ -6,7 +6,7 @@ import {WordModel} from '../models/word.model';
 import {StateService} from '../state.service';
 import * as  __ from 'lodash-es';
 import {faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
-import {WordPart} from '../models/wordPart';
+import {WordPart} from '../models/word-part';
 import {
   adjective,
   adverb,
@@ -23,9 +23,9 @@ import {
   personalPronoun,
   preposition,
   verb
-} from '../word-type-constants';
+} from '../etc/word-type-constants';
 import {KoineParserService} from '../koine-parser.service';
-import {MorphologyGenerator} from '../morphologyGenerator';
+import {MorphologyGenerator} from '../etc/morphologyGenerator';
 import {MatStepper} from '@angular/material/stepper';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
@@ -97,7 +97,7 @@ export class ParseComponent implements OnInit {
   }
 
   nextWord(): void {
-    if (this.wordIndex < this.words.length) {
+    if (this.wordIndex < this.words.length && !this.currentWordIsUnanswered) {
       this.goToNextWord(this.usedWords, true);
     }
   }

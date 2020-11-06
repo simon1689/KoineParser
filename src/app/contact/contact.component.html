@@ -1,0 +1,45 @@
+<ng-container>
+  <h3>Leave a message to Simon</h3>
+
+  <div class="alert alert-success" *ngIf="messageSent">
+    <strong>Success!</strong> Message was sent!
+  </div>
+
+  <form [formGroup]="contactForm" (ngSubmit)="submit()">
+    <div>
+      <mat-form-field style="width: 300px;" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" required formControlName="name"/>
+        <mat-error
+          *ngIf="contactForm.controls.name.hasError('required')">
+          Please enter your name
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field style="width: 300px;" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+        <mat-error
+          *ngIf="contactForm.controls.email.hasError('email') && !contactForm.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="contactForm.controls.email.hasError('required')">
+          Please enter your email so that I can contact you
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field style="width: 100%" appearance="fill">
+        <mat-label>Message</mat-label>
+        <textarea matInput required formControlName="message" rows="10"></textarea>
+        <mat-error *ngIf="contactForm.controls.message.hasError('required')">
+          Please enter your message
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="text-right">
+      <button mat-raised-button [disabled]="messageSent">Send</button>
+    </div>
+  </form>
+</ng-container>
