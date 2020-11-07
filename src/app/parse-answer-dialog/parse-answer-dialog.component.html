@@ -9,9 +9,15 @@
          [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.partsOfSpeech, true)"
          style="margin-left: 25px">
     </div>
-    <div *ngIf="hint !== undefined && !dontShowTheHint" style="margin-left: 25px">
-      <p>Hint: The {{hint.type.toLowerCase()}} is <span class="font-italic">{{hint.name.toLowerCase()}}</span>
-        <span *ngIf="hint.headCategory !== undefined"> ({{hint.headCategory.name}})</span></p>
+    <div *ngIf="hintRightPartOfAnswer !== undefined && !dontShowTheHint" style="margin-left: 25px">
+      <p>Hint: The {{hintRightPartOfAnswer.type.toLowerCase()}} is <span
+        class="font-italic">{{hintRightPartOfAnswer.name.toLowerCase()}}</span>
+        <span *ngIf="hintRightPartOfAnswer.headCategory !== undefined"> ({{hintRightPartOfAnswer.headCategory.name}}
+          )</span></p>
+    </div>
+    <div *ngIf="hintWrongPartOfAnswer !== undefined && !dontShowTheHint" style="margin-left: 25px">
+      <p>Hint: This word does not have a <span
+        class="font-italic">{{hintWrongPartOfAnswer.type.toLowerCase()}}</span>.
     </div>
     <br/>
     <div mat-dialog-actions>

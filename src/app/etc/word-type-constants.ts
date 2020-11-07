@@ -48,6 +48,7 @@ export const allWordTypes: WordPart[] = [verb, noun, adverb, adjective, article,
 // tense
 export const presentTense: WordPart = {name: 'Present', abbreviation: 'P', type: tenseType};
 export const futureTense: WordPart = {name: 'Future', abbreviation: 'F', type: tenseType};
+export const secondFutureTense: WordPart = {name: 'Second future', abbreviation: '2F', type: tenseType, headCategory: futureTense};
 export const aoristTense: WordPart = {name: 'Aorist', abbreviation: 'A', type: tenseType};
 export const secondAoristTense: WordPart = {name: 'Second Aorist', abbreviation: '2A', headCategory: aoristTense, type: tenseType};
 export const imperfectTense: WordPart = {name: 'Imperfect', abbreviation: 'I', type: tenseType};
@@ -61,7 +62,7 @@ export const secondPluperfectTense: WordPart = {
   headCategory: pluperfectTense,
   type: tenseType
 };
-export const allTenses: WordPart[] = [presentTense, futureTense, aoristTense, secondAoristTense,
+export const allTenses: WordPart[] = [presentTense, futureTense, secondFutureTense, aoristTense, secondAoristTense,
   imperfectTense, perfectTense, firstPerfectTense, secondPerfectTense, pluperfectTense, secondPluperfectTense];
 
 // voice

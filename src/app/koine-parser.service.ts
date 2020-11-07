@@ -127,4 +127,11 @@ export class KoineParserService {
         return observableThrowError(error);
       }));
   }
+
+  getEmailedReportInformation(): Observable<any> {
+    return this.http.get<any>('./assets/emailed-information.json')
+      .pipe(catchError(error => {
+        return observableThrowError(error);
+      }));
+  }
 }

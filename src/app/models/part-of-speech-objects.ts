@@ -38,7 +38,7 @@ import {
   pluralNumber,
   preposition,
   presentTense,
-  secondAoristTense,
+  secondAoristTense, secondFutureTense,
   secondPerfectTense,
   secondPerson,
   secondPluperfectTense,
@@ -90,6 +90,7 @@ export const VerbTenses: PartOfSpeech[] = [
   {name: 'Present', abbreviation: 'P', secondary: false, controlId: 'PresentTenseCtrl', wordPart: presentTense},
   {name: 'Imperfect', abbreviation: 'I', secondary: false, controlId: 'ImperfectTenseCtrl', wordPart: imperfectTense},
   {name: 'Future', abbreviation: 'F', secondary: false, controlId: 'FutureTenseCtrl', wordPart: futureTense},
+  {name: '2nd Future', abbreviation: '2F', secondary: true, controlId: 'SecondFutureTenseCtrl', wordPart: secondFutureTense},
   {name: 'Aorist', abbreviation: 'A', secondary: false, controlId: 'AoristTenseCtrl', wordPart: aoristTense},
   {
     name: '2nd Aorist', abbreviation: '2A', secondary: true, controlId: 'SecondAoristTenseCtrl', wordPart: secondAoristTense

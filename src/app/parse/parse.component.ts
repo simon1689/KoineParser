@@ -83,17 +83,42 @@ export class ParseComponent implements OnInit {
               private state: StateService,
               private service: KoineParserService,
               public dialog: MatDialog) {
+
   }
 
   ngOnInit(): void {
+    this.startRoute();
+    // this.plannedRoute();
+  }
+
+  startRoute(): void {
     this.initForm();
     this.determineSecondaryTenses();
     this.words = this.state.getWordsForParsing();
     this.goToNextWord(this.usedWords);
 
     if (this.word == null) {
-      this.router.navigate(['']); // 'bible'
+      this.router.navigate(['']);
     }
+  }
+
+  // for testing cases received from the report form
+  plannedRoute(): void {
+    this.initForm();
+
+    this.service.getEmailedReportInformation().subscribe(
+      result => {
+        this.words = result.words;
+        this.wordIndex = result.wordIndex;
+        this.word = result.words[result.wordIndex - 1];
+        this.state.bibleRange = result.range;
+        this.state.setSecondaryTensesEnabled(result.secondaryTensesEnabled);
+        this.skippedWords = (result.skippedWords === undefined) ? [] : result.skippedWords;
+        this.goodAnswers = (result.goodAnswers === undefined) ? [] : result.goodAnswers;
+        this.wrongAnswers = (result.wrongAnswers === undefined) ? [] : result.wrongAnswers;
+        console.log(this.word);
+      }
+    );
   }
 
   nextWord(): void {
@@ -122,7 +147,7 @@ export class ParseComponent implements OnInit {
         this.answerExpansionPanel.expanded = false;
       }
 
-      // console.clear();
+      console.clear();
       console.log(this.word);
     }
   }
@@ -217,7 +242,7 @@ export class ParseComponent implements OnInit {
       }
     }
 
-    return answerParts;
+    return answerParts.filter(x => x !== undefined);
   }
 
   openErrorDialog(parseComponent: ParseComponent): void {

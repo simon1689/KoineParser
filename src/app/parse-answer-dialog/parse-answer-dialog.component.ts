@@ -22,7 +22,9 @@ export class ParseAnswerDialogComponent {
   dontShowTheHint = true;
   nextWordMethod: () => void;
   hasNextWord: boolean;
-  hint: WordPart;
+  hintRightPartOfAnswer: WordPart;
+  hintWrongPartOfAnswer: WordPart;
+
   correctedAnswer: boolean;
 
   constructor(private dialogRef: MatDialogRef<ParseAnswerDialogComponent>,
@@ -36,22 +38,30 @@ export class ParseAnswerDialogComponent {
     this.hasNextWord = data.hasNextWord;
     this.correctedAnswer = data.correctedAnswer;
 
-    let notIncludedInGivenAnswer = null;
-    if (this.state.getSecondaryTensesEnabled()) {
-      notIncludedInGivenAnswer = this.currentWord.partsOfSpeech.filter(x => {
-        return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined && !allTenses.includes(x)
-          ? x.headCategory.name
-          : x.name);
-      });
-    } else {
-      notIncludedInGivenAnswer = this.currentWord.partsOfSpeech.filter(x => {
-        return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined
-          ? x.headCategory.name
-          : x.name);
-      });
-    }
+    let partOfTheRightAnswer: WordPart[] = null;
+    let wrongPartsOfGivenAnswer: WordPart[] = null;
+    if (!this.answerIsRight) {
+      if (this.state.getSecondaryTensesEnabled()) {
+        partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
+          return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined && !allTenses.includes(x)
+            ? x.headCategory.name
+            : x.name);
+        });
+      } else {
+        partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
+          return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined
+            ? x.headCategory.name
+            : x.name);
+        });
+      }
 
-    this.hint = __.sample(notIncludedInGivenAnswer);
+      if (partOfTheRightAnswer.length === 0) {
+        wrongPartsOfGivenAnswer = __.differenceWith(this.givenAnswer, this.currentWord.partsOfSpeech, __.isEqual);
+        this.hintWrongPartOfAnswer = __.sample(wrongPartsOfGivenAnswer);
+      } else {
+        this.hintRightPartOfAnswer = __.sample(partOfTheRightAnswer);
+      }
+    }
   }
 
   goToNextWord(): any {

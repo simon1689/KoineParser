@@ -39,6 +39,10 @@ export class ReportErrorOnPageDialogComponent implements OnInit {
           givenAnswer: this.component.answer,
           wordIndex: this.component.wordIndex,
           range: this.state.getBibleRange(),
+          secondaryTensesEnabled: this.state.getSecondaryTensesEnabled(),
+          skippedWords: this.component.skippedWords,
+          goodAnswers: this.component.goodAnswers,
+          wrongAnswers: this.component.wrongAnswers,
           words: this.component.words,
         }
       };
