@@ -12,14 +12,6 @@
   src: local("fonts/SBL_grk.ttf"), url(assets/SBL_grk.ttf) format("ttf")
 }
 
-@font-face {
-  font-family: "Ancient Geek";
-  src: url(assets/geek.ttf);
-  src: url(assets/geek.ttf);
-  src: local("fonts/geek.ttf"), url(assets/geek.ttf) format("ttf")
-}
-
-
 html, body {
   height: 100%;
 }
@@ -37,10 +29,3 @@ body {
   font-size: 120%;
   letter-spacing: 2px
 }
-
-.banner {
-  font-family: "Ancient Geek", serif;
-  font-size: 18px;
-  text-transform: capitalize;
-}
-

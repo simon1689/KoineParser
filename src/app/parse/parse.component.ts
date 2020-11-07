@@ -119,6 +119,8 @@ export class ParseComponent implements OnInit {
         console.log(this.word);
       }
     );
+
+    this.determineSecondaryTenses();
   }
 
   nextWord(): void {
