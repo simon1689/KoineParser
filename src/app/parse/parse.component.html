@@ -148,20 +148,35 @@
                        matTooltip="Report an error on this page"></fa-icon></span>
       </div>
       <div class="p-1">
-        <button mat-raised-button (click)="skipWord()" [disabled]="wordIndex >= words.length" type="button"
+        <button mat-raised-button (click)="skipWord()" [disabled]="wordIndex >= words.length || sessionSaved"
+                type="button"
                 color="accent">Skip
         </button>
       </div>
       <div class="p-1">
-        <button mat-raised-button color="primary" type="submit" (submit)="submit()">
+        <button mat-raised-button color="primary" type="submit" (submit)="submit()" [disabled]="sessionSaved">
           Answer
         </button>
       </div>
       <div class="p-1">
-        <button mat-raised-button [disabled]="wordIndex >= words.length || currentWordIsUnanswered" (click)="nextWord()"
+        <button mat-raised-button [disabled]="wordIndex >= words.length || currentWordIsUnanswered || sessionSaved"
+                (click)="nextWord()"
                 type="button" color="primary">Next
         </button>
       </div>
+    </div>
+    <div>
+      <div class="text-right">
+        <button mat-raised-button
+                matTooltip="Save your progress so that you can continue later. You can select this session from the homepage."
+                (click)="saveSession()" [disabled]="sessionSaved">
+          Save session
+        </button>
+      </div>
+    </div>
+    <br/>
+    <div class="alert alert-success" *ngIf="sessionSaved">
+      <p>Your session has been saved. You can access it and resume parsing from the <a href="/home">homepage</a>.</p>
     </div>
   </form>
 </ng-container>

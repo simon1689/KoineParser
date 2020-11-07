@@ -86,11 +86,11 @@ export class KoineParserService {
       }));
   }
 
-  multipleMorphologiesForWord(): Observable<MultipleMorphologyWord[]> {
+  multipleMorphologiesForWord(): Promise<MultipleMorphologyWord[]> {
     return this.http.get<MultipleMorphologyWord[]>('./assets/multiple_morphologies.json')
       .pipe(catchError(error => {
         return observableThrowError(error);
-      }));
+      })).toPromise();
   }
 
   // Dodson, Mounce, and if these are not available then 'greek_lexicon' which I'm not sure which lexicon is that

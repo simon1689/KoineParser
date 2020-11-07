@@ -15,7 +15,6 @@ import {
   correlativeOrInterrogativePronoun,
   correlativePronoun,
   demonstrativePronoun,
-  disjunctiveParticiple,
   genderType,
   indeclinable,
   indeclinableNounOrOtherPartSuffix,
@@ -120,7 +119,7 @@ export class MorphologyGenerator {
             }
             break;
 
-          case disjunctiveParticiple:
+          // case disjunctiveParticiple:
           case particleType:
             morphology = type.abbreviation + '-';
             morphology += this.searchForPart(allSuffixes, wordParts);
@@ -174,9 +173,8 @@ export class MorphologyGenerator {
           || result.includes(personalPronoun) || reciprocalPronoun || correlativePronoun) {
           result = this.processNounParts(part, result);
 
-        } else if (result.includes(disjunctiveParticiple) && part === negativeSuffix.abbreviation) {
+        } else if (result.includes(particleType) && part === negativeSuffix.abbreviation) {
           result.push(negativeSuffix);
-
         } else if (part === possessivePronoun.abbreviation) {
           result.push(allPersons.find(x => x.abbreviation === part.substr(0, 1)));
           result = this.processNounParts(part.substr(1), result);

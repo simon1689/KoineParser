@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {WordModel} from './models/word.model';
 import {Book} from './etc/bible';
 import * as __ from 'lodash-es';
+import {LocalStorageSession} from './models/local-storage-session';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class StateService {
   wordsForParsing: WordModel[] = [];
   bibleRange = '';
   verbSecondaryTensesEnabled = false;
+  localStorageSession: LocalStorageSession;
 
   constructor() {
   }
@@ -49,5 +51,13 @@ export class StateService {
 
   getSecondaryTensesEnabled(): boolean {
     return this.verbSecondaryTensesEnabled;
+  }
+
+  setCurrentSession(localStorageSession: LocalStorageSession): void {
+    this.localStorageSession = localStorageSession;
+  }
+
+  getCurrentSession(): LocalStorageSession {
+    return this.localStorageSession;
   }
 }

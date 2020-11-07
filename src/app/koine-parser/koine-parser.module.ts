@@ -40,6 +40,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {SessionsComponent} from '../sessions/sessions.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     NavbarComponent,
     ContactComponent,
     SideNavComponent,
+    SessionsComponent,
+
   ],
   imports: [
     CommonModule,

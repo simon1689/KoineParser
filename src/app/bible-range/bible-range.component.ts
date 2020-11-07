@@ -55,8 +55,7 @@ export class BibleRangeComponent implements OnInit {
     this.state = state;
 
     this.selectedBook = BibleBooks[0];
-    this.beginningChapter = this.selectedBook.chapters[0];
-    this.endingChapter = this.beginningChapter;
+    this.beginningChapter = this.endingChapter = this.selectedBook.chapters[0];
   }
 
   ngOnInit(): void {
@@ -78,10 +77,7 @@ export class BibleRangeComponent implements OnInit {
       amountOfWords: new FormControl(null),
     });
 
-    this.selectedBook = BibleBooks[0];
-    this.beginningChapter = this.endingChapter = __.first(this.selectedBook.chapters);
     this.bibleRangeForm.controls.bibleBook.setValue(this.selectedBook.number);
-
     this.bibleRangeForm.controls.bibleBookFromChapter.setValue(this.beginningChapter.chapter);
     this.bibleRangeForm.controls.bibleBookFromVerse.setValue(1);
 

@@ -30,8 +30,10 @@ import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
 import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
 import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
+import {LocalStorageSession} from '../models/local-storage-session';
+import {Subscription} from 'rxjs';
 
-interface WrongAnswer {
+export interface WrongAnswer {
   word: WordModel;
   given_answer: string;
 }
@@ -54,10 +56,12 @@ export class ParseComponent implements OnInit {
   partsOfSpeech: string[] = ['type', 'tense', 'voice', 'mood', 'person', 'case', 'number', 'gender'];
   answer: string;
   currentWordIsUnanswered = true;
+  sessionSaved: boolean;
 
   // form stuff
   types = Types;
   parsingForm: FormGroup;
+  buttonsFormGroup: FormGroup;
   verbTenses = VerbTenses;
   persons = Persons;
   moods = Moods;
@@ -83,17 +87,22 @@ export class ParseComponent implements OnInit {
               private state: StateService,
               private service: KoineParserService,
               public dialog: MatDialog) {
-
   }
 
   ngOnInit(): void {
-    this.startRoute();
-    // this.plannedRoute();
+    this.initForm();
+    if (this.state.getCurrentSession()) {
+      this.setCurrentSession();
+    } else {
+      this.startRoute();
+      // this.plannedRoute();
+    }
+
+    this.determineSecondaryTenses();
+    console.log(this.word);
   }
 
   startRoute(): void {
-    this.initForm();
-    this.determineSecondaryTenses();
     this.words = this.state.getWordsForParsing();
     this.goToNextWord(this.usedWords);
 
@@ -104,22 +113,28 @@ export class ParseComponent implements OnInit {
 
   // for testing cases received from the report form
   plannedRoute(): void {
-    this.initForm();
-
     this.service.getEmailedReportInformation().subscribe(
       result => {
-        this.words = result.words;
-        this.wordIndex = result.wordIndex;
-        this.word = result.words[result.wordIndex - 1];
-        this.state.bibleRange = result.range;
-        this.state.setSecondaryTensesEnabled(result.secondaryTensesEnabled);
-        this.skippedWords = (result.skippedWords === undefined) ? [] : result.skippedWords;
-        this.goodAnswers = (result.goodAnswers === undefined) ? [] : result.goodAnswers;
-        this.wrongAnswers = (result.wrongAnswers === undefined) ? [] : result.wrongAnswers;
-        console.log(this.word);
+        this.setData(result);
       }
     );
+  }
 
+  setCurrentSession(): void {
+    const session = this.state.getCurrentSession();
+    this.setData(session);
+  }
+
+  // sets data from LocalStorageSession and also from reported email data
+  setData(data: any): void {
+    this.words = data.words;
+    this.wordIndex = data.wordIndex;
+    this.word = data.words[data.wordIndex - 1];
+    this.state.bibleRange = data.range;
+    this.state.setSecondaryTensesEnabled(data.secondaryTensesEnabled);
+    this.skippedWords = (data.skippedWords === undefined) ? [] : data.skippedWords;
+    this.goodAnswers = (data.goodAnswers === undefined) ? [] : data.goodAnswers;
+    this.wrongAnswers = (data.wrongAnswers === undefined) ? [] : data.wrongAnswers;
     this.determineSecondaryTenses();
   }
 
@@ -131,7 +146,12 @@ export class ParseComponent implements OnInit {
 
   skipWord(): void {
     if (this.wordIndex < this.words.length) {
-      this.goToNextWord(this.skippedWords, true);
+      if (this.goodAnswers.find(x => x === this.word) === undefined
+        && this.wrongAnswers.find(x => x.word === this.word) === undefined) {
+        this.goToNextWord(this.skippedWords, true);
+      } else {
+        this.goToNextWord(this.usedWords, true);
+      }
     }
   }
 
@@ -176,26 +196,26 @@ export class ParseComponent implements OnInit {
     });
   }
 
-  submit(): void {
+  async submit(): Promise<void> {
     if (this.parsingForm.valid) {
       const answerParts = this.formulateAnswerParts();
       const answerMorphologyCode = this.morphologyGenerator.generateMorphologyFromWordParts(answerParts);
-
 
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
 
         let answerIsRight: boolean;
+        const wordPartsOfSpeech = this.word.partsOfSpeech.filter(x => !allSuffixes.includes(x));
         if (this.state.getSecondaryTensesEnabled()) {
-          answerIsRight = __.isEqualWith(this.word.partsOfSpeech, answerParts,
-            this.customEqualsComparableWithSecondaryTenses);
+          answerIsRight = __.isEqualWith(wordPartsOfSpeech, answerParts, this.customEqualsComparableWithSecondaryTenses);
         } else {
-          answerIsRight = __.isEqualWith(this.word.partsOfSpeech, answerParts,
-            this.customEqualsComparable);
+          answerIsRight = __.isEqualWith(wordPartsOfSpeech, answerParts, this.customEqualsComparable);
         }
+
         if (answerIsRight) {
           // if answer is given for the first time
-          if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
+          if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined
+            && this.goodAnswers.find(word => __.isEqual(word, this.word)) === undefined) {
             this.goodAnswers.push(this.word);
             this.openDialog(true, answerParts, false);
           } else {
@@ -204,11 +224,20 @@ export class ParseComponent implements OnInit {
         } else {
 
           // check if the word has multiple morphologies
-          const multipleMorphologies = this.getMultipleMorphologiesForWord(this.word);
+          const multipleMorphologies = await this.getMultipleMorphologiesForWord(this.word).then(x => x);
           if (multipleMorphologies.find(x => x === this.word.morphology) !== undefined) {
+
             // do not accept the right answer after a wrong answer
             if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) !== undefined) {
               this.openDialog(true, answerParts, true);
+              return;
+            }
+            // accept right answer if the word has not been answered
+            else if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined
+              && this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
+              this.goodAnswers.push(this.word);
+              this.openDialog(true, answerParts);
+              return;
             }
           } else {
             // if the last given answer is the same as the current, then do nothing
@@ -268,18 +297,15 @@ export class ParseComponent implements OnInit {
     });
   }
 
-  getMultipleMorphologiesForWord(word: WordModel): string[] {
-    const result: string[] = [];
-    this.service.multipleMorphologiesForWord()
-      .subscribe(response => {
+  getMultipleMorphologiesForWord(word: WordModel): Promise<string[]> {
+    let result: string[] = [];
+    return this.service.multipleMorphologiesForWord()
+      .then(response => {
         const wordsWithMultipleMorphologies = __.filter(response, x =>
-          x.morphology !== word.morphology && x.word.toLowerCase() === word.word.toLowerCase() && word.strongsNr === x.strongs);
-        for (const morph of wordsWithMultipleMorphologies) {
-          result.push(morph.morphology);
-        }
-      }, error => console.error(error));
+          x.word.toLowerCase() === word.word.toLowerCase() && word.strongsNr === x.strongs); // &&  x.morphology !== word.morphology
 
-    return result;
+        return result = wordsWithMultipleMorphologies.map(x => x.morphology);
+      });
   }
 
   customEqualsComparable(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[]): boolean {
@@ -287,7 +313,6 @@ export class ParseComponent implements OnInit {
       return false;
     }
 
-    wordPartsOfSpeech = wordPartsOfSpeech.filter(x => !allSuffixes.includes(x));
     if (wordPartsOfSpeech.length !== givenAnswer.length) {
       return false;
     }
@@ -320,7 +345,6 @@ export class ParseComponent implements OnInit {
       return false;
     }
 
-    wordPartsOfSpeech = wordPartsOfSpeech.filter(x => !allSuffixes.includes(x));
     if (wordPartsOfSpeech.length !== givenAnswer.length) {
       return false;
     }
@@ -420,5 +444,37 @@ export class ParseComponent implements OnInit {
     } else {
       this.verbTenses = this.verbTenses.filter(x => x.secondary === false);
     }
+  }
+
+  saveSession(): void {
+    const session: LocalStorageSession = {
+      words: this.words,
+      wordIndex: this.wordIndex,
+      currentWord: this.word,
+      date: new Date().toDateString(),
+      range: this.state.getBibleRange(),
+      goodAnswers: this.goodAnswers,
+      wrongAnswers: this.wrongAnswers,
+      skippedWords: this.skippedWords,
+      key: this.state.getBibleRange() + ' ' + new Date().toDateString(),
+      secondaryTensesEnabled: this.state.getSecondaryTensesEnabled()
+    };
+
+    let sessionKeys: string[] = [];
+    if ('session_keys' in localStorage) {
+      sessionKeys = JSON.parse(localStorage.getItem('session_keys'));
+    }
+
+    if (session.key in localStorage) { // if session exists, then remove it first
+      sessionKeys = sessionKeys.filter(x => x !== session.key); // remove the key
+      localStorage.removeItem(session.key);
+    }
+
+    sessionKeys.push(session.key);
+    localStorage.setItem(session.key, JSON.stringify(session));
+    localStorage.setItem('session_keys', JSON.stringify(sessionKeys));
+
+    this.parsingForm.disable();
+    this.sessionSaved = true;
   }
 }
