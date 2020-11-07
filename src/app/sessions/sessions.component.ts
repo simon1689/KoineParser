@@ -44,9 +44,12 @@ export class SessionsComponent implements OnInit {
     if (this.selectedSession.key in localStorage) {
       localStorage.removeItem(this.selectedSession.key);
       let keys: string[] = JSON.parse(localStorage.getItem('session_keys'));
-      keys = keys.filter(x => x === this.selectedSession.key);
-      localStorage.removeItem('session_keys');
-      localStorage.setItem('session_keys', JSON.stringify(keys));
+      keys = keys.filter(x => x !== this.selectedSession.key);
+      if (keys.length === 0) {
+        localStorage.removeItem('session_keys');
+      } else {
+        localStorage.setItem('session_keys', JSON.stringify(keys));
+      }
     }
 
     this.getSessions();
