@@ -11,5 +11,6 @@ export interface LocalStorageSession {
   wrongAnswers: WrongAnswer[];
   goodAnswers: WordModel[];
   skippedWords: WordModel[];
+  usedWords: WordModel[];
   secondaryTensesEnabled: boolean;
 }

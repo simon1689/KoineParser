@@ -61,7 +61,6 @@ export class ParseComponent implements OnInit {
   // form stuff
   types = Types;
   parsingForm: FormGroup;
-  buttonsFormGroup: FormGroup;
   verbTenses = VerbTenses;
   persons = Persons;
   moods = Moods;
@@ -135,6 +134,7 @@ export class ParseComponent implements OnInit {
     this.skippedWords = (data.skippedWords === undefined) ? [] : data.skippedWords;
     this.goodAnswers = (data.goodAnswers === undefined) ? [] : data.goodAnswers;
     this.wrongAnswers = (data.wrongAnswers === undefined) ? [] : data.wrongAnswers;
+    this.usedWords = (data.usedWords === undefined) ? [] : data.usedWords;
     this.determineSecondaryTenses();
   }
 
@@ -456,6 +456,7 @@ export class ParseComponent implements OnInit {
       goodAnswers: this.goodAnswers,
       wrongAnswers: this.wrongAnswers,
       skippedWords: this.skippedWords,
+      usedWords: this.usedWords,
       key: this.state.getBibleRange() + ' ' + new Date().toDateString(),
       secondaryTensesEnabled: this.state.getSecondaryTensesEnabled()
     };

@@ -43,6 +43,7 @@ export class ReportErrorOnPageDialogComponent implements OnInit {
           skippedWords: this.component.skippedWords,
           goodAnswers: this.component.goodAnswers,
           wrongAnswers: this.component.wrongAnswers,
+          usedWords: this.component.usedWords,
           words: this.component.words,
         }
       };

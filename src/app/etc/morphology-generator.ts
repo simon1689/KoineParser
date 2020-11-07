@@ -52,7 +52,7 @@ export class MorphologyGenerator {
       }
     }
 
-    return result;
+    return result.filter(x => x !== undefined);
   }
 
   public static generateMorphologyFromWordParts(wordParts: WordPart[]): string {
@@ -182,7 +182,7 @@ export class MorphologyGenerator {
       }
     }
 
-    return result;
+    return result.filter(x => x !== undefined);
   }
 
   private static processThreePartMorphology(splitValue: string[]): WordPart[] {
@@ -213,7 +213,7 @@ export class MorphologyGenerator {
       }
     }
 
-    return result;
+    return result.filter(x => x !== undefined);
   }
 
   private static processNounParts(value: string, result: WordPart[]): WordPart[] {
@@ -244,7 +244,7 @@ export class MorphologyGenerator {
     const moodPart = part.substr(secondaryTense ? 3 : 2, 1);
     result.push(allMoods.find(x => x.abbreviation === moodPart));
 
-    return result;
+    return result.filter(x => x !== undefined);
   }
 
   private static processPronounParts(part: string, result: WordPart[]): WordPart[] {
@@ -267,7 +267,7 @@ export class MorphologyGenerator {
       }
     }
 
-    return result;
+    return result.filter(x => x !== undefined);
   }
 
   public static convertWordPartsToReadableForm(wordParts: WordPart[], formatting: boolean = false, newLine = false): string {
