@@ -29,7 +29,8 @@
           class="font-italic">Dodson Greek Lexicon:</span> {{word.lexiconEntry.shortDefinition}}</p>
 
         <p *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.mounce !== undefined"><span
-          class="font-italic">Mounce (Gk. {{word.lexiconEntry.gkNr}}):</span> {{word.lexiconEntry.mounce}}</p>
+          class="font-italic">Mounce (Gk. {{word.lexiconEntry.gkNr}}): </span> <span
+          [innerHTML]="word.lexiconEntry.mounce | greekStyler"></span></p>
       </div>
 
       <mat-expansion-panel style="background: #e2e3e5; color: black" togglePosition="before" #answerExpansionPanel>
@@ -169,7 +170,7 @@
       <div class="text-right">
         <button mat-raised-button
                 matTooltip="Save your progress so that you can continue later. You can select this session from the homepage."
-                (click)="saveSession()" [disabled]="sessionSaved">
+                (click)="saveSession()" [disabled]="sessionSaved || wordIndex >= words.length">
           Save session
         </button>
       </div>
@@ -180,3 +181,4 @@
     </div>
   </form>
 </ng-container>
+

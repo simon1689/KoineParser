@@ -25,7 +25,6 @@ import {
 } from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
-import * as __ from 'lodash-es';
 
 @Component({
   selector: 'app-bible-range',
@@ -70,7 +69,6 @@ export class BibleRangeComponent implements OnInit {
       bibleBookFromVerse: new FormControl('', Validators.required),
       bibleBookToChapter: new FormControl(''),
       bibleBookToVerse: new FormControl(''),
-
       verbSecondaryTenses: new FormControl(''),
       types: this.typesFormGroup,
       randomizeWords: new FormControl({value: true}),

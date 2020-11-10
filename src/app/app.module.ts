@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {KoineParserService} from './koine-parser.service';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {KoineParserService} from './koine-parser.service';
     HttpClientModule,
     KoineParserModule,
     AppRoutingModule,
+    MatTableModule,
   ],
   providers: [KoineParserService],
   bootstrap: [AppComponent],

@@ -41,6 +41,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {SessionsComponent} from '../sessions/sessions.component';
+import {MyScoresComponent} from '../my-scores/my-scores.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {GreekStylerPipe} from '../greek-styler.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,8 @@ import {SessionsComponent} from '../sessions/sessions.component';
     ContactComponent,
     SideNavComponent,
     SessionsComponent,
-
+    MyScoresComponent,
+    GreekStylerPipe,
   ],
   imports: [
     CommonModule,
@@ -90,6 +95,8 @@ import {SessionsComponent} from '../sessions/sessions.component';
     MatMenuModule,
     MatTabsModule,
     MatSidenavModule,
+    MatTableModule,
+    MatSortModule,
   ],
   exports: [
     BibleRangeComponent,

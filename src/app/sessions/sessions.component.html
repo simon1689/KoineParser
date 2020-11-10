@@ -15,6 +15,7 @@
     </button>
     <button mat-raised-button [disabled]="sessionSelectionBox.value === ''" (click)="resumeSession()">Resume</button>
   </div>
+  <br/>
   <mat-card *ngIf="selectedSession !== undefined">
     {{selectedSession.words.length}} words in total of
     which {{selectedSession.wrongAnswers.length + selectedSession.goodAnswers.length}} have been answered.

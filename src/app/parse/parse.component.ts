@@ -9,7 +9,8 @@ import {faExclamationCircle, faForward, faThumbsDown, faThumbsUp} from '@fortawe
 import {WordPart} from '../models/word-part';
 import {
   adjective,
-  adverb, allPartsOfSpeech,
+  adverb,
+  allPartsOfSpeech,
   allSuffixes,
   allTenses,
   article,
@@ -31,7 +32,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
 import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
 import {LocalStorageSession} from '../models/local-storage-session';
-import {Subscription} from 'rxjs';
+import {Score} from '../models/score';
 
 export interface WrongAnswer {
   word: WordModel;
@@ -76,6 +77,8 @@ export class ParseComponent implements OnInit {
   skip = faForward;
   exclamation = faExclamationCircle;
   morphologyGenerator = MorphologyGenerator;
+
+  // view children
   @ViewChild('mainContent') mainContent: ElementRef;
   @ViewChild('stepper') stepper: MatStepper;
   @ViewChild('expansionPanel') expansionPanel: MatExpansionPanel;
@@ -98,7 +101,6 @@ export class ParseComponent implements OnInit {
     }
 
     this.determineSecondaryTenses();
-    console.log(this.word);
   }
 
   startRoute(): void {
@@ -230,14 +232,14 @@ export class ParseComponent implements OnInit {
             // do not accept the right answer after a wrong answer
             if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) !== undefined) {
               this.openDialog(true, answerParts, true);
-              return;
+              // return;
             }
             // accept right answer if the word has not been answered
             else if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined
               && this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
               this.goodAnswers.push(this.word);
               this.openDialog(true, answerParts);
-              return;
+              // return;
             }
           } else {
             // if the last given answer is the same as the current, then do nothing
@@ -258,6 +260,10 @@ export class ParseComponent implements OnInit {
               this.openDialog(false, answerParts);
             }
           }
+        }
+
+        if (this.wordIndex === this.words.length) {
+          this.registerScores();
         }
       }
     }
@@ -477,5 +483,25 @@ export class ParseComponent implements OnInit {
 
     this.parsingForm.disable();
     this.sessionSaved = true;
+  }
+
+  registerScores(): void {
+    const score: Score = {
+      date: new Date(),
+      wrongAnswers: this.wrongAnswers.length,
+      range: this.state.getBibleRange(),
+      numberOfWords: this.words.length,
+      goodAnswers: this.goodAnswers.length,
+      skippedWords: this.skippedWords.length
+    };
+
+    if ('scores' in localStorage) {
+      const scoresFromLocalStorage: Score[] = JSON.parse(localStorage.getItem('scores'));
+      scoresFromLocalStorage.push(score);
+      localStorage.setItem('scores', JSON.stringify(scoresFromLocalStorage));
+    } else {
+      const scores: Score[] = [score];
+      localStorage.setItem('scores', JSON.stringify(scores));
+    }
   }
 }

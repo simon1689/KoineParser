@@ -1,0 +1,52 @@
+<div>
+  <h3>My scores</h3>
+  <p>These scores are not stored in our database, they are stored on your browsers (LocalStorage). When you switch
+    browsers they will not be available to you there.</p>
+
+  <mat-card *ngIf="scores.length ===0">
+    <p>
+      <fa-icon [icon]="exclamationIcon"></fa-icon>
+      It appears that you do not have any scores yet. Complete a parsing session and your scores will be
+      registered.
+    </p>
+  </mat-card>
+
+  <table mat-table [dataSource]="scoresDataSource" class="mat-elevation-z8" style="width: 100%"
+         *ngIf="scores.length !==0"
+         matSort>
+
+    <ng-container matColumnDef="range">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Range</th>
+      <td mat-cell *matCellDef="let element"> {{element.range}} </td>
+    </ng-container>
+    p
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.dateFormatted}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfWords">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> # of words</th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfWords}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="goodAnswers">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> # of good answers</th>
+      <td mat-cell *matCellDef="let element"> {{element.goodAnswers}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="wrongAnswers">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> # of wrong answers</th>
+      <td mat-cell *matCellDef="let element"> {{element.wrongAnswers}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="skippedWords">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> # of skipped words</th>
+      <td mat-cell *matCellDef="let element"> {{element.skippedWords}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

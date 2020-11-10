@@ -19,7 +19,7 @@
     <div>
       <mat-form-field style="width: 300px;" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput formControlName="email">
+        <input type="email" required matInput formControlName="email">
         <mat-error
           *ngIf="contactForm.controls.email.hasError('email') && !contactForm.controls.email.hasError('required')">
           Please enter a valid email address

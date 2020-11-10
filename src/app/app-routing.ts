@@ -4,9 +4,11 @@ import {BibleRangeComponent} from './bible-range/bible-range.component';
 import {ParseComponent} from './parse/parse.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
+import {MyScoresComponent} from './my-scores/my-scores.component';
 
 export const routes: Routes = [
   {path: '', component: BibleRangeComponent},
+  {path: 'scores', component: MyScoresComponent},
   {path: 'about', component: AboutComponent},
   {path: 'parsing', component: ParseComponent},
   {path: 'bible', component: BibleRangeComponent},
