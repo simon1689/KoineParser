@@ -129,5 +129,5 @@ export const indeclinableNumeralSuffix: WordPart = {name: 'Indeclinable numeral'
 export const allSuffixes: WordPart[] = [atticSuffix, negativeSuffix, indeclinable, indeclinableNumeralSuffix,
   indeclinableNounOrOtherPartSuffix, contractedOrComparativeFormSuffix, participleAttachedSuffix];
 
-export const allPartsOfSpeech = [...allSuffixes, ...allGenders, ...allCases, ...allNumbers,
+export const allWordParts = [...allSuffixes, ...allGenders, ...allCases, ...allNumbers,
   ...allPersons, ...allMoods, ...allVoices, ...allTenses, ...allWordTypes];

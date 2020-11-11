@@ -10,7 +10,7 @@ import {WordPart} from '../models/word-part';
 import {
   adjective,
   adverb,
-  allPartsOfSpeech,
+  allWordParts,
   allSuffixes,
   allTenses,
   article,
@@ -275,7 +275,7 @@ export class ParseComponent implements OnInit {
     for (const part of this.partsOfSpeech) {
       const control = this.parsingForm.get(part);
       if (control.dirty && control.value !== this.defaultControlValue && !control.disabled) {
-        answerParts.push(allPartsOfSpeech.find(x => x.abbreviation === control.value && x.type.toLowerCase() === part.toLowerCase()));
+        answerParts.push(allWordParts.find(x => x.abbreviation === control.value && x.type.toLowerCase() === part.toLowerCase()));
       }
     }
 

@@ -165,3 +165,6 @@ export const Types: PartOfSpeech[] = [
   {name: 'Particle', abbreviation: 'PRT', controlId: 'ParticleCtrl', wordPart: particleType},
   {name: 'Conditional particle/conjunction', abbreviation: 'COND', controlId: 'ConditionalCtrl', wordPart: conditionalType},
 ];
+
+export const allPartsOfSpeech: PartOfSpeech[] = [...Voices, ...Moods, ...VerbTenses,
+  ...Persons, ...Numbers, ...NounCases, ...Genders, ...Types];
