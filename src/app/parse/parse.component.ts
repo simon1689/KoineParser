@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../models/part-of-speech-objects';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -10,9 +10,9 @@ import {WordPart} from '../models/word-part';
 import {
   adjective,
   adverb,
-  allWordParts,
   allSuffixes,
   allTenses,
+  allWordParts,
   article,
   conditionalType,
   conjunction,
@@ -26,7 +26,7 @@ import {
 } from '../etc/word-type-constants';
 import {KoineParserService} from '../koine-parser.service';
 import {MorphologyGenerator} from '../etc/morphology-generator';
-import {MatStepper} from '@angular/material/stepper';
+import {MatStep, MatStepper} from '@angular/material/stepper';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
 import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
@@ -44,7 +44,7 @@ export interface WrongAnswer {
   templateUrl: './parse.component.html',
   styleUrls: ['./parse.component.css']
 })
-export class ParseComponent implements OnInit {
+export class ParseComponent implements OnInit, AfterViewInit {
   // words and answers
   wordIndex = 0;
   word: WordModel = null;
@@ -84,6 +84,13 @@ export class ParseComponent implements OnInit {
   @ViewChild('expansionPanel') expansionPanel: MatExpansionPanel;
   @ViewChild('answerExpansionPanel') answerExpansionPanel: MatExpansionPanel;
 
+  // stepper stuff
+  tenseStep;
+  voiceStep;
+  moodStep;
+  personStep;
+  caseGenderNumberStep;
+
   constructor(private router: Router,
               private activeRoute: ActivatedRoute,
               private state: StateService,
@@ -93,14 +100,23 @@ export class ParseComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+
     if (this.state.getCurrentSession()) {
       this.setCurrentSession();
     } else {
       this.startRoute();
-      // this.plannedRoute();
+      // this.testRoute();
     }
 
     this.determineSecondaryTenses();
+  }
+
+  ngAfterViewInit(): void {
+    this.tenseStep = this.stepper.steps.find(x => x.label === 'Tense');
+    this.voiceStep = this.stepper.steps.find(x => x.label === 'Voice');
+    this.moodStep = this.stepper.steps.find(x => x.label === 'Mood');
+    this.personStep = this.stepper.steps.find(x => x.label === 'Person');
+    this.caseGenderNumberStep = this.stepper.steps.find(x => x.label === 'Case, gender, number');
   }
 
   startRoute(): void {
@@ -113,7 +129,7 @@ export class ParseComponent implements OnInit {
   }
 
   // for testing cases received from the report form
-  plannedRoute(): void {
+  testRoute(): void {
     this.service.getEmailedReportInformation().subscribe(
       result => {
         this.setData(result);
@@ -377,13 +393,14 @@ export class ParseComponent implements OnInit {
     return true;
   }
 
-  determineAvailableControlsWhenTypeIsSelected($event: Event): void {
+  determineAvailableControlsWhenTypeIsSelected(): void {
     this.parsingForm.enable();
 
     switch (this.parsingForm.controls.type.value) {
       case verb.abbreviation:
         this.parsingForm.controls.case.disable();
         this.parsingForm.controls.gender.disable();
+        this.goToStep(this.tenseStep);
         break;
       case noun.abbreviation:
       case article.abbreviation:
@@ -392,22 +409,20 @@ export class ParseComponent implements OnInit {
         this.parsingForm.controls.voice.disable();
         this.parsingForm.controls.mood.disable();
         this.parsingForm.controls.person.disable();
-        break;
-      case preposition.abbreviation:
-        this.parsingForm.disable();
-        this.parsingForm.controls.type.enable();
+        this.goToStep(this.caseGenderNumberStep);
+
         break;
       case personalPronoun.abbreviation: // this includes all types of pronouns
         this.parsingForm.controls.tense.disable();
         this.parsingForm.controls.voice.disable();
         this.parsingForm.controls.mood.disable();
-        break;
-      case conjunction.abbreviation:
-      case adverb.abbreviation:
-        this.parsingForm.disable();
-        this.parsingForm.controls.type.enable();
+        this.goToStep(this.personStep);
+
         break;
 
+      case conjunction.abbreviation:
+      case adverb.abbreviation:
+      case preposition.abbreviation:
       case conditionalType.abbreviation:
       case particleType.abbreviation:
         this.parsingForm.disable();
@@ -424,6 +439,7 @@ export class ParseComponent implements OnInit {
       this.parsingForm.controls.case.enable();
       this.parsingForm.controls.gender.enable();
       this.parsingForm.controls.number.enable();
+      this.goToStep(this.caseGenderNumberStep);
     } else if (this.parsingForm.controls.mood.value === infinitiveMood.abbreviation) {
       this.parsingForm.controls.case.disable();
       this.parsingForm.controls.gender.disable();
@@ -434,6 +450,7 @@ export class ParseComponent implements OnInit {
       this.parsingForm.controls.number.enable();
       this.parsingForm.controls.case.disable();
       this.parsingForm.controls.gender.disable();
+      this.goToStep(this.personStep);
     }
   }
 
@@ -503,5 +520,9 @@ export class ParseComponent implements OnInit {
       const scores: Score[] = [score];
       localStorage.setItem('scores', JSON.stringify(scores));
     }
+  }
+
+  goToStep(tenseStep: any): void {
+    this.stepper.selectedIndex = this.stepper.steps.toArray().indexOf(tenseStep);
   }
 }

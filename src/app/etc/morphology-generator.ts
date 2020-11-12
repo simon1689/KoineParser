@@ -43,8 +43,13 @@ export class MorphologyGenerator {
       result.push(allWordTypes.find(x => x.abbreviation === splitValue[0]));
     } else if (splitValue.length === 2) { // nouns
       result = this.processTwoPartMorphology(splitValue);
-    } else if (splitValue.length === 3) { // verbs
-      result = this.processThreePartMorphology(splitValue);
+    } else if (splitValue.length === 3) { // verbs and pronouns with suffixes
+      if (allTypesOfPronouns.find(x => x.abbreviation === splitValue[0]) !== undefined) {
+        result = this.processTwoPartMorphology(splitValue);
+        result.push(allSuffixes.find(x => x.abbreviation === splitValue[2]));
+      } else {
+        result = this.processThreePartMorphology(splitValue);
+      }
     } else if (splitValue.length === 4) {
       result = this.processThreePartMorphology(splitValue);
       if (splitValue[3] === atticSuffix.abbreviation) {
@@ -148,13 +153,14 @@ export class MorphologyGenerator {
 
     for (let i = 0; i < 2; i++) {
       const part = splitValue[i];
-
       if (i === 0) {
         result.push(allWordTypes.find(x => x.abbreviation === part));
       }
 
       if (i === 1) {
-        if (result.includes(verb) && part.includes(infinitiveMood.abbreviation)) {
+        if (result.includes(particleType) && part === negativeSuffix.abbreviation) {
+          result.push(negativeSuffix);
+        } else if (result.includes(verb) && part.includes(infinitiveMood.abbreviation)) {
           result = this.processVerbTenseVoiceMood(part, result);
 
           // pronouns stuff
@@ -172,12 +178,6 @@ export class MorphologyGenerator {
           || result.includes(relativePronoun) || result.includes(adjective)
           || result.includes(personalPronoun) || reciprocalPronoun || correlativePronoun) {
           result = this.processNounParts(part, result);
-
-        } else if (result.includes(particleType) && part === negativeSuffix.abbreviation) {
-          result.push(negativeSuffix);
-        } else if (part === possessivePronoun.abbreviation) {
-          result.push(allPersons.find(x => x.abbreviation === part.substr(0, 1)));
-          result = this.processNounParts(part.substr(1), result);
         }
       }
     }
@@ -249,14 +249,14 @@ export class MorphologyGenerator {
 
   private static processPronounParts(part: string, result: WordPart[]): WordPart[] {
     if (part.length === 4) {
-      if (!isNaN(Number(part[0]))) {
+      if (!isNaN(Number(part[0]))) { // if its a number
         result.push(allPersons.find(x => x.abbreviation === part[0]));
-        result.push(allCases.find(x => x.abbreviation === part[0]));
+        result.push(allCases.find(x => x.abbreviation === part[1]));
         result.push(allNumbers.find(x => x.abbreviation === part[2]));
         result.push(allGenders.find(x => x.abbreviation === part[3]));
       }
     } else if (part.length === 3) {
-      if (!isNaN(Number(part[0]))) {
+      if (!isNaN(Number(part[0]))) { // if its a number
         result.push(allPersons.find(x => x.abbreviation === part[0]));
         result.push(allCases.find(x => x.abbreviation === part[1]));
         result.push(allNumbers.find(x => x.abbreviation === part[2]));

@@ -43,7 +43,6 @@
         <div class="text-center"
              [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true, false)"></div>
       </mat-expansion-panel>
-
     </mat-expansion-panel>
   </mat-accordion>
 
@@ -52,7 +51,7 @@
   <form (submit)="submit()" [formGroup]="parsingForm">
     <mat-horizontal-stepper labelPosition="bottom" #stepper [linear]="false">
       <mat-step label="Type">
-        <mat-radio-group (change)="determineAvailableControlsWhenTypeIsSelected(null)" id="typeCtrl"
+        <mat-radio-group (change)="determineAvailableControlsWhenTypeIsSelected()" id="typeCtrl"
                          formControlName="type">
           <mat-radio-button *ngFor="let type of types" [value]="type.abbreviation"
                             matTooltip="{{type.abbreviation}}"
@@ -62,7 +61,7 @@
 
       <mat-step label="Tense" [completed]="parsingForm.controls.tense.disabled"
                 [editable]="parsingForm.controls.tense.enabled">
-        <mat-radio-group id="tenseCtrl" formControlName="tense">
+        <mat-radio-group id="tenseCtrl" formControlName="tense" (change)="goToStep(voiceStep)">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let tense of verbTenses"
                             value="{{tense.abbreviation}}"
@@ -73,14 +72,16 @@
 
       <mat-step label="Voice" [completed]="parsingForm.controls.voice.disabled"
                 [editable]="parsingForm.controls.voice.enabled">
-        <mat-radio-group id="voiceCtrl" formControlName="voice">
+        <mat-radio-group id="voiceCtrl" formControlName="voice" (change)="goToStep(moodStep)">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let voice of voices"
                             value="{{voice.abbreviation}}"
                             matTooltip="{{voice.abbreviation}}"
                             matTooltipPosition="above">{{voice.name}}</mat-radio-button>
         </mat-radio-group>
-        <p>All other voices such as 'middle or passive' or 'passive deponent' fall under the 'Deponent' option.</p>
+        <div class="alert alert-info" role="alert">
+          All other voices such as 'middle or passive' or 'passive deponent' fall under the 'Deponent' option.
+        </div>
       </mat-step>
 
       <mat-step label="Mood" [completed]="parsingForm.controls.mood.disabled"
@@ -97,13 +98,16 @@
       <mat-step label="Person"
                 [completed]="this.parsingForm.controls.person.disabled "
                 [editable]="this.parsingForm.controls.person.enabled">
-        <mat-radio-group id="personCtrl" formControlName="person">
+        <mat-radio-group id="personCtrl" formControlName="person" (change)="goToStep(caseGenderNumberStep)">
           <mat-radio-button [checked]="true">None</mat-radio-button>
           <mat-radio-button *ngFor="let person of persons"
                             value="{{person.abbreviation}}"
                             matTooltip="{{person.abbreviation}}"
                             matTooltipPosition="above">{{person.name}}</mat-radio-button>
         </mat-radio-group>
+        <div class="alert alert-info" role="alert" *ngIf="parsingForm.controls.type.value === 'P'">
+          Person is not required for every type of pronoun.
+        </div>
       </mat-step>
 
       <mat-step label="Case, gender, number"
@@ -140,6 +144,9 @@
                             matTooltip="{{gender.abbreviation}}"
                             matTooltipPosition="above">{{gender.name}}</mat-radio-button>
         </mat-radio-group>
+        <div class="alert alert-info" role="alert" *ngIf="parsingForm.controls.type.value === 'P'">
+          Gender is not required for every type of pronoun.
+        </div>
       </mat-step>
     </mat-horizontal-stepper>
 
