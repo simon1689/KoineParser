@@ -1,7 +1,7 @@
 <div ngxUiLoaderBlurred>
   <form [formGroup]="bibleRangeForm" (ngSubmit)="submit()">
     <div>
-      <mat-label>From</mat-label>
+      <mat-label class="font-weight-bold">From</mat-label>
       <mat-form-field appearance="outline" class="selectBook">
         <mat-label>Book</mat-label>
         <mat-select formControlName="bibleBook"
@@ -34,7 +34,7 @@
     </div>
 
     <div>
-      <mat-label>To</mat-label>
+      <mat-label class="font-weight-bold">To</mat-label>
       <mat-form-field appearance="outline" class="chapter-verse-selectbox">
         <mat-label>Chapter</mat-label>
         <mat-select formControlName="bibleBookToChapter" (selectionChange)="endingChapterSelected()">
@@ -58,12 +58,14 @@
     </div>
 
     <div formGroupName="types">
-      <p>Type of words</p>
-      <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
-                    *ngFor="let type of types" formControlName="{{type.controlId}}"
-                    (change)="setAmountOfWords()">
-        {{type.name}}s
-      </mat-checkbox>
+      <p class="font-weight-bold">Type of words</p>
+      <div style="margin-left:20px;">
+        <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
+                      *ngFor="let type of types" formControlName="{{type.controlId}}"
+                      (change)="setAmountOfWords()">
+          {{type.name}}s
+        </mat-checkbox>
+      </div>
     </div>
 
     <div>
@@ -88,8 +90,7 @@
       {{amountOfWordsForRange}} unique and declinable word forms found!
     </mat-card>
 
-    <br/>
-    <div>
+    <div style="padding-top: 15px">
       <button mat-raised-button [disabled]="bibleRangeForm.controls.amountOfWords.value === 0">
         Start parsing!
       </button>

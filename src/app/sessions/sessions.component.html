@@ -1,9 +1,7 @@
-<div *ngIf="sessions.length !== 0">
-  <br/>
+<div *ngIf="sessions.length !== 0" style="margin-top: 15px">
   <mat-divider></mat-divider>
-  <br/>
-  <h3>Sessions</h3>
-  <div>
+  <div style="margin-top: 15px;">
+    <h3>Sessions</h3>
     <mat-form-field style="width: 300px;">
       <mat-label>Session</mat-label>
       <mat-select [formControl]="sessionSelectionBox" (selectionChange)="sessionSelected()">
@@ -14,10 +12,9 @@
       Delete
     </button>
     <button mat-raised-button [disabled]="sessionSelectionBox.value === ''" (click)="resumeSession()">Resume</button>
+    <mat-card *ngIf="selectedSession !== undefined" style="margin-top: 15px">
+      {{selectedSession.words.length}} words in total of
+      which {{selectedSession.wrongAnswers.length + selectedSession.goodAnswers.length}} have been answered.
+    </mat-card>
   </div>
-  <br/>
-  <mat-card *ngIf="selectedSession !== undefined">
-    {{selectedSession.words.length}} words in total of
-    which {{selectedSession.wrongAnswers.length + selectedSession.goodAnswers.length}} have been answered.
-  </mat-card>
 </div>
