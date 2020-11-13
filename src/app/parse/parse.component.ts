@@ -180,7 +180,7 @@ export class ParseComponent implements OnInit {
         this.answerExpansionPanel.expanded = false;
       }
 
-      // console.clear();
+      console.clear();
       console.log(this.word);
     }
   }
@@ -532,14 +532,14 @@ export class ParseComponent implements OnInit {
     }
   }
 
-    initializeStepsVariables(): void {
+  initializeStepsVariables(): void {
     this.tenseStep = this.stepper.steps.find(x => x.label === 'Tense');
     this.voiceStep = this.stepper.steps.find(x => x.label === 'Voice');
     this.moodStep = this.stepper.steps.find(x => x.label === 'Mood');
     this.personStep = this.stepper.steps.find(x => x.label === 'Person');
     this.caseGenderNumberStep = this.stepper.steps.find(x => x.label === 'Case, gender, number');
-    }
-  
+  }
+
   goToStep(tenseStep: any): void {
     this.stepper.selectedIndex = this.stepper.steps.toArray().indexOf(tenseStep);
   }
