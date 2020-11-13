@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BibleBooks, Book} from '../etc/bible';
-import {PartOfSpeech, Types} from '../models/part-of-speech-objects';
+import {PartOfSpeech, Types, VerbTenses} from '../models/part-of-speech-objects';
 import {KoineParserService} from '../koine-parser.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -37,10 +37,12 @@ export class BibleRangeComponent implements OnInit {
 
   bibleBooks = BibleBooks;
   types = Types.filter(x => x.wordPart !== conditionalType);
+  tenses = VerbTenses.filter(x => !x.secondary);
 
   selectedBook: Book;
   amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
+  tensesFormGroup: FormGroup;
   zoomIcon = faSearch;
   verbSecondaryTenses = false;
   beginningChapter: Chapter = null;
@@ -63,6 +65,8 @@ export class BibleRangeComponent implements OnInit {
 
   initForm(): void {
     this.typesFormGroup = this.createFormGroup(this.types, Validators.required);
+    this.tensesFormGroup = this.createFormGroup(this.tenses);
+
     this.bibleRangeForm = new FormGroup({
       bibleBook: new FormControl('', Validators.required),
       bibleBookFromChapter: new FormControl('', Validators.required),
@@ -71,6 +75,7 @@ export class BibleRangeComponent implements OnInit {
       bibleBookToVerse: new FormControl(''),
       verbSecondaryTenses: new FormControl(''),
       types: this.typesFormGroup,
+      tenses: this.tensesFormGroup,
       randomizeWords: new FormControl({value: true}),
       amountOfWords: new FormControl(null),
     });
