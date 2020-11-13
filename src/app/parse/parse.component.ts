@@ -15,11 +15,11 @@ import {
   allWordParts,
   article,
   conditionalType,
-  conjunction,
-  infinitiveMood,
+  conjunction, deponentVoice, eitherMiddleOrPassiveVoice,
+  infinitiveMood, middlePassiveDeponentVoice, middleVoice, noStatedTense,
   noun,
   participleMood,
-  particleType,
+  particleType, passiveDeponentVoice, passiveVoice,
   personalPronoun,
   preposition,
   verb
@@ -44,7 +44,7 @@ export interface WrongAnswer {
   templateUrl: './parse.component.html',
   styleUrls: ['./parse.component.css']
 })
-export class ParseComponent implements OnInit, AfterViewInit {
+export class ParseComponent implements OnInit {
   // words and answers
   wordIndex = 0;
   word: WordModel = null;
@@ -111,13 +111,6 @@ export class ParseComponent implements OnInit, AfterViewInit {
     this.determineSecondaryTenses();
   }
 
-  ngAfterViewInit(): void {
-    this.tenseStep = this.stepper.steps.find(x => x.label === 'Tense');
-    this.voiceStep = this.stepper.steps.find(x => x.label === 'Voice');
-    this.moodStep = this.stepper.steps.find(x => x.label === 'Mood');
-    this.personStep = this.stepper.steps.find(x => x.label === 'Person');
-    this.caseGenderNumberStep = this.stepper.steps.find(x => x.label === 'Case, gender, number');
-  }
 
   startRoute(): void {
     this.words = this.state.getWordsForParsing();
@@ -187,7 +180,7 @@ export class ParseComponent implements OnInit, AfterViewInit {
         this.answerExpansionPanel.expanded = false;
       }
 
-      console.clear();
+      // console.clear();
       console.log(this.word);
     }
   }
@@ -216,14 +209,14 @@ export class ParseComponent implements OnInit, AfterViewInit {
 
   async submit(): Promise<void> {
     if (this.parsingForm.valid) {
-      const answerParts = this.formulateAnswerParts();
-      const answerMorphologyCode = this.morphologyGenerator.generateMorphologyFromWordParts(answerParts);
+      const answerParts = this.formulateAnswerParts().filter(x => x !== noStatedTense);
+      const answerMorphologyCode = this.morphologyGenerator.generateMorphologyCodeFromWordParts(answerParts);
 
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
 
         let answerIsRight: boolean;
-        const wordPartsOfSpeech = this.word.partsOfSpeech.filter(x => !allSuffixes.includes(x));
+        const wordPartsOfSpeech = this.word.partsOfSpeech.filter(x => !allSuffixes.includes(x) && x !== noStatedTense);
         if (this.state.getSecondaryTensesEnabled()) {
           answerIsRight = __.isEqualWith(wordPartsOfSpeech, answerParts, this.customEqualsComparableWithSecondaryTenses);
         } else {
@@ -240,22 +233,36 @@ export class ParseComponent implements OnInit, AfterViewInit {
             this.openDialog(true, answerParts, true);
           }
         } else {
-
           // check if the word has multiple morphologies
           const multipleMorphologies = await this.getMultipleMorphologiesForWord(this.word).then(x => x);
           if (multipleMorphologies.find(x => x === this.word.morphology) !== undefined) {
 
-            // do not accept the right answer after a wrong answer
-            if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) !== undefined) {
-              this.openDialog(true, answerParts, true);
-              // return;
+            // check if any of the multiple morphologies is part of the given answer
+            for (const morph of multipleMorphologies) {
+              if (this.state.getSecondaryTensesEnabled()) {
+                answerIsRight = __.isEqualWith(morph, answerParts, this.customEqualsComparableWithSecondaryTenses);
+              } else {
+                answerIsRight = __.isEqualWith(morph, answerParts, this.customEqualsComparable);
+              }
+
+              if (answerIsRight) {
+                break;
+              }
             }
-            // accept right answer if the word has not been answered
-            else if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined
-              && this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
-              this.goodAnswers.push(this.word);
-              this.openDialog(true, answerParts);
-              // return;
+
+            if (answerIsRight) {
+              // do not accept the right answer after a wrong answer
+              if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) !== undefined) {
+                this.openDialog(true, answerParts, true);
+              }
+              // accept right answer if the word has not been answered
+              else if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined
+                && this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
+                this.goodAnswers.push(this.word);
+                this.openDialog(true, answerParts);
+              }
+            } else {
+              this.openDialog(false, answerParts);
             }
           } else {
             // if the last given answer is the same as the current, then do nothing
@@ -395,6 +402,7 @@ export class ParseComponent implements OnInit, AfterViewInit {
 
   determineAvailableControlsWhenTypeIsSelected(): void {
     this.parsingForm.enable();
+    this.initializeStepsVariables();
 
     switch (this.parsingForm.controls.type.value) {
       case verb.abbreviation:
@@ -434,6 +442,8 @@ export class ParseComponent implements OnInit, AfterViewInit {
   }
 
   determineAvailableControlsWhenMoodIsSelected(): void {
+    this.initializeStepsVariables();
+
     if (this.parsingForm.controls.mood.value === participleMood.abbreviation) {
       this.parsingForm.controls.person.disable();
       this.parsingForm.controls.case.enable();
@@ -522,6 +532,14 @@ export class ParseComponent implements OnInit, AfterViewInit {
     }
   }
 
+    initializeStepsVariables(): void {
+    this.tenseStep = this.stepper.steps.find(x => x.label === 'Tense');
+    this.voiceStep = this.stepper.steps.find(x => x.label === 'Voice');
+    this.moodStep = this.stepper.steps.find(x => x.label === 'Mood');
+    this.personStep = this.stepper.steps.find(x => x.label === 'Person');
+    this.caseGenderNumberStep = this.stepper.steps.find(x => x.label === 'Case, gender, number');
+    }
+  
   goToStep(tenseStep: any): void {
     this.stepper.selectedIndex = this.stepper.steps.toArray().indexOf(tenseStep);
   }

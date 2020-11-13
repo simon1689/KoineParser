@@ -5,7 +5,7 @@ import {MorphologyGenerator} from '../etc/morphology-generator';
 import {WordPart} from '../models/word-part';
 import * as  __ from 'lodash-es';
 import {StateService} from '../state.service';
-import {allTenses} from '../etc/word-type-constants';
+import {allSuffixes, allTenses} from '../etc/word-type-constants';
 
 @Component({
   selector: 'app-parse-answer-dialog',
@@ -55,6 +55,7 @@ export class ParseAnswerDialogComponent {
         });
       }
 
+      partOfTheRightAnswer = partOfTheRightAnswer.filter(x => !allSuffixes.includes(x));
       if (partOfTheRightAnswer.length === 0) {
         wrongPartsOfGivenAnswer = __.differenceWith(this.givenAnswer, this.currentWord.partsOfSpeech, __.isEqual);
         this.hintWrongPartOfAnswer = __.sample(wrongPartsOfGivenAnswer);

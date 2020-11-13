@@ -21,7 +21,7 @@ import {
   indicativeMood,
   infinitiveMood,
   masculineGender,
-  middlePassiveVoice,
+  eitherMiddleOrPassiveVoice,
   middleVoice,
   neuterGender,
   nominativeCase,
@@ -60,21 +60,15 @@ export interface PartOfSpeech {
 
 export const Voices: PartOfSpeech[] = [
   {name: 'Active', abbreviation: 'A', secondary: false, controlId: 'ActiveVoiceCtrl', wordPart: activeVoice},
-  {name: 'Impersonal active', abbreviation: 'Q', secondary: true, controlId: 'ImpersonalActiveVoiceCtrl', wordPart: impersonalActiveVoice},
   {name: 'Middle', abbreviation: 'M', secondary: false, controlId: 'MiddleVoiceCtrl', wordPart: middleVoice},
   {name: 'Passive', abbreviation: 'P', secondary: false, controlId: 'PassiveVoiceCtrl', wordPart: passiveVoice},
-  {name: 'Deponent', abbreviation: 'D', secondary: false, controlId: 'DeponentVoiceCtrl', wordPart: deponentVoice},
+  {name: 'Middle or passive', abbreviation: 'E', secondary: false, controlId: 'MiddleOrPassiveVoiceCtrl', wordPart: eitherMiddleOrPassiveVoice},
   {name: 'No voice', abbreviation: 'X', secondary: false, controlId: 'NoVoiceCtrl', wordPart: noVoice},
 
+  {name: 'Impersonal active', abbreviation: 'Q', secondary: true, controlId: 'ImpersonalActiveVoiceCtrl', wordPart: impersonalActiveVoice},
+  {name: 'Deponent', abbreviation: 'D', secondary: true, controlId: 'DeponentVoiceCtrl', wordPart: deponentVoice},
   {name: 'Passive deponent', abbreviation: 'O', secondary: true, controlId: 'PassiveDeponentVoiceCtrl', wordPart: passiveDeponentVoice},
-  {name: 'Middle or passive', abbreviation: 'E', secondary: true, controlId: 'MiddleOrPassiveVoiceCtrl', wordPart: middlePassiveVoice},
-  {
-    name: 'Middle or passive deponent',
-    abbreviation: 'N',
-    secondary: true,
-    controlId: 'MiddleOrPassiveDeponentVoiceCtrl',
-    wordPart: middlePassiveVoice
-  },
+  {name: 'Middle or passive deponent', abbreviation: 'N', secondary: true, controlId: 'MiddleOrPassiveDeponentVoiceCtrl', wordPart: eitherMiddleOrPassiveVoice},
 ];
 
 export const Moods: PartOfSpeech[] = [
@@ -92,38 +86,12 @@ export const VerbTenses: PartOfSpeech[] = [
   {name: 'Future', abbreviation: 'F', secondary: false, controlId: 'FutureTenseCtrl', wordPart: futureTense},
   {name: '2nd Future', abbreviation: '2F', secondary: true, controlId: 'SecondFutureTenseCtrl', wordPart: secondFutureTense},
   {name: 'Aorist', abbreviation: 'A', secondary: false, controlId: 'AoristTenseCtrl', wordPart: aoristTense},
-  {
-    name: '2nd Aorist', abbreviation: '2A', secondary: true, controlId: 'SecondAoristTenseCtrl', wordPart: secondAoristTense
-  },
+  {name: '2nd Aorist', abbreviation: '2A', secondary: true, controlId: 'SecondAoristTenseCtrl', wordPart: secondAoristTense},
   {name: 'Perfect', abbreviation: 'R', secondary: false, controlId: 'PerfectTenseCtrl', wordPart: perfectTense},
-  {
-    name: '1st Perfect',
-    abbreviation: '1R',
-    secondary: true,
-    controlId: 'FirstPerfectTenseCtrl',
-    wordPart: firstPerfectTense
-  },
-  {
-    name: '2nd Perfect',
-    abbreviation: '2R',
-    secondary: true,
-    controlId: 'SecondPerfectTenseCtrl',
-    wordPart: secondPerfectTense
-  },
-  {
-    name: 'Pluperfect',
-    abbreviation: 'L',
-    secondary: false,
-    controlId: 'PluperfectTenseCtrl',
-    wordPart: pluperfectTense
-  },
-  {
-    name: '2nd Pluperfect',
-    abbreviation: '2Pf',
-    secondary: true,
-    controlId: 'SecondPluperfectTenseCtrl',
-    wordPart: secondPluperfectTense
-  },
+  {name: '1st Perfect', abbreviation: '1R', secondary: true, controlId: 'FirstPerfectTenseCtrl', wordPart: firstPerfectTense},
+  {name: '2nd Perfect', abbreviation: '2R', secondary: true, controlId: 'SecondPerfectTenseCtrl', wordPart: secondPerfectTense},
+  {name: 'Pluperfect', abbreviation: 'L', secondary: false, controlId: 'PluperfectTenseCtrl', wordPart: pluperfectTense},
+  {name: '2nd Pluperfect', abbreviation: '2Pf', secondary: true, controlId: 'SecondPluperfectTenseCtrl', wordPart: secondPluperfectTense},
 ];
 
 export const Persons: PartOfSpeech[] = [
@@ -160,8 +128,6 @@ export const Types: PartOfSpeech[] = [
   {name: 'Adverb', abbreviation: 'ADV', controlId: 'AdverbsCtrl', wordPart: adverb},
   {name: 'Conjunction', abbreviation: 'CONJ', controlId: 'ConjunctionCtrl', wordPart: conjunction},
   {name: 'Preposition', abbreviation: 'PREP', controlId: 'PrepositionCtrl', wordPart: preposition},
-  // {name: 'Participle', abbreviation: 'Ptc', controlId: 'ParticiplesCtrl', wordPart: participleMood},
-  // {name: 'Infinitive', abbreviation: 'Inf', controlId: 'InfinitivesCtrl', wordPart: infinitiveMood},
   {name: 'Particle', abbreviation: 'PRT', controlId: 'ParticleCtrl', wordPart: particleType},
   {name: 'Conditional particle/conjunction', abbreviation: 'COND', controlId: 'ConditionalCtrl', wordPart: conditionalType},
 ];

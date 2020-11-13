@@ -1,6 +1,6 @@
 import {WordPart} from '../models/word-part';
 import {
-  adjective,
+  adjective, adverb,
   allCases,
   allGenders,
   allMoods,
@@ -20,7 +20,7 @@ import {
   indeclinableNounOrOtherPartSuffix,
   indefinitePronoun,
   infinitiveMood,
-  interrogativePronoun,
+  interrogativePronoun, interrogativeSuffix,
   negativeSuffix,
   noun,
   participleMood,
@@ -30,7 +30,7 @@ import {
   reciprocalPronoun,
   reflexivePronoun,
   relativePronoun,
-  verb
+  verb, voiceType
 } from './word-type-constants';
 
 export class MorphologyGenerator {
@@ -43,8 +43,8 @@ export class MorphologyGenerator {
       result.push(allWordTypes.find(x => x.abbreviation === splitValue[0]));
     } else if (splitValue.length === 2) { // nouns
       result = this.processTwoPartMorphology(splitValue);
-    } else if (splitValue.length === 3) { // verbs and pronouns with suffixes
-      if (allTypesOfPronouns.find(x => x.abbreviation === splitValue[0]) !== undefined) {
+    } else if (splitValue.length === 3) { // verbs
+      if (allWordTypes.filter(x => x !== verb).map(x => x.abbreviation).find(x => x === splitValue[0]) !== undefined) {
         result = this.processTwoPartMorphology(splitValue);
         result.push(allSuffixes.find(x => x.abbreviation === splitValue[2]));
       } else {
@@ -60,11 +60,12 @@ export class MorphologyGenerator {
     return result.filter(x => x !== undefined);
   }
 
-  public static generateMorphologyFromWordParts(wordParts: WordPart[]): string {
+  public static generateMorphologyCodeFromWordParts(wordParts: WordPart[]): string {
     let morphology = '';
     if (wordParts.length === 1) {
       return wordParts[0].abbreviation;
     } else {
+      let suffix = null;
       const type = allWordTypes.find(x => wordParts.includes(x));
       if (type !== undefined) {
         switch (type) {
@@ -73,6 +74,12 @@ export class MorphologyGenerator {
             morphology += this.searchForPart(allTenses, wordParts);
             morphology += this.searchForPart(allVoices, wordParts);
             morphology += this.searchForPart(allMoods, wordParts);
+
+            // if its infinitive, then cut it off
+            if (this.searchForPart(allMoods, wordParts) === infinitiveMood.abbreviation) {
+              break;
+            }
+
             morphology += '-';
 
             if (this.searchForPart(allMoods, wordParts) === participleMood.abbreviation) {
@@ -84,6 +91,11 @@ export class MorphologyGenerator {
               morphology += this.searchForPart(allNumbers, wordParts);
             }
 
+            suffix = this.searchForPart(allSuffixes, wordParts);
+            if (suffix !== '?') {
+              morphology += '-' + suffix;
+            }
+
             break;
 
           case noun:
@@ -93,6 +105,12 @@ export class MorphologyGenerator {
             morphology += this.searchForPart(allCases, wordParts);
             morphology += this.searchForPart(allNumbers, wordParts);
             morphology += this.searchForPart(allGenders, wordParts);
+
+            suffix = this.searchForPart(allSuffixes, wordParts);
+            if (suffix !== '?') {
+              morphology += '-' + suffix;
+            }
+
             break;
 
           case personalPronoun:
@@ -122,16 +140,23 @@ export class MorphologyGenerator {
             if (gender !== '?') {
               morphology += gender;
             }
+
+            suffix = this.searchForPart(allSuffixes, wordParts);
+            if (suffix !== '?') {
+              morphology += '-' + suffix;
+            }
             break;
 
           // case disjunctiveParticiple:
           case particleType:
-            morphology = type.abbreviation + '-';
-            morphology += this.searchForPart(allSuffixes, wordParts);
-
+          case adverb:
+            morphology = type.abbreviation;
+            suffix = this.searchForPart(allSuffixes, wordParts);
+            if (suffix !== '?') {
+              morphology += '-' + suffix;
+            }
             break;
           default:
-            // morphology += wordParts.find(x => x === attic).abbreviation;
             break;
         }
       }
@@ -141,10 +166,7 @@ export class MorphologyGenerator {
   }
 
   private static searchForPart(allTypesConstants: WordPart[], wordParts: WordPart[]): string {
-    let part = allTypesConstants.find(x => wordParts.includes(x));
-    if (allTypesConstants.find(x => x.type === genderType)) {
-      part = allGenders.find(x => wordParts.map(y => y.abbreviation).includes(x.abbreviation));
-    }
+    const part = allTypesConstants.find(x => wordParts.includes(x));
     return (part === undefined) ? '?' : part.abbreviation;
   }
 
@@ -158,8 +180,9 @@ export class MorphologyGenerator {
       }
 
       if (i === 1) {
-        if (result.includes(particleType) && part === negativeSuffix.abbreviation) {
-          result.push(negativeSuffix);
+        if ((result.includes(particleType) || result.includes(adverb))
+          && allSuffixes.map(x => x.abbreviation).includes(part)) {
+          result.push(allSuffixes.find(x => x.abbreviation === part));
         } else if (result.includes(verb) && part.includes(infinitiveMood.abbreviation)) {
           result = this.processVerbTenseVoiceMood(part, result);
 
@@ -197,7 +220,7 @@ export class MorphologyGenerator {
 
       // second part
       if (i === 1) {
-        result = this.processVerbTenseVoiceMood(part, result);
+        result = this.processVerbTenseVoiceMood(part, result, true);
       }
 
       // third part
@@ -226,7 +249,7 @@ export class MorphologyGenerator {
     return result;
   }
 
-  private static processVerbTenseVoiceMood(part: string, result: WordPart[]): WordPart[] {
+  private static processVerbTenseVoiceMood(part: string, result: WordPart[], replaceDeponency: boolean = true): WordPart[] {
     let secondaryTense: boolean;
     // tense
     if ((!isNaN((Number(part.substr(0, 1)))))) {
@@ -238,7 +261,12 @@ export class MorphologyGenerator {
 
     // voice
     const voicePart = part.substr(secondaryTense ? 2 : 1, 1);
-    result.push(allVoices.find(x => x.abbreviation === voicePart));
+    const voice = allVoices.find(x => x.abbreviation === voicePart);
+    if (replaceDeponency && voice !== undefined && voice.headCategory !== undefined) {
+      result.push(voice.headCategory);
+    } else {
+      result.push(voice);
+    }
 
     // mood
     const moodPart = part.substr(secondaryTense ? 3 : 2, 1);

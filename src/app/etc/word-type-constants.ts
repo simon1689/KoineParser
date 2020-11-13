@@ -2,7 +2,7 @@ import {WordPart} from '../models/word-part';
 
 const type = 'Type';
 const tenseType = 'Tense';
-const voiceType = 'Voice';
+export const voiceType = 'Voice';
 const moodType = 'Mood';
 const personType = 'Person';
 export const genderType = 'Gender';
@@ -56,33 +56,28 @@ export const perfectTense: WordPart = {name: 'Perfect', abbreviation: 'R', type:
 export const firstPerfectTense: WordPart = {name: 'First Perfect', abbreviation: '1R', headCategory: perfectTense, type: tenseType};
 export const secondPerfectTense: WordPart = {name: 'Second Perfect', abbreviation: '2R', headCategory: perfectTense, type: tenseType};
 export const pluperfectTense: WordPart = {name: 'Pluperfect', abbreviation: 'L', type: tenseType};
-export const secondPluperfectTense: WordPart = {
-  name: 'Second Pluperfect',
-  abbreviation: '2L',
-  headCategory: pluperfectTense,
-  type: tenseType
-};
+export const secondPluperfectTense: WordPart = {name: 'Second Pluperfect', abbreviation: '2L', headCategory: pluperfectTense, type: tenseType};
+export const noStatedTense: WordPart = {name: 'No stated tense', abbreviation: 'X', type: tenseType};
 export const allTenses: WordPart[] = [presentTense, futureTense, secondFutureTense, aoristTense, secondAoristTense,
-  imperfectTense, perfectTense, firstPerfectTense, secondPerfectTense, pluperfectTense, secondPluperfectTense];
+  imperfectTense, perfectTense, firstPerfectTense, secondPerfectTense, pluperfectTense, secondPluperfectTense, noStatedTense];
 
 // voice
 export const activeVoice: WordPart = {name: 'Active', abbreviation: 'A', type: voiceType};
-export const impersonalActiveVoice: WordPart = {name: 'Impersonal active', abbreviation: 'Q', type: voiceType, headCategory: activeVoice};
 export const middleVoice: WordPart = {name: 'Middle', abbreviation: 'M', type: voiceType};
 export const passiveVoice: WordPart = {name: 'Passive', abbreviation: 'P', type: voiceType};
-export const deponentVoice: WordPart = {name: 'Deponent', abbreviation: 'D', type: voiceType};
 export const noVoice: WordPart = {name: 'No voice', abbreviation: 'X', type: voiceType};
+export const eitherMiddleOrPassiveVoice: WordPart = {name: 'Middle or passive', abbreviation: 'E', type: voiceType};
 
-export const middlePassiveDeponentVoice: WordPart = {
-  name: 'Middle or passive deponent',
-  abbreviation: 'N',
-  headCategory: deponentVoice,
-  type: voiceType
-};
-export const middlePassiveVoice: WordPart = {name: 'Middle or passive', abbreviation: 'E', headCategory: deponentVoice, type: voiceType};
-export const passiveDeponentVoice: WordPart = {name: 'Passive deponent', abbreviation: 'O', headCategory: deponentVoice, type: voiceType};
+///// deponents
+export const deponentVoice: WordPart = {name: 'Deponent', abbreviation: 'D', type: voiceType, headCategory: middleVoice};
+export const passiveDeponentVoice: WordPart = {name: 'Passive deponent', abbreviation: 'O', headCategory: passiveVoice, type: voiceType};
+// export const eitherMiddleOrPassiveVoice: WordPart = {name: 'Middle or passive', abbreviation: 'E', headCategory: deponentVoice, type: voiceType};
+export const middlePassiveDeponentVoice: WordPart = {name: 'Middle or passive deponent', abbreviation: 'N', headCategory: eitherMiddleOrPassiveVoice, type: voiceType};
+
+export const impersonalActiveVoice: WordPart = {name: 'Impersonal active', abbreviation: 'Q', type: voiceType, headCategory: activeVoice};
+
 export const allVoices: WordPart[] = [activeVoice, middleVoice, passiveVoice, deponentVoice,
-  middlePassiveDeponentVoice, middlePassiveVoice, passiveDeponentVoice, noVoice, impersonalActiveVoice];
+  middlePassiveDeponentVoice, eitherMiddleOrPassiveVoice, passiveDeponentVoice, noVoice, impersonalActiveVoice];
 
 // mood
 export const indicativeMood: WordPart = {name: 'Indicative', abbreviation: 'I', type: moodType};
@@ -123,11 +118,14 @@ export const atticSuffix: WordPart = {name: 'Attic word', abbreviation: 'ATT', t
 export const negativeSuffix: WordPart = {name: 'Negative', abbreviation: 'N', type: suffixType};
 export const indeclinable: WordPart = {name: 'Indeclinable', abbreviation: 'PRI', type: suffixType};
 export const participleAttachedSuffix: WordPart = {name: 'Participle attached', abbreviation: 'P', type: suffixType};
+export const interrogativeSuffix: WordPart = {name: 'Interrogative', abbreviation: 'I', type: suffixType};
 export const contractedOrComparativeFormSuffix: WordPart = {name: 'Contracted/Comparative form', abbreviation: 'C', type: suffixType};
 export const indeclinableNounOrOtherPartSuffix: WordPart = {name: 'Indeclinable noun or other part', abbreviation: 'OI', type: suffixType};
 export const indeclinableNumeralSuffix: WordPart = {name: 'Indeclinable numeral', abbreviation: 'NUI', type: suffixType};
+export const middleSignificance: WordPart = {name: 'Middle significance', abbreviation: 'M', type: suffixType};
 export const allSuffixes: WordPart[] = [atticSuffix, negativeSuffix, indeclinable, indeclinableNumeralSuffix,
-  indeclinableNounOrOtherPartSuffix, contractedOrComparativeFormSuffix, participleAttachedSuffix];
+  indeclinableNounOrOtherPartSuffix, contractedOrComparativeFormSuffix, participleAttachedSuffix, interrogativeSuffix,
+  middleSignificance];
 
 export const allWordParts = [...allSuffixes, ...allGenders, ...allCases, ...allNumbers,
   ...allPersons, ...allMoods, ...allVoices, ...allTenses, ...allWordTypes];

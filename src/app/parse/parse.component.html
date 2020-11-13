@@ -39,7 +39,7 @@
             style="display: block; text-align: center; color: black">Answer
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p class="font-weight-bold text-center">{{word.morphology}}</p>
+        <p class="font-weight-bold text-center">{{word.morphologyUpdated}}</p>
         <div class="text-center"
              [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true, false)"></div>
       </mat-expansion-panel>
@@ -79,9 +79,6 @@
                             matTooltip="{{voice.abbreviation}}"
                             matTooltipPosition="above">{{voice.name}}</mat-radio-button>
         </mat-radio-group>
-        <div class="alert alert-info" role="alert">
-          All other voices such as 'middle or passive' or 'passive deponent' fall under the 'Deponent' option.
-        </div>
       </mat-step>
 
       <mat-step label="Mood" [completed]="parsingForm.controls.mood.disabled"

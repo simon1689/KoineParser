@@ -67,6 +67,7 @@ export class KoineParserService {
           Object.assign(model, item);
           model.lexiconEntry = this.lexiconEntries.find(x => x.strongsNr === Number(model.strongsNr));
           model.partsOfSpeech = MorphologyGenerator.generateWordPartsFromMorphologyCode(model.morphology);
+          model.morphologyUpdated = MorphologyGenerator.generateMorphologyCodeFromWordParts(model.partsOfSpeech);
           return model;
         })));
   }

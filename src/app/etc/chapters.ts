@@ -20,7 +20,7 @@ export const mattChapters: Chapter[] = [
   {chapter: 14, verses: 36},
   {chapter: 15, verses: 39},
   {chapter: 16, verses: 28},
-  {chapter: 27, verses: 17},
+  {chapter: 17, verses: 17},
   {chapter: 18, verses: 35},
   {chapter: 19, verses: 30},
   {chapter: 20, verses: 34},

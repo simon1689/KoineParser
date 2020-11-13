@@ -14,6 +14,7 @@ export class WordModel implements Word {
   book: number;
   chapter: number;
   morphology: string;
+  morphologyUpdated: string;
   strongsNr: string;
   verse: number;
   word: string;
