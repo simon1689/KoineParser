@@ -3,13 +3,14 @@ import {WordModel} from './models/word.model';
 import {Book} from './etc/bible';
 import * as __ from 'lodash-es';
 import {LocalStorageSession} from './models/local-storage-session';
+import {BibleReference} from './models/bible-reference';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateService {
   wordsForParsing: WordModel[] = [];
-  bibleRange = '';
+  bibleReference: BibleReference;
   verbSecondaryTensesEnabled = false;
   localStorageSession: LocalStorageSession;
 
@@ -30,21 +31,6 @@ export class StateService {
     return this.wordsForParsing;
   }
 
-  setBibleRange(book: Book, bibleBookFromChapter: string, bibleBookFromVerse: string,
-                bibleBookToChapter: string, bibleBookToVerse: string): void {
-    if (bibleBookFromChapter === bibleBookToChapter) {
-      this.bibleRange = book.name + ' ' + bibleBookFromChapter + ':' + bibleBookFromVerse
-        + '-' + bibleBookToVerse;
-    } else {
-      this.bibleRange = book.name + ' ' + bibleBookFromChapter + ':' + bibleBookFromVerse
-        + ' - ' + bibleBookToChapter + ':' + bibleBookToVerse;
-    }
-  }
-
-  getBibleRange(): string {
-    return this.bibleRange;
-  }
-
   setSecondaryTensesEnabled(verbSecondaryTenses: boolean): void {
     this.verbSecondaryTensesEnabled = verbSecondaryTenses;
   }
@@ -59,5 +45,13 @@ export class StateService {
 
   getCurrentSession(): LocalStorageSession {
     return this.localStorageSession;
+  }
+
+  setBibleReference(bibleReference: BibleReference): void {
+    this.bibleReference = bibleReference;
+  }
+
+  getBibleReference(): BibleReference {
+    return this.bibleReference;
   }
 }

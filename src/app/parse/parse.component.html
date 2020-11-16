@@ -1,6 +1,6 @@
 <ng-container class="container" *ngIf="word !== null">
   <div class="alert alert-secondary text-center font-weight-bold" role="alert">
-    {{ state.bibleRange}} ({{wordIndex}} of {{words.length}} words)
+    {{ state.bibleReference.toString()}} ({{wordIndex}} of {{words.length}} words)
     <div>
       <span style="color: green" class="mr-2"><fa-icon [icon]="thumbsUp"></fa-icon>
         {{goodAnswers.length}}</span>
@@ -24,12 +24,14 @@
 
         <p
           *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.lexicon !== undefined">{{word.lexiconEntry.shortDefinition}}</p>
+
         <p *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.shortDefinition !== undefined
         && word.lexiconEntry.lexicon === undefined"><span
           class="font-italic">Dodson Greek Lexicon:</span> {{word.lexiconEntry.shortDefinition}}</p>
 
-        <p *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.mounce !== undefined"><span
-          class="font-italic">Mounce (Gk. {{word.lexiconEntry.gkNr}}): </span> <span
+        <p
+          *ngIf="word.lexiconEntry !== undefined && word.lexiconEntry.mounce !== undefined && word.lexiconEntry.mounce !== '' && word.lexiconEntry.gkNr !== 0">
+          <span class="font-italic">Mounce (Gk. {{word.lexiconEntry.gkNr}}): </span> <span
           [innerHTML]="word.lexiconEntry.mounce | greekStyler"></span></p>
       </div>
 

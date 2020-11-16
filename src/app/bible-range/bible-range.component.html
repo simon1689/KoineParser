@@ -1,7 +1,7 @@
 <div ngxUiLoaderBlurred>
   <form [formGroup]="bibleRangeForm" (ngSubmit)="submit()">
     <div>
-      <mat-label class="font-weight-bold">From</mat-label>
+      <mat-label>From</mat-label>
       <mat-form-field appearance="outline" class="selectBook">
         <mat-label>Book</mat-label>
         <mat-select formControlName="bibleBook"
@@ -34,7 +34,7 @@
     </div>
 
     <div>
-      <mat-label class="font-weight-bold">To</mat-label>
+      <mat-label>To</mat-label>
       <mat-form-field appearance="outline" class="chapter-verse-selectbox">
         <mat-label>Chapter</mat-label>
         <mat-select formControlName="bibleBookToChapter" (selectionChange)="endingChapterSelected()">
@@ -62,7 +62,7 @@
         <mat-panel-title>More options</mat-panel-title>
       </mat-expansion-panel-header>
       <div formGroupName="types">
-        <p class="font-weight-bold">Type of words</p>
+        <p>Type of words</p>
         <div style="margin-left: 15px;">
           <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
                         *ngFor="let type of types" formControlName="{{type.controlId}}"

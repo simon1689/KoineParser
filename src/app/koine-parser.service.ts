@@ -19,6 +19,7 @@ import {
   verb
 } from './etc/word-type-constants';
 import {MorphologyGenerator} from './etc/morphology-generator';
+import {BibleReference} from './models/bible-reference';
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +33,8 @@ export class KoineParserService {
     this.setAllLexiconEntries();
   }
 
-  getAllWords(filters: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
-              endChapter: string = '1', endVerse: string = '2'): Observable<WordModel[]> {
-    let endpoint = this.endpoint + book + '/' + startChapter + '/' + startVerse
-      + '/' + endChapter + '/' + endVerse;
+  getAllWords(filters: WordPart[], reference: BibleReference): Observable<WordModel[]> {
+    let endpoint = this.endpoint + reference.toApiQueryString();
 
     if (filters.length > 0) {
       endpoint += '?' + this.getFiltersQueryString(filters);
@@ -53,10 +52,8 @@ export class KoineParserService {
         })));
   }
 
-  getWordsCount(filters: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
-                endChapter: string = '1', endVerse: string = '2'): Observable<any> {
-    let endpoint = this.endpoint + book + '/' + startChapter + '/' + startVerse
-      + '/' + endChapter + '/' + endVerse + '?count=x';
+  getWordsCount(filters: WordPart[], reference: BibleReference): Observable<any> {
+    let endpoint = this.endpoint + reference.toApiQueryString() + '?count=x';
 
     if (filters.length > 0) {
       endpoint += this.getFiltersQueryString(filters);

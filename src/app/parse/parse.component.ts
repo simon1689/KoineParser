@@ -140,7 +140,7 @@ export class ParseComponent implements OnInit {
     this.words = data.words;
     this.wordIndex = data.wordIndex;
     this.word = data.words[data.wordIndex - 1];
-    this.state.bibleRange = data.range;
+    this.state.bibleReference = data.range;
     this.state.setSecondaryTensesEnabled(data.secondaryTensesEnabled);
     this.skippedWords = (data.skippedWords === undefined) ? [] : data.skippedWords;
     this.goodAnswers = (data.goodAnswers === undefined) ? [] : data.goodAnswers;
@@ -485,12 +485,12 @@ export class ParseComponent implements OnInit {
       wordIndex: this.wordIndex,
       currentWord: this.word,
       date: new Date().toDateString(),
-      range: this.state.getBibleRange(),
+      range: this.state.getBibleReference().toString(),
       goodAnswers: this.goodAnswers,
       wrongAnswers: this.wrongAnswers,
       skippedWords: this.skippedWords,
       usedWords: this.usedWords,
-      key: this.state.getBibleRange() + ' ' + new Date().toDateString(),
+      key: this.state.getBibleReference().toString() + ' ' + new Date().toDateString(),
       secondaryTensesEnabled: this.state.getSecondaryTensesEnabled()
     };
 
@@ -516,7 +516,7 @@ export class ParseComponent implements OnInit {
     const score: Score = {
       date: new Date(),
       wrongAnswers: this.wrongAnswers.length,
-      range: this.state.getBibleRange(),
+      range: this.state.getBibleReference().toString(),
       numberOfWords: this.words.length,
       goodAnswers: this.goodAnswers.length,
       skippedWords: this.skippedWords.length

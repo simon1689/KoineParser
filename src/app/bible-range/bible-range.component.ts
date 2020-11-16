@@ -25,6 +25,7 @@ import {
 } from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
+import {BibleReference} from '../models/bible-reference';
 
 @Component({
   selector: 'app-bible-range',
@@ -145,14 +146,18 @@ export class BibleRangeComponent implements OnInit {
     this.setAmountOfWords();
   }
 
-  setAmountOfWords(): void {
-    this.ngxLoader.startLoader('smallLoader');
-    this.service.getWordsCount(this.determineFilters(),
+  createBibleReference(): BibleReference {
+    return new BibleReference(
       this.bibleRangeForm.value.bibleBook,
       this.bibleRangeForm.value.bibleBookFromChapter,
       this.bibleRangeForm.value.bibleBookFromVerse,
       this.bibleRangeForm.value.bibleBookToChapter,
-      this.bibleRangeForm.value.bibleBookToVerse)
+      this.bibleRangeForm.value.bibleBookToVerse);
+  }
+
+  setAmountOfWords(): void {
+    this.ngxLoader.startLoader('smallLoader');
+    this.service.getWordsCount(this.determineFilters(), this.createBibleReference())
       .subscribe(res => {
         this.amountOfWordsForRange = res.count;
         this.bibleRangeForm.controls.amountOfWords.setValue(res.count);
@@ -165,17 +170,14 @@ export class BibleRangeComponent implements OnInit {
       return;
     }
 
-    this.getAllWords(this.selectedBook.number,
-      this.bibleRangeForm.value.bibleBookFromChapter,
-      this.bibleRangeForm.value.bibleBookFromVerse,
-      this.bibleRangeForm.value.bibleBookToChapter,
-      this.bibleRangeForm.value.bibleBookToVerse);
+    this.getWords();
   }
 
-  getAllWords(book = null, startChapter = null, startVerse = null, endChapter = null, endVerse = null): Subscription {
+  getWords(): Subscription {
     this.ngxLoader.start();
     const filters = this.determineFilters();
-    return this.service.getAllWords(filters, book, startChapter, startVerse, endChapter, endVerse)
+    const bibleReference = this.createBibleReference();
+    return this.service.getAllWords(filters, bibleReference)
       .subscribe(
         (response) => {
           this.router.navigate(['parsing'], {
@@ -187,11 +189,7 @@ export class BibleRangeComponent implements OnInit {
 
           this.state.setSecondaryTensesEnabled(this.verbSecondaryTenses);
           this.state.setWordsForParsing(words, this.bibleRangeForm.value.amountOfWords, this.bibleRangeForm.value.randomizeWords);
-          this.state.setBibleRange(this.selectedBook,
-            this.bibleRangeForm.value.bibleBookFromChapter,
-            this.bibleRangeForm.value.bibleBookFromVerse,
-            this.bibleRangeForm.value.bibleBookToChapter,
-            this.bibleRangeForm.value.bibleBookToVerse);
+          this.state.setBibleReference(bibleReference);
           this.ngxLoader.stop();
         },
         (error) => {
