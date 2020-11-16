@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BibleBooks, Book} from '../etc/bible';
-import {PartOfSpeech, Types} from '../models/part-of-speech-objects';
+import {Moods, PartOfSpeech, Types, VerbTenses} from '../models/part-of-speech-objects';
 import {KoineParserService} from '../koine-parser.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -10,17 +10,17 @@ import {Subscription} from 'rxjs';
 import {WordPart} from '../models/word-part';
 import {
   adjective,
-  adverb,
+  adverb, allMoods,
   allTypesOfPronouns,
   article,
   conditionalType,
-  conjunction,
-  indeclinable,
+  conjunction, imperativeMood,
+  indeclinable, indicativeMood,
   infinitiveMood,
-  noun,
+  noun, optativeMood,
   participleMood,
   particleType,
-  preposition,
+  preposition, presentTense, subjunctiveMood,
   verb
 } from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
@@ -37,10 +37,12 @@ export class BibleRangeComponent implements OnInit {
 
   bibleBooks = BibleBooks;
   types = Types.filter(x => x.wordPart !== conditionalType);
+  moods = Moods.filter(x => !x.secondary);
 
   selectedBook: Book;
   amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
+  moodsFormGroup: FormGroup;
   zoomIcon = faSearch;
   verbSecondaryTenses = false;
   beginningChapter: Chapter = null;
@@ -63,6 +65,8 @@ export class BibleRangeComponent implements OnInit {
 
   initForm(): void {
     this.typesFormGroup = this.createFormGroup(this.types, Validators.required);
+    this.moodsFormGroup = this.createFormGroup(this.moods);
+
     this.bibleRangeForm = new FormGroup({
       bibleBook: new FormControl('', Validators.required),
       bibleBookFromChapter: new FormControl('', Validators.required),
@@ -71,6 +75,7 @@ export class BibleRangeComponent implements OnInit {
       bibleBookToVerse: new FormControl(''),
       verbSecondaryTenses: new FormControl(''),
       types: this.typesFormGroup,
+      moods: this.moodsFormGroup,
       randomizeWords: new FormControl({value: true}),
       amountOfWords: new FormControl(null),
     });
@@ -201,50 +206,17 @@ export class BibleRangeComponent implements OnInit {
 
     Object.keys(this.typesFormGroup.controls).forEach(key => {
       if (this.typesFormGroup.controls[key] !== undefined && this.typesFormGroup.controls[key].value === true) {
-        switch (key) {
-          case 'VerbsCtrl':
-            result.push(verb);
-            break;
-          case 'NounsCtrl':
-            result.push(noun);
-            break;
-          case 'AdjectivesCtrl':
-            result.push(adjective);
-            break;
-          case 'ArticlesCtrl':
-            result.push(article);
-            break;
-          case 'ConjunctionCtrl':
-            result.push(conjunction);
-            break;
-          case 'ParticiplesCtrl':
-            result.push(participleMood);
-            break;
-          case 'PronounsCtrl':
-            allTypesOfPronouns.forEach(x => result.push(x));
-            break;
-          case 'PrepositionCtrl':
-            result.push(preposition);
-            break;
-          case 'InfinitivesCtrl':
-            result.push(infinitiveMood);
-            break;
-          case 'AdverbsCtrl':
-            result.push(adverb);
-            break;
-          case 'ConditionalCtrl':
-            result.push(conditionalType);
-            break;
-          case 'ParticleCtrl':
-            result.push(particleType);
-            break;
-          default:
-            break;
-        }
+        result.push(Types.find(x => x.controlId === key).wordPart);
       }
     });
 
-    return result;
+    Object.keys(this.moodsFormGroup.controls).forEach(key => {
+      if (this.moodsFormGroup.controls[key] !== undefined && this.moodsFormGroup.controls[key].value === true) {
+        result.push(Moods.find(x => x.controlId === key).wordPart);
+      }
+    });
+
+    return result.filter(x => x !== undefined);
   }
 
   counter(i: number): Array<number> {

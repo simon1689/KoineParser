@@ -5,7 +5,19 @@ import {catchError, map, shareReplay} from 'rxjs/operators';
 import {MultipleMorphologyWord, WordModel} from './models/word.model';
 import {LexiconEntry} from './models/lexicon.entry';
 import {WordPart} from './models/word-part';
-import {adverb, conditionalType, conjunction, infinitiveMood, participleMood, preposition} from './etc/word-type-constants';
+import {
+  adverb,
+  conditionalType,
+  conjunction,
+  imperativeMood,
+  indicativeMood,
+  infinitiveMood,
+  noun, optativeMood,
+  participleMood, particleType,
+  personalPronoun,
+  preposition, subjunctiveMood,
+  verb
+} from './etc/word-type-constants';
 import {MorphologyGenerator} from './etc/morphology-generator';
 
 @Injectable({
@@ -20,44 +32,13 @@ export class KoineParserService {
     this.setAllLexiconEntries();
   }
 
-  getTypesQueryString(types: WordPart[]): string {
-    let result = 'types=';
-    let comma = ',';
-    let x = 1;
-    for (const type of types) {
-      if (types.length === x) {
-        comma = '';
-      }
-      switch (type) {
-        case conjunction:
-        case adverb:
-        case preposition:
-        case conditionalType:
-          result += `${type.abbreviation}${comma}`;
-          break;
-        case participleMood:
-          result += `Ptc${comma}`;
-          break;
-        case infinitiveMood:
-          result += `Inf${comma}`;
-          break;
-        default:
-          result += `${type.abbreviation}-${comma}`;
-          break;
-      }
-
-      x++;
-    }
-    return result;
-  }
-
-  getAllWords(types: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
+  getAllWords(filters: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
               endChapter: string = '1', endVerse: string = '2'): Observable<WordModel[]> {
     let endpoint = this.endpoint + book + '/' + startChapter + '/' + startVerse
       + '/' + endChapter + '/' + endVerse;
 
-    if (types.length > 0) {
-      endpoint += '?' + this.getTypesQueryString(types);
+    if (filters.length > 0) {
+      endpoint += '?' + this.getFiltersQueryString(filters);
     }
 
     return this.http.get(endpoint)
@@ -72,19 +53,71 @@ export class KoineParserService {
         })));
   }
 
-  getWordsCount(types: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
+  getWordsCount(filters: WordPart[], book: string = '40', startChapter: string = '1', startVerse: string = '1',
                 endChapter: string = '1', endVerse: string = '2'): Observable<any> {
     let endpoint = this.endpoint + book + '/' + startChapter + '/' + startVerse
       + '/' + endChapter + '/' + endVerse + '?count=x';
 
-    if (types.length > 0) {
-      endpoint += '&' + this.getTypesQueryString(types);
+    if (filters.length > 0) {
+      endpoint += this.getFiltersQueryString(filters);
     }
 
     return this.http.get(endpoint)
       .pipe(catchError(error => {
         return observableThrowError(error);
       }));
+  }
+
+  getFiltersQueryString(filters: WordPart[]): string {
+    const types = filters.filter(x => x.type.toLowerCase() === 'type');
+    const moods = filters.filter(x => x.type.toLowerCase() === 'mood');
+    let result = '';
+
+    if (types.length !== 0) {
+      result += '&' + this.getFilters(types, 'types');
+    }
+
+    if (moods.length !== 0) {
+      result += '&' + this.getFilters(moods, 'moods');
+    }
+
+    return result;
+  }
+
+  getFilters(filters: WordPart[], queryStringName: string): string {
+    let result = queryStringName + '=';
+    let comma = ',';
+    const c = 1;
+    for (const type of filters) {
+      if (filters.length === c) {
+        comma = '';
+      }
+
+      switch (type) {
+        case conjunction:
+        case adverb:
+        case preposition:
+        case particleType:
+        case conditionalType:
+          result += `${type.abbreviation}${comma}`;
+          break;
+        case verb:
+        case noun:
+        case personalPronoun:
+          result += `${type.abbreviation}-${comma}`;
+          break;
+        case indicativeMood:
+        case imperativeMood:
+        case subjunctiveMood:
+        case optativeMood:
+        case infinitiveMood:
+        case participleMood:
+          result += `${type.abbreviation}${comma}`;
+          break;
+      }
+    }
+
+    return result;
   }
 
   multipleMorphologiesForWord(): Promise<MultipleMorphologyWord[]> {

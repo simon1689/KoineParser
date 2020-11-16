@@ -18,8 +18,7 @@ export class SessionsComponent implements OnInit {
 
   constructor(private router: Router,
               private activeRoute: ActivatedRoute,
-              private state: StateService,
-              private ngxLoader: NgxUiLoaderService) {
+              private state: StateService) {
   }
 
   ngOnInit(): void {
