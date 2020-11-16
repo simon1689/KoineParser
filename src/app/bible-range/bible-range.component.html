@@ -57,39 +57,46 @@
       </mat-form-field>
     </div>
 
-    <div formGroupName="types">
-      <p class="font-weight-bold">Type of words</p>
-      <div style="margin-left: 15px;">
-        <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
-                      *ngFor="let type of types" formControlName="{{type.controlId}}"
-                      (change)="setAmountOfWords()">
-          {{type.name}}s
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>More options</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div formGroupName="types">
+        <p class="font-weight-bold">Type of words</p>
+        <div style="margin-left: 15px;">
+          <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
+                        *ngFor="let type of types" formControlName="{{type.controlId}}"
+                        (change)="setAmountOfWords()">
+            {{type.name}}s
+          </mat-checkbox>
+        </div>
+      </div>
+
+      <div formGroupName="moods">
+        <p class="font-weight-bold">Verb moods</p>
+        <div style="margin-left: 15px;">
+          <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
+                        *ngFor="let mood of moods" formControlName="{{mood.controlId}}"
+                        (change)="setAmountOfWords()">
+            {{mood.name}}
+          </mat-checkbox>
+        </div>
+      </div>
+
+      <div>
+        <mat-checkbox labelPosition="before" color="accent" class="mat-checkbox type-of-words-checkbox"
+                      formControlName="verbSecondaryTenses" (change)="verbSecondaryTenses = !verbSecondaryTenses;"
+                      matTooltip="Options for choosing secondary tenses like 2nd Aorist and 1-2 Perfect are enabled">
+          Enable secondary tenses
         </mat-checkbox>
       </div>
-    </div>
+    </mat-expansion-panel>
 
-    <div>
-      <mat-checkbox labelPosition="before" color="accent" class="mat-checkbox type-of-words-checkbox"
-                    formControlName="verbSecondaryTenses" (change)="verbSecondaryTenses = !verbSecondaryTenses;"
-                    matTooltip="Options for choosing secondary tenses like 2nd Aorist and 1-2 Perfect are enabled">
-        Enable secondary tenses
-      </mat-checkbox>
-    </div>
 
-    <div formGroupName="tenses">
-      <p class="font-weight-bold">Verb tenses</p>
-      <div style="margin-left: 15px;">
-        <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
-                      *ngFor="let tense of tenses" formControlName="{{tense.controlId}}"
-                      (change)="setAmountOfWords()">
-          {{tense.name}}
-        </mat-checkbox>
-      </div>
-    </div>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" style="margin-top: 15px">
       <mat-label>Amount of words</mat-label>
       <input matInput type="number" class="form-control" id="amountOfWords" formControlName="amountOfWords"
-             [max]="amountOfWordsForRange"/>
+             [max]="amountOfWordsForRange" [min]="0"/>
 
       <mat-checkbox formControlName="randomizeWords" labelPosition="before">Randomize word order
       </mat-checkbox>

@@ -77,7 +77,7 @@ export const Moods: PartOfSpeech[] = [
   {name: 'Subjunctive', abbreviation: 'S', controlId: 'SubjunctiveMoodCtrl', wordPart: subjunctiveMood},
   {name: 'Optative', abbreviation: 'O', controlId: 'OptativeMoodCtrl', wordPart: optativeMood},
   {name: 'Infinitive', abbreviation: 'N', controlId: 'InfinitiveMoodCtrl', wordPart: infinitiveMood},
-  {name: 'Participle', abbreviation: 'P', controlId: 'controlIdMoodCtrl', wordPart: participleMood},
+  {name: 'Participle', abbreviation: 'P', controlId: 'ParticipleMoodCtrl', wordPart: participleMood},
 ];
 
 export const VerbTenses: PartOfSpeech[] = [
