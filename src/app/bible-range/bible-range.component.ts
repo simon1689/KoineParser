@@ -155,7 +155,7 @@ export class BibleRangeComponent implements OnInit {
     this.service.getWordCount(this.determineFilters(), this.createBibleReference())
       .subscribe(res => {
         this.amountOfWordsForRange = res.count;
-        this.bibleRangeForm.controls.amountOfWords.setValue(res.count);
+        this.bibleRangeForm.controls.amountOfWords.setValue(this.amountOfWordsForRange);
       });
     this.ngxLoader.stopLoader('smallLoader');
   }

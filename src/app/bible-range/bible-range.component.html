@@ -115,7 +115,7 @@
     <mat-form-field appearance="fill" style="margin-top: 15px">
       <mat-label>Amount of words</mat-label>
       <input matInput type="number" class="form-control" id="amountOfWords" formControlName="amountOfWords"
-             [max]="amountOfWordsForRange" [min]="0"/>
+             [maxLength]="amountOfWordsForRange" [minLength]="0" [max]="amountOfWordsForRange" [min]="0"/>
 
       <mat-checkbox formControlName="randomizeWords" labelPosition="before">Randomize word order
       </mat-checkbox>
@@ -127,7 +127,7 @@
     </mat-card>
 
     <div style="padding-top: 15px">
-      <button mat-raised-button [disabled]="bibleRangeForm.controls.amountOfWords.value === 0">
+      <button mat-raised-button [disabled]=" this.bibleRangeForm.controls.amountOfWords.value == 0">
         Start parsing!
       </button>
     </div>
