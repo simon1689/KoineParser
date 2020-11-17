@@ -73,7 +73,7 @@
       </div>
 
       <div formGroupName="moods">
-        <p class="font-weight-bold">Verb moods</p>
+        <p>Verb moods</p>
         <div style="margin-left: 15px;">
           <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
                         *ngFor="let mood of moods" formControlName="{{mood.controlId}}"
@@ -90,8 +90,8 @@
           Enable secondary tenses
         </mat-checkbox>
       </div>
-    </mat-expansion-panel>
 
+    </mat-expansion-panel>
 
     <mat-form-field appearance="fill" style="margin-top: 15px">
       <mat-label>Amount of words</mat-label>

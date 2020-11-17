@@ -19,7 +19,6 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Range</th>
       <td mat-cell *matCellDef="let element"> {{element.range}} </td>
     </ng-container>
-    p
 
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date</th>
@@ -28,22 +27,24 @@
 
     <ng-container matColumnDef="numberOfWords">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> # of words</th>
-      <td mat-cell *matCellDef="let element"> {{element.numberOfWords}} </td>
+      <td mat-cell *matCellDef="let element">{{element.numberOfWords}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="goodAnswers">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> # of good answers</th>
-      <td mat-cell *matCellDef="let element"> {{element.goodAnswers}} </td>
+    <ng-container matColumnDef="score">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Score</th>
+      <td mat-cell *matCellDef="let element">{{(element.goodAnswers / element.numberOfWords)  | percent}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="wrongAnswers">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> # of wrong answers</th>
-      <td mat-cell *matCellDef="let element"> {{element.wrongAnswers}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="skippedWords">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> # of skipped words</th>
-      <td mat-cell *matCellDef="let element"> {{element.skippedWords}} </td>
+    <ng-container matColumnDef="answers">
+      <th mat-header-cell *matHeaderCellDef>
+        <fa-icon [icon]="thumbsUp" matTooltip="Good answers"></fa-icon>
+        /
+        <fa-icon [icon]="thumbsDown" matTooltip="Wrong answers"></fa-icon>
+        /
+        <fa-icon [icon]="skip" matTooltip="Skipped words"></fa-icon>
+      </th>
+      <td mat-cell *matCellDef="let element">{{element.goodAnswers}} / {{element.wrongAnswers}}
+        / {{element.skippedWords}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
