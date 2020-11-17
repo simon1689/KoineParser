@@ -12,8 +12,8 @@
     <div *ngIf="hintRightPartOfAnswer !== undefined && !dontShowTheHint" style="margin-left: 25px">
       <p>Hint: The {{hintRightPartOfAnswer.type.toLowerCase()}} is <span
         class="font-italic">{{hintRightPartOfAnswer.name.toLowerCase()}}</span>
-        <span *ngIf="hintRightPartOfAnswer.headCategory !== undefined"> ({{hintRightPartOfAnswer.headCategory.name}}
-          )</span></p>
+        <span *ngIf="hintRightPartOfAnswer.headCategory !== undefined">
+          ({{hintRightPartOfAnswer.headCategory.name}})</span></p>
     </div>
     <div *ngIf="hintWrongPartOfAnswer !== undefined && !dontShowTheHint" style="margin-left: 25px">
       <p>Hint: This word does not have a <span

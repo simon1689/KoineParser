@@ -6,7 +6,7 @@ import {MultipleMorphologyWord, WordModel} from './models/word.model';
 import {LexiconEntry} from './models/lexicon.entry';
 import {WordPart} from './models/word-part';
 import {
-  adverb,
+  adverb, allTypesOfPronouns,
   conditionalType,
   conjunction,
   imperativeMood,
@@ -104,8 +104,10 @@ export class KoineParserService {
           break;
         case verb:
         case noun:
+          result += `${type.abbreviation}${comma}`;
+          break;
         case personalPronoun:
-          result += `${type.abbreviation}-${comma}`;
+          result += allTypesOfPronouns.map(x => x.abbreviation + '-') + comma;
           break;
         case indicativeMood:
         case imperativeMood:

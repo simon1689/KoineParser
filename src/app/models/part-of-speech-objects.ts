@@ -38,7 +38,8 @@ import {
   pluralNumber,
   preposition,
   presentTense,
-  secondAoristTense, secondFutureTense,
+  secondAoristTense,
+  secondFutureTense,
   secondPerfectTense,
   secondPerson,
   secondPluperfectTense,
@@ -46,7 +47,16 @@ import {
   subjunctiveMood,
   thirdPerson,
   verb,
-  vocativeCase
+  vocativeCase,
+  relativePronoun,
+  reciprocalPronoun,
+  possessivePronoun,
+  correlativePronoun,
+  demonstrativePronoun,
+  reflexivePronoun,
+  interrogativeSuffix,
+  interrogativePronoun,
+  correlativeOrInterrogativePronoun, indefinitePronoun
 } from '../etc/word-type-constants';
 
 export interface PartOfSpeech {
@@ -123,6 +133,22 @@ export const Types: PartOfSpeech[] = [
   {name: 'Verb', abbreviation: 'V', controlId: 'VerbsCtrl', wordPart: verb},
   {name: 'Noun', abbreviation: 'N', controlId: 'NounsCtrl', wordPart: noun},
   {name: 'Pronoun', abbreviation: 'P', controlId: 'PronounsCtrl', wordPart: personalPronoun},
+  {name: 'Relative pronoun', abbreviation: 'R', controlId: 'RelativePronounsCtrl', wordPart: relativePronoun, secondary: true},
+  {name: 'Reciprocal pronoun', abbreviation: 'C', controlId: 'ReciprocalPronounsCtrl', wordPart: reciprocalPronoun, secondary: true},
+  {name: 'Possessive pronoun', abbreviation: 'S', controlId: 'PossessivePronounsCtrl', wordPart: possessivePronoun, secondary: true},
+  {name: 'Correlative pronoun', abbreviation: 'K', controlId: 'CorrelativePronounsCtrl', wordPart: correlativePronoun, secondary: true},
+  {name: 'Demonstrative pronoun', abbreviation: 'D', controlId: 'CorrelativePronounsCtrl', wordPart: demonstrativePronoun, secondary: true},
+  {name: 'Reflexive pronoun', abbreviation: 'F', controlId: 'ReflexivePronounsCtrl', wordPart: reflexivePronoun, secondary: true},
+  {name: 'Interrogative pronoun', abbreviation: 'I', controlId: 'InterrogativePronounsCtrl', wordPart: interrogativePronoun, secondary: true},
+  {
+    name: 'Correlative or interrogative pronoun',
+    abbreviation: 'Q',
+    controlId: 'CorrelativeOrInterrogativePronounsCtrl',
+    wordPart: correlativeOrInterrogativePronoun,
+    secondary: true
+  },
+  {name: 'Indefinite pronoun', abbreviation: 'X', controlId: 'IndefinitePronounsCtrl', wordPart: indefinitePronoun, secondary: true},
+
   {name: 'Article', abbreviation: 'T', controlId: 'ArticlesCtrl', wordPart: article},
   {name: 'Adjective', abbreviation: 'A', controlId: 'AdjectivesCtrl', wordPart: adjective},
   {name: 'Adverb', abbreviation: 'ADV', controlId: 'AdverbsCtrl', wordPart: adverb},

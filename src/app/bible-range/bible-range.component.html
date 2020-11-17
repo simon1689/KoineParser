@@ -102,6 +102,14 @@
         </mat-checkbox>
       </div>
 
+      <div>
+        <mat-checkbox labelPosition="before" color="accent" class="mat-checkbox type-of-words-checkbox"
+                      formControlName="useAllPronouns" (change)="useAllPronouns = !useAllPronouns;"
+                      matTooltip="Options for choosing all available types of pronouns (demonstrative, possessive, etc.)">
+          Use all pronouns
+        </mat-checkbox>
+      </div>
+
     </mat-expansion-panel>
 
     <mat-form-field appearance="fill" style="margin-top: 15px">

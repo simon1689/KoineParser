@@ -5,7 +5,7 @@ import {MorphologyGenerator} from '../etc/morphology-generator';
 import {WordPart} from '../models/word-part';
 import * as  __ from 'lodash-es';
 import {StateService} from '../state.service';
-import {allSuffixes, allTenses} from '../etc/word-type-constants';
+import {allSuffixes, allTenses, allTypesOfPronouns} from '../etc/word-type-constants';
 
 @Component({
   selector: 'app-parse-answer-dialog',
@@ -26,6 +26,7 @@ export class ParseAnswerDialogComponent {
   hintWrongPartOfAnswer: WordPart;
 
   correctedAnswer: boolean;
+  useAllPronouns: boolean;
 
   constructor(private dialogRef: MatDialogRef<ParseAnswerDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -37,16 +38,30 @@ export class ParseAnswerDialogComponent {
     this.nextWordMethod = data.nextWordMethod;
     this.hasNextWord = data.hasNextWord;
     this.correctedAnswer = data.correctedAnswer;
+    this.useAllPronouns = data.useAllPronouns;
 
+    this.generateHints();
+  }
+
+  goToNextWord(): any {
+    this.dialogRef.close();
+    this.nextWordMethod();
+  }
+
+  private generateHints(): void {
     let partOfTheRightAnswer: WordPart[] = null;
     let wrongPartsOfGivenAnswer: WordPart[] = null;
+
     if (!this.answerIsRight) {
+
       if (this.state.getSecondaryTensesEnabled()) {
+
         partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
           return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined && !allTenses.includes(x)
             ? x.headCategory.name
             : x.name);
         });
+
       } else {
         partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
           return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined
@@ -58,15 +73,21 @@ export class ParseAnswerDialogComponent {
       partOfTheRightAnswer = partOfTheRightAnswer.filter(x => !allSuffixes.includes(x));
       if (partOfTheRightAnswer.length === 0) {
         wrongPartsOfGivenAnswer = __.differenceWith(this.givenAnswer, this.currentWord.partsOfSpeech, __.isEqual);
-        this.hintWrongPartOfAnswer = __.sample(wrongPartsOfGivenAnswer);
+
+        if (this.useAllPronouns) {
+          const foundType = wrongPartsOfGivenAnswer.find(x => x.type === 'Type');
+          // pronoun is found as part of wrong answer
+          if (foundType !== undefined && allTypesOfPronouns.find(x => __.isEqual(x, foundType)) !== undefined) {
+            const type = this.currentWord.partsOfSpeech.find(x => x.type === 'Type');
+            type.headCategory = undefined;
+            this.hintRightPartOfAnswer = type;
+          }
+        } else {
+          this.hintWrongPartOfAnswer = __.sample(wrongPartsOfGivenAnswer);
+        }
       } else {
         this.hintRightPartOfAnswer = __.sample(partOfTheRightAnswer);
       }
     }
-  }
-
-  goToNextWord(): any {
-    this.dialogRef.close();
-    this.nextWordMethod();
   }
 }

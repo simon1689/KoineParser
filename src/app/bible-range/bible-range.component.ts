@@ -8,21 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
 import {WordPart} from '../models/word-part';
-import {
-  adjective,
-  adverb, allMoods,
-  allTypesOfPronouns,
-  article,
-  conditionalType,
-  conjunction, imperativeMood,
-  indeclinable, indicativeMood,
-  infinitiveMood,
-  noun, optativeMood,
-  participleMood,
-  particleType,
-  preposition, presentTense, subjunctiveMood,
-  verb
-} from '../etc/word-type-constants';
+import {conditionalType, indeclinable} from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
 import {BibleReference} from '../models/bible-reference';
@@ -37,7 +23,7 @@ export class BibleRangeComponent implements OnInit {
   bibleRangeForm: FormGroup;
 
   bibleBooks = BibleBooks;
-  types = Types.filter(x => x.wordPart !== conditionalType);
+  types = Types.filter(x => x.wordPart !== conditionalType && !x.secondary);
   moods = Moods.filter(x => !x.secondary);
 
   selectedBook: Book;
@@ -48,6 +34,7 @@ export class BibleRangeComponent implements OnInit {
 
   zoomIcon = faSearch;
   verbSecondaryTenses = false;
+  useAllPronouns = false;
   beginningChapter: Chapter = null;
   endingChapter: Chapter = null;
   tenses = VerbTenses.filter(x => !x.secondary);
@@ -79,6 +66,7 @@ export class BibleRangeComponent implements OnInit {
       bibleBookToChapter: new FormControl(''),
       bibleBookToVerse: new FormControl(''),
       verbSecondaryTenses: new FormControl(''),
+      useAllPronouns: new FormControl(''),
 
       types: this.typesFormGroup,
       moods: this.moodsFormGroup,
@@ -195,6 +183,7 @@ export class BibleRangeComponent implements OnInit {
           const words = response.filter(x => !x.partsOfSpeech.includes(indeclinable));
 
           this.state.setSecondaryTensesEnabled(this.verbSecondaryTenses);
+          this.state.setUseAllPronouns(this.useAllPronouns);
           this.state.setWordsForParsing(words, this.bibleRangeForm.value.amountOfWords, this.bibleRangeForm.value.randomizeWords);
           this.state.setBibleReference(bibleReference);
           this.ngxLoader.stop();

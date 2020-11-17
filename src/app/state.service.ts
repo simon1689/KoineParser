@@ -12,6 +12,7 @@ export class StateService {
   wordsForParsing: WordModel[] = [];
   bibleReference: BibleReference;
   verbSecondaryTensesEnabled = false;
+  usingAllPronouns = false;
   localStorageSession: LocalStorageSession;
 
   constructor() {
@@ -37,6 +38,14 @@ export class StateService {
 
   getSecondaryTensesEnabled(): boolean {
     return this.verbSecondaryTensesEnabled;
+  }
+
+  setUseAllPronouns(usingAllPronouns: boolean): void {
+    this.usingAllPronouns = usingAllPronouns;
+  }
+
+  getUseAllPronouns(): boolean {
+    return this.usingAllPronouns;
   }
 
   setCurrentSession(localStorageSession: LocalStorageSession): void {

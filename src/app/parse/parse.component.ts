@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../models/part-of-speech-objects';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -11,28 +11,31 @@ import {
   adjective,
   adverb,
   allSuffixes,
-  allTenses,
   allWordParts,
   article,
   conditionalType,
-  conjunction, deponentVoice, eitherMiddleOrPassiveVoice,
-  infinitiveMood, middlePassiveDeponentVoice, middleVoice, noStatedTense,
+  conjunction,
+  infinitiveMood,
+  noStatedTense,
   noun,
   participleMood,
-  particleType, passiveDeponentVoice, passiveVoice,
+  particleType,
   personalPronoun,
+  possessivePronoun,
   preposition,
+  reflexivePronoun,
   verb
 } from '../etc/word-type-constants';
 import {KoineParserService} from '../koine-parser.service';
 import {MorphologyGenerator} from '../etc/morphology-generator';
-import {MatStep, MatStepper} from '@angular/material/stepper';
+import {MatStepper} from '@angular/material/stepper';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
 import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
 import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
 import {LocalStorageSession} from '../models/local-storage-session';
 import {Score} from '../models/score';
+import {Comparable} from '../comparable';
 
 export interface WrongAnswer {
   word: WordModel;
@@ -109,6 +112,7 @@ export class ParseComponent implements OnInit {
     }
 
     this.determineSecondaryTenses();
+    this.determineUsingAllPronouns();
   }
 
 
@@ -142,6 +146,7 @@ export class ParseComponent implements OnInit {
     this.word = data.words[data.wordIndex - 1];
     this.state.bibleReference = data.range;
     this.state.setSecondaryTensesEnabled(data.secondaryTensesEnabled);
+    this.state.setUseAllPronouns(data.useAllPronouns);
     this.skippedWords = (data.skippedWords === undefined) ? [] : data.skippedWords;
     this.goodAnswers = (data.goodAnswers === undefined) ? [] : data.goodAnswers;
     this.wrongAnswers = (data.wrongAnswers === undefined) ? [] : data.wrongAnswers;
@@ -214,15 +219,13 @@ export class ParseComponent implements OnInit {
 
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
+        const comparable = new Comparable();
+        comparable.secondaryTenses = this.state.getSecondaryTensesEnabled();
+        comparable.useAllPronouns = this.state.getUseAllPronouns();
 
         let answerIsRight: boolean;
         const wordPartsOfSpeech = this.word.partsOfSpeech.filter(x => !allSuffixes.includes(x) && x !== noStatedTense);
-        if (this.state.getSecondaryTensesEnabled()) {
-          answerIsRight = __.isEqualWith(wordPartsOfSpeech, answerParts, this.customEqualsComparableWithSecondaryTenses);
-        } else {
-          answerIsRight = __.isEqualWith(wordPartsOfSpeech, answerParts, this.customEqualsComparable);
-        }
-
+        answerIsRight = __.isEqualWith(wordPartsOfSpeech, answerParts, comparable.customEqualsComparable);
         if (answerIsRight) {
           // if answer is given for the first time
           if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined
@@ -239,11 +242,7 @@ export class ParseComponent implements OnInit {
 
             // check if any of the multiple morphologies is part of the given answer
             for (const morph of multipleMorphologies) {
-              if (this.state.getSecondaryTensesEnabled()) {
-                answerIsRight = __.isEqualWith(morph, answerParts, this.customEqualsComparableWithSecondaryTenses);
-              } else {
-                answerIsRight = __.isEqualWith(morph, answerParts, this.customEqualsComparable);
-              }
+              answerIsRight = __.isEqualWith(morph, answerParts, comparable.customEqualsComparable);
 
               if (answerIsRight) {
                 break;
@@ -255,14 +254,19 @@ export class ParseComponent implements OnInit {
               if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) !== undefined) {
                 this.openDialog(true, answerParts, true);
               }
+
               // accept right answer if the word has not been answered
               else if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined
                 && this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
                 this.goodAnswers.push(this.word);
                 this.openDialog(true, answerParts);
               }
-            } else {
-              this.openDialog(false, answerParts);
+            } else { // if the answer is wrong after checking multiple morphologies
+              this.wrongAnswerObject = {word: this.word, given_answer: answerMorphologyCode};
+              if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
+                this.openDialog(false, answerParts);
+                this.wrongAnswers.push(this.wrongAnswerObject);
+              }
             }
           } else {
             // if the last given answer is the same as the current, then do nothing
@@ -321,7 +325,8 @@ export class ParseComponent implements OnInit {
         answerIsRight: answer,
         nextWordMethod: () => this.nextWord(),
         hasNextWord: this.wordIndex >= this.words.length,
-        correctedAnswer
+        correctedAnswer,
+        useAllPronouns: this.state.getUseAllPronouns()
       },
     });
   }
@@ -335,69 +340,6 @@ export class ParseComponent implements OnInit {
 
         return result = wordsWithMultipleMorphologies.map(x => x.morphology);
       });
-  }
-
-  customEqualsComparable(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[]): boolean {
-    if (wordPartsOfSpeech === undefined || givenAnswer === undefined || wordPartsOfSpeech === null || givenAnswer === null) {
-      return false;
-    }
-
-    if (wordPartsOfSpeech.length !== givenAnswer.length) {
-      return false;
-    }
-
-    if (__.isEqual(__.sortBy(wordPartsOfSpeech), __.sortBy(givenAnswer)) === true) {
-      return true;
-    }
-
-    for (let i = 0; i <= wordPartsOfSpeech.length; i++) {
-      // first check whether they're the same
-      if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
-
-        // if they are not the same, then check the headCategories
-        if (wordPartsOfSpeech[i].headCategory !== undefined) {
-
-          if (!__.isEqual(wordPartsOfSpeech[i].headCategory, givenAnswer[i])) {
-            return false;
-          }
-        } else { // if the objects are not equal and the partsOfSpeech of the word doesn't have a category, then it's a wrong answer
-          return false;
-        }
-      }
-    }
-
-    return true;
-  }
-
-  customEqualsComparableWithSecondaryTenses(wordPartsOfSpeech: WordPart[], givenAnswer: WordPart[]): boolean {
-    if (wordPartsOfSpeech === undefined || givenAnswer === undefined || wordPartsOfSpeech === null || givenAnswer === null) {
-      return false;
-    }
-
-    if (wordPartsOfSpeech.length !== givenAnswer.length) {
-      return false;
-    }
-
-    if (__.isEqual(__.sortBy(wordPartsOfSpeech), __.sortBy(givenAnswer)) === true) {
-      return true;
-    }
-
-    for (let i = 0; i < wordPartsOfSpeech.length; i++) {
-      // first check whether they're the same
-      if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
-
-        // if they are not the same, then check the headCategories
-        if (wordPartsOfSpeech[i].headCategory !== undefined && !allTenses.includes(wordPartsOfSpeech[i])) {
-          if (!__.isEqual(wordPartsOfSpeech[i].headCategory, givenAnswer[i])) {
-            return false;
-          }
-        } else { // if the objects are not equal and the partsOfSpeech of the word doesn't have a category, then it's a wrong answer
-          return false;
-        }
-      }
-    }
-
-    return true;
   }
 
   determineAvailableControlsWhenTypeIsSelected(): void {
@@ -418,14 +360,6 @@ export class ParseComponent implements OnInit {
         this.parsingForm.controls.mood.disable();
         this.parsingForm.controls.person.disable();
         this.goToStep(this.caseGenderNumberStep);
-
-        break;
-      case personalPronoun.abbreviation: // this includes all types of pronouns
-        this.parsingForm.controls.tense.disable();
-        this.parsingForm.controls.voice.disable();
-        this.parsingForm.controls.mood.disable();
-        this.goToStep(this.personStep);
-
         break;
 
       case conjunction.abbreviation:
@@ -436,7 +370,31 @@ export class ParseComponent implements OnInit {
         this.parsingForm.disable();
         this.parsingForm.controls.type.enable();
         break;
+
       default:
+        if (this.state.getUseAllPronouns() === true) {
+          const value = this.parsingForm.controls.type.value;
+          if (value === possessivePronoun.abbreviation
+            || value === reflexivePronoun.abbreviation
+            || value === personalPronoun.abbreviation) {
+            this.parsingForm.controls.tense.disable();
+            this.parsingForm.controls.voice.disable();
+            this.parsingForm.controls.mood.disable();
+            this.goToStep(this.personStep);
+          } else { // no person is needed
+            this.parsingForm.controls.tense.disable();
+            this.parsingForm.controls.voice.disable();
+            this.parsingForm.controls.mood.disable();
+            this.parsingForm.controls.person.disable();
+            this.goToStep(this.caseGenderNumberStep);
+          }
+        } else {
+          this.parsingForm.controls.tense.disable();
+          this.parsingForm.controls.voice.disable();
+          this.parsingForm.controls.mood.disable();
+          this.goToStep(this.personStep);
+        }
+
         break;
     }
   }
@@ -475,7 +433,15 @@ export class ParseComponent implements OnInit {
     if (this.state.getSecondaryTensesEnabled()) {
       this.verbTenses = VerbTenses;
     } else {
-      this.verbTenses = this.verbTenses.filter(x => x.secondary === false);
+      this.verbTenses = this.verbTenses.filter(x => !x.secondary);
+    }
+  }
+
+  determineUsingAllPronouns(): void {
+    if (this.state.getUseAllPronouns()) {
+      this.types = Types.filter(x => x.wordPart === personalPronoun ? x.name = 'Personal pronoun' : x);
+    } else {
+      this.types = Types.filter(x => !x.secondary);
     }
   }
 
