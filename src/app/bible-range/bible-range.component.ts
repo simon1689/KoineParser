@@ -44,10 +44,13 @@ export class BibleRangeComponent implements OnInit {
   amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
   moodsFormGroup: FormGroup;
+  tensesFormGroup: FormGroup;
+
   zoomIcon = faSearch;
   verbSecondaryTenses = false;
   beginningChapter: Chapter = null;
   endingChapter: Chapter = null;
+  tenses = VerbTenses.filter(x => !x.secondary);
 
   constructor(private service: KoineParserService,
               private state: StateService,
@@ -67,6 +70,7 @@ export class BibleRangeComponent implements OnInit {
   initForm(): void {
     this.typesFormGroup = this.createFormGroup(this.types, Validators.required);
     this.moodsFormGroup = this.createFormGroup(this.moods);
+    this.tensesFormGroup = this.createFormGroup(this.tenses);
 
     this.bibleRangeForm = new FormGroup({
       bibleBook: new FormControl('', Validators.required),
@@ -75,8 +79,11 @@ export class BibleRangeComponent implements OnInit {
       bibleBookToChapter: new FormControl(''),
       bibleBookToVerse: new FormControl(''),
       verbSecondaryTenses: new FormControl(''),
+
       types: this.typesFormGroup,
       moods: this.moodsFormGroup,
+      tenses: this.tensesFormGroup,
+
       randomizeWords: new FormControl({value: true}),
       amountOfWords: new FormControl(null),
     });
@@ -157,7 +164,7 @@ export class BibleRangeComponent implements OnInit {
 
   setAmountOfWords(): void {
     this.ngxLoader.startLoader('smallLoader');
-    this.service.getWordsCount(this.determineFilters(), this.createBibleReference())
+    this.service.getWordCount(this.determineFilters(), this.createBibleReference())
       .subscribe(res => {
         this.amountOfWordsForRange = res.count;
         this.bibleRangeForm.controls.amountOfWords.setValue(res.count);
@@ -177,7 +184,7 @@ export class BibleRangeComponent implements OnInit {
     this.ngxLoader.start();
     const filters = this.determineFilters();
     const bibleReference = this.createBibleReference();
-    return this.service.getAllWords(filters, bibleReference)
+    return this.service.getWords(filters, bibleReference)
       .subscribe(
         (response) => {
           this.router.navigate(['parsing'], {
@@ -211,6 +218,12 @@ export class BibleRangeComponent implements OnInit {
     Object.keys(this.moodsFormGroup.controls).forEach(key => {
       if (this.moodsFormGroup.controls[key] !== undefined && this.moodsFormGroup.controls[key].value === true) {
         result.push(Moods.find(x => x.controlId === key).wordPart);
+      }
+    });
+
+    Object.keys(this.tensesFormGroup.controls).forEach(key => {
+      if (this.tensesFormGroup.controls[key] !== undefined && this.tensesFormGroup.controls[key].value === true) {
+        result.push(VerbTenses.find(x => x.controlId === key).wordPart);
       }
     });
 

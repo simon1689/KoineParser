@@ -33,7 +33,7 @@ export class KoineParserService {
     this.setAllLexiconEntries();
   }
 
-  getAllWords(filters: WordPart[], reference: BibleReference): Observable<WordModel[]> {
+  getWords(filters: WordPart[], reference: BibleReference): Observable<WordModel[]> {
     let endpoint = this.endpoint + reference.toApiQueryString();
 
     if (filters.length > 0) {
@@ -52,9 +52,8 @@ export class KoineParserService {
         })));
   }
 
-  getWordsCount(filters: WordPart[], reference: BibleReference): Observable<any> {
+  getWordCount(filters: WordPart[], reference: BibleReference): Observable<any> {
     let endpoint = this.endpoint + reference.toApiQueryString() + '?count=x';
-
     if (filters.length > 0) {
       endpoint += this.getFiltersQueryString(filters);
     }
@@ -68,6 +67,7 @@ export class KoineParserService {
   getFiltersQueryString(filters: WordPart[]): string {
     const types = filters.filter(x => x.type.toLowerCase() === 'type');
     const moods = filters.filter(x => x.type.toLowerCase() === 'mood');
+    const tenses = filters.filter(x => x.type.toLowerCase() === 'tense');
     let result = '';
 
     if (types.length !== 0) {
@@ -76,6 +76,10 @@ export class KoineParserService {
 
     if (moods.length !== 0) {
       result += '&' + this.getFilters(moods, 'moods');
+    }
+
+    if (tenses.length !== 0) {
+      result += '&' + this.getFilters(tenses, 'tenses');
     }
 
     return result;
@@ -111,6 +115,8 @@ export class KoineParserService {
         case participleMood:
           result += `${type.abbreviation}${comma}`;
           break;
+        default:
+          result += `${type.abbreviation}${comma}`;
       }
     }
 

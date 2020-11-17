@@ -57,7 +57,7 @@
       </mat-form-field>
     </div>
 
-    <mat-expansion-panel>
+    <mat-expansion-panel togglePosition="before">
       <mat-expansion-panel-header>
         <mat-panel-title>More options</mat-panel-title>
       </mat-expansion-panel-header>
@@ -68,6 +68,17 @@
                         *ngFor="let type of types" formControlName="{{type.controlId}}"
                         (change)="setAmountOfWords()">
             {{type.name}}s
+          </mat-checkbox>
+        </div>
+      </div>
+
+      <div formGroupName="tenses">
+        <p>Verb tenses</p>
+        <div style="margin-left: 15px;">
+          <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
+                        *ngFor="let tense of tenses" formControlName="{{tense.controlId}}"
+                        (change)="setAmountOfWords()">
+            {{tense.name}}
           </mat-checkbox>
         </div>
       </div>
