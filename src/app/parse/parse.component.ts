@@ -266,6 +266,8 @@ export class ParseComponent implements OnInit {
               if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
                 this.openDialog(false, answerParts);
                 this.wrongAnswers.push(this.wrongAnswerObject);
+              } else {
+                this.openDialog(false, answerParts);
               }
             }
           } else {

@@ -86,7 +86,11 @@ export class ParseAnswerDialogComponent {
           this.hintWrongPartOfAnswer = __.sample(wrongPartsOfGivenAnswer);
         }
       } else {
-        this.hintRightPartOfAnswer = __.sample(partOfTheRightAnswer);
+        if (partOfTheRightAnswer.find(x => x.type === 'Type') !== undefined) {
+          this.hintRightPartOfAnswer = partOfTheRightAnswer.find(x => x.type === 'Type');
+        } else {
+          this.hintRightPartOfAnswer = __.sample(partOfTheRightAnswer);
+        }
       }
     }
   }
