@@ -104,7 +104,7 @@ export class KoineParserService {
           break;
         case verb:
         case noun:
-          result += `${type.abbreviation}${comma}`;
+          result += `${type.abbreviation}-${comma}`;
           break;
         case personalPronoun:
           result += allTypesOfPronouns.map(x => x.abbreviation + '-') + comma;
