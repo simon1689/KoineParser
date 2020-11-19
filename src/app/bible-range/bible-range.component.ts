@@ -224,4 +224,32 @@ export class BibleRangeComponent implements OnInit {
 
     return result;
   }
+
+  checkVerbsType($event: any): void {
+    if (this.typesFormGroup.value.VerbCtrl === undefined && $event === true) {
+      this.typesFormGroup.controls.VerbsCtrl.setValue($event);
+    } else if (this.typesFormGroup.value.VerbCtrl && $event) {
+      this.typesFormGroup.controls.VerbsCtrl.setValue($event);
+    } else {
+      let result = false;
+      Object.keys(this.moodsFormGroup.value).forEach(key => {
+        if (this.moodsFormGroup.controls[key] !== undefined && this.moodsFormGroup.controls[key].value === true) {
+          result = true;
+        }
+      });
+
+      Object.keys(this.tensesFormGroup.value).forEach(key => {
+        if (this.tensesFormGroup.controls[key] !== undefined && this.tensesFormGroup.controls[key].value === true) {
+          result = true;
+        }
+      });
+
+      if (result) {
+        this.typesFormGroup.controls.VerbsCtrl.setValue(true);
+      } else {
+        this.typesFormGroup.controls.VerbsCtrl.setValue($event);
+      }
+
+    }
+  }
 }

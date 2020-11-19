@@ -77,7 +77,7 @@
         <div style="margin-left: 15px;">
           <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
                         *ngFor="let tense of tenses" formControlName="{{tense.controlId}}"
-                        (change)="setAmountOfWords()">
+                        (change)="setAmountOfWords()" (ngModelChange)="checkVerbsType($event)">
             {{tense.name}}
           </mat-checkbox>
         </div>
@@ -88,7 +88,7 @@
         <div style="margin-left: 15px;">
           <mat-checkbox labelPosition="after" color="accent" class="mat-checkbox type-of-words-checkbox"
                         *ngFor="let mood of moods" formControlName="{{mood.controlId}}"
-                        (change)="setAmountOfWords()">
+                        (change)="setAmountOfWords()" (ngModelChange)="checkVerbsType($event)">
             {{mood.name}}
           </mat-checkbox>
         </div>
