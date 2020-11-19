@@ -76,7 +76,7 @@ export class Comparable {
         if (__.last(component.wrongAnswers) !== undefined
           && __.last(component.wrongAnswers).given_answer === answerMorphologyCode
           && __.isEqual(__.last(component.wrongAnswers).word, word)) {
-          return;
+          return new AnswerChecked(false, answerParts);
         }
 
         // if the answer is wrong and given for the first time, then register it
@@ -113,11 +113,9 @@ export class Comparable {
         // if they are not the same, then check the headCategories
         if (wordPartsOfSpeech[i].headCategory !== undefined) {
           try {
-            if (this.secondaryTenses && wordPartsOfSpeech[i].type === 'Verb') {
-              if (wordPartsOfSpeech[i].headCategory !== undefined && !allTenses.includes(wordPartsOfSpeech[i])) {
-                if (!__.isEqual(wordPartsOfSpeech[i].headCategory, givenAnswer[i])) {
-                  return false;
-                }
+            if (this.secondaryTenses && wordPartsOfSpeech[i].type === WordParts.tense) {
+              if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
+                return false;
               }
             } else if (this.useAllPronouns && wordPartsOfSpeech[i].type === WordParts.type) {
               if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
@@ -160,7 +158,8 @@ export class Comparable {
         nextWordMethod: () => this.component.nextWord(),
         hasNextWord: this.component.wordIndex >= this.component.words.length,
         correctedAnswer: answer.correctedAnswer,
-        useAllPronouns: this.state.getUseAllPronouns()
+        useAllPronouns: this.useAllPronouns,
+        secondaryTenses: this.secondaryTenses
       },
     });
   }

@@ -27,6 +27,7 @@ export class ParseAnswerDialogComponent {
 
   correctedAnswer: boolean;
   useAllPronouns: boolean;
+  secondaryTenses: boolean;
 
   constructor(private dialogRef: MatDialogRef<ParseAnswerDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -39,6 +40,7 @@ export class ParseAnswerDialogComponent {
     this.hasNextWord = data.hasNextWord;
     this.correctedAnswer = data.correctedAnswer;
     this.useAllPronouns = data.useAllPronouns;
+    this.secondaryTenses = data.secondaryTenses;
 
     this.generateHints();
   }
@@ -54,14 +56,14 @@ export class ParseAnswerDialogComponent {
 
     if (!this.answerIsRight) {
 
-      if (this.state.getSecondaryTensesEnabled()) {
-
+      if (this.secondaryTenses) {
         partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
           return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined && !allTenses.includes(x)
             ? x.headCategory.name
             : x.name);
         });
-
+        
+        partOfTheRightAnswer.forEach(x => x.type === WordParts.tense ? x.headCategory = undefined : x);
       } else {
         partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
           return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined
@@ -73,7 +75,7 @@ export class ParseAnswerDialogComponent {
       partOfTheRightAnswer = partOfTheRightAnswer.filter(x => !allSuffixes.includes(x));
       if (partOfTheRightAnswer.length === 0) {
         wrongPartsOfGivenAnswer = __.differenceWith(this.givenAnswer, this.currentWord.partsOfSpeech, __.isEqual);
-        if (this.useAllPronouns) {
+        if (this.useAllPronouns || this.secondaryTenses) {
           const foundType = wrongPartsOfGivenAnswer.find(x => x.type === WordParts.type);
           // pronoun is found as part of wrong answer
           if (foundType !== undefined && allTypesOfPronouns.find(x => __.isEqual(x, foundType)) !== undefined) {
