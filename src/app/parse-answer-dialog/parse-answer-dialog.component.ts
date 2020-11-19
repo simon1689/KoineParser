@@ -5,7 +5,7 @@ import {MorphologyGenerator} from '../etc/morphology-generator';
 import {WordPart} from '../models/word-part';
 import * as  __ from 'lodash-es';
 import {StateService} from '../state.service';
-import {allSuffixes, allTenses, allTypesOfPronouns} from '../etc/word-type-constants';
+import {allSuffixes, allTenses, allTypesOfPronouns, WordParts} from '../etc/word-type-constants';
 
 @Component({
   selector: 'app-parse-answer-dialog',
@@ -73,12 +73,11 @@ export class ParseAnswerDialogComponent {
       partOfTheRightAnswer = partOfTheRightAnswer.filter(x => !allSuffixes.includes(x));
       if (partOfTheRightAnswer.length === 0) {
         wrongPartsOfGivenAnswer = __.differenceWith(this.givenAnswer, this.currentWord.partsOfSpeech, __.isEqual);
-
         if (this.useAllPronouns) {
-          const foundType = wrongPartsOfGivenAnswer.find(x => x.type === 'Type');
+          const foundType = wrongPartsOfGivenAnswer.find(x => x.type === WordParts.type);
           // pronoun is found as part of wrong answer
           if (foundType !== undefined && allTypesOfPronouns.find(x => __.isEqual(x, foundType)) !== undefined) {
-            const type = this.currentWord.partsOfSpeech.find(x => x.type === 'Type');
+            const type = this.currentWord.partsOfSpeech.find(x => x.type === WordParts.type);
             type.headCategory = undefined;
             this.hintRightPartOfAnswer = type;
           }
@@ -86,8 +85,8 @@ export class ParseAnswerDialogComponent {
           this.hintWrongPartOfAnswer = __.sample(wrongPartsOfGivenAnswer);
         }
       } else {
-        if (partOfTheRightAnswer.find(x => x.type === 'Type') !== undefined) {
-          this.hintRightPartOfAnswer = partOfTheRightAnswer.find(x => x.type === 'Type');
+        if (partOfTheRightAnswer.find(x => x.type === WordParts.type) !== undefined) {
+          this.hintRightPartOfAnswer = partOfTheRightAnswer.find(x => x.type === WordParts.type);
         } else {
           this.hintRightPartOfAnswer = __.sample(partOfTheRightAnswer);
         }

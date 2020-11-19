@@ -16,7 +16,7 @@ import {
   participleMood, particleType,
   personalPronoun,
   preposition, subjunctiveMood,
-  verb
+  verb, WordParts
 } from './etc/word-type-constants';
 import {MorphologyGenerator} from './etc/morphology-generator';
 import {BibleReference} from './models/bible-reference';
@@ -65,9 +65,9 @@ export class KoineParserService {
   }
 
   getFiltersQueryString(filters: WordPart[]): string {
-    const types = filters.filter(x => x.type.toLowerCase() === 'type');
-    const moods = filters.filter(x => x.type.toLowerCase() === 'mood');
-    const tenses = filters.filter(x => x.type.toLowerCase() === 'tense');
+    const types = filters.filter(x => x.type === WordParts.type);
+    const moods = filters.filter(x => x.type === WordParts.mood);
+    const tenses = filters.filter(x => x.type === WordParts.tense);
     let result = '';
 
     if (types.length !== 0) {

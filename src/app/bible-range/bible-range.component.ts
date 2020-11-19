@@ -55,6 +55,7 @@ export class BibleRangeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.tensesFormGroup.controls.AoristTenseCtrl.setValue(true);
   }
 
   initForm(): void {
