@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../models/part-of-speech-objects';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -30,9 +30,9 @@ import {MatStepper} from '@angular/material/stepper';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
 import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
-import {LocalStorageSession} from '../models/local-storage-session';
-import {Score} from '../models/score';
 import {AnswerChecked, Comparable} from '../comparable';
+import {Helper} from '../etc/helper';
+import {SessionsComponent} from '../sessions/sessions.component';
 
 export interface WrongAnswer {
   word: WordModel;
@@ -91,9 +91,12 @@ export class ParseComponent implements OnInit {
   personStep;
   caseGenderNumberStep;
 
+  helper = Helper;
+  sessions = SessionsComponent;
+
   constructor(private router: Router,
               private activeRoute: ActivatedRoute,
-              private state: StateService,
+              public state: StateService,
               private service: KoineParserService,
               private dialog: MatDialog) {
   }
@@ -222,7 +225,7 @@ export class ParseComponent implements OnInit {
         comparable.openDialog(answer);
 
         if (this.wordIndex === this.words.length) {
-          this.registerScores();
+          this.helper.registerScores(this);
         }
       }
     }
@@ -329,13 +332,6 @@ export class ParseComponent implements OnInit {
     }
   }
 
-  @HostListener('window:keyup', ['$event'])
-  nextWordThroughKeyboard($event: KeyboardEvent): void {
-    if ($event.code === 'ArrowRight') {
-      this.nextWord();
-    }
-  }
-
   determineSecondaryTenses(): void {
     if (this.state.getSecondaryTensesEnabled()) {
       this.verbTenses = VerbTenses;
@@ -349,59 +345,6 @@ export class ParseComponent implements OnInit {
       this.types = Types.filter(x => x.wordPart === personalPronoun ? x.name = 'Personal pronoun' : x);
     } else {
       this.types = Types.filter(x => !x.secondary);
-    }
-  }
-
-  saveSession(): void {
-    const session: LocalStorageSession = {
-      words: this.words,
-      wordIndex: this.wordIndex,
-      currentWord: this.word,
-      date: new Date().toDateString(),
-      range: this.state.getBibleReference().toString(),
-      goodAnswers: this.goodAnswers,
-      wrongAnswers: this.wrongAnswers,
-      skippedWords: this.skippedWords,
-      usedWords: this.usedWords,
-      key: this.state.getBibleReference().toString() + ' ' + new Date().toDateString(),
-      secondaryTensesEnabled: this.state.getSecondaryTensesEnabled()
-    };
-
-    let sessionKeys: string[] = [];
-    if ('session_keys' in localStorage) {
-      sessionKeys = JSON.parse(localStorage.getItem('session_keys'));
-    }
-
-    if (session.key in localStorage) { // if session exists, then remove it first
-      sessionKeys = sessionKeys.filter(x => x !== session.key); // remove the key
-      localStorage.removeItem(session.key);
-    }
-
-    sessionKeys.push(session.key);
-    localStorage.setItem(session.key, JSON.stringify(session));
-    localStorage.setItem('session_keys', JSON.stringify(sessionKeys));
-
-    this.parsingForm.disable();
-    this.sessionSaved = true;
-  }
-
-  registerScores(): void {
-    const score: Score = {
-      date: new Date(),
-      wrongAnswers: this.wrongAnswers.length,
-      range: this.state.getBibleReference().toString(),
-      numberOfWords: this.words.length,
-      goodAnswers: this.goodAnswers.length,
-      skippedWords: this.skippedWords.length
-    };
-
-    if ('scores' in localStorage) {
-      const scoresFromLocalStorage: Score[] = JSON.parse(localStorage.getItem('scores'));
-      scoresFromLocalStorage.push(score);
-      localStorage.setItem('scores', JSON.stringify(scoresFromLocalStorage));
-    } else {
-      const scores: Score[] = [score];
-      localStorage.setItem('scores', JSON.stringify(scores));
     }
   }
 

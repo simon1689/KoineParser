@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LocalStorageSession} from '../models/local-storage-session';
 import {FormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
-import {NgxUiLoaderService} from 'ngx-ui-loader';
+import {ParseComponent} from '../parse/parse.component';
 
 @Component({
   selector: 'app-sessions',
@@ -12,13 +12,46 @@ import {NgxUiLoaderService} from 'ngx-ui-loader';
 })
 export class SessionsComponent implements OnInit {
 
+  constructor(private router: Router,
+              private activeRoute: ActivatedRoute,
+              private state: StateService) {
+  }
+
   sessions: LocalStorageSession[] = [];
   sessionSelectionBox: FormControl;
   selectedSession: LocalStorageSession;
 
-  constructor(private router: Router,
-              private activeRoute: ActivatedRoute,
-              private state: StateService) {
+  public static saveSession(component: ParseComponent): void {
+    const session: LocalStorageSession = {
+      words: component.words,
+      wordIndex: component.wordIndex,
+      currentWord: component.word,
+      date: new Date().toDateString(),
+      range: component.state.getBibleReference().toString(),
+      goodAnswers: component.goodAnswers,
+      wrongAnswers: component.wrongAnswers,
+      skippedWords: component.skippedWords,
+      usedWords: component.usedWords,
+      key: component.state.getBibleReference().toString() + ' ' + new Date().toDateString(),
+      secondaryTensesEnabled: component.state.getSecondaryTensesEnabled()
+    };
+
+    let sessionKeys: string[] = [];
+    if ('session_keys' in localStorage) {
+      sessionKeys = JSON.parse(localStorage.getItem('session_keys'));
+    }
+
+    if (session.key in localStorage) { // if session exists, then remove it first
+      sessionKeys = sessionKeys.filter(x => x !== session.key); // remove the key
+      localStorage.removeItem(session.key);
+    }
+
+    sessionKeys.push(session.key);
+    localStorage.setItem(session.key, JSON.stringify(session));
+    localStorage.setItem('session_keys', JSON.stringify(sessionKeys));
+
+    component.parsingForm.disable();
+    component.sessionSaved = true;
   }
 
   ngOnInit(): void {

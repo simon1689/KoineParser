@@ -176,7 +176,7 @@
       <div class="text-right">
         <button mat-raised-button
                 matTooltip="Save your progress so that you can continue later. You can select this session from the homepage."
-                (click)="saveSession()" [disabled]="sessionSaved || wordIndex >= words.length">
+                (click)="sessions.saveSession(this)" [disabled]="sessionSaved || wordIndex >= words.length">
           Save session
         </button>
       </div>

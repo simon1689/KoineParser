@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BibleBooks, Book} from '../etc/bible';
-import {Moods, PartOfSpeech, Types, VerbTenses} from '../models/part-of-speech-objects';
+import {Moods, Types, VerbTenses} from '../models/part-of-speech-objects';
 import {KoineParserService} from '../koine-parser.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -12,6 +12,7 @@ import {conditionalType, indeclinable} from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
 import {BibleReference} from '../models/bible-reference';
+import {Helper} from '../etc/helper';
 
 @Component({
   selector: 'app-bible-range',
@@ -21,23 +22,25 @@ import {BibleReference} from '../models/bible-reference';
 
 export class BibleRangeComponent implements OnInit {
   bibleRangeForm: FormGroup;
-
-  bibleBooks = BibleBooks;
-  types = Types.filter(x => x.wordPart !== conditionalType && !x.secondary);
-  moods = Moods.filter(x => !x.secondary);
-
-  selectedBook: Book;
-  amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
   moodsFormGroup: FormGroup;
   tensesFormGroup: FormGroup;
 
+  types = Types.filter(x => x.wordPart !== conditionalType && !x.secondary);
+  moods = Moods.filter(x => !x.secondary);
+  tenses = VerbTenses.filter(x => !x.secondary);
+
   zoomIcon = faSearch;
+
+  amountOfWordsForRange?: number = null;
   verbSecondaryTenses = false;
   useAllPronouns = false;
+
+  bibleBooks = BibleBooks;
+  selectedBook: Book;
   beginningChapter: Chapter = null;
   endingChapter: Chapter = null;
-  tenses = VerbTenses.filter(x => !x.secondary);
+  helper = Helper;
 
   constructor(private service: KoineParserService,
               private state: StateService,
@@ -55,9 +58,9 @@ export class BibleRangeComponent implements OnInit {
   }
 
   initForm(): void {
-    this.typesFormGroup = this.createFormGroup(this.types, Validators.required);
-    this.moodsFormGroup = this.createFormGroup(this.moods);
-    this.tensesFormGroup = this.createFormGroup(this.tenses);
+    this.typesFormGroup = this.helper.createFormGroup(this.types, Validators.required);
+    this.moodsFormGroup = this.helper.createFormGroup(this.moods);
+    this.tensesFormGroup = this.helper.createFormGroup(this.tenses);
 
     this.bibleRangeForm = new FormGroup({
       bibleBook: new FormControl('', Validators.required),
@@ -84,19 +87,6 @@ export class BibleRangeComponent implements OnInit {
     this.bibleRangeForm.controls.bibleBookToVerse.setValue(this.endingChapter.verses);
 
     this.setAmountOfWords();
-  }
-
-  createFormGroup(parts: PartOfSpeech[], validators = null): FormGroup {
-    if (parts == null) {
-      return null;
-    }
-
-    const group = new FormGroup({}, validators);
-    for (const part of parts) {
-      group.addControl(part.controlId, new FormControl(''));
-    }
-
-    return group;
   }
 
   bookSelected(): void {
@@ -217,10 +207,6 @@ export class BibleRangeComponent implements OnInit {
     });
 
     return result.filter(x => x !== undefined);
-  }
-
-  counter(i: number): Array<number> {
-    return new Array(i);
   }
 
   giveMeVerseNumbers(endingChapter: Chapter): Array<number> {
