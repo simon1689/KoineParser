@@ -76,8 +76,9 @@ export class Comparable {
         } else { // if the answer is wrong after checking multiple morphologiess
           component.wrongAnswerObject = {word, given_answer: answerMorphologyCode};
           if (component.wrongAnswers.find(x => __.isEqual(x.word, word)) === undefined) {
+            component.wrongAnswers.push(component.wrongAnswerObject);
             return new AnswerChecked(false, answerParts);
-          } else {
+          } else { // if another wrong answer is given
             return new AnswerChecked(false, answerParts);
           }
         }
