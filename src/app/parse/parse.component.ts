@@ -1,16 +1,14 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../models/part-of-speech-objects';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import {WordModel} from '../models/word.model';
 import {StateService} from '../state.service';
-import * as  __ from 'lodash-es';
 import {faExclamationCircle, faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import {WordPart} from '../models/word-part';
 import {
   adjective,
   adverb,
-  allSuffixes,
   allWordParts,
   article,
   conditionalType,
@@ -31,11 +29,10 @@ import {MorphologyGenerator} from '../etc/morphology-generator';
 import {MatStepper} from '@angular/material/stepper';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {MatDialog} from '@angular/material/dialog';
-import {ParseAnswerDialogComponent} from '../parse-answer-dialog/parse-answer-dialog.component';
 import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-error-on-page-dialog.component';
-import {LocalStorageSession} from '../models/local-storage-session';
-import {Score} from '../models/score';
-import {Comparable} from '../comparable';
+import {AnswerChecked, Comparable} from '../comparable';
+import {Helper} from '../etc/helper';
+import {SessionsComponent} from '../sessions/sessions.component';
 
 export interface WrongAnswer {
   word: WordModel;
@@ -94,11 +91,14 @@ export class ParseComponent implements OnInit {
   personStep;
   caseGenderNumberStep;
 
+  helper = Helper;
+  sessions = SessionsComponent;
+
   constructor(private router: Router,
               private activeRoute: ActivatedRoute,
-              private state: StateService,
+              public state: StateService,
               private service: KoineParserService,
-              public dialog: MatDialog) {
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -114,7 +114,6 @@ export class ParseComponent implements OnInit {
     this.determineSecondaryTenses();
     this.determineUsingAllPronouns();
   }
-
 
   startRoute(): void {
     this.words = this.state.getWordsForParsing();
@@ -215,84 +214,18 @@ export class ParseComponent implements OnInit {
   async submit(): Promise<void> {
     if (this.parsingForm.valid) {
       const answerParts = this.formulateAnswerParts().filter(x => x !== noStatedTense);
-      const answerMorphologyCode = this.morphologyGenerator.generateMorphologyCodeFromWordParts(answerParts);
 
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
-        const comparable = new Comparable();
+        const comparable = new Comparable(this.dialog, this.state, this.service);
         comparable.secondaryTenses = this.state.getSecondaryTensesEnabled();
         comparable.useAllPronouns = this.state.getUseAllPronouns();
 
-        let answerIsRight: boolean;
-        const wordPartsOfSpeech = this.word.partsOfSpeech.filter(x => !allSuffixes.includes(x) && x !== noStatedTense);
-        answerIsRight = __.isEqualWith(wordPartsOfSpeech, answerParts, comparable.customEqualsComparable);
-        if (answerIsRight) {
-          // if answer is given for the first time
-          if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined
-            && this.goodAnswers.find(word => __.isEqual(word, this.word)) === undefined) {
-            this.goodAnswers.push(this.word);
-            this.openDialog(true, answerParts, false);
-          } else {
-            this.openDialog(true, answerParts, true);
-          }
-        } else {
-          // check if the word has multiple morphologies
-          const multipleMorphologies = await this.getMultipleMorphologiesForWord(this.word).then(x => x);
-          if (multipleMorphologies.find(x => x === this.word.morphology) !== undefined) {
-
-            // check if any of the multiple morphologies is part of the given answer
-            for (const morph of multipleMorphologies) {
-              answerIsRight = __.isEqualWith(morph, answerParts, comparable.customEqualsComparable);
-
-              if (answerIsRight) {
-                break;
-              }
-            }
-
-            if (answerIsRight) {
-              // do not accept the right answer after a wrong answer
-              if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) !== undefined) {
-                this.openDialog(true, answerParts, true);
-              }
-
-              // accept right answer if the word has not been answered
-              else if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined
-                && this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
-                this.goodAnswers.push(this.word);
-                this.openDialog(true, answerParts);
-              }
-            } else { // if the answer is wrong after checking multiple morphologies
-              this.wrongAnswerObject = {word: this.word, given_answer: answerMorphologyCode};
-              if (this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
-                this.openDialog(false, answerParts);
-                this.wrongAnswers.push(this.wrongAnswerObject);
-              } else {
-                this.openDialog(false, answerParts);
-              }
-            }
-          } else {
-            // if the last given answer is the same as the current, then do nothing
-            if (__.last(this.wrongAnswers) !== undefined
-              && __.last(this.wrongAnswers).given_answer === answerMorphologyCode
-              && __.isEqual(__.last(this.wrongAnswers).word, this.word)) {
-              return;
-            }
-
-            // if the answer is wrong and given for the first time, then register it
-            if (this.goodAnswers.find(x => __.isEqual(x, this.word)) === undefined &&
-              this.wrongAnswers.find(x => __.isEqual(x.word, this.word)) === undefined) {
-
-              this.wrongAnswerObject = {word: this.word, given_answer: answerMorphologyCode};
-              this.wrongAnswers.push(this.wrongAnswerObject);
-              this.openDialog(false, answerParts);
-            } else {
-              this.openDialog(false, answerParts);
-            }
-          }
-        }
+        const answer: AnswerChecked = await comparable.checkAnswer(this.word, answerParts, this);
+        comparable.openDialog(answer);
 
         if (this.wordIndex === this.words.length) {
-          this.registerScores();
+          this.helper.registerScores(this);
         }
       }
     }
@@ -317,31 +250,6 @@ export class ParseComponent implements OnInit {
         component: parseComponent
       }
     });
-  }
-
-  openDialog(answer: boolean, givenAnswerParts: WordPart[], correctedAnswer = false): void {
-    this.dialog.open(ParseAnswerDialogComponent, {
-      data: {
-        givenAnswer: givenAnswerParts,
-        currentWord: this.word,
-        answerIsRight: answer,
-        nextWordMethod: () => this.nextWord(),
-        hasNextWord: this.wordIndex >= this.words.length,
-        correctedAnswer,
-        useAllPronouns: this.state.getUseAllPronouns()
-      },
-    });
-  }
-
-  getMultipleMorphologiesForWord(word: WordModel): Promise<string[]> {
-    let result: string[] = [];
-    return this.service.multipleMorphologiesForWord()
-      .then(response => {
-        const wordsWithMultipleMorphologies = __.filter(response, x =>
-          x.word.toLowerCase() === word.word.toLowerCase() && word.strongsNr === x.strongs); // &&  x.morphology !== word.morphology
-
-        return result = wordsWithMultipleMorphologies.map(x => x.morphology);
-      });
   }
 
   determineAvailableControlsWhenTypeIsSelected(): void {
@@ -424,13 +332,6 @@ export class ParseComponent implements OnInit {
     }
   }
 
-  @HostListener('window:keyup', ['$event'])
-  nextWordThroughKeyboard($event: KeyboardEvent): void {
-    if ($event.code === 'ArrowRight') {
-      this.nextWord();
-    }
-  }
-
   determineSecondaryTenses(): void {
     if (this.state.getSecondaryTensesEnabled()) {
       this.verbTenses = VerbTenses;
@@ -444,59 +345,6 @@ export class ParseComponent implements OnInit {
       this.types = Types.filter(x => x.wordPart === personalPronoun ? x.name = 'Personal pronoun' : x);
     } else {
       this.types = Types.filter(x => !x.secondary);
-    }
-  }
-
-  saveSession(): void {
-    const session: LocalStorageSession = {
-      words: this.words,
-      wordIndex: this.wordIndex,
-      currentWord: this.word,
-      date: new Date().toDateString(),
-      range: this.state.getBibleReference().toString(),
-      goodAnswers: this.goodAnswers,
-      wrongAnswers: this.wrongAnswers,
-      skippedWords: this.skippedWords,
-      usedWords: this.usedWords,
-      key: this.state.getBibleReference().toString() + ' ' + new Date().toDateString(),
-      secondaryTensesEnabled: this.state.getSecondaryTensesEnabled()
-    };
-
-    let sessionKeys: string[] = [];
-    if ('session_keys' in localStorage) {
-      sessionKeys = JSON.parse(localStorage.getItem('session_keys'));
-    }
-
-    if (session.key in localStorage) { // if session exists, then remove it first
-      sessionKeys = sessionKeys.filter(x => x !== session.key); // remove the key
-      localStorage.removeItem(session.key);
-    }
-
-    sessionKeys.push(session.key);
-    localStorage.setItem(session.key, JSON.stringify(session));
-    localStorage.setItem('session_keys', JSON.stringify(sessionKeys));
-
-    this.parsingForm.disable();
-    this.sessionSaved = true;
-  }
-
-  registerScores(): void {
-    const score: Score = {
-      date: new Date(),
-      wrongAnswers: this.wrongAnswers.length,
-      range: this.state.getBibleReference().toString(),
-      numberOfWords: this.words.length,
-      goodAnswers: this.goodAnswers.length,
-      skippedWords: this.skippedWords.length
-    };
-
-    if ('scores' in localStorage) {
-      const scoresFromLocalStorage: Score[] = JSON.parse(localStorage.getItem('scores'));
-      scoresFromLocalStorage.push(score);
-      localStorage.setItem('scores', JSON.stringify(scoresFromLocalStorage));
-    } else {
-      const scores: Score[] = [score];
-      localStorage.setItem('scores', JSON.stringify(scores));
     }
   }
 

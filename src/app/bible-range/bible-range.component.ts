@@ -12,6 +12,7 @@ import {conditionalType, indeclinable} from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
 import {BibleReference} from '../models/bible-reference';
+import {Helper} from '../etc/helper';
 import {Paradigm} from '../paradigms/paradigm';
 
 @Component({
@@ -22,23 +23,25 @@ import {Paradigm} from '../paradigms/paradigm';
 
 export class BibleRangeComponent implements OnInit {
   bibleRangeForm: FormGroup;
-
-  bibleBooks = BibleBooks;
-  types = Types.filter(x => x.wordPart !== conditionalType && !x.secondary);
-  moods = Moods.filter(x => !x.secondary);
-
-  selectedBook: Book;
-  amountOfWordsForRange?: number = null;
   typesFormGroup: FormGroup;
   moodsFormGroup: FormGroup;
   tensesFormGroup: FormGroup;
 
+  types = Types.filter(x => x.wordPart !== conditionalType && !x.secondary);
+  moods = Moods.filter(x => !x.secondary);
+  tenses = VerbTenses.filter(x => !x.secondary);
+
   zoomIcon = faSearch;
+
+  amountOfWordsForRange?: number = null;
   verbSecondaryTenses = false;
   useAllPronouns = false;
+
+  bibleBooks = BibleBooks;
+  selectedBook: Book;
   beginningChapter: Chapter = null;
   endingChapter: Chapter = null;
-  tenses = VerbTenses.filter(x => !x.secondary);
+  helper = Helper;
 
   constructor(private service: KoineParserService,
               private state: StateService,
@@ -59,9 +62,9 @@ export class BibleRangeComponent implements OnInit {
   }
 
   initForm(): void {
-    this.typesFormGroup = this.createFormGroup(this.types, Validators.required);
-    this.moodsFormGroup = this.createFormGroup(this.moods);
-    this.tensesFormGroup = this.createFormGroup(this.tenses);
+    this.typesFormGroup = this.helper.createFormGroup(this.types, Validators.required);
+    this.moodsFormGroup = this.helper.createFormGroup(this.moods);
+    this.tensesFormGroup = this.helper.createFormGroup(this.tenses);
 
     this.bibleRangeForm = new FormGroup({
       bibleBook: new FormControl('', Validators.required),
@@ -88,19 +91,6 @@ export class BibleRangeComponent implements OnInit {
     this.bibleRangeForm.controls.bibleBookToVerse.setValue(this.endingChapter.verses);
 
     this.setAmountOfWords();
-  }
-
-  createFormGroup(parts: PartOfSpeech[], validators = null): FormGroup {
-    if (parts == null) {
-      return null;
-    }
-
-    const group = new FormGroup({}, validators);
-    for (const part of parts) {
-      group.addControl(part.controlId, new FormControl(''));
-    }
-
-    return group;
   }
 
   bookSelected(): void {
@@ -223,10 +213,6 @@ export class BibleRangeComponent implements OnInit {
     return result.filter(x => x !== undefined);
   }
 
-  counter(i: number): Array<number> {
-    return new Array(i);
-  }
-
   giveMeVerseNumbers(endingChapter: Chapter): Array<number> {
     const result: Array<number> = new Array<number>();
 
@@ -241,5 +227,33 @@ export class BibleRangeComponent implements OnInit {
     }
 
     return result;
+  }
+
+  checkVerbsType($event: any): void {
+    if (this.typesFormGroup.value.VerbCtrl === undefined && $event === true) {
+      this.typesFormGroup.controls.VerbsCtrl.setValue($event);
+    } else if (this.typesFormGroup.value.VerbCtrl && $event) {
+      this.typesFormGroup.controls.VerbsCtrl.setValue($event);
+    } else {
+      let result = false;
+      Object.keys(this.moodsFormGroup.value).forEach(key => {
+        if (this.moodsFormGroup.controls[key] !== undefined && this.moodsFormGroup.controls[key].value === true) {
+          result = true;
+        }
+      });
+
+      Object.keys(this.tensesFormGroup.value).forEach(key => {
+        if (this.tensesFormGroup.controls[key] !== undefined && this.tensesFormGroup.controls[key].value === true) {
+          result = true;
+        }
+      });
+
+      if (result) {
+        this.typesFormGroup.controls.VerbsCtrl.setValue(true);
+      } else {
+        this.typesFormGroup.controls.VerbsCtrl.setValue($event);
+      }
+
+    }
   }
 }

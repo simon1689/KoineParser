@@ -1,6 +1,7 @@
 import {WordPart} from '../models/word-part';
 import {
-  adjective, adverb,
+  adjective,
+  adverb,
   allCases,
   allGenders,
   allMoods,
@@ -11,17 +12,16 @@ import {
   allTypesOfPronouns,
   allVoices,
   allWordTypes,
-  article, atticSuffix,
+  article,
+  atticSuffix,
   correlativeOrInterrogativePronoun,
   correlativePronoun,
   demonstrativePronoun,
-  genderType,
   indeclinable,
   indeclinableNounOrOtherPartSuffix,
   indefinitePronoun,
   infinitiveMood,
-  interrogativePronoun, interrogativeSuffix,
-  negativeSuffix,
+  interrogativePronoun,
   noun,
   participleMood,
   particleType,
@@ -30,7 +30,7 @@ import {
   reciprocalPronoun,
   reflexivePronoun,
   relativePronoun,
-  verb, voiceType
+  verb
 } from './word-type-constants';
 
 export class MorphologyGenerator {
@@ -81,7 +81,6 @@ export class MorphologyGenerator {
             }
 
             morphology += '-';
-
             if (this.searchForPart(allMoods, wordParts) === participleMood.abbreviation) {
               morphology += this.searchForPart(allCases, wordParts);
               morphology += this.searchForPart(allNumbers, wordParts);
@@ -95,7 +94,6 @@ export class MorphologyGenerator {
             if (suffix !== '?') {
               morphology += '-' + suffix;
             }
-
             break;
 
           case noun:
