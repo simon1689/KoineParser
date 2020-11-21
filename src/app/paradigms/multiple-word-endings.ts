@@ -1,31 +1,37 @@
 export const multipleWordEndings = {
-  // Imperfect ον
+  // Imperfect | ἔλυον
   'V-IAI-1S': ['V-IAI-3P'],
   'V-IAI-3P': ['V-IAI-1S'],
 
-  // Second Aorist ον
+  // Second Aorist | ἔβαλον
   'V-2AAI-1S': ['V-2AAI-3P'],
   'V-2AAI-3P': ['V-2AAI-1S'],
 
-  // ῇ
-  'V-FMI-2S': ['V-PAS-3S', 'V-2APS-3S'],
-  'V-PAS-3S': ['V-FMI-2S', 'V-2APS-3S'],
-  'V-2APS-3S': ['V-FMI-2S', 'V-PAS-3S'],
-
-  // Future and Subjunctive 1S
+  // Future and Subjunctive 1S | λύσω
   'V-AAS-1S': ['V-FAI-1S'],
   'V-FAI-1S': ['V-AAS-1S'],
 
-  // Subjunctive and Indicative 1S
+  // Future 2S and Subjunctive 3S | λύσῃ
+  'V-AAS-3S': ['V-FMI-2S', 'V-FPI-2S'],
+  'V-FMI-2S': ['V-AAS-3S', 'V-FPI-2S'],
+  'V-FPI-2S': ['V-FMI-2S', 'V-AAS-3S'],
+
+  // ῃ | λύῃ
+  'V-PPI-2S': ['V-PMI-2S', 'V-PAS-3S', 'V-PMS-3S', 'V-PPS-3S'],
+  'V-PMI-2S': ['V-PPI-2S', 'V-PAS-3S', 'V-PMS-3S', 'V-PPS-3S'],
+  'V-PAS-3S': ['V-PMI-2S', 'V-PPI-2S', 'V-PMS-3S', 'V-PPS-3S'],
+  'V-PMS-3S': ['V-PMI-2S', 'V-PAS-3S', 'V-PPI-2S', 'V-PPS-3S'],
+  'V-PPS-3S': ['V-PMI-2S', 'V-PAS-3S', 'V-PMS-3S', 'V-PPI-2S'],
+
+  // Subjunctive and Indicative 1S | λύω
   'V-PAI-1S': ['V-PAS-1S'],
   'V-PAS-1S': ['V-PAI-1S'],
 
-  // Present Indicative and Imperative 2P
+  // Present Indicative and Imperative 2P | λύετε
   'V-PAI-2P': ['V-PAS-2P'],
   'V-PAS-2P': ['V-PAI-2P'],
 
   // Present Middle/Passive Indicative and Present Middle/Passive Imperative
-  // DEPONENT
   // Middle
   'V-PMI-2P': ['V-PMM-2P'],
   'V-PMM-2P': ['V-PMI-2P'],
