@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BibleBooks, Book} from '../etc/bible';
-import {Moods, PartOfSpeech, Types, VerbTenses} from '../models/part-of-speech-objects';
+import {Moods, Types, VerbTenses} from '../models/part-of-speech-objects';
 import {KoineParserService} from '../koine-parser.service';
 import {NgxUiLoaderService} from 'ngx-ui-loader';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -13,7 +13,6 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
 import {BibleReference} from '../models/bible-reference';
 import {Helper} from '../etc/helper';
-import {Paradigm} from '../paradigms/paradigm';
 
 @Component({
   selector: 'app-bible-range',
@@ -56,9 +55,6 @@ export class BibleRangeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-
-    console.log('λύῃ', Paradigm.giveMeParadigms('λύῃ'));
-    console.log('λύσῃ', Paradigm.giveMeParadigms('λύσῃ'));
   }
 
   initForm(): void {

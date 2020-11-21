@@ -55,13 +55,12 @@ export const aoristTense: WordPart = {name: 'Aorist', abbreviation: 'A', type: W
 export const secondAoristTense: WordPart = {name: 'Second Aorist', abbreviation: '2A', headCategory: aoristTense, type: WordParts.tense};
 export const imperfectTense: WordPart = {name: 'Imperfect', abbreviation: 'I', type: WordParts.tense};
 export const perfectTense: WordPart = {name: 'Perfect', abbreviation: 'R', type: WordParts.tense};
-export const firstPerfectTense: WordPart = {name: 'First Perfect', abbreviation: '1R', headCategory: perfectTense, type: WordParts.tense};
 export const secondPerfectTense: WordPart = {name: 'Second Perfect', abbreviation: '2R', headCategory: perfectTense, type: WordParts.tense};
 export const pluperfectTense: WordPart = {name: 'Pluperfect', abbreviation: 'L', type: WordParts.tense};
 export const secondPluperfectTense: WordPart = {name: 'Second Pluperfect', abbreviation: '2L', headCategory: pluperfectTense, type: WordParts.tense};
 export const noStatedTense: WordPart = {name: 'No stated tense', abbreviation: 'X', type: WordParts.tense};
 export const allTenses: WordPart[] = [presentTense, futureTense, secondFutureTense, aoristTense, secondAoristTense,
-  imperfectTense, perfectTense, firstPerfectTense, secondPerfectTense, pluperfectTense, secondPluperfectTense, noStatedTense];
+  imperfectTense, perfectTense, secondPerfectTense, pluperfectTense, secondPluperfectTense, noStatedTense];
 
 // voice
 export const activeVoice: WordPart = {name: 'Active', abbreviation: 'A', type: WordParts.voice};
