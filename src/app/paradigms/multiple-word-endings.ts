@@ -1,4 +1,159 @@
 export const multipleWordEndings = {
+
+  // Articles
+  'T-NSN': ['T-ASN'],
+  'T-ASN': ['T-NSN'],
+  'T-NPN': ['T-APN'],
+  'T-APN': ['T-NPN'],
+  'T-GSM': ['T-GSN'],
+  'T-GSN': ['T-GSM'],
+  'T-DSM': ['T-DSN'],
+  'T-DSN': ['T-DSM'],
+  'T-GPM': ['T-GPN'],
+  'T-GPN': ['T-GPM'],
+  'T-DPM': ['T-DPN'],
+  'T-DPN': ['T-DPM'],
+
+  // Adjective
+  'A-NSN': ['A-ASN'],
+  'A-ASN': ['A-NSN'],
+  'A-NPN': ['A-APN'],
+  'A-APN': ['A-NPN'],
+  'A-GSM': ['A-GSN'], // ἀγαθοῦ
+  'A-GSN': ['A-GSM'],
+  'A-DSM': ['A-DSN'],
+  'A-DSN': ['A-DSM'],
+  'A-GPM': ['A-GPN', 'A-GPF'], // ἀγαθῶν, ἀρχαίων
+  'A-GPN': ['A-GPM', 'A-GPF'],
+  'A-GPF': ['A-GPM', 'A-GPN'],
+  'A-DPM': ['A-DPN'], // ἀγαθοῖς
+  'A-DPN': ['A-DPM'],
+
+  // Demonstrative
+  'D-NSM': ['D-ASN'],
+  'D-ASN': ['D-NSM'],
+  'D-NPM': ['D-APN'],
+  'D-APN': ['D-NPM'],
+  'D-GSM': ['D-GSN'],
+  'D-GSN': ['D-GSM'],
+  'D-DSM': ['D-DSN'],
+  'D-DSN': ['D-DSM'],
+  'D-GPM': ['D-GPN', 'D-GPF'],
+  'D-GPN': ['D-GPM', 'D-GPF'],
+  'D-GPF': ['D-GPM', 'D-GPN'],
+  'D-DPM': ['D-DPN'],
+  'D-DPN': ['D-DPM'],
+
+  // Reciprocal pronouns
+  'C-NSM': ['C-ASN'],
+  'C-ASN': ['C-NSM'],
+  'C-NPM': ['C-APN'],
+  'C-APN': ['C-NPM'],
+  'C-GSM': ['C-GSN'],
+  'C-GSN': ['C-GSM'],
+  'C-DSM': ['C-DSN'],
+  'C-DSN': ['C-DSM'],
+  'C-GPM': ['C-GPN'],
+  'C-GPN': ['C-GPM'],
+  'C-DPM': ['C-DPN'],
+  'C-DPN': ['C-DPM'],
+
+  // Personal pronouns
+  'P-NSM': ['P-ASN'],
+  'P-ASN': ['P-NSM'],
+  'P-NPM': ['P-APN'],
+  'P-APN': ['P-NPM'],
+  'P-GSM': ['P-GSN'],
+  'P-GSN': ['P-GSM'],
+  'P-DSM': ['P-DSN'],
+  'P-DSN': ['P-DSM'],
+  'P-GPM': ['P-GPN', 'P-GPF'],
+  'P-GPN': ['P-GPM', 'P-GPF'],
+  'P-GPF': ['P-GPM', 'P-GPN'],
+  'P-DPM': ['P-DPN'],
+  'P-DPN': ['P-DPM'],
+
+  // Relative Pronouns
+  'R-NSM': ['R-ASN'],
+  'R-ASN': ['R-NSM'],
+  'R-NPM': ['R-APN'],
+  'R-APN': ['R-NPM'],
+  'R-GSM': ['R-GSN'],
+  'R-GSN': ['R-GSM'],
+  'R-DSM': ['R-DSN'],
+  'R-DSN': ['R-DSM'],
+  'R-GPM': ['R-GPN', 'R-GPF'],
+  'R-GPN': ['R-GPM', 'R-GPF'],
+  'R-GPF': ['R-GPM', 'R-GPN'],
+  'R-DPM': ['R-DPN'],
+  'R-DPN': ['R-DPM'],
+
+  // Interrogative Pronouns
+  'Q-NSM': ['Q-ASN'],
+  'Q-ASN': ['Q-NSM'],
+  'Q-NPM': ['Q-APN'],
+  'Q-APN': ['Q-NPM'],
+  'Q-GSM': ['Q-GSN'],
+  'Q-GSN': ['Q-GSM'],
+  'Q-DSM': ['Q-DSN'],
+  'Q-DSN': ['Q-DSM'],
+  'Q-GPM': ['Q-GPN', 'Q-GPF'],
+  'Q-GPN': ['Q-GPM', 'Q-GPF'],
+  'Q-GPF': ['Q-GPM', 'Q-GPN'],
+  'Q-DPM': ['Q-DPN'],
+  'Q-DPN': ['Q-DPM'],
+
+  // Correlative or interrogative pronoun
+  'X-NSM': ['X-ASN'],
+  'X-ASN': ['X-NSM'],
+  'X-NPM': ['X-APN'],
+  'X-APN': ['X-NPM'],
+  'X-GSM': ['X-GSN'],
+  'X-GSN': ['X-GSM'],
+  'X-DSM': ['X-DSN'],
+  'X-DSN': ['X-DSM'],
+  'X-GPM': ['X-GPN', 'X-GPF'],
+  'X-GPN': ['X-GPM', 'X-GPF'],
+  'X-GPF': ['X-GPM', 'X-GPN'],
+  'X-DPM': ['X-DPN'],
+  'X-DPN': ['X-DPM'],
+
+  // 1st Possessive pronoun
+  'S-1NSM': ['S-1ASN'],
+  'S-1ASN': ['S-1NSM'],
+  'S-1NPM': ['S-1APN'],
+  'S-1APN': ['S-1NPM'],
+  'S-1GSM': ['S-1GSN'],
+  'S-1GSN': ['S-1GSM'],
+  'S-1DSM': ['S-1DSN'],
+  'S-1DSN': ['S-1DSM'],
+  'S-1GPM': ['S-1GPN', 'S-1GPF'],
+  'S-1GPN': ['S-1GPM', 'S-1GPF'],
+  'S-1GPF': ['S-1GPM', 'S-1GPN'],
+  'S-1DPM': ['S-1DPN'],
+  'S-1DPN': ['S-1DPM'],
+
+  // 2nd Possessive pronoun
+  'S-2NSM': ['S-2ASN'],
+  'S-2ASN': ['S-2NSM'],
+  'S-2NPM': ['S-2APN'],
+  'S-2APN': ['S-2NPM'],
+  'S-2GSM': ['S-2GSN'],
+  'S-2GSN': ['S-2GSM'],
+  'S-2DSM': ['S-2DSN'],
+  'S-2DSN': ['S-2DSM'],
+  'S-2GPM': ['S-2GPN', 'S-2GPF'],
+  'S-2GPN': ['S-2GPM', 'S-2GPF'],
+  'S-2GPF': ['S-2GPM', 'S-2GPN'],
+  'S-2DPM': ['S-2DPN'],
+  'S-2DPN': ['S-2DPM'],
+
+  // Nouns
+  'N-GPM': ['N-GPF', 'N-GPN'],
+  'N-GPF': ['N-GPM', 'N-GPN'],
+  'N-GPN': ['N-GPF', 'N-GPM'],
+
+  // VERBS
   // Imperfect | ἔλυον
   'V-IAI-1S': ['V-IAI-3P'],
   'V-IAI-3P': ['V-IAI-1S'],
@@ -11,10 +166,11 @@ export const multipleWordEndings = {
   'V-AAS-1S': ['V-FAI-1S'],
   'V-FAI-1S': ['V-AAS-1S'],
 
-  // Future 2S and Subjunctive 3S | λύσῃ
-  'V-AAS-3S': ['V-FMI-2S', 'V-FPI-2S'],
-  'V-FMI-2S': ['V-AAS-3S', 'V-FPI-2S'],
-  'V-FPI-2S': ['V-FMI-2S', 'V-AAS-3S'],
+  // Future 2S and Subjunctive 3S | λύσῃ, αἰτήσῃ
+  'V-AAS-3S': ['V-FMI-2S', 'V-FPI-2S', 'V-AMS-2S'],
+  'V-AMS-2S': ['V-AAS-3S', 'V-FMI-2S', 'V-FPI-2S'],
+  'V-FMI-2S': ['V-AAS-3S', 'V-FPI-2S', 'V-AMS-2S'],
+  'V-FPI-2S': ['V-FMI-2S', 'V-AAS-3S', 'V-AMS-2S'],
 
   // ῃ | λύῃ
   'V-PPI-2S': ['V-PMI-2S', 'V-PAS-3S', 'V-PMS-3S', 'V-PPS-3S'],
@@ -27,9 +183,14 @@ export const multipleWordEndings = {
   'V-PAI-1S': ['V-PAS-1S'],
   'V-PAS-1S': ['V-PAI-1S'],
 
-  // Present Indicative and Imperative 2P | λύετε
-  'V-PAI-2P': ['V-PAS-2P'],
-  'V-PAS-2P': ['V-PAI-2P'],
+  // Present Indicative, Subjunctive and Imperative 2P | λύετε, ἀγαπᾶτε
+  'V-PAI-2P': ['V-PAS-2P', 'V-PAM-2P'],
+  'V-PAS-2P': ['V-PAI-2P', 'V-PAM-2P'],
+  'V-PAM-2P': ['V-PAS-2P', 'V-PAI-2P'],
+
+  // Second aorist imperative and subjunctive | γνῶτε
+  'V-2AAS-2P': ['V-2AAM-2P'],
+  'V-2AAM-2P': ['V-2AAS-2P'],
 
   // Present Middle/Passive Indicative and Present Middle/Passive Imperative
   // Middle
@@ -38,6 +199,12 @@ export const multipleWordEndings = {
   // Passive
   'V-PPI-2P': ['V-PPM-2P'],
   'V-PPM-2P': ['V-PPI-2P'],
+  // passive or middle
+  'V-PEI-2P': ['V-PEM-2P'],
+  'V-PEM-2P': ['V-PEI-2P'],
+  // deponent
+  'V-PNI-2P': ['V-PNM-2P'],
+  'V-PNM-2P': ['V-PNI-2P'],
 
   // Imperative middle/passive 2S
   'V-PMM-2S': ['V-PPM-2S'],

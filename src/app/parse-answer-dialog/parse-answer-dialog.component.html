@@ -5,9 +5,13 @@
       Do you want to try again or should I give you the answer?
     </div>
     <br/>
-    <div *ngIf="!dontShowTheAnswer"
-         [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.partsOfSpeech, true)"
-         style="margin-left: 25px">
+    <div *ngIf="!dontShowTheAnswer">
+      <p *ngIf="currentWord.possiblePartsOfSpeech.length>1">This is one of the answers. To see all possible answers
+        click on the word.</p>
+      <div
+        [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.possiblePartsOfSpeech[0], true)"
+        style="margin-left: 25px">
+      </div>
     </div>
     <div *ngIf="hintRightPartOfAnswer !== undefined && !dontShowTheHint" style="margin-left: 25px">
       <p>Hint: The {{hintRightPartOfAnswer.type.toLowerCase()}} is <span

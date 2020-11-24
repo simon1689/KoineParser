@@ -1,25 +1,30 @@
 import {Injectable} from '@angular/core';
-import {Observable, throwError as observableThrowError} from 'rxjs';
+import {Observable, Subscription, throwError as observableThrowError} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {catchError, map, shareReplay} from 'rxjs/operators';
-import {MultipleMorphologyWord, WordModel} from './models/word.model';
+import {MultipleMorphologyWord, Word} from './models/word';
 import {LexiconEntry} from './models/lexicon.entry';
 import {WordPart} from './models/word-part';
 import {
-  adverb, allTypesOfPronouns,
+  adverb,
+  allTypesOfPronouns,
   conditionalType,
   conjunction,
   imperativeMood,
   indicativeMood,
   infinitiveMood,
-  noun, optativeMood,
-  participleMood, particleType,
+  noun,
+  optativeMood,
+  participleMood,
+  particleType,
   personalPronoun,
-  preposition, subjunctiveMood,
-  verb, WordParts
+  preposition,
+  subjunctiveMood,
+  verb,
+  WordParts
 } from './etc/word-type-constants';
-import {MorphologyGenerator} from './etc/morphology-generator';
 import {BibleReference} from './models/bible-reference';
+import {BibleBooks} from './etc/bible';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +32,17 @@ import {BibleReference} from './models/bible-reference';
 export class KoineParserService {
   endpoint = 'https://www.thecalvinist.net/api/bible-words/';
   lexiconEndpoint = 'https://www.thecalvinist.net/api/lexicon';
+  multipleMorphologiesEndpoint = './assets/multiple_morphologies.json';
+
   lexiconEntries: LexiconEntry[];
+  multipleMorphologiesOfWords: MultipleMorphologyWord[];
 
   constructor(private http: HttpClient) {
     this.setAllLexiconEntries();
+    this.setMultipleMorphologies();
   }
 
-  getWords(filters: WordPart[], reference: BibleReference): Observable<WordModel[]> {
+  getWords(filters: WordPart[], reference: BibleReference): Observable<Word[]> {
     let endpoint = this.endpoint + reference.toApiQueryString();
 
     if (filters.length > 0) {
@@ -43,11 +52,12 @@ export class KoineParserService {
     return this.http.get(endpoint)
       .pipe(
         map((data: any[]) => data.map((item: any) => {
-          const model = new WordModel();
+          const model = new Word();
           Object.assign(model, item);
           model.lexiconEntry = this.lexiconEntries.find(x => x.strongsNr === Number(model.strongsNr));
-          model.partsOfSpeech = MorphologyGenerator.generateWordPartsFromMorphologyCode(model.morphology);
-          model.morphologyUpdated = MorphologyGenerator.generateMorphologyCodeFromWordParts(model.partsOfSpeech);
+          model.book = BibleBooks.find(x => x.number === Number(item.book)).name;
+          model.setAllPartsOfSpeech(item.morphology);
+          model.setMultipleMorphologies(this.multipleMorphologiesOfWords.filter(x => x.word === model.word && x.strongs === model.strongsNr));
           return model;
         })));
   }
@@ -125,11 +135,24 @@ export class KoineParserService {
     return result;
   }
 
-  multipleMorphologiesForWord(): Promise<MultipleMorphologyWord[]> {
-    return this.http.get<MultipleMorphologyWord[]>('./assets/multiple_morphologies.json')
-      .pipe(catchError(error => {
-        return observableThrowError(error);
-      })).toPromise();
+  get multipleMorphologies(): Observable<MultipleMorphologyWord[]> {
+    return this.http.get(this.multipleMorphologiesEndpoint)
+      .pipe(
+        shareReplay(100),
+        map((data: any[]) => data.map((item: any) => {
+          const model = new MultipleMorphologyWord();
+          Object.assign(model, item);
+          return model;
+        })));
+  }
+
+  setMultipleMorphologies(): Subscription {
+    return this.multipleMorphologies.subscribe(response => {
+        return this.multipleMorphologiesOfWords = response;
+      }, err => {
+        console.error(err);
+      }
+    );
   }
 
   // Dodson, Mounce, and if these are not available then 'greek_lexicon' which I'm not sure which lexicon is that

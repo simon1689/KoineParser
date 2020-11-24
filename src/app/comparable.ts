@@ -1,14 +1,11 @@
 import {WordPart} from './models/word-part';
 import * as __ from 'lodash-es';
-import {allSuffixes, noStatedTense, WordParts} from './etc/word-type-constants';
-import {WordModel} from './models/word.model';
+import {allSuffixes, eitherMiddleOrPassiveVoice, middleVoice, noStatedTense, passiveVoice, WordParts} from './etc/word-type-constants';
+import {Word} from './models/word';
 import {ParseComponent} from './parse/parse.component';
 import {MorphologyGenerator} from './etc/morphology-generator';
 import {ParseAnswerDialogComponent} from './parse-answer-dialog/parse-answer-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {StateService} from './state.service';
-import {KoineParserService} from './koine-parser.service';
-import {Paradigm} from './paradigms/paradigm';
 
 export class AnswerChecked {
   answer: boolean;
@@ -25,52 +22,38 @@ export class AnswerChecked {
 export class Comparable {
   public secondaryTenses = false;
   public useAllPronouns = false;
-
   private component: ParseComponent;
 
-  constructor(private dialog: MatDialog,
-              private state: StateService,
-              private service: KoineParserService) {
+  constructor(private dialog: MatDialog, secondaryTensesEnabled: boolean, useAllPronouns: boolean) {
+    this.secondaryTenses = secondaryTensesEnabled;
+    this.useAllPronouns = useAllPronouns;
   }
 
-  public async checkAnswer(word: WordModel, answerParts: WordPart[], component: ParseComponent): Promise<AnswerChecked> {
+  public async checkAnswer(word: Word, answerParts: WordPart[], component: ParseComponent): Promise<AnswerChecked> {
     this.component = component;
-    const wordPartsOfSpeech = word.partsOfSpeech.filter(x => !allSuffixes.includes(x) && x !== noStatedTense);
     const answerMorphologyCode = MorphologyGenerator.generateMorphologyCodeFromWordParts(answerParts);
 
-    if (this.answerEqualsComparable(wordPartsOfSpeech, answerParts)) {
+    let answer = false;
+    for (const parts of word.possiblePartsOfSpeech) {
+      if (this.answerEqualsComparable(parts.filter(x => !allSuffixes.includes(x) && x !== noStatedTense),
+        answerParts)) {
+        answer = true;
+        break;
+      }
+    }
+
+    if (answer) {
       return this.registerAnswer(word, answerParts, true);
     } else {
-      // first check if answer is found in the multiple word endings
-      const multipleWordEndings = Paradigm.alternateParadigmsGiveWordParts(word.morphologyUpdated);
-      if (multipleWordEndings !== null) {
-        for (const wordParts of multipleWordEndings) {
-          if (this.answerEqualsComparable(wordParts, answerParts) === true) {
-            return this.registerAnswer(word, answerParts, true);
-          }
-        }
+      // if the last given answer is the same as the current, then do nothing
+      if (__.last(component.wrongAnswers) !== undefined
+        && __.last(component.wrongAnswers).given_answer === answerMorphologyCode
+        && __.isEqual(__.last(component.wrongAnswers).word, word)) {
+        return new AnswerChecked(false, answerParts);
       }
 
-      // check if the word has multiple morphologies
-      const multipleMorphologies = await this.getMultipleMorphologiesForWord(word).then(x => x);
-      if (multipleMorphologies.find(x => x === word.morphology) !== undefined) {
-        if (multipleMorphologies.includes(answerMorphologyCode)) {
-          return this.registerAnswer(word, answerParts, true);
-        } else { // if the answer is wrong after checking multiple morphologies
-          component.wrongAnswerObject = {word, given_answer: answerMorphologyCode};
-          return this.registerAnswer(word, answerParts, false);
-        }
-      } else {
-        // if the last given answer is the same as the current, then do nothing
-        if (__.last(component.wrongAnswers) !== undefined
-          && __.last(component.wrongAnswers).given_answer === answerMorphologyCode
-          && __.isEqual(__.last(component.wrongAnswers).word, word)) {
-          return new AnswerChecked(false, answerParts);
-        }
-
-        component.wrongAnswerObject = {word, given_answer: answerMorphologyCode};
-        return this.registerAnswer(word, answerParts, false);
-      }
+      component.wrongAnswerObject = {word, given_answer: answerMorphologyCode};
+      return this.registerAnswer(word, answerParts, false);
     }
   }
 
@@ -91,8 +74,18 @@ export class Comparable {
       // first check whether they're the same
       if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
 
-        // if they are not the same, then check the headCategories
-        if (wordPartsOfSpeech[i].headCategory !== undefined) {
+        // accept 'middle' or 'passive', as answer for 'Middle or passive'
+        if (wordPartsOfSpeech[i].type === WordParts.voice) {
+          if (__.isEqual(wordPartsOfSpeech[i], eitherMiddleOrPassiveVoice)) {
+            if ((__.isEqual(middleVoice, givenAnswer[i]) === false)
+              && (__.isEqual(passiveVoice, givenAnswer[i]) === false)) {
+              return false;
+            }
+          } else if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
+            return false;
+          }
+        }    // if they are not the same, then check the headCategories
+        else if (wordPartsOfSpeech[i].headCategory !== undefined) {
           try {
             if (this.secondaryTenses && wordPartsOfSpeech[i].type === WordParts.tense) {
               if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
@@ -119,18 +112,7 @@ export class Comparable {
     return true;
   }
 
-  private getMultipleMorphologiesForWord(word: WordModel): Promise<string[]> {
-    let result: string[] = [];
-    return this.service.multipleMorphologiesForWord()
-      .then(response => {
-        const wordsWithMultipleMorphologies = __.filter(response, x =>
-          x.word.toLowerCase() === word.word.toLowerCase() && word.strongsNr === x.strongs);
-
-        return result = wordsWithMultipleMorphologies.map(x => x.morphology);
-      });
-  }
-
-  private registerAnswer(word: WordModel, answerParts: WordPart[], answer: boolean): AnswerChecked {
+  private registerAnswer(word: Word, answerParts: WordPart[], answer: boolean): AnswerChecked {
     if (answer) {
       // if answer is given for the first time
       if (this.component.wrongAnswers.find(x => __.isEqual(x.word, word)) === undefined

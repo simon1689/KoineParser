@@ -29,6 +29,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.3",
+    "fastest-levenshtein": "^1.0.12",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",

@@ -1,215 +1,5 @@
 [
   {
-    "strongs": "1096",
-    "morphology": "D-GSM",
-    "word": "ἐκείνου"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-GSN",
-    "word": "ἐκείνου"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-DSM",
-    "word": "τούτῳ"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-DSN",
-    "word": "τούτῳ"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-GPN",
-    "word": "τούτων"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-GPM",
-    "word": "τούτων"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-GPF",
-    "word": "τούτων"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-DPM",
-    "word": "τούτοις"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "D-DPN",
-    "word": "τούτοις"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-GSM",
-    "word": "τοῦ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-GSN",
-    "word": "τοῦ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-DPM",
-    "word": "τοῖς"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-DPN",
-    "word": "τοῖς"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3GPM",
-    "word": "ἑαυτῶν"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3GPF",
-    "word": "ἑαυτῶν"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3GSM",
-    "word": "ἑαυτοῦ"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3GSF",
-    "word": "ἑαυτοῦ"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3DPM",
-    "word": "ἑαυτοῖς"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3DPF",
-    "word": "ἑαυτοῖς"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3DSF",
-    "word": "ἑαυτῷ"
-  },
-  {
-    "strongs": "1438",
-    "morphology": "F-3DSM",
-    "word": "ἑαυτῷ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-APN",
-    "word": "ἃ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-NPN",
-    "word": "ἃ"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-APN",
-    "word": "ἀγαθὰ"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-NPN",
-    "word": "ἀγαθά"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-DSF",
-    "word": "ἀγαθῇ"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-NSF",
-    "word": "ἀγαθή"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-DPM",
-    "word": "ἀγαθοῖς"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-DPN",
-    "word": "ἀγαθοῖς"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-ASM",
-    "word": "ἀγαθόν"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-ASN",
-    "word": "ἀγαθὸν"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-NSN",
-    "word": "ἀγαθὸν"
-  },
-  {
-    "strongs": "17",
-    "morphology": "A-GPM",
-    "word": "ἀγαθοποιῶν"
-  },
-  {
-    "strongs": "15",
-    "morphology": "V-PAP-NSM",
-    "word": "ἀγαθοποιῶν"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-GSM",
-    "word": "ἀγαθοῦ"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-GSN",
-    "word": "ἀγαθοῦ"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-GPM",
-    "word": "ἀγαθῶν"
-  },
-  {
-    "strongs": "18",
-    "morphology": "A-GPN",
-    "word": "ἀγαθῶν"
-  },
-  {
-    "strongs": "19",
-    "morphology": "N-DSF",
-    "word": "ἀγαθωσύνῃ"
-  },
-  {
-    "strongs": "19",
-    "morphology": "N-NSF",
-    "word": "ἀγαθωσύνη"
-  },
-  {
-    "strongs": "21",
-    "morphology": "V-PNI-2P",
-    "word": "ἀγαλλιᾶσθε"
-  },
-  {
-    "strongs": "21",
-    "morphology": "V-PNM-2P",
-    "word": "ἀγαλλιᾶσθε"
-  },
-  {
     "strongs": "22",
     "morphology": "N-NSF",
     "word": "ἄγαμος"
@@ -231,51 +21,6 @@
   },
   {
     "strongs": "25",
-    "morphology": "V-PAI-2P",
-    "word": "ἀγαπᾶτε"
-  },
-  {
-    "strongs": "25",
-    "morphology": "V-PAM-2P",
-    "word": "ἀγαπᾶτε"
-  },
-  {
-    "strongs": "25",
-    "morphology": "V-PAS-2P",
-    "word": "ἀγαπᾶτε"
-  },
-  {
-    "strongs": "26",
-    "morphology": "N-DSF",
-    "word": "ἀγάπῃ"
-  },
-  {
-    "strongs": "26",
-    "morphology": "N-NSF",
-    "word": "ἀγάπη"
-  },
-  {
-    "strongs": "27",
-    "morphology": "A-NPM",
-    "word": "ἀγαπητοὶ"
-  },
-  {
-    "strongs": "27",
-    "morphology": "A-VPM",
-    "word": "ἀγαπητοί"
-  },
-  {
-    "strongs": "27",
-    "morphology": "A-ASM",
-    "word": "ἀγαπητὸν"
-  },
-  {
-    "strongs": "27",
-    "morphology": "A-ASN",
-    "word": "ἀγαπητὸν"
-  },
-  {
-    "strongs": "25",
     "morphology": "V-PAI-1P",
     "word": "ἀγαπῶμεν"
   },
@@ -285,36 +30,6 @@
     "word": "ἀγαπῶμεν"
   },
   {
-    "strongs": "25",
-    "morphology": "V-PAI-3P",
-    "word": "ἀγαπῶσιν"
-  },
-  {
-    "strongs": "25",
-    "morphology": "V-PAP-DPM",
-    "word": "ἀγαπῶσιν"
-  },
-  {
-    "strongs": "39",
-    "morphology": "A-APN",
-    "word": "ἅγια"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-DSF",
-    "word": "ἁγίᾳ"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-NPN",
-    "word": "ἅγιά"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-NSF",
-    "word": "ἁγία"
-  },
-  {
     "strongs": "40",
     "morphology": "A-NPM",
     "word": "ἅγιοι"
@@ -323,141 +38,16 @@
     "strongs": "40",
     "morphology": "A-VPM",
     "word": "ἅγιοι"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-ASM",
-    "word": "ἅγιον"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-ASN",
-    "word": "ἅγιον"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-NSN",
-    "word": "ἅγιον"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-GSM",
-    "word": "ἁγίου"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-GSN",
-    "word": "ἁγίου"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-DSM",
-    "word": "ἁγίῳ"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-DSN",
-    "word": "ἁγίῳ"
-  },
-  {
-    "strongs": "40",
-    "morphology": "A-GPM",
-    "word": "ἁγίων"
-  },
-  {
-    "strongs": "39",
-    "morphology": "A-GPN",
-    "word": "ἁγίων"
-  },
-  {
-    "strongs": "50",
-    "morphology": "V-PAI-3P",
-    "word": "ἀγνοοῦσιν"
-  },
-  {
-    "strongs": "50",
-    "morphology": "V-PAP-DPM",
-    "word": "ἀγνοοῦσιν"
-  },
-  {
-    "strongs": "66",
-    "morphology": "A-ASN",
-    "word": "ἄγριον"
-  },
-  {
-    "strongs": "66",
-    "morphology": "A-NSN",
-    "word": "ἄγριον"
-  },
-  {
-    "strongs": "67",
-    "morphology": "N-GSM",
-    "word": "Ἀγρίππα"
-  },
-  {
-    "strongs": "67",
-    "morphology": "N-VSM",
-    "word": "Ἀγρίππα"
   },
   {
     "strongs": "80",
     "morphology": "N-NPM",
-    "word": "ἀδελφοὶ"
+    "word": "ἀδελφοί"
   },
   {
     "strongs": "80",
     "morphology": "N-VPM",
-    "word": "ἀδελφοί"
-  },
-  {
-    "strongs": "86",
-    "morphology": "N-DSM",
-    "word": "ᾅδῃ"
-  },
-  {
-    "strongs": "86",
-    "morphology": "N-VSM",
-    "word": "ᾅδη"
-  },
-  {
-    "strongs": "92",
-    "morphology": "N-ASN",
-    "word": "ἀδίκημα"
-  },
-  {
-    "strongs": "92",
-    "morphology": "N-NSN",
-    "word": "ἀδίκημά"
-  },
-  {
-    "strongs": "93",
-    "morphology": "N-DSF",
-    "word": "ἀδικίᾳ"
-  },
-  {
-    "strongs": "93",
-    "morphology": "N-NSF",
-    "word": "ἀδικία"
-  },
-  {
-    "strongs": "94",
-    "morphology": "A-DSN",
-    "word": "ἀδίκῳ"
-  },
-  {
-    "strongs": "91",
-    "morphology": "V-PAI-1S",
-    "word": "ἀδικῶ"
-  },
-  {
-    "strongs": "94",
-    "morphology": "A-GPM",
-    "word": "ἀδίκων"
-  },
-  {
-    "strongs": "91",
-    "morphology": "V-PAP-NSM",
-    "word": "ἀδικῶν"
+    "word": "ἀδελφοὶ"
   },
   {
     "strongs": "117",
@@ -468,36 +58,6 @@
     "strongs": "117",
     "morphology": "A-VPM",
     "word": "Ἀθηναῖοι"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-NPF",
-    "word": "αἳ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-NPF",
-    "word": "αἱ"
-  },
-  {
-    "strongs": "129",
-    "morphology": "N-ASN",
-    "word": "αἷμα"
-  },
-  {
-    "strongs": "129",
-    "morphology": "N-NSN",
-    "word": "αἷμα"
-  },
-  {
-    "strongs": "137",
-    "morphology": "N-PRI",
-    "word": "Αἰνὼν"
-  },
-  {
-    "strongs": "134",
-    "morphology": "V-PAP-NSM",
-    "word": "αἰνῶν"
   },
   {
     "strongs": "139",
@@ -510,46 +70,6 @@
     "word": "αἱρέσεις"
   },
   {
-    "strongs": "152",
-    "morphology": "N-DSF",
-    "word": "αἰσχύνῃ"
-  },
-  {
-    "strongs": "152",
-    "morphology": "N-NSF",
-    "word": "αἰσχύνη"
-  },
-  {
-    "strongs": "154",
-    "morphology": "V-PAI-2P",
-    "word": "αἰτεῖτε"
-  },
-  {
-    "strongs": "154",
-    "morphology": "V-PAM-2P",
-    "word": "Αἰτεῖτε"
-  },
-  {
-    "strongs": "154",
-    "morphology": "V-AAS-3S",
-    "word": "αἰτήσῃ"
-  },
-  {
-    "strongs": "154",
-    "morphology": "V-AMS-2S",
-    "word": "αἰτήσῃ"
-  },
-  {
-    "strongs": "154",
-    "morphology": "V-PAI-3P",
-    "word": "αἰτοῦσιν"
-  },
-  {
-    "strongs": "154",
-    "morphology": "V-PAP-DPM",
-    "word": "αἰτοῦσιν"
-  },
-  {
     "strongs": "166",
     "morphology": "A-ASF",
     "word": "αἰώνιον"
@@ -558,66 +78,6 @@
     "strongs": "166",
     "morphology": "A-ASM",
     "word": "αἰώνιον"
-  },
-  {
-    "strongs": "166",
-    "morphology": "A-ASN",
-    "word": "αἰώνιον"
-  },
-  {
-    "strongs": "166",
-    "morphology": "A-NSN",
-    "word": "αἰώνιον"
-  },
-  {
-    "strongs": "166",
-    "morphology": "A-GSF",
-    "word": "αἰωνίου"
-  },
-  {
-    "strongs": "166",
-    "morphology": "A-GSM",
-    "word": "αἰωνίου"
-  },
-  {
-    "strongs": "166",
-    "morphology": "A-GSN",
-    "word": "αἰωνίου"
-  },
-  {
-    "strongs": "167",
-    "morphology": "N-DSF",
-    "word": "ἀκαθαρσίᾳ"
-  },
-  {
-    "strongs": "167",
-    "morphology": "N-NSF",
-    "word": "ἀκαθαρσία"
-  },
-  {
-    "strongs": "169",
-    "morphology": "A-APN",
-    "word": "ἀκάθαρτα"
-  },
-  {
-    "strongs": "169",
-    "morphology": "A-NPN",
-    "word": "ἀκάθαρτα"
-  },
-  {
-    "strongs": "169",
-    "morphology": "A-ASM",
-    "word": "ἀκάθαρτον"
-  },
-  {
-    "strongs": "169",
-    "morphology": "A-ASN",
-    "word": "ἀκάθαρτον"
-  },
-  {
-    "strongs": "169",
-    "morphology": "A-NSN",
-    "word": "ἀκάθαρτον"
   },
   {
     "strongs": "181",
@@ -630,174 +90,19 @@
     "word": "ἀκαταστασίας"
   },
   {
-    "strongs": "189",
-    "morphology": "N-DSF",
-    "word": "Ἀκοῇ"
-  },
-  {
-    "strongs": "189",
-    "morphology": "N-NSF",
-    "word": "ἀκοὴ"
-  },
-  {
     "strongs": "190",
     "morphology": "V-PAI-3S",
-    "word": "ἀκολουθεῖ"
-  },
-  {
-    "strongs": "190",
-    "morphology": "V-PAM-2S",
-    "word": "Ἀκολούθει"
-  },
-  {
-    "strongs": "190",
-    "morphology": "V-PAI-3P",
-    "word": "ἀκολουθοῦσιν"
-  },
-  {
-    "strongs": "190",
-    "morphology": "V-PAP-DPM",
-    "word": "ἀκολουθοῦσιν"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAI-2P",
-    "word": "ἀκούετε"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAM-2P",
-    "word": "Ἀκούετε"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAP-ASM",
-    "word": "ἀκούοντα"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAP-NPN",
-    "word": "ἀκούοντα"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAI-3P",
-    "word": "ἀκούουσιν"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAP-DPM",
-    "word": "ἀκούουσιν"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-AAS-3S",
-    "word": "ἀκούσῃ"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-FDI-2S",
-    "word": "ἀκούσῃ"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAI-1S",
-    "word": "ἀκούω"
-  },
-  {
-    "strongs": "191",
-    "morphology": "V-PAS-1S",
-    "word": "ἀκούω"
-  },
-  {
-    "strongs": "203",
-    "morphology": "N-DSF",
-    "word": "ἀκροβυστίᾳ"
-  },
-  {
-    "strongs": "203",
-    "morphology": "N-NSF",
-    "word": "ἀκροβυστία"
-  },
-  {
-    "strongs": "216",
-    "morphology": "A-ASN",
-    "word": "ἄλαλον"
-  },
-  {
-    "strongs": "216",
-    "morphology": "A-NSN",
-    "word": "ἄλαλον"
-  },
-  {
-    "strongs": "217",
-    "morphology": "N-ASN",
-    "word": "ἅλας"
-  },
-  {
-    "strongs": "217",
-    "morphology": "N-NSN",
-    "word": "ἅλας"
-  },
-  {
-    "strongs": "225",
-    "morphology": "N-DSF",
-    "word": "ἀληθείᾳ"
-  },
-  {
-    "strongs": "225",
-    "morphology": "N-NSF",
-    "word": "ἀλήθεια"
-  },
-  {
-    "strongs": "227",
-    "morphology": "A-ASN",
-    "word": "ἀληθὲς"
-  },
-  {
-    "strongs": "227",
-    "morphology": "A-NSN",
-    "word": "ἀληθές"
-  },
-  {
-    "strongs": "227",
-    "morphology": "A-APN",
-    "word": "ἀληθῆ"
-  },
-  {
-    "strongs": "227",
-    "morphology": "A-ASF",
-    "word": "ἀληθῆ"
-  },
-  {
-    "strongs": "227",
-    "morphology": "A-NPN",
-    "word": "ἀληθῆ"
+    "word": "ἀκολούθει"
   },
   {
     "strongs": "227",
     "morphology": "A-NSF",
-    "word": "ἀληθής"
+    "word": "ἀληθὴς"
   },
   {
     "strongs": "227",
     "morphology": "A-NSM",
-    "word": "ἀληθὴς"
-  },
-  {
-    "strongs": "228",
-    "morphology": "A-ASM",
-    "word": "ἀληθινόν"
-  },
-  {
-    "strongs": "228",
-    "morphology": "A-ASN",
-    "word": "ἀληθινὸν"
-  },
-  {
-    "strongs": "228",
-    "morphology": "A-NSN",
-    "word": "ἀληθινόν"
+    "word": "ἀληθής"
   },
   {
     "strongs": "231",
@@ -810,61 +115,6 @@
     "word": "ἁλιεῖς"
   },
   {
-    "strongs": "243",
-    "morphology": "A-APN",
-    "word": "ἄλλα"
-  },
-  {
-    "strongs": "243",
-    "morphology": "A-NPN",
-    "word": "ἄλλα"
-  },
-  {
-    "strongs": "235",
-    "morphology": "CONJ",
-    "word": "ἀλλὰ"
-  },
-  {
-    "strongs": "240",
-    "morphology": "C-DPM",
-    "word": "ἀλλήλοις"
-  },
-  {
-    "strongs": "240",
-    "morphology": "C-DPN",
-    "word": "ἀλλήλοις"
-  },
-  {
-    "strongs": "240",
-    "morphology": "C-GPM",
-    "word": "ἀλλήλων"
-  },
-  {
-    "strongs": "240",
-    "morphology": "C-GPN",
-    "word": "ἀλλήλων"
-  },
-  {
-    "strongs": "243",
-    "morphology": "A-ASN",
-    "word": "ἄλλο"
-  },
-  {
-    "strongs": "243",
-    "morphology": "A-NSN",
-    "word": "ἄλλο"
-  },
-  {
-    "strongs": "245",
-    "morphology": "A-DSM",
-    "word": "ἀλλοτρίῳ"
-  },
-  {
-    "strongs": "245",
-    "morphology": "A-DSN",
-    "word": "ἀλλοτρίῳ"
-  },
-  {
     "strongs": "254",
     "morphology": "N-APF",
     "word": "ἁλύσεις"
@@ -873,26 +123,6 @@
     "strongs": "254",
     "morphology": "N-NPF",
     "word": "ἁλύσεις"
-  },
-  {
-    "strongs": "264",
-    "morphology": "V-PAI-2P",
-    "word": "ἁμαρτάνετε"
-  },
-  {
-    "strongs": "264",
-    "morphology": "V-PAM-2P",
-    "word": "ἁμαρτάνετε"
-  },
-  {
-    "strongs": "266",
-    "morphology": "N-DSF",
-    "word": "ἁμαρτίᾳ"
-  },
-  {
-    "strongs": "266",
-    "morphology": "N-NSF",
-    "word": "ἁμαρτία"
   },
   {
     "strongs": "266",
@@ -905,28 +135,8 @@
     "word": "ἁμαρτίας"
   },
   {
-    "strongs": "266",
-    "morphology": "N-GPF",
-    "word": "ἁμαρτιῶν"
-  },
-  {
-    "strongs": "266",
-    "morphology": "N-GPM",
-    "word": "ἁμαρτιῶν"
-  },
-  {
-    "strongs": "266",
-    "morphology": "N-GPN",
-    "word": "ἁμαρτιῶν"
-  },
-  {
     "strongs": "268",
     "morphology": "A-NPM",
-    "word": "ἁμαρτωλοὶ"
-  },
-  {
-    "strongs": "268",
-    "morphology": "A-VPM",
     "word": "ἁμαρτωλοί"
   },
   {
@@ -940,16 +150,6 @@
     "word": "ἁμαρτωλός"
   },
   {
-    "strongs": "268",
-    "morphology": "A-DSF",
-    "word": "ἁμαρτωλῷ"
-  },
-  {
-    "strongs": "268",
-    "morphology": "A-DSM",
-    "word": "ἁμαρτωλῷ"
-  },
-  {
     "strongs": "273",
     "morphology": "A-NSF",
     "word": "ἄμεμπτος"
@@ -968,56 +168,6 @@
     "strongs": "283",
     "morphology": "A-NSM",
     "word": "ἀμίαντος"
-  },
-  {
-    "strongs": "305",
-    "morphology": "V-PAP-ASN",
-    "word": "ἀναβαῖνον"
-  },
-  {
-    "strongs": "305",
-    "morphology": "V-PAP-NSN",
-    "word": "ἀναβαῖνον"
-  },
-  {
-    "strongs": "316",
-    "morphology": "A-ASN",
-    "word": "ἀναγκαῖον"
-  },
-  {
-    "strongs": "316",
-    "morphology": "A-NSN",
-    "word": "ἀναγκαῖον"
-  },
-  {
-    "strongs": "318",
-    "morphology": "N-DSF",
-    "word": "ἀνάγκῃ"
-  },
-  {
-    "strongs": "318",
-    "morphology": "N-NSF",
-    "word": "ἀνάγκη"
-  },
-  {
-    "strongs": "373",
-    "morphology": "V-PMI-2P",
-    "word": "ἀναπαύεσθε"
-  },
-  {
-    "strongs": "373",
-    "morphology": "V-PMM-2P",
-    "word": "ἀναπαύεσθε"
-  },
-  {
-    "strongs": "395",
-    "morphology": "N-DSF",
-    "word": "ἀνατολῇ"
-  },
-  {
-    "strongs": "395",
-    "morphology": "N-NSF",
-    "word": "ἀνατολὴ"
   },
   {
     "strongs": "435",
@@ -1040,134 +190,9 @@
     "word": "ἀνεπίληπτον"
   },
   {
-    "strongs": "430",
-    "morphology": "V-PNI-2P",
-    "word": "ἀνέχεσθέ"
-  },
-  {
-    "strongs": "430",
-    "morphology": "V-PNM-2P",
-    "word": "ἀνέχεσθε"
-  },
-  {
-    "strongs": "455",
-    "morphology": "V-RPP-ASM",
-    "word": "ἀνεῳγμένον"
-  },
-  {
-    "strongs": "455",
-    "morphology": "V-RPP-ASN",
-    "word": "ἀνεῳγμένον"
-  },
-  {
-    "strongs": "452",
-    "morphology": "N-GSM",
-    "word": "Ἅννα"
-  },
-  {
-    "strongs": "451",
-    "morphology": "N-NSF",
-    "word": "Ἅννα"
-  },
-  {
     "strongs": "453",
     "morphology": "A-NPM",
-    "word": "ἀνόητοί"
-  },
-  {
-    "strongs": "453",
-    "morphology": "A-VPM",
     "word": "ἀνόητοι"
-  },
-  {
-    "strongs": "458",
-    "morphology": "N-DSF",
-    "word": "ἀνομίᾳ"
-  },
-  {
-    "strongs": "458",
-    "morphology": "N-NSF",
-    "word": "ἀνομία"
-  },
-  {
-    "strongs": "459",
-    "morphology": "A-DPM",
-    "word": "ἀνόμοις"
-  },
-  {
-    "strongs": "459",
-    "morphology": "A-DPN",
-    "word": "ἀνόμοις"
-  },
-  {
-    "strongs": "507",
-    "morphology": "ADV",
-    "word": "ἄνω"
-  },
-  {
-    "strongs": "447",
-    "morphology": "V-2AAS-1S",
-    "word": "ἀνῶ"
-  },
-  {
-    "strongs": "514",
-    "morphology": "A-APN",
-    "word": "ἄξια"
-  },
-  {
-    "strongs": "514",
-    "morphology": "A-NPN",
-    "word": "ἄξια"
-  },
-  {
-    "strongs": "514",
-    "morphology": "A-NSF",
-    "word": "ἀξία"
-  },
-  {
-    "strongs": "514",
-    "morphology": "A-ASN",
-    "word": "ἄξιον"
-  },
-  {
-    "strongs": "514",
-    "morphology": "A-NSN",
-    "word": "ἄξιον"
-  },
-  {
-    "strongs": "537",
-    "morphology": "A-APN",
-    "word": "ἅπαντα"
-  },
-  {
-    "strongs": "537",
-    "morphology": "A-ASM",
-    "word": "ἅπαντα"
-  },
-  {
-    "strongs": "537",
-    "morphology": "A-NPN",
-    "word": "ἅπαντα"
-  },
-  {
-    "strongs": "539",
-    "morphology": "N-DSF",
-    "word": "ἀπάτῃ"
-  },
-  {
-    "strongs": "539",
-    "morphology": "N-NSF",
-    "word": "ἀπάτη"
-  },
-  {
-    "strongs": "599",
-    "morphology": "V-2AAI-1S",
-    "word": "ἀπέθανον"
-  },
-  {
-    "strongs": "599",
-    "morphology": "V-2AAI-3P",
-    "word": "ἀπέθανον"
   },
   {
     "strongs": "545",
@@ -1178,36 +203,6 @@
     "strongs": "545",
     "morphology": "A-NPM",
     "word": "ἀπειθεῖς"
-  },
-  {
-    "strongs": "544",
-    "morphology": "V-PAI-3P",
-    "word": "ἀπειθοῦσιν"
-  },
-  {
-    "strongs": "544",
-    "morphology": "V-PAP-DPM",
-    "word": "ἀπειθοῦσιν"
-  },
-  {
-    "strongs": "565",
-    "morphology": "V-2AAI-1S",
-    "word": "ἀπῆλθον"
-  },
-  {
-    "strongs": "565",
-    "morphology": "V-2AAI-3P",
-    "word": "ἀπῆλθον"
-  },
-  {
-    "strongs": "570",
-    "morphology": "N-DSF",
-    "word": "ἀπιστίᾳ"
-  },
-  {
-    "strongs": "570",
-    "morphology": "N-NSF",
-    "word": "ἀπιστία"
   },
   {
     "strongs": "571",
@@ -1245,154 +240,9 @@
     "word": "ἀπογράφεσθαι"
   },
   {
-    "strongs": "602",
-    "morphology": "N-DSF",
-    "word": "ἀποκαλύψει"
-  },
-  {
-    "strongs": "601",
-    "morphology": "V-FAI-3S",
-    "word": "ἀποκαλύψει"
-  },
-  {
-    "strongs": "615",
-    "morphology": "V-FAI-3S",
-    "word": "ἀποκτενεῖ"
-  },
-  {
-    "strongs": "615",
-    "morphology": "V-PAI-3S",
-    "word": "ἀποκτενει"
-  },
-  {
-    "strongs": "625",
-    "morphology": "N-ASM",
-    "word": "Ἀπολλῶ"
-  },
-  {
-    "strongs": "625",
-    "morphology": "N-GSM",
-    "word": "Ἀπολλῶ"
-  },
-  {
-    "strongs": "627",
-    "morphology": "N-DSF",
-    "word": "ἀπολογίᾳ"
-  },
-  {
-    "strongs": "627",
-    "morphology": "N-NSF",
-    "word": "ἀπολογία"
-  },
-  {
-    "strongs": "630",
-    "morphology": "V-AAS-1S",
-    "word": "ἀπολύσω"
-  },
-  {
-    "strongs": "630",
-    "morphology": "V-FAI-1S",
-    "word": "ἀπολύσω"
-  },
-  {
-    "strongs": "650",
-    "morphology": "V-PAI-2P",
-    "word": "ἀποστερεῖτε"
-  },
-  {
-    "strongs": "650",
-    "morphology": "V-PAM-2P",
-    "word": "ἀποστερεῖτε"
-  },
-  {
     "strongs": "686",
-    "morphology": "PRT",
-    "word": "ἄρα"
-  },
-  {
-    "strongs": "687",
     "morphology": "PRT-I",
     "word": "ἄρα"
-  },
-  {
-    "strongs": "685",
-    "morphology": "N-GSF",
-    "word": "ἀρᾶς"
-  },
-  {
-    "strongs": "142",
-    "morphology": "V-AAP-NSM",
-    "word": "ἄρας"
-  },
-  {
-    "strongs": "693",
-    "morphology": "A-APN",
-    "word": "ἀργυρᾶ"
-  },
-  {
-    "strongs": "693",
-    "morphology": "A-NPN",
-    "word": "ἀργυρᾶ"
-  },
-  {
-    "strongs": "694",
-    "morphology": "N-ASN",
-    "word": "ἀργύριον"
-  },
-  {
-    "strongs": "694",
-    "morphology": "N-NSN",
-    "word": "ἀργύριόν"
-  },
-  {
-    "strongs": "703",
-    "morphology": "N-DSF",
-    "word": "ἀρετῇ"
-  },
-  {
-    "strongs": "703",
-    "morphology": "N-NSF",
-    "word": "ἀρετὴ"
-  },
-  {
-    "strongs": "756",
-    "morphology": "V-AMP-ASN",
-    "word": "ἀρξάμενον"
-  },
-  {
-    "strongs": "756",
-    "morphology": "V-AMP-NSN",
-    "word": "ἀρξάμενον"
-  },
-  {
-    "strongs": "730",
-    "morphology": "N-ASN",
-    "word": "ἄρσεν"
-  },
-  {
-    "strongs": "730",
-    "morphology": "N-NSN",
-    "word": "ἄρσεν"
-  },
-  {
-    "strongs": "744",
-    "morphology": "A-GPF",
-    "word": "ἀρχαίων"
-  },
-  {
-    "strongs": "744",
-    "morphology": "A-GPM",
-    "word": "ἀρχαίων"
-  },
-  {
-    "strongs": "746",
-    "morphology": "N-DSF",
-    "word": "ἀρχῇ"
-  },
-  {
-    "strongs": "746",
-    "morphology": "N-NSF",
-    "word": "ἀρχὴ"
   },
   {
     "strongs": "749",
@@ -1425,26 +275,6 @@
     "word": "ἀσεβείας"
   },
   {
-    "strongs": "766",
-    "morphology": "N-DSF",
-    "word": "ἀσελγείᾳ"
-  },
-  {
-    "strongs": "766",
-    "morphology": "N-NSF",
-    "word": "ἀσέλγεια"
-  },
-  {
-    "strongs": "769",
-    "morphology": "N-DSF",
-    "word": "ἀσθενείᾳ"
-  },
-  {
-    "strongs": "769",
-    "morphology": "N-NSF",
-    "word": "ἀσθένεια"
-  },
-  {
     "strongs": "769",
     "morphology": "N-APF",
     "word": "ἀσθενείας"
@@ -1466,63 +296,13 @@
   },
   {
     "strongs": "772",
-    "morphology": "A-ASN",
-    "word": "ἀσθενὲς"
-  },
-  {
-    "strongs": "772",
-    "morphology": "A-NSN",
-    "word": "ἀσθενὲς"
-  },
-  {
-    "strongs": "772",
-    "morphology": "A-APN",
-    "word": "ἀσθενῆ"
-  },
-  {
-    "strongs": "772",
-    "morphology": "A-ASM",
-    "word": "ἀσθενῆ"
-  },
-  {
-    "strongs": "772",
     "morphology": "A-NSF",
-    "word": "ἀσθενής"
+    "word": "ἀσθενὴς"
   },
   {
     "strongs": "772",
     "morphology": "A-NSM",
-    "word": "ἀσθενὴς"
-  },
-  {
-    "strongs": "770",
-    "morphology": "V-PAI-1S",
-    "word": "ἀσθενῶ"
-  },
-  {
-    "strongs": "770",
-    "morphology": "V-PAS-1S",
-    "word": "ἀσθενῶ"
-  },
-  {
-    "strongs": "772",
-    "morphology": "A-GPM",
-    "word": "ἀσθενῶν"
-  },
-  {
-    "strongs": "770",
-    "morphology": "V-PAP-NSM",
-    "word": "ἀσθενῶν"
-  },
-  {
-    "strongs": "773",
-    "morphology": "N-DSF",
-    "word": "Ἀσίᾳ"
-  },
-  {
-    "strongs": "773",
-    "morphology": "N-NSF",
-    "word": "Ἀσία"
+    "word": "ἀσθενής"
   },
   {
     "strongs": "784",
@@ -1533,161 +313,11 @@
     "strongs": "784",
     "morphology": "A-ASM",
     "word": "ἄσπιλον"
-  },
-  {
-    "strongs": "788",
-    "morphology": "ADV",
-    "word": "ἆσσον"
-  },
-  {
-    "strongs": "789",
-    "morphology": "N-ASF",
-    "word": "Ἆσσον"
-  },
-  {
-    "strongs": "796",
-    "morphology": "N-DSF",
-    "word": "ἀστραπῇ"
-  },
-  {
-    "strongs": "796",
-    "morphology": "N-NSF",
-    "word": "ἀστραπὴ"
-  },
-  {
-    "strongs": "803",
-    "morphology": "N-DSF",
-    "word": "ἀσφαλείᾳ"
-  },
-  {
-    "strongs": "803",
-    "morphology": "N-NSF",
-    "word": "ἀσφάλεια"
-  },
-  {
-    "strongs": "804",
-    "morphology": "A-ASN",
-    "word": "ἀσφαλὲς"
-  },
-  {
-    "strongs": "804",
-    "morphology": "A-NSN",
-    "word": "ἀσφαλές"
-  },
-  {
-    "strongs": "819",
-    "morphology": "N-DSF",
-    "word": "ἀτιμίᾳ"
-  },
-  {
-    "strongs": "819",
-    "morphology": "N-NSF",
-    "word": "ἀτιμία"
-  },
-  {
-    "strongs": "824",
-    "morphology": "A-ASN",
-    "word": "ἄτοπον"
-  },
-  {
-    "strongs": "824",
-    "morphology": "A-NSN",
-    "word": "ἄτοπον"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-APN",
-    "word": "αὐτά"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-NPN",
-    "word": "αὐτά"
-  },
-  {
-    "strongs": "3778",
-    "morphology": "D-NSF",
-    "word": "αὕτη"
   },
   {
     "strongs": "846",
     "morphology": "P-DSF",
-    "word": "αὐτῇ"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-NSF",
     "word": "αὕτη"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-ASN",
-    "word": "αὐτό"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-NSN",
-    "word": "αὐτό"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-DPM",
-    "word": "αὐτοῖς"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-DPN",
-    "word": "αὐτοῖς"
-  },
-  {
-    "strongs": "847",
-    "morphology": "ADV",
-    "word": "αὐτοῦ"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-GSM",
-    "word": "αὐτοῦ"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-GSN",
-    "word": "αὐτοῦ"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-DSM",
-    "word": "αὐτῷ"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-DSN",
-    "word": "αὐτῷ"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-GPF",
-    "word": "αὐτῶν"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-GPM",
-    "word": "αὐτῶν"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-GPN",
-    "word": "αὐτῶν"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-APN",
-    "word": "αὐτά"
-  },
-  {
-    "strongs": "846",
-    "morphology": "P-ΝPN",
-    "word": "αὐτά"
   },
   {
     "strongs": "862",
@@ -1698,36 +328,6 @@
     "strongs": "862",
     "morphology": "A-ASM",
     "word": "ἄφθαρτον"
-  },
-  {
-    "strongs": "862",
-    "morphology": "A-GSF",
-    "word": "ἀφθάρτου"
-  },
-  {
-    "strongs": "862",
-    "morphology": "A-GSM",
-    "word": "ἀφθάρτου"
-  },
-  {
-    "strongs": "862",
-    "morphology": "A-DSM",
-    "word": "ἀφθάρτῳ"
-  },
-  {
-    "strongs": "862",
-    "morphology": "A-DSN",
-    "word": "ἀφθάρτῳ"
-  },
-  {
-    "strongs": "863",
-    "morphology": "V-PAI-2P",
-    "word": "ἀφίετε"
-  },
-  {
-    "strongs": "863",
-    "morphology": "V-PAM-2P",
-    "word": "ἀφίετε"
   },
   {
     "strongs": "878",
@@ -1760,16 +360,6 @@
     "word": "Ἄφρων"
   },
   {
-    "strongs": "882",
-    "morphology": "N-DSF",
-    "word": "Ἀχαΐᾳ"
-  },
-  {
-    "strongs": "882",
-    "morphology": "N-NSF",
-    "word": "Ἀχαΐα"
-  },
-  {
     "strongs": "886",
     "morphology": "A-ASF",
     "word": "ἀχειροποίητον"
@@ -1778,56 +368,6 @@
     "strongs": "886",
     "morphology": "A-ASM",
     "word": "ἀχειροποίητον"
-  },
-  {
-    "strongs": "899",
-    "morphology": "N-ASN",
-    "word": "βάθος"
-  },
-  {
-    "strongs": "899",
-    "morphology": "N-NSN",
-    "word": "βάθος"
-  },
-  {
-    "strongs": "906",
-    "morphology": "V-2AAS-1S",
-    "word": "βάλω"
-  },
-  {
-    "strongs": "906",
-    "morphology": "V-FAI-1S",
-    "word": "βάλω"
-  },
-  {
-    "strongs": "908",
-    "morphology": "N-ASN",
-    "word": "βάπτισμα"
-  },
-  {
-    "strongs": "908",
-    "morphology": "N-NSN",
-    "word": "βάπτισμα"
-  },
-  {
-    "strongs": "921",
-    "morphology": "N-DSM",
-    "word": "Βαρναβᾷ"
-  },
-  {
-    "strongs": "921",
-    "morphology": "N-GSM",
-    "word": "Βαρναβᾶ"
-  },
-  {
-    "strongs": "932",
-    "morphology": "N-DSF",
-    "word": "βασιλείᾳ"
-  },
-  {
-    "strongs": "932",
-    "morphology": "N-NSF",
-    "word": "βασιλεία"
   },
   {
     "strongs": "932",
@@ -1850,26 +390,6 @@
     "word": "βασιλεῖς"
   },
   {
-    "strongs": "946",
-    "morphology": "N-ASN",
-    "word": "βδέλυγμα"
-  },
-  {
-    "strongs": "946",
-    "morphology": "N-NSN",
-    "word": "βδέλυγμα"
-  },
-  {
-    "strongs": "951",
-    "morphology": "N-DSF",
-    "word": "βεβαιώσει"
-  },
-  {
-    "strongs": "950",
-    "morphology": "V-FAI-3S",
-    "word": "βεβαιώσει"
-  },
-  {
     "strongs": "952",
     "morphology": "A-APF",
     "word": "βεβήλους"
@@ -1878,16 +398,6 @@
     "strongs": "952",
     "morphology": "A-APM",
     "word": "βεβήλους"
-  },
-  {
-    "strongs": "963",
-    "morphology": "N-DSF",
-    "word": "Βηθανίᾳ"
-  },
-  {
-    "strongs": "963",
-    "morphology": "N-NSF",
-    "word": "Βηθανία"
   },
   {
     "strongs": "971",
@@ -1900,33 +410,8 @@
     "word": "βιάζεται"
   },
   {
-    "strongs": "975",
-    "morphology": "N-APN",
-    "word": "βιβλία"
-  },
-  {
-    "strongs": "975",
-    "morphology": "N-NPN",
-    "word": "βιβλία"
-  },
-  {
-    "strongs": "975",
-    "morphology": "N-ASN",
-    "word": "βιβλίον"
-  },
-  {
-    "strongs": "975",
-    "morphology": "N-NSN",
-    "word": "βιβλίον"
-  },
-  {
     "strongs": "988",
     "morphology": "N-APF",
-    "word": "βλασφημὶας"
-  },
-  {
-    "strongs": "988",
-    "morphology": "N-GSF",
     "word": "βλασφημίας"
   },
   {
@@ -1940,96 +425,6 @@
     "word": "βλάσφημον"
   },
   {
-    "strongs": "991",
-    "morphology": "V-PAI-2P",
-    "word": "βλέπετε"
-  },
-  {
-    "strongs": "991",
-    "morphology": "V-PAM-2P",
-    "word": "Βλέπετε"
-  },
-  {
-    "strongs": "991",
-    "morphology": "V-PPP-APN",
-    "word": "βλεπόμενα"
-  },
-  {
-    "strongs": "991",
-    "morphology": "V-PPP-NPN",
-    "word": "βλεπόμενα"
-  },
-  {
-    "strongs": "1012",
-    "morphology": "N-DSF",
-    "word": "βουλῇ"
-  },
-  {
-    "strongs": "1012",
-    "morphology": "N-NSF",
-    "word": "βουλή"
-  },
-  {
-    "strongs": "1025",
-    "morphology": "N-APN",
-    "word": "βρέφη"
-  },
-  {
-    "strongs": "1025",
-    "morphology": "N-NPN",
-    "word": "βρέφη"
-  },
-  {
-    "strongs": "1025",
-    "morphology": "N-ASN",
-    "word": "βρέφος"
-  },
-  {
-    "strongs": "1025",
-    "morphology": "N-NSN",
-    "word": "βρέφος"
-  },
-  {
-    "strongs": "1033",
-    "morphology": "N-ASN",
-    "word": "βρῶμα"
-  },
-  {
-    "strongs": "1033",
-    "morphology": "N-NSN",
-    "word": "βρῶμά"
-  },
-  {
-    "strongs": "1033",
-    "morphology": "N-APN",
-    "word": "βρώματα"
-  },
-  {
-    "strongs": "1033",
-    "morphology": "N-NPN",
-    "word": "βρώματα"
-  },
-  {
-    "strongs": "1039",
-    "morphology": "A-ASN",
-    "word": "βύσσινον"
-  },
-  {
-    "strongs": "1039",
-    "morphology": "A-NSN",
-    "word": "βύσσινον"
-  },
-  {
-    "strongs": "1056",
-    "morphology": "N-DSF",
-    "word": "Γαλιλαίᾳ"
-  },
-  {
-    "strongs": "1056",
-    "morphology": "N-NSF",
-    "word": "Γαλιλαία"
-  },
-  {
     "strongs": "1057",
     "morphology": "N-NPM",
     "word": "Γαλιλαῖοι"
@@ -2040,56 +435,6 @@
     "word": "Γαλιλαῖοι"
   },
   {
-    "strongs": "1062",
-    "morphology": "N-GPM",
-    "word": "γάμων"
-  },
-  {
-    "strongs": "1060",
-    "morphology": "V-PAP-NSM",
-    "word": "γαμῶν"
-  },
-  {
-    "strongs": "1080",
-    "morphology": "V-RPP-ASM",
-    "word": "γεγεννημένον"
-  },
-  {
-    "strongs": "1080",
-    "morphology": "V-RPP-NSN",
-    "word": "γεγεννημένον"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2RAP-ASN",
-    "word": "γεγονὸς"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2RAP-NSN",
-    "word": "γεγονός"
-  },
-  {
-    "strongs": "1125",
-    "morphology": "V-RPP-APN",
-    "word": "γεγραμμένα"
-  },
-  {
-    "strongs": "1125",
-    "morphology": "V-RPP-NPN",
-    "word": "γεγραμμένα"
-  },
-  {
-    "strongs": "1125",
-    "morphology": "V-RPP-ASN",
-    "word": "γεγραμμένον"
-  },
-  {
-    "strongs": "1125",
-    "morphology": "V-RPP-NSN",
-    "word": "γεγραμμένον"
-  },
-  {
     "strongs": "1069",
     "morphology": "N-APF",
     "word": "γείτονας"
@@ -2098,11 +443,6 @@
     "strongs": "1069",
     "morphology": "N-APM",
     "word": "γείτονας"
-  },
-  {
-    "strongs": "1074",
-    "morphology": "N-DSF",
-    "word": "γενεᾷ"
   },
   {
     "strongs": "1074",
@@ -2115,89 +455,9 @@
     "word": "γενεὰ"
   },
   {
-    "strongs": "1074",
-    "morphology": "N-APF",
-    "word": "γενεὰς"
-  },
-  {
-    "strongs": "1074",
-    "morphology": "N-GSF",
-    "word": "γενεᾶς"
-  },
-  {
-    "strongs": "1085",
-    "morphology": "N-APN",
-    "word": "γένη"
-  },
-  {
-    "strongs": "1085",
-    "morphology": "N-NPN",
-    "word": "γένη"
-  },
-  {
-    "strongs": "1081",
-    "morphology": "N-APN",
-    "word": "γεννήματα"
-  },
-  {
-    "strongs": "1081",
-    "morphology": "N-VPN",
-    "word": "Γεννήματα"
-  },
-  {
-    "strongs": "1083",
-    "morphology": "N-DSF",
-    "word": "γεννήσει"
-  },
-  {
-    "strongs": "1080",
-    "morphology": "V-FAI-3S",
-    "word": "γεννήσει"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2ADP-ASM",
-    "word": "γενόμενον"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2ADP-ASN",
-    "word": "γενόμενον"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2ADP-GSM",
-    "word": "γενομένου"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2ADP-GSN",
-    "word": "γενομένου"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2ADP-GPF",
-    "word": "γενομένων"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-2ADP-GPM",
-    "word": "Γενομένων"
-  },
-  {
-    "strongs": "1085",
-    "morphology": "N-ASN",
-    "word": "γένος"
-  },
-  {
-    "strongs": "1085",
-    "morphology": "N-NSN",
-    "word": "γένος"
-  },
-  {
     "strongs": "1093",
     "morphology": "N-DSF",
-    "word": "γῇ"
+    "word": "γῆ"
   },
   {
     "strongs": "1093",
@@ -2210,59 +470,14 @@
     "word": "γῆ"
   },
   {
-    "strongs": "1096",
-    "morphology": "V-PNP-DSF",
-    "word": "γινομένῃ"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-PNP-NSF",
-    "word": "γινομένη"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-PNP-ASM",
-    "word": "γινόμενον"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-PNP-ASN",
-    "word": "γινόμενον"
-  },
-  {
-    "strongs": "1096",
-    "morphology": "V-PNP-NSN",
-    "word": "γινόμενον"
-  },
-  {
-    "strongs": "1097",
-    "morphology": "V-PAI-2P",
-    "word": "γινώσκετε"
-  },
-  {
-    "strongs": "1097",
-    "morphology": "V-PAM-2P",
-    "word": "γινώσκετε"
-  },
-  {
-    "strongs": "1099",
-    "morphology": "A-ASN",
-    "word": "γλυκὺ"
-  },
-  {
-    "strongs": "1099",
-    "morphology": "A-NSN",
-    "word": "γλυκὺ"
-  },
-  {
     "strongs": "1097",
     "morphology": "V-2AAS-1S",
-    "word": "γνῶ"
+    "word": "γνῷ"
   },
   {
     "strongs": "1097",
     "morphology": "V-2AAS-3S",
-    "word": "γνῷ"
+    "word": "γνῶ"
   },
   {
     "strongs": "1106",
@@ -2275,26 +490,6 @@
     "word": "γνώμῃ"
   },
   {
-    "strongs": "1108",
-    "morphology": "N-ASF",
-    "word": "γνῶσιν"
-  },
-  {
-    "strongs": "1097",
-    "morphology": "V-2AAS-3P",
-    "word": "γνῶσιν"
-  },
-  {
-    "strongs": "1097",
-    "morphology": "V-2AAM-2P",
-    "word": "γνῶτε"
-  },
-  {
-    "strongs": "1097",
-    "morphology": "V-2AAS-2P",
-    "word": "γνῶτε"
-  },
-  {
     "strongs": "1118",
     "morphology": "N-APM",
     "word": "γονεῖς"
@@ -2303,36 +498,6 @@
     "strongs": "1118",
     "morphology": "N-NPM",
     "word": "γονεῖς"
-  },
-  {
-    "strongs": "1119",
-    "morphology": "N-ASN",
-    "word": "γόνυ"
-  },
-  {
-    "strongs": "1119",
-    "morphology": "N-NSN",
-    "word": "γόνυ"
-  },
-  {
-    "strongs": "1121",
-    "morphology": "N-ASN",
-    "word": "γράμμα"
-  },
-  {
-    "strongs": "1121",
-    "morphology": "N-NSN",
-    "word": "γράμμα"
-  },
-  {
-    "strongs": "1121",
-    "morphology": "N-APN",
-    "word": "γράμματα"
-  },
-  {
-    "strongs": "1121",
-    "morphology": "N-NPN",
-    "word": "γράμματα"
   },
   {
     "strongs": "1122",
@@ -2350,16 +515,6 @@
     "word": "γραμματεῖς"
   },
   {
-    "strongs": "1124",
-    "morphology": "N-DSF",
-    "word": "γραφῇ"
-  },
-  {
-    "strongs": "1124",
-    "morphology": "N-NSF",
-    "word": "γραφὴ"
-  },
-  {
     "strongs": "1137",
     "morphology": "N-APF",
     "word": "γωνίας"
@@ -2368,111 +523,6 @@
     "strongs": "1137",
     "morphology": "N-GSF",
     "word": "γωνίας"
-  },
-  {
-    "strongs": "1140",
-    "morphology": "N-APN",
-    "word": "δαιμόνια"
-  },
-  {
-    "strongs": "1140",
-    "morphology": "N-NPN",
-    "word": "δαιμόνια"
-  },
-  {
-    "strongs": "1140",
-    "morphology": "N-ASN",
-    "word": "Δαιμόνιον"
-  },
-  {
-    "strongs": "1140",
-    "morphology": "N-NSN",
-    "word": "δαιμόνιον"
-  },
-  {
-    "strongs": "1210",
-    "morphology": "V-RPP-ASM",
-    "word": "δεδεμένον"
-  },
-  {
-    "strongs": "1210",
-    "morphology": "V-RPP-NSN",
-    "word": "δεδεμένον"
-  },
-  {
-    "strongs": "1172",
-    "morphology": "V-AAS-1S",
-    "word": "δειπνήσω"
-  },
-  {
-    "strongs": "1172",
-    "morphology": "V-FAI-1S",
-    "word": "δειπνήσω"
-  },
-  {
-    "strongs": "1186",
-    "morphology": "N-APN",
-    "word": "δένδρα"
-  },
-  {
-    "strongs": "1186",
-    "morphology": "N-NPN",
-    "word": "δένδρα"
-  },
-  {
-    "strongs": "1186",
-    "morphology": "N-ASN",
-    "word": "δένδρον"
-  },
-  {
-    "strongs": "1186",
-    "morphology": "N-NSN",
-    "word": "δένδρον"
-  },
-  {
-    "strongs": "1188",
-    "morphology": "A-APN",
-    "word": "δεξιὰ"
-  },
-  {
-    "strongs": "1188",
-    "morphology": "A-DSF",
-    "word": "δεξιᾷ"
-  },
-  {
-    "strongs": "1188",
-    "morphology": "A-NSF",
-    "word": "δεξιά"
-  },
-  {
-    "strongs": "1188",
-    "morphology": "A-APF",
-    "word": "δεξιὰς"
-  },
-  {
-    "strongs": "1188",
-    "morphology": "A-GSF",
-    "word": "δεξιᾶς"
-  },
-  {
-    "strongs": "1188",
-    "morphology": "A-ASM",
-    "word": "δεξιὸν"
-  },
-  {
-    "strongs": "1188",
-    "morphology": "A-ASN",
-    "word": "δεξιόν"
-  },
-  {
-    "strongs": "1199",
-    "morphology": "N-APN",
-    "word": "δεσμὰ"
-  },
-  {
-    "strongs": "1199",
-    "morphology": "N-NPN",
-    "word": "δεσμὰ"
   },
   {
     "strongs": "1204",
@@ -2486,118 +536,13 @@
   },
   {
     "strongs": "1208",
-    "morphology": "A-DSF",
+    "morphology": "A-NSF",
     "word": "δευτέρᾳ"
   },
   {
-    "strongs": "1208",
-    "morphology": "A-NSF",
-    "word": "δευτέρα"
-  },
-  {
-    "strongs": "1208",
-    "morphology": "A-ASN",
-    "word": "δεύτερον"
-  },
-  {
-    "strongs": "1208",
-    "morphology": "A-NSN",
-    "word": "δεύτερον"
-  },
-  {
-    "strongs": "1208",
-    "morphology": "ADV",
-    "word": "δεύτερον"
-  },
-  {
-    "strongs": "1208",
-    "morphology": "A-GSM",
-    "word": "δευτέρου"
-  },
-  {
-    "strongs": "1208",
-    "morphology": "A-GSN",
-    "word": "δευτέρου"
-  },
-  {
-    "strongs": "1208",
-    "morphology": "A-DSM",
-    "word": "δευτέρῳ"
-  },
-  {
-    "strongs": "1208",
-    "morphology": "A-DSN",
-    "word": "δευτέρῳ"
-  },
-  {
-    "strongs": "1212",
-    "morphology": "A-ASM",
-    "word": "δῆλόν"
-  },
-  {
-    "strongs": "1212",
-    "morphology": "A-NSN",
-    "word": "δῆλον"
-  },
-  {
-    "strongs": "2203",
-    "morphology": "N-ASM",
-    "word": "Δία"
-  },
-  {
-    "strongs": "1223",
-    "morphology": "PREP",
-    "word": "διὰ"
-  },
-  {
-    "strongs": "1230",
-    "morphology": "V-2ADP-GSM",
-    "word": "διαγενομένου"
-  },
-  {
-    "strongs": "1230",
-    "morphology": "V-2ADP-GSN",
-    "word": "διαγενομένου"
-  },
-  {
-    "strongs": "1238",
-    "morphology": "N-APN",
-    "word": "διαδήματα"
-  },
-  {
-    "strongs": "1238",
-    "morphology": "N-NPN",
-    "word": "διαδήματα"
-  },
-  {
-    "strongs": "1242",
-    "morphology": "N-DSF",
-    "word": "διαθήκῃ"
-  },
-  {
-    "strongs": "1242",
-    "morphology": "N-NSF",
-    "word": "διαθήκη"
-  },
-  {
-    "strongs": "1247",
-    "morphology": "V-PAI-3S",
-    "word": "διακονεῖ"
-  },
-  {
-    "strongs": "1247",
-    "morphology": "V-PAM-2S",
-    "word": "διακόνει"
-  },
-  {
     "strongs": "1248",
-    "morphology": "N-DSF",
+    "morphology": "N-NSF",
     "word": "διακονίᾳ"
-  },
-  {
-    "strongs": "1248",
-    "morphology": "N-NSF",
-    "word": "διακονία"
   },
   {
     "strongs": "1249",
@@ -2610,16 +555,6 @@
     "word": "διάκονον"
   },
   {
-    "strongs": "1250",
-    "morphology": "A-GPM",
-    "word": "διακοσίων"
-  },
-  {
-    "strongs": "1250",
-    "morphology": "A-GPN",
-    "word": "διακοσίων"
-  },
-  {
     "strongs": "1253",
     "morphology": "N-APF",
     "word": "διακρίσεις"
@@ -2628,26 +563,6 @@
     "strongs": "1253",
     "morphology": "N-NPF",
     "word": "διακρίσεις"
-  },
-  {
-    "strongs": "1302",
-    "morphology": "I-ASN",
-    "word": "Διατί"
-  },
-  {
-    "strongs": "1302",
-    "morphology": "PRT-I",
-    "word": "Διατί"
-  },
-  {
-    "strongs": "1319",
-    "morphology": "N-DSF",
-    "word": "διδασκαλίᾳ"
-  },
-  {
-    "strongs": "1319",
-    "morphology": "N-NSF",
-    "word": "διδασκαλία"
   },
   {
     "strongs": "1319",
@@ -2660,171 +575,6 @@
     "word": "διδασκαλίας"
   },
   {
-    "strongs": "1322",
-    "morphology": "N-DSF",
-    "word": "διδαχῇ"
-  },
-  {
-    "strongs": "1322",
-    "morphology": "N-NSF",
-    "word": "διδαχὴ"
-  },
-  {
-    "strongs": "1330",
-    "morphology": "V-2AAI-1S",
-    "word": "διῆλθον"
-  },
-  {
-    "strongs": "1330",
-    "morphology": "V-2AAI-3S",
-    "word": "διῆλθον"
-  },
-  {
-    "strongs": "1342",
-    "morphology": "A-NPN",
-    "word": "δίκαια"
-  },
-  {
-    "strongs": "1342",
-    "morphology": "A-NSF",
-    "word": "δικαία"
-  },
-  {
-    "strongs": "1342",
-    "morphology": "A-NPM",
-    "word": "δίκαιοι"
-  },
-  {
-    "strongs": "1344",
-    "morphology": "V-PAI-3S",
-    "word": "δικαιοῖ"
-  },
-  {
-    "strongs": "1342",
-    "morphology": "A-ASM",
-    "word": "δίκαιον"
-  },
-  {
-    "strongs": "1342",
-    "morphology": "A-ASN",
-    "word": "δίκαιον"
-  },
-  {
-    "strongs": "1342",
-    "morphology": "A-NSN",
-    "word": "δίκαιον"
-  },
-  {
-    "strongs": "1343",
-    "morphology": "N-DSF",
-    "word": "δικαιοσύνῃ"
-  },
-  {
-    "strongs": "1343",
-    "morphology": "N-NSF",
-    "word": "δικαιοσύνη"
-  },
-  {
-    "strongs": "1345",
-    "morphology": "N-APN",
-    "word": "δικαιώματα"
-  },
-  {
-    "strongs": "1345",
-    "morphology": "N-NPN",
-    "word": "δικαιώματά"
-  },
-  {
-    "strongs": "1342",
-    "morphology": "A-GPM",
-    "word": "δικαίων"
-  },
-  {
-    "strongs": "1344",
-    "morphology": "V-PAP-NSM",
-    "word": "δικαιῶν"
-  },
-  {
-    "strongs": "1350",
-    "morphology": "N-ASN",
-    "word": "δίκτυον"
-  },
-  {
-    "strongs": "1350",
-    "morphology": "N-NSN",
-    "word": "δίκτυον"
-  },
-  {
-    "strongs": "1372",
-    "morphology": "V-PAI-1S-C",
-    "word": "Διψῶ"
-  },
-  {
-    "strongs": "1372",
-    "morphology": "V-PAS-1S",
-    "word": "διψῶ"
-  },
-  {
-    "strongs": "1380",
-    "morphology": "V-PAI-2P",
-    "word": "δοκεῖτε"
-  },
-  {
-    "strongs": "1380",
-    "morphology": "V-PAM-2P",
-    "word": "δοκεῖτε"
-  },
-  {
-    "strongs": "1381",
-    "morphology": "V-PAI-2P",
-    "word": "δοκιμάζετε"
-  },
-  {
-    "strongs": "1381",
-    "morphology": "V-PAM-2P",
-    "word": "δοκιμάζετε"
-  },
-  {
-    "strongs": "1382",
-    "morphology": "N-DSF",
-    "word": "δοκιμῇ"
-  },
-  {
-    "strongs": "1382",
-    "morphology": "N-NSF",
-    "word": "δοκιμὴ"
-  },
-  {
-    "strongs": "1380",
-    "morphology": "V-PAI-3P",
-    "word": "δοκοῦσιν"
-  },
-  {
-    "strongs": "1380",
-    "morphology": "V-PAP-DPM",
-    "word": "δοκοῦσιν"
-  },
-  {
-    "strongs": "1391",
-    "morphology": "N-DSF",
-    "word": "δόξῃ"
-  },
-  {
-    "strongs": "1380",
-    "morphology": "V-AAS-3S",
-    "word": "δόξῃ"
-  },
-  {
-    "strongs": "1398",
-    "morphology": "V-PAI-2P",
-    "word": "δουλεύετε"
-  },
-  {
-    "strongs": "1398",
-    "morphology": "V-PAM-2P",
-    "word": "δουλεύετε"
-  },
-  {
     "strongs": "1411",
     "morphology": "N-APF",
     "word": "δυνάμεις"
@@ -2835,209 +585,14 @@
     "word": "δυνάμεις"
   },
   {
-    "strongs": "1410",
-    "morphology": "V-PNP-GSM",
-    "word": "δυναμένου"
-  },
-  {
-    "strongs": "1410",
-    "morphology": "V-PNP-GSN",
-    "word": "δυναμένου"
-  },
-  {
-    "strongs": "1415",
-    "morphology": "A-ASN",
-    "word": "δυνατὸν"
-  },
-  {
-    "strongs": "1415",
-    "morphology": "A-NSN",
-    "word": "δυνατόν"
-  },
-  {
-    "strongs": "1417",
-    "morphology": "A-DPF",
-    "word": "δυσὶν"
-  },
-  {
-    "strongs": "1417",
-    "morphology": "A-DPM",
-    "word": "δυσὶν"
-  },
-  {
-    "strongs": "1325",
-    "morphology": "V-2AAO-3S",
-    "word": "δῴη"
-  },
-  {
     "strongs": "1325",
     "morphology": "V-2AAS-3S",
-    "word": "δώῃ"
-  },
-  {
-    "strongs": "1435",
-    "morphology": "N-APN",
-    "word": "δῶρα"
-  },
-  {
-    "strongs": "1435",
-    "morphology": "N-NPN",
-    "word": "δῶρά"
-  },
-  {
-    "strongs": "1431",
-    "morphology": "N-DSF",
-    "word": "δωρεᾷ"
-  },
-  {
-    "strongs": "1431",
-    "morphology": "N-NSF",
-    "word": "δωρεὰ"
-  },
-  {
-    "strongs": "1432",
-    "morphology": "ADV",
-    "word": "δωρεὰν"
-  },
-  {
-    "strongs": "1431",
-    "morphology": "N-ASF",
-    "word": "δωρεὰν"
-  },
-  {
-    "strongs": "1435",
-    "morphology": "N-ASN",
-    "word": "δῶρόν"
-  },
-  {
-    "strongs": "1435",
-    "morphology": "N-NSN",
-    "word": "Δῶρον"
-  },
-  {
-    "strongs": "1453",
-    "morphology": "V-AAN",
-    "word": "ἐγεῖραι"
+    "word": "δῴη"
   },
   {
     "strongs": "1453",
     "morphology": "V-AMM-2S",
-    "word": "Ἔγειραι"
-  },
-  {
-    "strongs": "1466",
-    "morphology": "N-DSF",
-    "word": "ἐγκρατείᾳ"
-  },
-  {
-    "strongs": "1466",
-    "morphology": "N-NSF",
-    "word": "ἐγκράτεια"
-  },
-  {
-    "strongs": "1377",
-    "morphology": "V-IAI-1S",
-    "word": "ἐδίωκον"
-  },
-  {
-    "strongs": "1377",
-    "morphology": "V-IAI-3P",
-    "word": "ἐδίωκον"
-  },
-  {
-    "strongs": "5143",
-    "morphology": "V-2AAI-1S",
-    "word": "ἔδραμον"
-  },
-  {
-    "strongs": "5143",
-    "morphology": "V-2AAI-3P",
-    "word": "ἔδραμον"
-  },
-  {
-    "strongs": "2334",
-    "morphology": "V-IAI-1P",
-    "word": "Ἐθεώρουν"
-  },
-  {
-    "strongs": "2334",
-    "morphology": "V-IAI-3P",
-    "word": "ἐθεώρουν"
-  },
-  {
-    "strongs": "1484",
-    "morphology": "N-APN",
-    "word": "ἔθνη"
-  },
-  {
-    "strongs": "1484",
-    "morphology": "N-NPN",
-    "word": "ἔθνη"
-  },
-  {
-    "strongs": "1484",
-    "morphology": "N-VPN",
-    "word": "ἔθνη"
-  },
-  {
-    "strongs": "1484",
-    "morphology": "N-ASN",
-    "word": "ἔθνος"
-  },
-  {
-    "strongs": "1484",
-    "morphology": "N-NSN",
-    "word": "ἔθνος"
-  },
-  {
-    "strongs": "1485",
-    "morphology": "N-ASN",
-    "word": "ἔθος"
-  },
-  {
-    "strongs": "1485",
-    "morphology": "N-NSN",
-    "word": "ἔθος"
-  },
-  {
-    "strongs": "1487",
-    "morphology": "COND",
-    "word": "Εἰ"
-  },
-  {
-    "strongs": "1488",
-    "morphology": "V-PXI-2S",
-    "word": "εἶ"
-  },
-  {
-    "strongs": "1492",
-    "morphology": "V-2AAI-1S",
-    "word": "εἶδόν"
-  },
-  {
-    "strongs": "1492",
-    "morphology": "V-2AAI-3P",
-    "word": "εἶδον"
-  },
-  {
-    "strongs": "1491",
-    "morphology": "N-ASN",
-    "word": "εἶδος"
-  },
-  {
-    "strongs": "1491",
-    "morphology": "N-NSN",
-    "word": "εἶδος"
-  },
-  {
-    "strongs": "1494",
-    "morphology": "A-ASN",
-    "word": "εἰδωλόθυτον"
-  },
-  {
-    "strongs": "1494",
-    "morphology": "A-NSN",
-    "word": "εἰδωλόθυτον"
+    "word": "ἐγεῖραι"
   },
   {
     "strongs": "1501",
@@ -3045,188 +600,18 @@
     "word": "εἴκοσι"
   },
   {
-    "strongs": "1501",
-    "morphology": "A-NUI",
-    "word": "εἴκοσι"
-  },
-  {
-    "strongs": "2036",
-    "morphology": "V-2AAI-2P",
-    "word": "εἴπατε"
-  },
-  {
-    "strongs": "2036",
-    "morphology": "V-2AAM-2P",
-    "word": "εἴπατε"
-  },
-  {
-    "strongs": "2036",
-    "morphology": "V-2AAI-1S",
-    "word": "εἶπον"
-  },
-  {
-    "strongs": "2036",
-    "morphology": "V-2AAI-3P",
-    "word": "εἶπον"
-  },
-  {
-    "strongs": "2046",
-    "morphology": "V-RPP-ASN-ATT",
-    "word": "εἰρημένον"
-  },
-  {
-    "strongs": "2046",
-    "morphology": "V-RPP-NSN-ATT",
-    "word": "εἰρημένον"
-  },
-  {
-    "strongs": "1515",
-    "morphology": "N-DSF",
-    "word": "εἰρήνῃ"
-  },
-  {
     "strongs": "1515",
     "morphology": "N-NSF",
-    "word": "εἰρήνη"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-NSM",
-    "word": "εἷς"
-  },
-  {
-    "strongs": "1519",
-    "morphology": "PREP",
-    "word": "εἰς"
-  },
-  {
-    "strongs": "1525",
-    "morphology": "V-2AAP-ASM",
-    "word": "εἰσελθόντα"
-  },
-  {
-    "strongs": "1525",
-    "morphology": "V-2AAP-NPN",
-    "word": "εἰσελθόντα"
-  },
-  {
-    "strongs": "1525",
-    "morphology": "V-2AAI-1S",
-    "word": "εἰσῆλθόν"
-  },
-  {
-    "strongs": "1525",
-    "morphology": "V-2AAI-3P",
-    "word": "εἰσῆλθον"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-IAI-1S",
-    "word": "εἶχον"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-IAI-3P",
-    "word": "εἶχον"
-  },
-  {
-    "strongs": "1538",
-    "morphology": "A-ASM",
-    "word": "ἕκαστον"
-  },
-  {
-    "strongs": "1538",
-    "morphology": "A-ASN",
-    "word": "ἕκαστον"
-  },
-  {
-    "strongs": "1538",
-    "morphology": "A-NSN",
-    "word": "ἕκαστον"
-  },
-  {
-    "strongs": "1538",
-    "morphology": "A-DSM",
-    "word": "ἑκάστῳ"
-  },
-  {
-    "strongs": "1538",
-    "morphology": "A-DSN",
-    "word": "ἑκάστῳ"
-  },
-  {
-    "strongs": "1542",
-    "morphology": "A-APN",
-    "word": "ἑκατονταπλασίονα"
-  },
-  {
-    "strongs": "1542",
-    "morphology": "A-ASM",
-    "word": "ἑκατονταπλασίονα"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-APN",
-    "word": "ἐκεῖνα"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-NPN",
-    "word": "ἐκεῖνά"
+    "word": "εἰρήνῃ"
   },
   {
     "strongs": "1565",
     "morphology": "D-DSF",
-    "word": "ἐκείνῃ"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-NSF",
     "word": "ἐκείνη"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-ASN",
-    "word": "ἐκεῖνο"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-NSN",
-    "word": "ἐκεῖνο"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-GSM",
-    "word": "ἐκείνου"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-GSN",
-    "word": "ἐκείνου"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-GPF",
-    "word": "ἐκείνων"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-GPM",
-    "word": "ἐκείνων"
-  },
-  {
-    "strongs": "1565",
-    "morphology": "D-GPN",
-    "word": "ἐκείνων"
   },
   {
     "strongs": "1577",
     "morphology": "N-DSF",
-    "word": "ἐκκλησίᾳ"
-  },
-  {
-    "strongs": "1577",
-    "morphology": "N-NSF",
     "word": "ἐκκλησία"
   },
   {
@@ -3240,76 +625,6 @@
     "word": "ἐκκλησίας"
   },
   {
-    "strongs": "2799",
-    "morphology": "V-IAI-1S",
-    "word": "ἔκλαιον"
-  },
-  {
-    "strongs": "2799",
-    "morphology": "V-IAI-3P",
-    "word": "ἔκλαιον"
-  },
-  {
-    "strongs": "1588",
-    "morphology": "A-ASM",
-    "word": "ἐκλεκτὸν"
-  },
-  {
-    "strongs": "1588",
-    "morphology": "A-NSN",
-    "word": "ἐκλεκτόν"
-  },
-  {
-    "strongs": "1607",
-    "morphology": "V-PNP-DSF",
-    "word": "ἐκπορευομένῃ"
-  },
-  {
-    "strongs": "1607",
-    "morphology": "V-PNP-NSF",
-    "word": "ἐκπορευομένη"
-  },
-  {
-    "strongs": "1607",
-    "morphology": "V-PNP-ASM",
-    "word": "ἐκπορευόμενον"
-  },
-  {
-    "strongs": "1607",
-    "morphology": "V-PNP-NSN",
-    "word": "ἐκπορευόμενον"
-  },
-  {
-    "strongs": "1607",
-    "morphology": "V-PNP-GSM",
-    "word": "ἐκπορευομένου"
-  },
-  {
-    "strongs": "1607",
-    "morphology": "V-PNP-GSN",
-    "word": "ἐκπορευομένου"
-  },
-  {
-    "strongs": "1623",
-    "morphology": "A-NSM",
-    "word": "ἕκτος"
-  },
-  {
-    "strongs": "1622",
-    "morphology": "ADV",
-    "word": "ἐκτὸς"
-  },
-  {
-    "strongs": "2983",
-    "morphology": "V-2AAI-1S",
-    "word": "ἔλαβον"
-  },
-  {
-    "strongs": "2983",
-    "morphology": "V-2AAI-3P",
-    "word": "ἔλαβον"
-  },
-  {
     "strongs": "1636",
     "morphology": "N-APF",
     "word": "ἐλαίας"
@@ -3320,121 +635,6 @@
     "word": "ἐλαίας"
   },
   {
-    "strongs": "2980",
-    "morphology": "V-IAI-1S",
-    "word": "ἐλάλουν"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-IAI-3P",
-    "word": "ἐλάλουν"
-  },
-  {
-    "strongs": "1646",
-    "morphology": "A-GPF",
-    "word": "ἐλαχίστων"
-  },
-  {
-    "strongs": "1646",
-    "morphology": "A-GPM",
-    "word": "ἐλαχίστων"
-  },
-  {
-    "strongs": "1646",
-    "morphology": "A-GPN",
-    "word": "ἐλαχίστων"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-IAI-1S",
-    "word": "ἔλεγον"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-IAI-3P",
-    "word": "ἔλεγον"
-  },
-  {
-    "strongs": "1656",
-    "morphology": "N-DSN",
-    "word": "ἐλέει"
-  },
-  {
-    "strongs": "1653",
-    "morphology": "V-PAI-3S",
-    "word": "ἐλεεῖ"
-  },
-  {
-    "strongs": "1656",
-    "morphology": "N-ASN",
-    "word": "ἔλεος"
-  },
-  {
-    "strongs": "1656",
-    "morphology": "N-NSM",
-    "word": "ἔλεος"
-  },
-  {
-    "strongs": "1656",
-    "morphology": "N-NSN",
-    "word": "ἔλεος"
-  },
-  {
-    "strongs": "1657",
-    "morphology": "N-DSF",
-    "word": "ἐλευθερίᾳ"
-  },
-  {
-    "strongs": "1657",
-    "morphology": "N-NSF",
-    "word": "ἐλευθερία"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1APN",
-    "word": "ἐμὰ"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1NPN",
-    "word": "ἐμὰ"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-IAI-1S",
-    "word": "ἔμελλον"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-IAI-3P",
-    "word": "ἔμελλον"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1DSF",
-    "word": "ἐμῇ"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1NSF",
-    "word": "ἐμὴ"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1ASM",
-    "word": "ἐμόν"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1ASN",
-    "word": "ἐμὸν"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1NSN",
-    "word": "ἐμὸν"
-  },
-  {
     "strongs": "1715",
     "morphology": "ADV",
     "word": "ἔμπροσθεν"
@@ -3443,148 +643,13 @@
     "strongs": "1715",
     "morphology": "PREP",
     "word": "ἔμπροσθεν"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1DSM",
-    "word": "ἐμῷ"
-  },
-  {
-    "strongs": "1699",
-    "morphology": "S-1DSN",
-    "word": "ἐμῷ"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-ASN",
-    "word": "ἓν"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-NSN",
-    "word": "ἓν"
-  },
-  {
-    "strongs": "1722",
-    "morphology": "PREP",
-    "word": "ἐν"
-  },
-  {
-    "strongs": "1727",
-    "morphology": "A-ASN",
-    "word": "ἐναντίον"
-  },
-  {
-    "strongs": "1726",
-    "morphology": "ADV",
-    "word": "ἐναντίον"
-  },
-  {
-    "strongs": "1738",
-    "morphology": "A-ASF",
-    "word": "ἔνδικον"
-  },
-  {
-    "strongs": "1738",
-    "morphology": "A-NSN",
-    "word": "ἔνδικόν"
-  },
-  {
-    "strongs": "1742",
-    "morphology": "N-ASN",
-    "word": "ἔνδυμα"
-  },
-  {
-    "strongs": "1742",
-    "morphology": "N-NSN",
-    "word": "ἔνδυμα"
   },
   {
     "strongs": "1756",
     "morphology": "A-NSF",
-    "word": "ἐνεργής"
-  },
-  {
-    "strongs": "1756",
-    "morphology": "A-NSM",
     "word": "ἐνεργὴς"
   },
   {
-    "strongs": "1754",
-    "morphology": "V-PAP-GSM",
-    "word": "ἐνεργοῦντος"
-  },
-  {
-    "strongs": "1754",
-    "morphology": "V-PAP-GSN",
-    "word": "ἐνεργοῦντος"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-DSM",
-    "word": "ἑνὶ"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-DSN",
-    "word": "ἑνὶ"
-  },
-  {
-    "strongs": "1762",
-    "morphology": "V-PXI-3S",
-    "word": "ἔνι"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-GSM",
-    "word": "ἑνὸς"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-GSN",
-    "word": "ἑνὸς"
-  },
-  {
-    "strongs": "1803",
-    "morphology": "A-NUI",
-    "word": "ἓξ"
-  },
-  {
-    "strongs": "1537",
-    "morphology": "PREP",
-    "word": "ἐξ"
-  },
-  {
-    "strongs": "1831",
-    "morphology": "V-2AAP-ASM",
-    "word": "ἐξελθόντα"
-  },
-  {
-    "strongs": "1831",
-    "morphology": "V-2AAP-NPN",
-    "word": "ἐξελθόντα"
-  },
-  {
-    "strongs": "1831",
-    "morphology": "V-2AAI-1S",
-    "word": "ἐξῆλθον"
-  },
-  {
-    "strongs": "1831",
-    "morphology": "V-2AAI-3P",
-    "word": "ἐξῆλθον"
-  },
-  {
-    "strongs": "1849",
-    "morphology": "N-DSF",
-    "word": "ἐξουσίᾳ"
-  },
-  {
-    "strongs": "1849",
-    "morphology": "N-NSF",
-    "word": "ἐξουσία"
-  },
-  {
     "strongs": "1849",
     "morphology": "N-APF",
     "word": "ἐξουσίας"
@@ -3593,26 +658,6 @@
     "strongs": "1849",
     "morphology": "N-GSF",
     "word": "ἐξουσίας"
-  },
-  {
-    "strongs": "1859",
-    "morphology": "N-DSF",
-    "word": "ἑορτῇ"
-  },
-  {
-    "strongs": "1859",
-    "morphology": "N-NSF",
-    "word": "ἑορτὴ"
-  },
-  {
-    "strongs": "1860",
-    "morphology": "N-DSF",
-    "word": "ἐπαγγελίᾳ"
-  },
-  {
-    "strongs": "1860",
-    "morphology": "N-NSF",
-    "word": "ἐπαγγελία"
   },
   {
     "strongs": "1860",
@@ -3625,56 +670,6 @@
     "word": "ἐπαγγελίας"
   },
   {
-    "strongs": "1905",
-    "morphology": "V-PAI-3P",
-    "word": "ἐπερωτῶσιν"
-  },
-  {
-    "strongs": "1905",
-    "morphology": "V-PAP-DPM",
-    "word": "ἐπερωτῶσιν"
-  },
-  {
-    "strongs": "4098",
-    "morphology": "V-2AAI-1S",
-    "word": "ἔπεσον"
-  },
-  {
-    "strongs": "4098",
-    "morphology": "V-2AAI-3P",
-    "word": "ἔπεσον"
-  },
-  {
-    "strongs": "1919",
-    "morphology": "A-APN",
-    "word": "ἐπίγεια"
-  },
-  {
-    "strongs": "1919",
-    "morphology": "A-NPN",
-    "word": "ἐπίγεια"
-  },
-  {
-    "strongs": "1921",
-    "morphology": "V-PAI-2P",
-    "word": "ἐπιγινώσκετε"
-  },
-  {
-    "strongs": "1921",
-    "morphology": "V-PAM-2P",
-    "word": "ἐπιγινώσκετε"
-  },
-  {
-    "strongs": "1939",
-    "morphology": "N-DSF",
-    "word": "Ἐπιθυμίᾳ"
-  },
-  {
-    "strongs": "1939",
-    "morphology": "N-NSF",
-    "word": "ἐπιθυμία"
-  },
-  {
     "strongs": "1939",
     "morphology": "N-APF",
     "word": "ἐπιθυμίας"
@@ -3683,86 +678,6 @@
     "strongs": "1939",
     "morphology": "N-GSF",
     "word": "ἐπιθυμίας"
-  },
-  {
-    "strongs": "1941",
-    "morphology": "V-PMP-ASM",
-    "word": "ἐπικαλούμενον"
-  },
-  {
-    "strongs": "1941",
-    "morphology": "V-PPP-ASM",
-    "word": "ἐπικαλούμενον"
-  },
-  {
-    "strongs": "1992",
-    "morphology": "N-DSF",
-    "word": "ἐπιστολῇ"
-  },
-  {
-    "strongs": "1992",
-    "morphology": "N-NSF",
-    "word": "ἐπιστολὴ"
-  },
-  {
-    "strongs": "2032",
-    "morphology": "A-APN",
-    "word": "ἐπουράνια"
-  },
-  {
-    "strongs": "2032",
-    "morphology": "A-NPN",
-    "word": "ἐπουράνια"
-  },
-  {
-    "strongs": "2032",
-    "morphology": "A-GSF",
-    "word": "ἐπουρανίου"
-  },
-  {
-    "strongs": "2032",
-    "morphology": "A-GSM",
-    "word": "ἐπουρανίου"
-  },
-  {
-    "strongs": "2032",
-    "morphology": "A-GPM",
-    "word": "ἐπουρανίων"
-  },
-  {
-    "strongs": "2032",
-    "morphology": "A-GPN",
-    "word": "ἐπουρανίων"
-  },
-  {
-    "strongs": "2041",
-    "morphology": "N-APN",
-    "word": "ἔργα"
-  },
-  {
-    "strongs": "2041",
-    "morphology": "N-NPN",
-    "word": "ἔργα"
-  },
-  {
-    "strongs": "2038",
-    "morphology": "V-PNI-2P",
-    "word": "ἐργάζεσθε"
-  },
-  {
-    "strongs": "2038",
-    "morphology": "V-PNM-2P",
-    "word": "ἐργάζεσθε"
-  },
-  {
-    "strongs": "2041",
-    "morphology": "N-ASN",
-    "word": "ἔργον"
-  },
-  {
-    "strongs": "2041",
-    "morphology": "N-NSN",
-    "word": "ἔργον"
   },
   {
     "strongs": "2054",
@@ -3775,21 +690,6 @@
     "word": "ἔρεις"
   },
   {
-    "strongs": "2046",
-    "morphology": "V-FAI-2S",
-    "word": "ἐρεῖς"
-  },
-  {
-    "strongs": "2048",
-    "morphology": "A-DPF",
-    "word": "ἐρήμοις"
-  },
-  {
-    "strongs": "2048",
-    "morphology": "A-DPM",
-    "word": "ἐρήμοις"
-  },
-  {
     "strongs": "2048",
     "morphology": "A-ASF",
     "word": "ἔρημον"
@@ -3801,53 +701,8 @@
   },
   {
     "strongs": "2048",
-    "morphology": "A-NSF",
-    "word": "ἔρημος"
-  },
-  {
-    "strongs": "2048",
     "morphology": "A-NSM",
-    "word": "Ἔρημός"
-  },
-  {
-    "strongs": "2048",
-    "morphology": "A-DSF",
-    "word": "ἐρήμῳ"
-  },
-  {
-    "strongs": "2048",
-    "morphology": "A-DSM",
-    "word": "ἐρήμῳ"
-  },
-  {
-    "strongs": "2062",
-    "morphology": "N-APN",
-    "word": "ἑρπετὰ"
-  },
-  {
-    "strongs": "2062",
-    "morphology": "N-NPN",
-    "word": "ἑρπετὰ"
-  },
-  {
-    "strongs": "2064",
-    "morphology": "V-PNP-ASM",
-    "word": "ἐρχόμενον"
-  },
-  {
-    "strongs": "2064",
-    "morphology": "V-PNP-ASN",
-    "word": "ἐρχόμενον"
-  },
-  {
-    "strongs": "2064",
-    "morphology": "V-PNP-DSM",
-    "word": "ἐρχομένῳ"
-  },
-  {
-    "strongs": "2064",
-    "morphology": "V-PNP-DSN",
-    "word": "ἐρχομένῳ"
+    "word": "ἔρημος"
   },
   {
     "strongs": "2065",
@@ -3858,206 +713,6 @@
     "strongs": "2065",
     "morphology": "V-PAS-3S",
     "word": "ἐρωτᾷ"
-  },
-  {
-    "strongs": "2065",
-    "morphology": "V-AAS-1S",
-    "word": "ἐρωτήσω"
-  },
-  {
-    "strongs": "2065",
-    "morphology": "V-FAI-1S",
-    "word": "Ἐρωτήσω"
-  },
-  {
-    "strongs": "2068",
-    "morphology": "V-PAI-2P",
-    "word": "ἐσθίετε"
-  },
-  {
-    "strongs": "2068",
-    "morphology": "V-PAM-2P",
-    "word": "ἐσθίετε"
-  },
-  {
-    "strongs": "4687",
-    "morphology": "V-RPP-ASM",
-    "word": "ἐσπαρμένον"
-  },
-  {
-    "strongs": "4687",
-    "morphology": "V-RPP-ASN",
-    "word": "ἐσπαρμένον"
-  },
-  {
-    "strongs": "1510",
-    "morphology": "V-PAI-3S",
-    "word": "ἐστίν"
-  },
-  {
-    "strongs": "2076",
-    "morphology": "V-PXI-3S",
-    "word": "ἐστιν"
-  },
-  {
-    "strongs": "2476",
-    "morphology": "V-RAP-APN",
-    "word": "ἑστῶτα"
-  },
-  {
-    "strongs": "2476",
-    "morphology": "V-RAP-ASM",
-    "word": "ἑστῶτα"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-APN",
-    "word": "ἔσχατα"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-NPN",
-    "word": "ἔσχατα"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-DSF",
-    "word": "ἐσχάτῃ"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-NSF",
-    "word": "ἐσχάτη"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-ASM",
-    "word": "ἔσχατον"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-ASN",
-    "word": "ἔσχατον"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-GSM",
-    "word": "ἐσχάτου"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-GSN",
-    "word": "ἐσχάτου"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-GPF",
-    "word": "ἐσχάτων"
-  },
-  {
-    "strongs": "2078",
-    "morphology": "A-GPM",
-    "word": "ἐσχάτων"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-2AAI-1S",
-    "word": "ἔσχον"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-2AAI-3P",
-    "word": "ἔσχον"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-APN",
-    "word": "ἕτερα"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-DSF",
-    "word": "ἑτέρᾳ"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-NSF",
-    "word": "ἑτέρα"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-DPM",
-    "word": "ἑτέροις"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-DPN",
-    "word": "ἑτέροις"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-ASM",
-    "word": "ἕτερον"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-ASN",
-    "word": "ἕτερον"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-NSN",
-    "word": "ἕτερον"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-DSM",
-    "word": "ἑτέρῳ"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-DSN",
-    "word": "ἑτέρῳ"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-GPM",
-    "word": "ἑτέρων"
-  },
-  {
-    "strongs": "2087",
-    "morphology": "A-GPN",
-    "word": "ἑτέρων"
-  },
-  {
-    "strongs": "2094",
-    "morphology": "N-APN",
-    "word": "ἔτη"
-  },
-  {
-    "strongs": "2094",
-    "morphology": "N-NPN",
-    "word": "ἔτη"
-  },
-  {
-    "strongs": "5083",
-    "morphology": "V-IAI-1S",
-    "word": "ἐτήρουν"
-  },
-  {
-    "strongs": "5083",
-    "morphology": "V-IAI-3P",
-    "word": "ἐτήρουν"
-  },
-  {
-    "strongs": "2092",
-    "morphology": "A-APN",
-    "word": "ἕτοιμα"
-  },
-  {
-    "strongs": "2092",
-    "morphology": "A-NPN",
-    "word": "ἕτοιμα"
   },
   {
     "strongs": "2092",
@@ -4080,41 +735,6 @@
     "word": "εὐαγγελίζεται"
   },
   {
-    "strongs": "2098",
-    "morphology": "N-ASN",
-    "word": "εὐαγγέλιον"
-  },
-  {
-    "strongs": "2098",
-    "morphology": "N-NSN",
-    "word": "εὐαγγέλιον"
-  },
-  {
-    "strongs": "2097",
-    "morphology": "V-APP-ASN",
-    "word": "εὐαγγελισθὲν"
-  },
-  {
-    "strongs": "2097",
-    "morphology": "V-APP-NSN",
-    "word": "εὐαγγελισθὲν"
-  },
-  {
-    "strongs": "2101",
-    "morphology": "A-ASF",
-    "word": "εὐάρεστον"
-  },
-  {
-    "strongs": "2101",
-    "morphology": "A-ASN",
-    "word": "εὐάρεστον"
-  },
-  {
-    "strongs": "2101",
-    "morphology": "A-NSN",
-    "word": "εὐάρεστον"
-  },
-  {
     "strongs": "2106",
     "morphology": "V-IAI-1P",
     "word": "εὐδοκοῦμεν"
@@ -4123,26 +743,6 @@
     "strongs": "2106",
     "morphology": "V-PAI-1P",
     "word": "εὐδοκοῦμεν"
-  },
-  {
-    "strongs": "2111",
-    "morphology": "A-ASF",
-    "word": "εὔθετον"
-  },
-  {
-    "strongs": "2111",
-    "morphology": "A-NSN",
-    "word": "εὔθετόν"
-  },
-  {
-    "strongs": "2129",
-    "morphology": "N-DSF",
-    "word": "εὐλογίᾳ"
-  },
-  {
-    "strongs": "2129",
-    "morphology": "N-NSF",
-    "word": "εὐλογία"
   },
   {
     "strongs": "2144",
@@ -4155,56 +755,6 @@
     "word": "εὐπρόσδεκτος"
   },
   {
-    "strongs": "2147",
-    "morphology": "V-API-3S",
-    "word": "εὑρέθη"
-  },
-  {
-    "strongs": "2147",
-    "morphology": "V-APS-3S",
-    "word": "εὑρεθῇ"
-  },
-  {
-    "strongs": "2147",
-    "morphology": "V-IAI-3P",
-    "word": "εὕρισκον"
-  },
-  {
-    "strongs": "2147",
-    "morphology": "V-PAP-NSN",
-    "word": "εὑρίσκον"
-  },
-  {
-    "strongs": "2147",
-    "morphology": "V-2AAI-1S",
-    "word": "εὗρον"
-  },
-  {
-    "strongs": "2147",
-    "morphology": "V-2AAI-3P",
-    "word": "εὗρον"
-  },
-  {
-    "strongs": "2150",
-    "morphology": "N-DSF",
-    "word": "εὐσεβείᾳ"
-  },
-  {
-    "strongs": "2150",
-    "morphology": "N-NSF",
-    "word": "εὐσέβεια"
-  },
-  {
-    "strongs": "2169",
-    "morphology": "N-DSF",
-    "word": "εὐχαριστίᾳ"
-  },
-  {
-    "strongs": "2169",
-    "morphology": "N-NSF",
-    "word": "εὐχαριστία"
-  },
-  {
     "strongs": "2169",
     "morphology": "N-APF",
     "word": "εὐχαριστίας"
@@ -4215,16 +765,6 @@
     "word": "εὐχαριστίας"
   },
   {
-    "strongs": "2173",
-    "morphology": "A-ASM",
-    "word": "εὔχρηστον"
-  },
-  {
-    "strongs": "2173",
-    "morphology": "A-NSN",
-    "word": "εὔχρηστον"
-  },
-  {
     "strongs": "2176",
     "morphology": "A-ASF",
     "word": "εὐώνυμον"
@@ -4233,181 +773,6 @@
     "strongs": "2176",
     "morphology": "A-ASM",
     "word": "εὐώνυμον"
-  },
-  {
-    "strongs": "5315",
-    "morphology": "V-2AAI-1S",
-    "word": "ἔφαγον"
-  },
-  {
-    "strongs": "5315",
-    "morphology": "V-2AAI-3P",
-    "word": "ἔφαγον"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAI-2P",
-    "word": "ἔχετε"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAM-2P",
-    "word": "ἔχετε"
-  },
-  {
-    "strongs": "2189",
-    "morphology": "N-DSF",
-    "word": "ἔχθρᾳ"
-  },
-  {
-    "strongs": "2189",
-    "morphology": "N-NSF",
-    "word": "ἔχθρα"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAP-ASN",
-    "word": "ἔχον"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAP-NSN",
-    "word": "ἔχον"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAP-ASM",
-    "word": "ἔχοντα"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAP-NPN",
-    "word": "ἔχοντα"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAP-GSM",
-    "word": "ἔχοντος"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAP-GSN",
-    "word": "ἔχοντος"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAI-1S",
-    "word": "ἔχω"
-  },
-  {
-    "strongs": "2192",
-    "morphology": "V-PAS-1S",
-    "word": "ἔχω"
-  },
-  {
-    "strongs": "2205",
-    "morphology": "N-NPM",
-    "word": "ζῆλοι"
-  },
-  {
-    "strongs": "2206",
-    "morphology": "V-PAI-3S",
-    "word": "ζηλοῖ"
-  },
-  {
-    "strongs": "2205",
-    "morphology": "N-NSM",
-    "word": "ζῆλος"
-  },
-  {
-    "strongs": "2205",
-    "morphology": "N-NSN",
-    "word": "ζῆλος"
-  },
-  {
-    "strongs": "2206",
-    "morphology": "V-PAI-2P",
-    "word": "ζηλοῦτε"
-  },
-  {
-    "strongs": "2206",
-    "morphology": "V-PAM-2P",
-    "word": "ζηλοῦτε"
-  },
-  {
-    "strongs": "2206",
-    "morphology": "V-PAS-2P",
-    "word": "ζηλοῦτε"
-  },
-  {
-    "strongs": "2205",
-    "morphology": "N-DSM",
-    "word": "ζήλῳ"
-  },
-  {
-    "strongs": "2206",
-    "morphology": "V-PAI-1S",
-    "word": "ζηλῶ"
-  },
-  {
-    "strongs": "2212",
-    "morphology": "V-PAI-3S",
-    "word": "ζητεῖ"
-  },
-  {
-    "strongs": "2212",
-    "morphology": "V-PAM-2S",
-    "word": "ζήτει"
-  },
-  {
-    "strongs": "2212",
-    "morphology": "V-PAI-2P",
-    "word": "ζητεῖτε"
-  },
-  {
-    "strongs": "2212",
-    "morphology": "V-PAM-2P",
-    "word": "ζητεῖτε"
-  },
-  {
-    "strongs": "2212",
-    "morphology": "V-PAI-3P",
-    "word": "ζητοῦσίν"
-  },
-  {
-    "strongs": "2212",
-    "morphology": "V-PAP-DPM",
-    "word": "ζητοῦσιν"
-  },
-  {
-    "strongs": "2215",
-    "morphology": "N-APN",
-    "word": "ζιζάνια"
-  },
-  {
-    "strongs": "2215",
-    "morphology": "N-NPN",
-    "word": "ζιζάνια"
-  },
-  {
-    "strongs": "2219",
-    "morphology": "N-DSF",
-    "word": "ζύμῃ"
-  },
-  {
-    "strongs": "2219",
-    "morphology": "N-NSF",
-    "word": "ζύμη"
-  },
-  {
-    "strongs": "2222",
-    "morphology": "N-DSF",
-    "word": "ζωῇ"
-  },
-  {
-    "strongs": "2222",
-    "morphology": "N-NSF",
-    "word": "ζωὴ"
   },
   {
     "strongs": "2198",
@@ -4421,46 +786,6 @@
   },
   {
     "strongs": "2198",
-    "morphology": "V-PAP-ASN",
-    "word": "ζῶν"
-  },
-  {
-    "strongs": "2198",
-    "morphology": "V-PAP-NSM",
-    "word": "ζῶν"
-  },
-  {
-    "strongs": "2198",
-    "morphology": "V-PAP-APN",
-    "word": "ζῶντα"
-  },
-  {
-    "strongs": "2198",
-    "morphology": "V-PAP-ASM",
-    "word": "ζῶντα"
-  },
-  {
-    "strongs": "2198",
-    "morphology": "V-PAP-GSM",
-    "word": "ζῶντος"
-  },
-  {
-    "strongs": "2198",
-    "morphology": "V-PAP-GSN",
-    "word": "ζῶντος"
-  },
-  {
-    "strongs": "2227",
-    "morphology": "V-PAP-ASN",
-    "word": "ζῳοποιοῦν"
-  },
-  {
-    "strongs": "2227",
-    "morphology": "V-PAP-NSN",
-    "word": "ζῳοποιοῦν"
-  },
-  {
-    "strongs": "2198",
     "morphology": "V-PAI-3P",
     "word": "ζῶσιν"
   },
@@ -4468,11 +793,6 @@
     "strongs": "2198",
     "morphology": "V-PAS-3P",
     "word": "ζῶσιν"
-  },
-  {
-    "strongs": "2228",
-    "morphology": "PRT",
-    "word": "ἢ"
   },
   {
     "strongs": "3739",
@@ -4485,73 +805,8 @@
     "word": "ᾗ"
   },
   {
-    "strongs": "3588",
-    "morphology": "T-NSF",
-    "word": "ἡ"
-  },
-  {
-    "strongs": "5600",
-    "morphology": "V-PXS-3S",
-    "word": "ᾖ"
-  },
-  {
-    "strongs": "2309",
-    "morphology": "V-IAI-1S",
-    "word": "ἤθελον"
-  },
-  {
-    "strongs": "2309",
-    "morphology": "V-IAI-3P",
-    "word": "ἤθελον"
-  },
-  {
-    "strongs": "2064",
-    "morphology": "V-2AAI-1S",
-    "word": "ἦλθον"
-  },
-  {
-    "strongs": "2064",
-    "morphology": "V-2AAI-3P",
-    "word": "ἦλθον"
-  },
-  {
-    "strongs": "2241",
-    "morphology": "HEB",
-    "word": "Ηλι"
-  },
-  {
-    "strongs": "2242",
-    "morphology": "N-PRI",
-    "word": "Ἠλὶ"
-  },
-  {
-    "strongs": "264",
-    "morphology": "V-2AAI-1S",
-    "word": "Ἥμαρτον"
-  },
-  {
-    "strongs": "264",
-    "morphology": "V-2AAI-3P",
-    "word": "ἥμαρτον"
-  },
-  {
-    "strongs": "2248",
-    "morphology": "P-1AP",
-    "word": "ἡμᾶς"
-  },
-  {
-    "strongs": "2257",
-    "morphology": "P-1GP",
-    "word": "ἡμᾶς"
-  },
-  {
     "strongs": "2250",
     "morphology": "N-DSF",
-    "word": "ἡμέρᾳ"
-  },
-  {
-    "strongs": "2250",
-    "morphology": "N-NSF",
     "word": "ἡμέρα"
   },
   {
@@ -4565,11 +820,6 @@
     "word": "ἡμέρας"
   },
   {
-    "strongs": "3739",
-    "morphology": "R-ASF",
-    "word": "ἣν"
-  },
-  {
     "strongs": "2258",
     "morphology": "V-IAI-3S",
     "word": "ἦν"
@@ -4578,161 +828,6 @@
     "strongs": "2258",
     "morphology": "V-IXI-3S",
     "word": "ἦν"
-  },
-  {
-    "strongs": "2240",
-    "morphology": "V-AAS-1S",
-    "word": "ἥξω"
-  },
-  {
-    "strongs": "2240",
-    "morphology": "V-FAI-1S",
-    "word": "ἥξω"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-GSF",
-    "word": "ἧς"
-  },
-  {
-    "strongs": "2258",
-    "morphology": "V-IXI-2S",
-    "word": "ἦς"
-  },
-  {
-    "strongs": "1510",
-    "morphology": "V-PXS-2S",
-    "word": "ᾖς"
-  },
-  {
-    "strongs": "2258",
-    "morphology": "V-IXI-2P",
-    "word": "ἦτε"
-  },
-  {
-    "strongs": "5600",
-    "morphology": "V-PXS-2P",
-    "word": "ἦτε"
-  },
-  {
-    "strongs": "2090",
-    "morphology": "V-RPP-ASM",
-    "word": "ἡτοιμασμένον"
-  },
-  {
-    "strongs": "2090",
-    "morphology": "V-RPP-ASN",
-    "word": "ἡτοιμασμένον"
-  },
-  {
-    "strongs": "2090",
-    "morphology": "V-RPP-NSN",
-    "word": "ἡτοιμασμένον"
-  },
-  {
-    "strongs": "2296",
-    "morphology": "V-PAI-2P",
-    "word": "θαυμάζετε"
-  },
-  {
-    "strongs": "2296",
-    "morphology": "V-PAM-2P",
-    "word": "θαυμάζετε"
-  },
-  {
-    "strongs": "2298",
-    "morphology": "A-ASN",
-    "word": "θαυμαστὸν"
-  },
-  {
-    "strongs": "2298",
-    "morphology": "A-NSN",
-    "word": "θαυμαστόν"
-  },
-  {
-    "strongs": "2302",
-    "morphology": "N-ASN",
-    "word": "θέατρον"
-  },
-  {
-    "strongs": "2302",
-    "morphology": "N-NSN",
-    "word": "θέατρον"
-  },
-  {
-    "strongs": "2304",
-    "morphology": "A-ASN",
-    "word": "θεῖον"
-  },
-  {
-    "strongs": "2303",
-    "morphology": "N-ASN",
-    "word": "θεῖον"
-  },
-  {
-    "strongs": "2303",
-    "morphology": "N-NSN",
-    "word": "θεῖον"
-  },
-  {
-    "strongs": "2307",
-    "morphology": "N-ASN",
-    "word": "θέλημα"
-  },
-  {
-    "strongs": "2307",
-    "morphology": "N-NSN",
-    "word": "θέλημά"
-  },
-  {
-    "strongs": "2309",
-    "morphology": "V-PAI-1S",
-    "word": "Θέλω"
-  },
-  {
-    "strongs": "2309",
-    "morphology": "V-PAS-1S",
-    "word": "θέλω"
-  },
-  {
-    "strongs": "2338",
-    "morphology": "A-ASN",
-    "word": "θῆλυ"
-  },
-  {
-    "strongs": "2338",
-    "morphology": "A-NSN",
-    "word": "θῆλυ"
-  },
-  {
-    "strongs": "2342",
-    "morphology": "N-APN",
-    "word": "θηρία"
-  },
-  {
-    "strongs": "2342",
-    "morphology": "N-NPN",
-    "word": "θηρία"
-  },
-  {
-    "strongs": "2342",
-    "morphology": "N-ASN",
-    "word": "θηρίον"
-  },
-  {
-    "strongs": "2342",
-    "morphology": "N-NSN",
-    "word": "θηρίον"
-  },
-  {
-    "strongs": "5087",
-    "morphology": "V-AAS-1S",
-    "word": "θήσω"
-  },
-  {
-    "strongs": "5087",
-    "morphology": "V-FAI-1S",
-    "word": "θήσω"
   },
   {
     "strongs": "2350",
@@ -4745,16 +840,6 @@
     "word": "θορυβεῖσθε"
   },
   {
-    "strongs": "2356",
-    "morphology": "N-DSF",
-    "word": "θρησκείᾳ"
-  },
-  {
-    "strongs": "2356",
-    "morphology": "N-NSF",
-    "word": "θρησκεία"
-  },
-  {
     "strongs": "2364",
     "morphology": "N-NPF",
     "word": "θυγατέρες"
@@ -4765,26 +850,6 @@
     "word": "Θυγατέρες"
   },
   {
-    "strongs": "2368",
-    "morphology": "N-APN",
-    "word": "θυμιάματα"
-  },
-  {
-    "strongs": "2368",
-    "morphology": "N-NPN",
-    "word": "θυμιάματα"
-  },
-  {
-    "strongs": "2374",
-    "morphology": "N-DSF",
-    "word": "θύρᾳ"
-  },
-  {
-    "strongs": "2374",
-    "morphology": "N-NSF",
-    "word": "θύρα"
-  },
-  {
     "strongs": "2374",
     "morphology": "N-APF",
     "word": "θύρας"
@@ -4795,36 +860,6 @@
     "word": "θύρας"
   },
   {
-    "strongs": "2377",
-    "morphology": "N-NSF",
-    "word": "θυρωρός"
-  },
-  {
-    "strongs": "2377",
-    "morphology": "N-NSM",
-    "word": "θυρωρὸς"
-  },
-  {
-    "strongs": "2377",
-    "morphology": "N-DSF",
-    "word": "θυρωρῷ"
-  },
-  {
-    "strongs": "2377",
-    "morphology": "N-DSM",
-    "word": "θυρωρῷ"
-  },
-  {
-    "strongs": "2378",
-    "morphology": "N-DSF",
-    "word": "θυσίᾳ"
-  },
-  {
-    "strongs": "2378",
-    "morphology": "N-NSF",
-    "word": "θυσία"
-  },
-  {
     "strongs": "2378",
     "morphology": "N-APF",
     "word": "θυσίας"
@@ -4833,71 +868,6 @@
     "strongs": "2378",
     "morphology": "N-GSF",
     "word": "θυσίας"
-  },
-  {
-    "strongs": "2379",
-    "morphology": "N-ASN",
-    "word": "θυσιαστήριον"
-  },
-  {
-    "strongs": "2379",
-    "morphology": "N-NSN",
-    "word": "θυσιαστήριον"
-  },
-  {
-    "strongs": "2381",
-    "morphology": "N-DSM",
-    "word": "Θωμᾷ"
-  },
-  {
-    "strongs": "2381",
-    "morphology": "N-VSM",
-    "word": "Θωμᾷ"
-  },
-  {
-    "strongs": "2390",
-    "morphology": "V-API-3S",
-    "word": "ἰάθη"
-  },
-  {
-    "strongs": "2390",
-    "morphology": "V-APS-3S",
-    "word": "ἰαθῇ"
-  },
-  {
-    "strongs": "2390",
-    "morphology": "V-API-2P",
-    "word": "ἰάθητε"
-  },
-  {
-    "strongs": "2390",
-    "morphology": "V-APS-2P",
-    "word": "ἰαθῆτε"
-  },
-  {
-    "strongs": "2390",
-    "morphology": "V-PNI-3S",
-    "word": "ἰᾶταί"
-  },
-  {
-    "strongs": "2390",
-    "morphology": "V-RPI-3S",
-    "word": "ἴαται"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-APN",
-    "word": "ἴδια"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-DSF",
-    "word": "ἰδίᾳ"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-NPN",
-    "word": "ἴδια"
   },
   {
     "strongs": "2398",
@@ -4908,46 +878,6 @@
     "strongs": "2398",
     "morphology": "A-GSF",
     "word": "ἰδίας"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-ASM",
-    "word": "ἴδιον"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-ASN",
-    "word": "ἴδιον"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-GSM",
-    "word": "ἰδίου"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-GSN",
-    "word": "ἰδίου"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-DSM",
-    "word": "ἰδίῳ"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-DSN",
-    "word": "ἰδίῳ"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-GPM",
-    "word": "ἰδίων"
-  },
-  {
-    "strongs": "2398",
-    "morphology": "A-GPN",
-    "word": "ἰδίων"
   },
   {
     "strongs": "2409",
@@ -4970,106 +900,6 @@
     "word": "Ἱεροσόλυμα"
   },
   {
-    "strongs": "2424",
-    "morphology": "N-DSM",
-    "word": "Ἰησοῦ"
-  },
-  {
-    "strongs": "2424",
-    "morphology": "N-GSM",
-    "word": "Ἰησοῦ"
-  },
-  {
-    "strongs": "2424",
-    "morphology": "N-VSM",
-    "word": "Ἰησοῦ"
-  },
-  {
-    "strongs": "2425",
-    "morphology": "A-ASM",
-    "word": "ἱκανὸν"
-  },
-  {
-    "strongs": "2425",
-    "morphology": "A-ASN",
-    "word": "ἱκανὸν"
-  },
-  {
-    "strongs": "2425",
-    "morphology": "A-NSN",
-    "word": "Ἱκανόν"
-  },
-  {
-    "strongs": "2440",
-    "morphology": "N-APN",
-    "word": "ἱμάτια"
-  },
-  {
-    "strongs": "2440",
-    "morphology": "N-NPN",
-    "word": "ἱμάτια"
-  },
-  {
-    "strongs": "2440",
-    "morphology": "N-ASN",
-    "word": "ἱμάτιον"
-  },
-  {
-    "strongs": "2440",
-    "morphology": "N-NSN",
-    "word": "ἱμάτιον"
-  },
-  {
-    "strongs": "2455",
-    "morphology": "N-DSM",
-    "word": "Ἰούδᾳ"
-  },
-  {
-    "strongs": "2448",
-    "morphology": "N-GSM",
-    "word": "Ἰούδα"
-  },
-  {
-    "strongs": "2455",
-    "morphology": "N-VSM",
-    "word": "Ἰούδα"
-  },
-  {
-    "strongs": "2453",
-    "morphology": "A-DSF",
-    "word": "Ἰουδαίᾳ"
-  },
-  {
-    "strongs": "2449",
-    "morphology": "N-DSF",
-    "word": "Ἰουδαίᾳ"
-  },
-  {
-    "strongs": "2449",
-    "morphology": "N-NSF",
-    "word": "Ἰουδαία"
-  },
-  {
-    "strongs": "2453",
-    "morphology": "A-ASF",
-    "word": "Ἰουδαίαν"
-  },
-  {
-    "strongs": "2449",
-    "morphology": "N-ASF",
-    "word": "Ἰουδαίαν"
-  },
-  {
-    "strongs": "2453",
-    "morphology": "A-GSF",
-    "word": "Ἰουδαίας"
-  },
-  {
-    "strongs": "2449",
-    "morphology": "N-GSF",
-    "word": "Ἰουδαίας"
-  },
-  {
     "strongs": "2453",
     "morphology": "A-NPM",
     "word": "Ἰουδαῖοι"
@@ -5078,16 +908,6 @@
     "strongs": "2453",
     "morphology": "A-VPM",
     "word": "Ἰουδαῖοι"
-  },
-  {
-    "strongs": "2470",
-    "morphology": "A-APN",
-    "word": "ἴσα"
-  },
-  {
-    "strongs": "2470",
-    "morphology": "A-NPN",
-    "word": "ἴσα"
   },
   {
     "strongs": "2475",
@@ -5100,89 +920,14 @@
     "word": "Ἰσραηλῖται"
   },
   {
-    "strongs": "2478",
-    "morphology": "A-APN",
-    "word": "ἰσχυρά"
-  },
-  {
-    "strongs": "2478",
-    "morphology": "A-NSF",
-    "word": "ἰσχυρά"
-  },
-  {
-    "strongs": "2478",
-    "morphology": "A-GPF",
-    "word": "ἰσχυρῶν"
-  },
-  {
-    "strongs": "2478",
-    "morphology": "A-GPM",
-    "word": "ἰσχυρῶν"
-  },
-  {
     "strongs": "2489",
     "morphology": "N-GSF",
     "word": "Ἰωάννα"
   },
   {
-    "strongs": "2490",
-    "morphology": "N-GSM",
-    "word": "Ἰωὰννα"
-  },
-  {
     "strongs": "2489",
     "morphology": "N-NSF",
     "word": "Ἰωάννα"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-DSF",
-    "word": "καθαρᾷ"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-NPN",
-    "word": "καθαρὰ"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-NSF",
-    "word": "καθαρὰ"
-  },
-  {
-    "strongs": "2511",
-    "morphology": "V-PAI-2P",
-    "word": "καθαρίζετε"
-  },
-  {
-    "strongs": "2511",
-    "morphology": "V-PAM-2P",
-    "word": "καθαρίζετε"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-ASM",
-    "word": "καθαρὸν"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-ASN",
-    "word": "καθαρὸν"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-NSN",
-    "word": "καθαρόν"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-DSM",
-    "word": "καθαρῷ"
-  },
-  {
-    "strongs": "2513",
-    "morphology": "A-DSN",
-    "word": "καθαρῷ"
   },
   {
     "strongs": "2515",
@@ -5195,196 +940,6 @@
     "word": "καθέδρας"
   },
   {
-    "strongs": "2521",
-    "morphology": "V-PNP-DPM",
-    "word": "καθημένοις"
-  },
-  {
-    "strongs": "2521",
-    "morphology": "V-PNP-DPN",
-    "word": "καθημένοις"
-  },
-  {
-    "strongs": "2537",
-    "morphology": "A-APN",
-    "word": "καινὰ"
-  },
-  {
-    "strongs": "2537",
-    "morphology": "A-NPN",
-    "word": "καινά"
-  },
-  {
-    "strongs": "2537",
-    "morphology": "A-ASM",
-    "word": "καινὸν"
-  },
-  {
-    "strongs": "2537",
-    "morphology": "A-ASN",
-    "word": "καινὸν"
-  },
-  {
-    "strongs": "2537",
-    "morphology": "A-NSN",
-    "word": "καινὸν"
-  },
-  {
-    "strongs": "2545",
-    "morphology": "V-PPP-DSF",
-    "word": "καιομένῃ"
-  },
-  {
-    "strongs": "2545",
-    "morphology": "V-PPP-NSF",
-    "word": "καιομένη"
-  },
-  {
-    "strongs": "2556",
-    "morphology": "A-APN",
-    "word": "κακά"
-  },
-  {
-    "strongs": "2556",
-    "morphology": "A-NPN",
-    "word": "κακὰ"
-  },
-  {
-    "strongs": "2549",
-    "morphology": "N-DSF",
-    "word": "κακίᾳ"
-  },
-  {
-    "strongs": "2549",
-    "morphology": "N-NSF",
-    "word": "κακία"
-  },
-  {
-    "strongs": "2556",
-    "morphology": "A-ASN",
-    "word": "κακὸν"
-  },
-  {
-    "strongs": "2556",
-    "morphology": "A-NSN",
-    "word": "κακὸν"
-  },
-  {
-    "strongs": "2555",
-    "morphology": "A-GPM",
-    "word": "κακοποιῶν"
-  },
-  {
-    "strongs": "2554",
-    "morphology": "V-PAP-NSM",
-    "word": "κακοποιῶν"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-APN",
-    "word": "καλὰ"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-NPN",
-    "word": "καλὰ"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PAI-3S",
-    "word": "καλεῖ"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PAM-2S",
-    "word": "κάλει"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-DPM",
-    "word": "καλοῖς"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-DPN",
-    "word": "καλοῖς"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-ASM",
-    "word": "καλὸν"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-ASN",
-    "word": "καλὸν"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-NSN",
-    "word": "καλὸν"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PPP-DSF",
-    "word": "καλουμένῃ"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PPP-NSF",
-    "word": "καλουμένη"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PPP-ASM",
-    "word": "καλούμενον"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PPP-ASN",
-    "word": "καλούμενον"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PPP-GSM",
-    "word": "καλουμένου"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PPP-GSN",
-    "word": "καλουμένου"
-  },
-  {
-    "strongs": "2571",
-    "morphology": "N-ASN",
-    "word": "κάλυμμα"
-  },
-  {
-    "strongs": "2571",
-    "morphology": "N-NSN",
-    "word": "κάλυμμα"
-  },
-  {
-    "strongs": "2570",
-    "morphology": "A-GPN",
-    "word": "καλῶν"
-  },
-  {
-    "strongs": "2564",
-    "morphology": "V-PAP-NSM",
-    "word": "καλῶν"
-  },
-  {
-    "strongs": "2588",
-    "morphology": "N-DSF",
-    "word": "καρδίᾳ"
-  },
-  {
-    "strongs": "2588",
-    "morphology": "N-NSF",
-    "word": "καρδία"
-  },
-  {
     "strongs": "2588",
     "morphology": "N-APF",
     "word": "καρδίας"
@@ -5393,16 +948,6 @@
     "strongs": "2588",
     "morphology": "N-GSF",
     "word": "καρδίας"
-  },
-  {
-    "strongs": "2597",
-    "morphology": "V-PAP-ASN",
-    "word": "καταβαῖνον"
-  },
-  {
-    "strongs": "2597",
-    "morphology": "V-PAP-NSN",
-    "word": "καταβαῖνον"
   },
   {
     "strongs": "2598",
@@ -5415,36 +960,6 @@
     "word": "καταβαλλόμενοι"
   },
   {
-    "strongs": "2605",
-    "morphology": "V-PAI-3P",
-    "word": "καταγγέλλουσιν"
-  },
-  {
-    "strongs": "2605",
-    "morphology": "V-PAP-DPM",
-    "word": "καταγγέλλουσιν"
-  },
-  {
-    "strongs": "2631",
-    "morphology": "N-ASN",
-    "word": "κατάκριμα"
-  },
-  {
-    "strongs": "2631",
-    "morphology": "N-NSN",
-    "word": "κατάκριμα"
-  },
-  {
-    "strongs": "2665",
-    "morphology": "N-ASN",
-    "word": "καταπέτασμα"
-  },
-  {
-    "strongs": "2665",
-    "morphology": "N-NSN",
-    "word": "καταπέτασμα"
-  },
-  {
     "strongs": "2675",
     "morphology": "V-AAN",
     "word": "καταρτίσαι"
@@ -5453,66 +968,6 @@
     "strongs": "2675",
     "morphology": "V-AAO-3S",
     "word": "καταρτίσαι"
-  },
-  {
-    "strongs": "2641",
-    "morphology": "V-2AAI-1S",
-    "word": "Κατέλιπον"
-  },
-  {
-    "strongs": "2641",
-    "morphology": "V-2AAI-3P",
-    "word": "κατέλιπον"
-  },
-  {
-    "strongs": "2657",
-    "morphology": "V-IAI-1S",
-    "word": "κατενόουν"
-  },
-  {
-    "strongs": "2657",
-    "morphology": "V-IAI-3P",
-    "word": "κατενόουν"
-  },
-  {
-    "strongs": "2720",
-    "morphology": "V-AAN",
-    "word": "κατευθῦναι"
-  },
-  {
-    "strongs": "2720",
-    "morphology": "V-AAO-3S",
-    "word": "κατευθύναι"
-  },
-  {
-    "strongs": "2722",
-    "morphology": "V-PAI-2P",
-    "word": "κατέχετε"
-  },
-  {
-    "strongs": "2722",
-    "morphology": "V-PAM-2P",
-    "word": "κατέχετε"
-  },
-  {
-    "strongs": "2609",
-    "morphology": "V-2AAI-1S",
-    "word": "κατήγαγον"
-  },
-  {
-    "strongs": "2609",
-    "morphology": "V-2AAI-3P",
-    "word": "κατήγαγον"
-  },
-  {
-    "strongs": "2732",
-    "morphology": "N-ASN",
-    "word": "κατοικητήριον"
-  },
-  {
-    "strongs": "2732",
-    "morphology": "N-NSN",
-    "word": "κατοικητήριον"
   },
   {
     "strongs": "2736",
@@ -5525,379 +980,9 @@
     "word": "κάτω"
   },
   {
-    "strongs": "2738",
-    "morphology": "N-ASN",
-    "word": "καῦμα"
-  },
-  {
-    "strongs": "2738",
-    "morphology": "N-NSN",
-    "word": "καῦμα"
-  },
-  {
-    "strongs": "2745",
-    "morphology": "N-ASN",
-    "word": "καύχημα"
-  },
-  {
-    "strongs": "2745",
-    "morphology": "N-NSN",
-    "word": "καύχημα"
-  },
-  {
-    "strongs": "2749",
-    "morphology": "V-PNP-ASM",
-    "word": "κείμενον"
-  },
-  {
-    "strongs": "2749",
-    "morphology": "V-PNP-ASN",
-    "word": "κείμενον"
-  },
-  {
-    "strongs": "2756",
-    "morphology": "A-ASM",
-    "word": "κενόν"
-  },
-  {
-    "strongs": "2756",
-    "morphology": "A-ASN",
-    "word": "κενὸν"
-  },
-  {
-    "strongs": "2756",
-    "morphology": "A-NSN",
-    "word": "κενὸν"
-  },
-  {
-    "strongs": "2768",
-    "morphology": "N-APN",
-    "word": "κέρατα"
-  },
-  {
-    "strongs": "2768",
-    "morphology": "N-NPN",
-    "word": "κέρατα"
-  },
-  {
-    "strongs": "2776",
-    "morphology": "N-DSF",
-    "word": "κεφαλῇ"
-  },
-  {
-    "strongs": "2776",
-    "morphology": "N-NSF",
-    "word": "κεφαλὴ"
-  },
-  {
-    "strongs": "2782",
-    "morphology": "N-ASN",
-    "word": "κήρυγμα"
-  },
-  {
-    "strongs": "2782",
-    "morphology": "N-NSN",
-    "word": "κήρυγμά"
-  },
-  {
-    "strongs": "2786",
-    "morphology": "N-DSM",
-    "word": "Κηφᾷ"
-  },
-  {
-    "strongs": "2786",
-    "morphology": "N-GSM",
-    "word": "Κηφᾶ"
-  },
-  {
-    "strongs": "2799",
-    "morphology": "V-PAI-2P",
-    "word": "κλαίετε"
-  },
-  {
-    "strongs": "2799",
-    "morphology": "V-PAM-2P",
-    "word": "κλαίετε"
-  },
-  {
-    "strongs": "2799",
-    "morphology": "V-PAI-3P",
-    "word": "κλαίουσιν"
-  },
-  {
-    "strongs": "2799",
-    "morphology": "V-PAP-DPM",
-    "word": "κλαίουσιν"
-  },
-  {
-    "strongs": "2807",
-    "morphology": "N-APF",
-    "word": "κλεῖς"
-  },
-  {
-    "strongs": "2807",
-    "morphology": "N-NSF",
-    "word": "κλεὶς"
-  },
-  {
-    "strongs": "2814",
-    "morphology": "N-ASN",
-    "word": "κλῆμα"
-  },
-  {
-    "strongs": "2814",
-    "morphology": "N-NSN",
-    "word": "κλῆμα"
-  },
-  {
-    "strongs": "2816",
-    "morphology": "V-AAS-1S",
-    "word": "κληρονομήσω"
-  },
-  {
-    "strongs": "2816",
-    "morphology": "V-FAI-1S",
-    "word": "κληρονομήσω"
-  },
-  {
-    "strongs": "2836",
-    "morphology": "N-DSF",
-    "word": "κοιλίᾳ"
-  },
-  {
-    "strongs": "2836",
-    "morphology": "N-NSF",
-    "word": "κοιλία"
-  },
-  {
-    "strongs": "2839",
-    "morphology": "A-APN",
-    "word": "κοινά"
-  },
-  {
-    "strongs": "2839",
-    "morphology": "A-NPN",
-    "word": "κοινά"
-  },
-  {
-    "strongs": "2839",
-    "morphology": "A-ASM",
-    "word": "κοινὸν"
-  },
-  {
-    "strongs": "2839",
-    "morphology": "A-ASN",
-    "word": "κοινὸν"
-  },
-  {
-    "strongs": "2839",
-    "morphology": "A-NSN",
-    "word": "κοινὸν"
-  },
-  {
-    "strongs": "2841",
-    "morphology": "V-PAI-3S",
-    "word": "κοινωνεῖ"
-  },
-  {
-    "strongs": "2841",
-    "morphology": "V-PAM-2S",
-    "word": "κοινώνει"
-  },
-  {
-    "strongs": "2842",
-    "morphology": "N-DSF",
-    "word": "κοινωνίᾳ"
-  },
-  {
-    "strongs": "2842",
-    "morphology": "N-NSF",
-    "word": "κοινωνία"
-  },
-  {
-    "strongs": "2861",
-    "morphology": "N-DSF",
-    "word": "κολυμβήθρᾳ"
-  },
-  {
-    "strongs": "2861",
-    "morphology": "N-NSF",
-    "word": "κολυμβήθρα"
-  },
-  {
-    "strongs": "2904",
-    "morphology": "N-DSN",
-    "word": "κράτει"
-  },
-  {
-    "strongs": "2902",
-    "morphology": "V-PAM-2S",
-    "word": "κράτει"
-  },
-  {
-    "strongs": "2902",
-    "morphology": "V-PAI-2P",
-    "word": "κρατεῖτε"
-  },
-  {
-    "strongs": "2902",
-    "morphology": "V-PAM-2P",
-    "word": "κρατεῖτε"
-  },
-  {
-    "strongs": "2904",
-    "morphology": "N-ASN",
-    "word": "κράτος"
-  },
-  {
-    "strongs": "2904",
-    "morphology": "N-NSN",
-    "word": "κράτος"
-  },
-  {
-    "strongs": "2906",
-    "morphology": "N-DSF",
-    "word": "κραυγῇ"
-  },
-  {
-    "strongs": "2906",
-    "morphology": "N-NSF",
-    "word": "κραυγὴ"
-  },
-  {
-    "strongs": "2908",
-    "morphology": "A-ASN",
-    "word": "κρεῖσσον"
-  },
-  {
-    "strongs": "2909",
-    "morphology": "A-NSN",
-    "word": "κρεῖσσον"
-  },
-  {
-    "strongs": "2909",
-    "morphology": "A-ASN",
-    "word": "κρεῖττον"
-  },
-  {
-    "strongs": "2909",
-    "morphology": "A-NSN",
-    "word": "κρεῖττον"
-  },
-  {
-    "strongs": "2909",
-    "morphology": "A-APN",
-    "word": "κρείττονα"
-  },
-  {
-    "strongs": "2909",
-    "morphology": "A-ASF",
-    "word": "κρείττονα"
-  },
-  {
-    "strongs": "2909",
-    "morphology": "A-GSF",
-    "word": "κρείττονος"
-  },
-  {
-    "strongs": "2909",
-    "morphology": "A-GSM",
-    "word": "κρείττονος"
-  },
-  {
-    "strongs": "2917",
-    "morphology": "N-ASN",
-    "word": "κρίμα"
-  },
-  {
-    "strongs": "2917",
-    "morphology": "N-NSN",
-    "word": "κρίμα"
-  },
-  {
-    "strongs": "2917",
-    "morphology": "N-APN",
-    "word": "κρίματα"
-  },
-  {
-    "strongs": "2917",
-    "morphology": "N-NPN",
-    "word": "κρίματα"
-  },
-  {
     "strongs": "2919",
     "morphology": "V-FAI-3S",
-    "word": "κρινεῖ"
-  },
-  {
-    "strongs": "2919",
-    "morphology": "V-PAI-3S",
     "word": "κρίνει"
-  },
-  {
-    "strongs": "2919",
-    "morphology": "V-PAI-2P",
-    "word": "κρίνετε"
-  },
-  {
-    "strongs": "2919",
-    "morphology": "V-PAM-2P",
-    "word": "κρίνετε"
-  },
-  {
-    "strongs": "2919",
-    "morphology": "V-FAI-1S",
-    "word": "κρινῶ"
-  },
-  {
-    "strongs": "2919",
-    "morphology": "V-PAI-1S",
-    "word": "κρίνω"
-  },
-  {
-    "strongs": "2919",
-    "morphology": "V-PAS-1S",
-    "word": "κρίνω"
-  },
-  {
-    "strongs": "2927",
-    "morphology": "A-APN",
-    "word": "κρυπτὰ"
-  },
-  {
-    "strongs": "2927",
-    "morphology": "A-NPN",
-    "word": "κρυπτὰ"
-  },
-  {
-    "strongs": "2927",
-    "morphology": "A-ASN",
-    "word": "κρυπτόν"
-  },
-  {
-    "strongs": "2927",
-    "morphology": "A-NSN",
-    "word": "κρυπτὸν"
-  },
-  {
-    "strongs": "2938",
-    "morphology": "N-ASN",
-    "word": "κτίσμα"
-  },
-  {
-    "strongs": "2938",
-    "morphology": "N-NSN",
-    "word": "κτίσμα"
-  },
-  {
-    "strongs": "2959",
-    "morphology": "N-DSF",
-    "word": "κυρίᾳ"
-  },
-  {
-    "strongs": "2959",
-    "morphology": "N-VSF",
-    "word": "κυρία"
   },
   {
     "strongs": "2962",
@@ -5910,86 +995,6 @@
     "word": "Κύριοι"
   },
   {
-    "strongs": "2974",
-    "morphology": "A-ASM",
-    "word": "κωφὸν"
-  },
-  {
-    "strongs": "2974",
-    "morphology": "A-NSN",
-    "word": "κωφὸν"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-PAI-3S",
-    "word": "λαλεῖ"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-PAM-2S",
-    "word": "λάλει"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-AAS-1S",
-    "word": "λαλήσω"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-FAI-1S",
-    "word": "λαλήσω"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-PPP-ASM",
-    "word": "λαλούμενον"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-PPP-NSN",
-    "word": "λαλούμενον"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-PAI-1S",
-    "word": "λαλῶ"
-  },
-  {
-    "strongs": "2980",
-    "morphology": "V-PAS-1S",
-    "word": "λαλῶ"
-  },
-  {
-    "strongs": "2983",
-    "morphology": "V-PAI-2P",
-    "word": "λαμβάνετέ"
-  },
-  {
-    "strongs": "2983",
-    "morphology": "V-PAM-2P",
-    "word": "λαμβάνετε"
-  },
-  {
-    "strongs": "2986",
-    "morphology": "A-DSF",
-    "word": "λαμπρᾷ"
-  },
-  {
-    "strongs": "2986",
-    "morphology": "A-NPN",
-    "word": "λαμπρὰ"
-  },
-  {
-    "strongs": "2986",
-    "morphology": "A-ASM",
-    "word": "λαμπρὸν"
-  },
-  {
-    "strongs": "2986",
-    "morphology": "A-ASN",
-    "word": "λαμπρὸν"
-  },
-  {
     "strongs": "2999",
     "morphology": "N-APF",
     "word": "λατρείας"
@@ -6000,161 +1005,6 @@
     "word": "λατρείας"
   },
   {
-    "strongs": "3004",
-    "morphology": "V-PAI-2P",
-    "word": "λέγετε"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAM-2P",
-    "word": "λέγετε"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PPP-ASM",
-    "word": "λεγόμενον"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PPP-ASN",
-    "word": "λεγόμενον"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAP-ASM",
-    "word": "λέγοντα"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAP-NPN",
-    "word": "λέγοντα"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAP-GSM",
-    "word": "λέγοντος"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAP-GSN",
-    "word": "λέγοντος"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAI-3P",
-    "word": "λέγουσιν"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAP-DPM",
-    "word": "λέγουσιν"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAI-1S",
-    "word": "λέγω"
-  },
-  {
-    "strongs": "3004",
-    "morphology": "V-PAS-1S",
-    "word": "λέγω"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-APN",
-    "word": "λευκὰ"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-NPN",
-    "word": "λευκὰ"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-DSF",
-    "word": "λευκῇ"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-NSF",
-    "word": "λευκή"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-DPM",
-    "word": "λευκοῖς"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-DPN",
-    "word": "λευκοῖς"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-ASM",
-    "word": "λευκὸν"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-ASN",
-    "word": "λευκὸν"
-  },
-  {
-    "strongs": "3022",
-    "morphology": "A-NSN",
-    "word": "λευκὸν"
-  },
-  {
-    "strongs": "3062",
-    "morphology": "A-APN",
-    "word": "λοιπὰ"
-  },
-  {
-    "strongs": "3062",
-    "morphology": "A-NPN",
-    "word": "λοιπὰ"
-  },
-  {
-    "strongs": "3062",
-    "morphology": "A-DPM",
-    "word": "λοιποῖς"
-  },
-  {
-    "strongs": "3062",
-    "morphology": "A-DPN",
-    "word": "λοιποῖς"
-  },
-  {
-    "strongs": "3063",
-    "morphology": "A-ASN",
-    "word": "λοιπὸν"
-  },
-  {
-    "strongs": "3063",
-    "morphology": "A-NSN",
-    "word": "λοιπόν"
-  },
-  {
-    "strongs": "3062",
-    "morphology": "A-GPM",
-    "word": "λοιπῶν"
-  },
-  {
-    "strongs": "3062",
-    "morphology": "A-GPN",
-    "word": "λοιπῶν"
-  },
-  {
-    "strongs": "3077",
-    "morphology": "N-DSF",
-    "word": "λύπῃ"
-  },
-  {
-    "strongs": "3077",
-    "morphology": "N-NSF",
-    "word": "λύπη"
-  },
-  {
     "strongs": "3087",
     "morphology": "N-APF",
     "word": "λυχνίας"
@@ -6163,76 +1013,6 @@
     "strongs": "3087",
     "morphology": "N-GSF",
     "word": "λυχνίας"
-  },
-  {
-    "strongs": "3094",
-    "morphology": "N-DSF",
-    "word": "Μαγδαληνῇ"
-  },
-  {
-    "strongs": "3094",
-    "morphology": "N-NSF",
-    "word": "Μαγδαληνὴ"
-  },
-  {
-    "strongs": "3107",
-    "morphology": "A-ASM",
-    "word": "μακάριον"
-  },
-  {
-    "strongs": "3107",
-    "morphology": "A-NSN",
-    "word": "Μακάριόν"
-  },
-  {
-    "strongs": "3109",
-    "morphology": "N-DSF",
-    "word": "Μακεδονίᾳ"
-  },
-  {
-    "strongs": "3109",
-    "morphology": "N-NSF",
-    "word": "Μακεδονία"
-  },
-  {
-    "strongs": "3117",
-    "morphology": "A-ASF",
-    "word": "μακράν"
-  },
-  {
-    "strongs": "3112",
-    "morphology": "ADV",
-    "word": "μακρὰν"
-  },
-  {
-    "strongs": "3115",
-    "morphology": "N-DSF",
-    "word": "μακροθυμίᾳ"
-  },
-  {
-    "strongs": "3115",
-    "morphology": "N-NSF",
-    "word": "μακροθυμία"
-  },
-  {
-    "strongs": "3126",
-    "morphology": "N-DSN",
-    "word": "μαμωνᾷ"
-  },
-  {
-    "strongs": "3126",
-    "morphology": "N-GSN",
-    "word": "μαμωνᾶ"
-  },
-  {
-    "strongs": "3128",
-    "morphology": "N-ASM",
-    "word": "Μανασσῆ"
-  },
-  {
-    "strongs": "3128",
-    "morphology": "N-GSM",
-    "word": "Μανασσῆ"
   },
   {
     "strongs": "3136",
@@ -6246,11 +1026,6 @@
   },
   {
     "strongs": "3137",
-    "morphology": "N-DSF",
-    "word": "Μαρίᾳ"
-  },
-  {
-    "strongs": "3137",
     "morphology": "N-NSF",
     "word": "Μαρία"
   },
@@ -6260,89 +1035,14 @@
     "word": "Μαρία"
   },
   {
-    "strongs": "3142",
-    "morphology": "N-ASN",
-    "word": "μαρτύριον"
-  },
-  {
-    "strongs": "3142",
-    "morphology": "N-NSN",
-    "word": "μαρτύριον"
-  },
-  {
-    "strongs": "3140",
-    "morphology": "V-PAI-1S",
-    "word": "μαρτυρῶ"
-  },
-  {
-    "strongs": "3140",
-    "morphology": "V-PAS-1S",
-    "word": "μαρτυρῶ"
-  },
-  {
-    "strongs": "3144",
-    "morphology": "N-GPM",
-    "word": "μαρτύρων"
-  },
-  {
-    "strongs": "3140",
-    "morphology": "V-PAP-NSM",
-    "word": "μαρτυρῶν"
-  },
-  {
-    "strongs": "3162",
-    "morphology": "N-DSF",
-    "word": "μαχαίρᾳ"
-  },
-  {
-    "strongs": "3162",
-    "morphology": "N-NSF",
-    "word": "μάχαιρα"
-  },
-  {
-    "strongs": "3173",
-    "morphology": "A-ASN",
-    "word": "μέγα"
-  },
-  {
-    "strongs": "3173",
-    "morphology": "A-NSN",
-    "word": "μέγα"
-  },
-  {
-    "strongs": "3173",
-    "morphology": "A-APN",
-    "word": "μεγάλα"
-  },
-  {
-    "strongs": "3173",
-    "morphology": "A-NPN",
-    "word": "μεγάλα"
-  },
-  {
     "strongs": "3173",
     "morphology": "A-DSF",
-    "word": "μεγάλῃ"
-  },
-  {
-    "strongs": "3173",
-    "morphology": "A-NSF",
     "word": "μεγάλη"
   },
   {
     "strongs": "3173",
-    "morphology": "A-ASN-C",
-    "word": "μεῖζον"
-  },
-  {
-    "strongs": "3173",
-    "morphology": "A-NSN-C",
-    "word": "μεῖζον"
-  },
-  {
-    "strongs": "3185",
-    "morphology": "ADV",
-    "word": "μεῖζον"
+    "morphology": "A-NSF",
+    "word": "μεγάλῃ"
   },
   {
     "strongs": "3173",
@@ -6371,16 +1071,6 @@
   },
   {
     "strongs": "3187",
-    "morphology": "A-APN-C",
-    "word": "μείζω"
-  },
-  {
-    "strongs": "3173",
-    "morphology": "A-ASF-C",
-    "word": "μείζω"
-  },
-  {
-    "strongs": "3187",
     "morphology": "A-NSF-C",
     "word": "μείζων"
   },
@@ -6390,244 +1080,9 @@
     "word": "μείζων"
   },
   {
-    "strongs": "3196",
-    "morphology": "N-APN",
-    "word": "μέλη"
-  },
-  {
-    "strongs": "3196",
-    "morphology": "N-NPN",
-    "word": "μέλη"
-  },
-  {
-    "strongs": "3192",
-    "morphology": "N-ASN",
-    "word": "μέλι"
-  },
-  {
-    "strongs": "3192",
-    "morphology": "N-NSN",
-    "word": "μέλι"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-PAP-APN",
-    "word": "μέλλοντα"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-PAP-ASM",
-    "word": "μέλλοντα"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-PAP-NPN",
-    "word": "μέλλοντα"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-PAP-GSM",
-    "word": "μέλλοντος"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-PAP-GSN",
-    "word": "μέλλοντος"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-PAP-GPM",
-    "word": "μελλόντων"
-  },
-  {
-    "strongs": "3195",
-    "morphology": "V-PAP-GPN",
-    "word": "μελλόντων"
-  },
-  {
-    "strongs": "3306",
-    "morphology": "V-PAP-ASN",
-    "word": "μένον"
-  },
-  {
-    "strongs": "3306",
-    "morphology": "V-PAP-NSN",
-    "word": "μένον"
-  },
-  {
-    "strongs": "3306",
-    "morphology": "V-FAI-1S",
-    "word": "μενῶ"
-  },
-  {
-    "strongs": "3306",
-    "morphology": "V-PAI-1S",
-    "word": "μένω"
-  },
-  {
-    "strongs": "3308",
-    "morphology": "N-NSF",
-    "word": "μέριμνα"
-  },
-  {
-    "strongs": "3309",
-    "morphology": "V-PAI-3S",
-    "word": "μεριμνᾷ"
-  },
-  {
-    "strongs": "3309",
-    "morphology": "V-PAI-2P",
-    "word": "μεριμνᾶτε"
-  },
-  {
-    "strongs": "3309",
-    "morphology": "V-PAM-2P",
-    "word": "μεριμνᾶτε"
-  },
-  {
-    "strongs": "3308",
-    "morphology": "N-GPF",
-    "word": "μεριμνῶν"
-  },
-  {
-    "strongs": "3309",
-    "morphology": "V-PAP-NSM",
-    "word": "μεριμνῶν"
-  },
-  {
-    "strongs": "3313",
-    "morphology": "N-ASN",
-    "word": "μέρος"
-  },
-  {
-    "strongs": "3313",
-    "morphology": "N-NSN",
-    "word": "μέρος"
-  },
-  {
-    "strongs": "3324",
-    "morphology": "A-ASN",
-    "word": "μεστὸν"
-  },
-  {
-    "strongs": "3324",
-    "morphology": "A-NSN",
-    "word": "μεστόν"
-  },
-  {
-    "strongs": "3367",
-    "morphology": "A-ASN",
-    "word": "μηδὲν"
-  },
-  {
-    "strongs": "3367",
-    "morphology": "A-NSN",
-    "word": "Μηδὲν"
-  },
-  {
-    "strongs": "3367",
-    "morphology": "A-DSM",
-    "word": "μηδενὶ"
-  },
-  {
-    "strongs": "3367",
-    "morphology": "A-DSN",
-    "word": "μηδενὶ"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-DSF",
-    "word": "μιᾷ"
-  },
-  {
-    "strongs": "1520",
-    "morphology": "A-NSF",
-    "word": "μία"
-  },
-  {
-    "strongs": "3397",
-    "morphology": "A-ASM",
-    "word": "μικρὸν"
-  },
-  {
-    "strongs": "3397",
-    "morphology": "A-ASN",
-    "word": "μικρὸν"
-  },
-  {
-    "strongs": "3398",
-    "morphology": "A-NSN",
-    "word": "μικρὸν"
-  },
-  {
-    "strongs": "3418",
-    "morphology": "N-ASN",
-    "word": "μνῆμα"
-  },
-  {
-    "strongs": "3418",
-    "morphology": "N-NSN",
-    "word": "μνῆμα"
-  },
-  {
-    "strongs": "3419",
-    "morphology": "N-APN",
-    "word": "μνημεῖα"
-  },
-  {
-    "strongs": "3419",
-    "morphology": "N-NPN",
-    "word": "μνημεῖα"
-  },
-  {
-    "strongs": "3419",
-    "morphology": "N-ASN",
-    "word": "μνημεῖον"
-  },
-  {
-    "strongs": "3419",
-    "morphology": "N-NSN",
-    "word": "μνημεῖον"
-  },
-  {
-    "strongs": "3421",
-    "morphology": "V-PAI-2P",
-    "word": "μνημονεύετε"
-  },
-  {
-    "strongs": "3421",
-    "morphology": "V-PAM-2P",
-    "word": "μνημονεύετε"
-  },
-  {
-    "strongs": "3430",
-    "morphology": "N-DSF",
-    "word": "μοιχείᾳ"
-  },
-  {
-    "strongs": "3430",
-    "morphology": "N-NSF",
-    "word": "μοιχεία"
-  },
-  {
     "strongs": "3432",
     "morphology": "N-NPM",
-    "word": "μοιχοί"
-  },
-  {
-    "strongs": "3432",
-    "morphology": "N-VPM",
     "word": "μοιχοὶ"
-  },
-  {
-    "strongs": "3441",
-    "morphology": "A-ASF",
-    "word": "μόνην"
-  },
-  {
-    "strongs": "3438",
-    "morphology": "N-ASF",
-    "word": "μονὴν"
   },
   {
     "strongs": "3439",
@@ -6638,41 +1093,6 @@
     "strongs": "3439",
     "morphology": "A-NSM",
     "word": "μονογενὴς"
-  },
-  {
-    "strongs": "3441",
-    "morphology": "A-ASM",
-    "word": "μόνον"
-  },
-  {
-    "strongs": "3441",
-    "morphology": "A-ASN",
-    "word": "μόνον"
-  },
-  {
-    "strongs": "3440",
-    "morphology": "ADV",
-    "word": "μόνον"
-  },
-  {
-    "strongs": "3464",
-    "morphology": "N-ASN",
-    "word": "μύρον"
-  },
-  {
-    "strongs": "3464",
-    "morphology": "N-NSN",
-    "word": "μύρον"
-  },
-  {
-    "strongs": "3466",
-    "morphology": "N-ASN",
-    "word": "μυστήριον"
-  },
-  {
-    "strongs": "3466",
-    "morphology": "N-NSN",
-    "word": "μυστήριον"
   },
   {
     "strongs": "3474",
@@ -6705,171 +1125,6 @@
     "word": "νέας"
   },
   {
-    "strongs": "3498",
-    "morphology": "A-ASM",
-    "word": "νεκρόν"
-  },
-  {
-    "strongs": "3498",
-    "morphology": "A-NSN",
-    "word": "νεκρὸν"
-  },
-  {
-    "strongs": "3498",
-    "morphology": "A-GPM",
-    "word": "νεκρῶν"
-  },
-  {
-    "strongs": "3498",
-    "morphology": "A-GPN",
-    "word": "νεκρῶν"
-  },
-  {
-    "strongs": "3501",
-    "morphology": "A-ASM",
-    "word": "νέον"
-  },
-  {
-    "strongs": "3501",
-    "morphology": "A-NSN",
-    "word": "νέον"
-  },
-  {
-    "strongs": "3507",
-    "morphology": "N-DSF",
-    "word": "νεφέλῃ"
-  },
-  {
-    "strongs": "3507",
-    "morphology": "N-NSF",
-    "word": "νεφέλη"
-  },
-  {
-    "strongs": "3528",
-    "morphology": "V-PAI-3S",
-    "word": "νικᾷ"
-  },
-  {
-    "strongs": "3528",
-    "morphology": "V-PAM-2S",
-    "word": "νίκα"
-  },
-  {
-    "strongs": "3534",
-    "morphology": "N-ASN",
-    "word": "νῖκος"
-  },
-  {
-    "strongs": "3534",
-    "morphology": "N-NSN",
-    "word": "νῖκος"
-  },
-  {
-    "strongs": "3540",
-    "morphology": "N-APN",
-    "word": "νοήματα"
-  },
-  {
-    "strongs": "3540",
-    "morphology": "N-NPN",
-    "word": "νοήματα"
-  },
-  {
-    "strongs": "3554",
-    "morphology": "N-GPF",
-    "word": "νόσων"
-  },
-  {
-    "strongs": "3552",
-    "morphology": "V-PAP-NSM",
-    "word": "νοσῶν"
-  },
-  {
-    "strongs": "3585",
-    "morphology": "A-APN",
-    "word": "ξύλινα"
-  },
-  {
-    "strongs": "3585",
-    "morphology": "A-NPN",
-    "word": "ξύλινα"
-  },
-  {
-    "strongs": "3586",
-    "morphology": "N-ASN",
-    "word": "ξύλον"
-  },
-  {
-    "strongs": "3586",
-    "morphology": "N-NSN",
-    "word": "ξύλον"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-ASN",
-    "word": "ὃ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-NSN",
-    "word": "ὅ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-NSM",
-    "word": "ὁ"
-  },
-  {
-    "strongs": "3589",
-    "morphology": "A-GPN",
-    "word": "ὀγδοήκοντα"
-  },
-  {
-    "strongs": "3589",
-    "morphology": "A-NUI",
-    "word": "ὀγδοήκοντα"
-  },
-  {
-    "strongs": "3595",
-    "morphology": "N-NPM",
-    "word": "ὁδηγοί"
-  },
-  {
-    "strongs": "3595",
-    "morphology": "N-VPM",
-    "word": "ὁδηγοὶ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-NPM",
-    "word": "οἳ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-NPM",
-    "word": "οἱ"
-  },
-  {
-    "strongs": "3634",
-    "morphology": "R-NPN",
-    "word": "οἷα"
-  },
-  {
-    "strongs": "3634",
-    "morphology": "R-NSF",
-    "word": "οἵα"
-  },
-  {
-    "strongs": "3614",
-    "morphology": "N-DSF",
-    "word": "οἰκίᾳ"
-  },
-  {
-    "strongs": "3614",
-    "morphology": "N-NSF",
-    "word": "οἰκία"
-  },
-  {
     "strongs": "3614",
     "morphology": "N-APF",
     "word": "οἰκίας"
@@ -6880,83 +1135,8 @@
     "word": "οἰκίας"
   },
   {
-    "strongs": "3618",
-    "morphology": "V-PAI-2P",
-    "word": "οἰκοδομεῖτε"
-  },
-  {
-    "strongs": "3618",
-    "morphology": "V-PAM-2P",
-    "word": "οἰκοδομεῖτε"
-  },
-  {
-    "strongs": "3618",
-    "morphology": "V-PAI-1S",
-    "word": "οἰκοδομῶ"
-  },
-  {
-    "strongs": "3618",
-    "morphology": "V-PAS-1S",
-    "word": "οἰκοδομῶ"
-  },
-  {
-    "strongs": "3625",
-    "morphology": "N-DSF",
-    "word": "οἰκουμένῃ"
-  },
-  {
-    "strongs": "3625",
-    "morphology": "N-NSF",
-    "word": "οἰκουμένη"
-  },
-  {
-    "strongs": "3629",
-    "morphology": "A-NSM",
-    "word": "οἰκτίρμων"
-  },
-  {
-    "strongs": "3628",
-    "morphology": "N-GPM",
-    "word": "οἰκτιρμῶν"
-  },
-  {
-    "strongs": "3624",
-    "morphology": "N-GPM",
-    "word": "οἴκων"
-  },
-  {
-    "strongs": "3611",
-    "morphology": "V-PAP-NSM",
-    "word": "οἰκῶν"
-  },
-  {
-    "strongs": "3634",
-    "morphology": "K-ASM",
-    "word": "οἷον"
-  },
-  {
-    "strongs": "3634",
-    "morphology": "K-NSN",
-    "word": "οἷον"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-DPM",
-    "word": "οἷς"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-DPN",
-    "word": "οἷς"
-  },
-  {
     "strongs": "3650",
     "morphology": "A-DSF",
-    "word": "ὅλῃ"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-NSF",
     "word": "ὅλη"
   },
   {
@@ -6966,108 +1146,8 @@
   },
   {
     "strongs": "3641",
-    "morphology": "A-ASN",
-    "word": "ὀλίγον"
-  },
-  {
-    "strongs": "3641",
-    "morphology": "A-NSN",
-    "word": "ὀλίγον"
-  },
-  {
-    "strongs": "3641",
     "morphology": "ADV",
     "word": "ὀλίγον"
-  },
-  {
-    "strongs": "3641",
-    "morphology": "A-DSM",
-    "word": "ὀλίγῳ"
-  },
-  {
-    "strongs": "3641",
-    "morphology": "A-DSN",
-    "word": "ὀλίγῳ"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-ASM",
-    "word": "ὅλον"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-ASN",
-    "word": "ὅλον"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-NSN",
-    "word": "ὅλον"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-GSM",
-    "word": "ὅλου"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-GSN",
-    "word": "ὅλου"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-DSM",
-    "word": "ὅλῳ"
-  },
-  {
-    "strongs": "3650",
-    "morphology": "A-DSN",
-    "word": "ὅλῳ"
-  },
-  {
-    "strongs": "3664",
-    "morphology": "A-APN",
-    "word": "ὅμοια"
-  },
-  {
-    "strongs": "3664",
-    "morphology": "A-NPN",
-    "word": "ὅμοια"
-  },
-  {
-    "strongs": "3664",
-    "morphology": "A-NSF",
-    "word": "ὁμοία"
-  },
-  {
-    "strongs": "3664",
-    "morphology": "A-ASM",
-    "word": "ὅμοιον"
-  },
-  {
-    "strongs": "3664",
-    "morphology": "A-NSN",
-    "word": "ὅμοιον"
-  },
-  {
-    "strongs": "3686",
-    "morphology": "N-ASN",
-    "word": "ὄνομα"
-  },
-  {
-    "strongs": "3686",
-    "morphology": "N-NSN",
-    "word": "ὄνομά"
-  },
-  {
-    "strongs": "3686",
-    "morphology": "N-APN",
-    "word": "ὀνόματα"
-  },
-  {
-    "strongs": "3686",
-    "morphology": "N-NPN",
-    "word": "ὀνόματά"
   },
   {
     "strongs": "3688",
@@ -7080,229 +1160,14 @@
     "word": "ὄνον"
   },
   {
-    "strongs": "5607",
-    "morphology": "V-PXP-APN",
-    "word": "ὄντα"
-  },
-  {
-    "strongs": "5607",
-    "morphology": "V-PXP-ASM",
-    "word": "ὄντα"
-  },
-  {
-    "strongs": "5607",
-    "morphology": "V-PXP-NPN",
-    "word": "ὄντα"
-  },
-  {
-    "strongs": "5607",
-    "morphology": "V-PXP-GSM",
-    "word": "ὄντος"
-  },
-  {
-    "strongs": "5607",
-    "morphology": "V-PXP-GSN",
-    "word": "ὄντος"
-  },
-  {
-    "strongs": "5607",
-    "morphology": "V-PXP-GPM",
-    "word": "ὄντων"
-  },
-  {
-    "strongs": "5607",
-    "morphology": "V-PXP-GPN",
-    "word": "ὄντων"
-  },
-  {
-    "strongs": "3696",
-    "morphology": "N-APN",
-    "word": "ὅπλα"
-  },
-  {
-    "strongs": "3696",
-    "morphology": "N-NPN",
-    "word": "ὅπλα"
-  },
-  {
-    "strongs": "3708",
-    "morphology": "V-PAI-3S",
-    "word": "ὁρᾷ"
-  },
-  {
-    "strongs": "3708",
-    "morphology": "V-PAM-2S",
-    "word": "Ὅρα"
-  },
-  {
-    "strongs": "3705",
-    "morphology": "N-ASN",
-    "word": "ὅραμα"
-  },
-  {
-    "strongs": "3705",
-    "morphology": "N-NSN",
-    "word": "ὅραμα"
-  },
-  {
-    "strongs": "3708",
-    "morphology": "V-PAI-2P",
-    "word": "ὁρᾶτε"
-  },
-  {
-    "strongs": "3708",
-    "morphology": "V-PAM-2P",
-    "word": "Ὁρᾶτε"
-  },
-  {
-    "strongs": "3709",
-    "morphology": "N-DSF",
-    "word": "ὀργῇ"
-  },
-  {
-    "strongs": "3709",
-    "morphology": "N-NSF",
-    "word": "ὀργὴ"
-  },
-  {
-    "strongs": "3735",
-    "morphology": "N-APN",
-    "word": "ὄρη"
-  },
-  {
-    "strongs": "3735",
-    "morphology": "N-NPN",
-    "word": "ὄρη"
-  },
-  {
-    "strongs": "3735",
-    "morphology": "N-ASN",
-    "word": "ὄρος"
-  },
-  {
-    "strongs": "3735",
-    "morphology": "N-NSN",
-    "word": "ὄρος"
-  },
-  {
-    "strongs": "3745",
-    "morphology": "K-APN",
-    "word": "ὅσα"
-  },
-  {
-    "strongs": "3745",
-    "morphology": "K-NPN",
-    "word": "ὃσα"
-  },
-  {
-    "strongs": "3745",
-    "morphology": "K-ASM",
-    "word": "ὅσον"
-  },
-  {
-    "strongs": "3745",
-    "morphology": "K-ASN",
-    "word": "ὅσον"
-  },
-  {
-    "strongs": "3745",
-    "morphology": "K-NSN",
-    "word": "ὅσον"
-  },
-  {
-    "strongs": "3757",
-    "morphology": "ADV",
-    "word": "οὗ"
-  },
-  {
-    "strongs": "3756",
-    "morphology": "PRT-N",
-    "word": "οὐ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-GSM",
-    "word": "οὗ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-GSN",
-    "word": "οὗ"
-  },
-  {
-    "strongs": "3759",
-    "morphology": "INJ",
-    "word": "Οὐαί"
-  },
-  {
-    "strongs": "3759",
-    "morphology": "N-OI",
-    "word": "οὐαὶ"
-  },
-  {
-    "strongs": "3762",
-    "morphology": "A-ASN",
-    "word": "οὐδὲν"
-  },
-  {
-    "strongs": "3762",
-    "morphology": "A-NSN",
-    "word": "οὐδὲν"
-  },
-  {
-    "strongs": "3762",
-    "morphology": "A-DSM",
-    "word": "οὐδενὶ"
-  },
-  {
-    "strongs": "3762",
-    "morphology": "A-DSN",
-    "word": "οὐδενὶ"
-  },
-  {
-    "strongs": "3762",
-    "morphology": "A-GSM",
-    "word": "οὐδενός"
-  },
-  {
-    "strongs": "3762",
-    "morphology": "A-GSN",
-    "word": "οὐδενός"
-  },
-  {
-    "strongs": "3775",
-    "morphology": "N-ASN",
-    "word": "οὖς"
-  },
-  {
-    "strongs": "3775",
-    "morphology": "N-NSN",
-    "word": "οὖς"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-APM",
-    "word": "ὃυς"
-  },
-  {
     "strongs": "3780",
     "morphology": "PRT-I",
-    "word": "οὐχὶ"
+    "word": "οὐχί"
   },
   {
     "strongs": "3780",
     "morphology": "PRT-N",
-    "word": "Οὐχί"
-  },
-  {
-    "strongs": "3784",
-    "morphology": "V-PAI-2P",
-    "word": "ὀφείλετε"
-  },
-  {
-    "strongs": "3784",
-    "morphology": "V-PAM-2P",
-    "word": "ὀφείλετε"
+    "word": "οὐχὶ"
   },
   {
     "strongs": "3789",
@@ -7320,76 +1185,6 @@
     "word": "ὄφεις"
   },
   {
-    "strongs": "3806",
-    "morphology": "N-APN",
-    "word": "πάθη"
-  },
-  {
-    "strongs": "3958",
-    "morphology": "V-2AAS-3S",
-    "word": "πάθῃ"
-  },
-  {
-    "strongs": "3804",
-    "morphology": "N-APN",
-    "word": "παθήματα"
-  },
-  {
-    "strongs": "3804",
-    "morphology": "N-NPN",
-    "word": "παθήματα"
-  },
-  {
-    "strongs": "3809",
-    "morphology": "N-DSF",
-    "word": "παιδείᾳ"
-  },
-  {
-    "strongs": "3809",
-    "morphology": "N-NSF",
-    "word": "παιδεία"
-  },
-  {
-    "strongs": "3813",
-    "morphology": "N-APN",
-    "word": "παιδία"
-  },
-  {
-    "strongs": "3813",
-    "morphology": "N-NPN",
-    "word": "παιδία"
-  },
-  {
-    "strongs": "3813",
-    "morphology": "N-VPN",
-    "word": "Παιδία"
-  },
-  {
-    "strongs": "3813",
-    "morphology": "N-ASN",
-    "word": "παιδίον"
-  },
-  {
-    "strongs": "3813",
-    "morphology": "N-NSN",
-    "word": "παιδίον"
-  },
-  {
-    "strongs": "3813",
-    "morphology": "N-VSN",
-    "word": "παιδίον"
-  },
-  {
-    "strongs": "3816",
-    "morphology": "N-GSF",
-    "word": "παιδὸς"
-  },
-  {
-    "strongs": "3816",
-    "morphology": "N-GSM",
-    "word": "παιδὸς"
-  },
-  {
     "strongs": "3816",
     "morphology": "N-NSF",
     "word": "παῖς"
@@ -7398,101 +1193,6 @@
     "strongs": "3816",
     "morphology": "N-NSM",
     "word": "παῖς"
-  },
-  {
-    "strongs": "3820",
-    "morphology": "A-APN",
-    "word": "παλαιά"
-  },
-  {
-    "strongs": "3820",
-    "morphology": "A-DSF",
-    "word": "παλαιᾷ"
-  },
-  {
-    "strongs": "3820",
-    "morphology": "A-NSF",
-    "word": "παλαιά"
-  },
-  {
-    "strongs": "3820",
-    "morphology": "A-ASM",
-    "word": "παλαιὸν"
-  },
-  {
-    "strongs": "3820",
-    "morphology": "A-ASN",
-    "word": "παλαιόν"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-ASN",
-    "word": "πᾶν"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-NSN",
-    "word": "πᾶν"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-APN",
-    "word": "πάντα"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-ASM",
-    "word": "πάντα"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-NPN",
-    "word": "πάντα"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-DSM",
-    "word": "παντὶ"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-DSN",
-    "word": "παντὶ"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-GSM",
-    "word": "παντὸς"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-GSN",
-    "word": "παντὸς"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-GPM",
-    "word": "πάντων"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-GPN",
-    "word": "πάντων"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-GPF",
-    "word": "πάντων"
-  },
-  {
-    "strongs": "3850",
-    "morphology": "N-DSF",
-    "word": "παραβολῇ"
-  },
-  {
-    "strongs": "3850",
-    "morphology": "N-NSF",
-    "word": "παραβολή"
   },
   {
     "strongs": "3852",
@@ -7505,26 +1205,6 @@
     "word": "παραγγελίας"
   },
   {
-    "strongs": "3860",
-    "morphology": "V-2AAS-1S",
-    "word": "παραδῶ"
-  },
-  {
-    "strongs": "3860",
-    "morphology": "V-2AAS-3S",
-    "word": "παραδῷ"
-  },
-  {
-    "strongs": "3863",
-    "morphology": "V-AAS-1S",
-    "word": "παραζηλώσω"
-  },
-  {
-    "strongs": "3863",
-    "morphology": "V-FAI-1S",
-    "word": "παραζηλώσω"
-  },
-  {
     "strongs": "3870",
     "morphology": "V-AAN",
     "word": "παρακαλέσαι"
@@ -7533,56 +1213,6 @@
     "strongs": "3870",
     "morphology": "V-AAO-3S",
     "word": "παρακαλέσαι"
-  },
-  {
-    "strongs": "3880",
-    "morphology": "V-2AAI-1S",
-    "word": "παρέλαβον"
-  },
-  {
-    "strongs": "3880",
-    "morphology": "V-2AAI-3P",
-    "word": "παρέλαβον"
-  },
-  {
-    "strongs": "3936",
-    "morphology": "V-PAI-2P",
-    "word": "παριστάνετε"
-  },
-  {
-    "strongs": "3936",
-    "morphology": "V-PAM-2P",
-    "word": "παριστάνετε"
-  },
-  {
-    "strongs": "3952",
-    "morphology": "N-DSF",
-    "word": "παρουσίᾳ"
-  },
-  {
-    "strongs": "3952",
-    "morphology": "N-NSF",
-    "word": "παρουσία"
-  },
-  {
-    "strongs": "3954",
-    "morphology": "N-DSF",
-    "word": "παῤῥησίᾳ"
-  },
-  {
-    "strongs": "3954",
-    "morphology": "N-NSF",
-    "word": "παῤῥησία"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-DPM",
-    "word": "πᾶσιν"
-  },
-  {
-    "strongs": "3956",
-    "morphology": "A-DPN",
-    "word": "πᾶσιν"
   },
   {
     "strongs": "3962",
@@ -7605,149 +1235,9 @@
     "word": "πεινᾷ"
   },
   {
-    "strongs": "3985",
-    "morphology": "V-PAI-2P",
-    "word": "πειράζετε"
-  },
-  {
-    "strongs": "3985",
-    "morphology": "V-PAM-2P",
-    "word": "πειράζετε"
-  },
-  {
-    "strongs": "3992",
-    "morphology": "V-AAS-1S",
-    "word": "πέμψω"
-  },
-  {
-    "strongs": "3992",
-    "morphology": "V-FAI-1S",
-    "word": "πέμψω"
-  },
-  {
-    "strongs": "3997",
-    "morphology": "N-ASN",
-    "word": "πένθος"
-  },
-  {
-    "strongs": "3997",
-    "morphology": "N-NSN",
-    "word": "πένθος"
-  },
-  {
-    "strongs": "3996",
-    "morphology": "V-PAI-3P",
-    "word": "πενθοῦσιν"
-  },
-  {
-    "strongs": "3996",
-    "morphology": "V-PAP-DPM",
-    "word": "πενθοῦσιν"
-  },
-  {
-    "strongs": "4036",
-    "morphology": "A-NSF",
-    "word": "Περίλυπός"
-  },
-  {
-    "strongs": "4036",
-    "morphology": "A-NSM",
-    "word": "περίλυπος"
-  },
-  {
-    "strongs": "4043",
-    "morphology": "V-PAI-3S",
-    "word": "περιπατεῖ"
-  },
-  {
-    "strongs": "4043",
-    "morphology": "V-PAM-2S",
-    "word": "περιπάτει"
-  },
-  {
-    "strongs": "4043",
-    "morphology": "V-PAI-2P",
-    "word": "περιπατεῖτε"
-  },
-  {
-    "strongs": "4043",
-    "morphology": "V-PAM-2P",
-    "word": "περιπατεῖτε"
-  },
-  {
-    "strongs": "4043",
-    "morphology": "V-PAI-3P",
-    "word": "περιπατοῦσιν"
-  },
-  {
-    "strongs": "4043",
-    "morphology": "V-PAP-DPM",
-    "word": "περιπατοῦσιν"
-  },
-  {
-    "strongs": "4052",
-    "morphology": "V-AAN",
-    "word": "περισσεῦσαι"
-  },
-  {
-    "strongs": "4052",
-    "morphology": "V-AAO-3S",
-    "word": "περισσεύσαι"
-  },
-  {
-    "strongs": "4053",
-    "morphology": "A-ASN",
-    "word": "περισσὸν"
-  },
-  {
-    "strongs": "4053",
-    "morphology": "A-NSN",
-    "word": "περισσὸν"
-  },
-  {
-    "strongs": "4053",
-    "morphology": "A-ASM-C",
-    "word": "περισσότερον"
-  },
-  {
-    "strongs": "4053",
-    "morphology": "A-ASN-C",
-    "word": "περισσότερον"
-  },
-  {
-    "strongs": "4053",
-    "morphology": "A-NSN-C",
-    "word": "περισσότερον"
-  },
-  {
     "strongs": "4061",
-    "morphology": "N-DSF",
+    "morphology": "N-NSF",
     "word": "περιτομῇ"
-  },
-  {
-    "strongs": "4061",
-    "morphology": "N-NSF",
-    "word": "περιτομὴ"
-  },
-  {
-    "strongs": "4071",
-    "morphology": "N-APN",
-    "word": "πετεινὰ"
-  },
-  {
-    "strongs": "4071",
-    "morphology": "N-NPN",
-    "word": "πετεινὰ"
-  },
-  {
-    "strongs": "4073",
-    "morphology": "N-DSF",
-    "word": "πέτρᾳ"
-  },
-  {
-    "strongs": "4073",
-    "morphology": "N-NSF",
-    "word": "πέτρα"
   },
   {
     "strongs": "4073",
@@ -7758,76 +1248,6 @@
     "strongs": "4073",
     "morphology": "N-GSF",
     "word": "πέτρας"
-  },
-  {
-    "strongs": "4077",
-    "morphology": "N-DSF",
-    "word": "πηγῇ"
-  },
-  {
-    "strongs": "4077",
-    "morphology": "N-NSF",
-    "word": "πηγὴ"
-  },
-  {
-    "strongs": "4089",
-    "morphology": "A-ASM",
-    "word": "πικρὸν"
-  },
-  {
-    "strongs": "4089",
-    "morphology": "A-ASN",
-    "word": "πικρόν"
-  },
-  {
-    "strongs": "4095",
-    "morphology": "V-PAI-1S",
-    "word": "πίνω"
-  },
-  {
-    "strongs": "4095",
-    "morphology": "V-PAS-1S",
-    "word": "πίνω"
-  },
-  {
-    "strongs": "4100",
-    "morphology": "V-PAI-2P",
-    "word": "πιστεύετε"
-  },
-  {
-    "strongs": "4100",
-    "morphology": "V-PAM-2P",
-    "word": "πιστεύετε"
-  },
-  {
-    "strongs": "4100",
-    "morphology": "V-PAI-3P",
-    "word": "πιστεύουσιν"
-  },
-  {
-    "strongs": "4100",
-    "morphology": "V-PAP-DPM",
-    "word": "πιστεύουσιν"
-  },
-  {
-    "strongs": "4100",
-    "morphology": "V-AAS-1S",
-    "word": "πιστεύσω"
-  },
-  {
-    "strongs": "4100",
-    "morphology": "V-FAI-1S",
-    "word": "πιστεύσω"
-  },
-  {
-    "strongs": "4103",
-    "morphology": "A-ASM",
-    "word": "πιστόν"
-  },
-  {
-    "strongs": "4103",
-    "morphology": "A-ASN",
-    "word": "πιστὸν"
   },
   {
     "strongs": "4105",
@@ -7840,26 +1260,6 @@
     "word": "Πλανᾶσθε"
   },
   {
-    "strongs": "4106",
-    "morphology": "N-DSF",
-    "word": "πλάνῃ"
-  },
-  {
-    "strongs": "4106",
-    "morphology": "N-NSF",
-    "word": "πλάνη"
-  },
-  {
-    "strongs": "4116",
-    "morphology": "A-NSF",
-    "word": "πλατεῖα"
-  },
-  {
-    "strongs": "4113",
-    "morphology": "N-NSF",
-    "word": "πλατεῖα"
-  },
-  {
     "strongs": "4113",
     "morphology": "N-APF",
     "word": "πλατείας"
@@ -7870,29 +1270,9 @@
     "word": "πλατείας"
   },
   {
-    "strongs": "4114",
-    "morphology": "N-ASN",
-    "word": "πλάτος"
-  },
-  {
-    "strongs": "4114",
-    "morphology": "N-NSN",
-    "word": "πλάτος"
-  },
-  {
-    "strongs": "4119",
-    "morphology": "A-ASN-C",
-    "word": "πλεῖον"
-  },
-  {
-    "strongs": "4119",
-    "morphology": "A-NSN-C",
-    "word": "πλεῖόν"
-  },
-  {
     "strongs": "4119",
     "morphology": "A-APN-C",
-    "word": "πλεῖονα"
+    "word": "πλείονα"
   },
   {
     "strongs": "4119",
@@ -7903,16 +1283,6 @@
     "strongs": "4119",
     "morphology": "A-ASM-C",
     "word": "πλείονα"
-  },
-  {
-    "strongs": "4119",
-    "morphology": "A-GPM-C",
-    "word": "πλειόνων"
-  },
-  {
-    "strongs": "4119",
-    "morphology": "A-GPN-C",
-    "word": "πλειόνων"
   },
   {
     "strongs": "4119",
@@ -7928,56 +1298,6 @@
     "strongs": "4119",
     "morphology": "A-NPM-C",
     "word": "πλείους"
-  },
-  {
-    "strongs": "4119",
-    "morphology": "A-ASN-C",
-    "word": "πλέον"
-  },
-  {
-    "strongs": "4126",
-    "morphology": "V-PAP-ASN",
-    "word": "πλέον"
-  },
-  {
-    "strongs": "4121",
-    "morphology": "V-PAP-ASM",
-    "word": "πλεονάζοντα"
-  },
-  {
-    "strongs": "4121",
-    "morphology": "V-PAP-NPN",
-    "word": "πλεονάζοντα"
-  },
-  {
-    "strongs": "4124",
-    "morphology": "N-DSF",
-    "word": "πλεονεξίᾳ"
-  },
-  {
-    "strongs": "4124",
-    "morphology": "N-NSF",
-    "word": "πλεονεξία"
-  },
-  {
-    "strongs": "4127",
-    "morphology": "N-DSF",
-    "word": "πληγῇ"
-  },
-  {
-    "strongs": "4127",
-    "morphology": "N-NSF",
-    "word": "πληγὴ"
-  },
-  {
-    "strongs": "4128",
-    "morphology": "N-ASN",
-    "word": "πλῆθος"
-  },
-  {
-    "strongs": "4128",
-    "morphology": "N-NSN",
-    "word": "πλῆθος"
   },
   {
     "strongs": "4134",
@@ -8005,116 +1325,6 @@
     "word": "πλήρης"
   },
   {
-    "strongs": "4138",
-    "morphology": "N-ASN",
-    "word": "πλήρωμα"
-  },
-  {
-    "strongs": "4138",
-    "morphology": "N-NSN",
-    "word": "πλήρωμα"
-  },
-  {
-    "strongs": "4137",
-    "morphology": "V-AAN",
-    "word": "πληρῶσαι"
-  },
-  {
-    "strongs": "4137",
-    "morphology": "V-AAO-3S",
-    "word": "πληρώσαι"
-  },
-  {
-    "strongs": "4143",
-    "morphology": "N-APN",
-    "word": "πλοῖα"
-  },
-  {
-    "strongs": "4143",
-    "morphology": "N-NPN",
-    "word": "πλοῖα"
-  },
-  {
-    "strongs": "4142",
-    "morphology": "N-ASN",
-    "word": "πλοιάριον"
-  },
-  {
-    "strongs": "4142",
-    "morphology": "N-NSN",
-    "word": "πλοιάριον"
-  },
-  {
-    "strongs": "4143",
-    "morphology": "N-ASN",
-    "word": "πλοῖον"
-  },
-  {
-    "strongs": "4143",
-    "morphology": "N-NSN",
-    "word": "πλοῖον"
-  },
-  {
-    "strongs": "4149",
-    "morphology": "N-NSM",
-    "word": "πλοῦτος"
-  },
-  {
-    "strongs": "4149",
-    "morphology": "N-NSN",
-    "word": "πλοῦτος"
-  },
-  {
-    "strongs": "4151",
-    "morphology": "N-ASN",
-    "word": "πνεῦμα"
-  },
-  {
-    "strongs": "4151",
-    "morphology": "N-NSN",
-    "word": "πνεῦμα"
-  },
-  {
-    "strongs": "4151",
-    "morphology": "N-APN",
-    "word": "πνεύματα"
-  },
-  {
-    "strongs": "4151",
-    "morphology": "N-NPN",
-    "word": "πνεύματα"
-  },
-  {
-    "strongs": "4152",
-    "morphology": "A-DPM",
-    "word": "πνευματικοῖς"
-  },
-  {
-    "strongs": "4152",
-    "morphology": "A-DPN",
-    "word": "πνευματικοῖς"
-  },
-  {
-    "strongs": "4152",
-    "morphology": "A-ASN",
-    "word": "πνευματικὸν"
-  },
-  {
-    "strongs": "4152",
-    "morphology": "A-NSN",
-    "word": "πνευματικόν"
-  },
-  {
-    "strongs": "4169",
-    "morphology": "I-DSF",
-    "word": "ποίᾳ"
-  },
-  {
-    "strongs": "4169",
-    "morphology": "I-NSF",
-    "word": "ποία"
-  },
-  {
     "strongs": "4169",
     "morphology": "I-APF",
     "word": "Ποίας"
@@ -8123,16 +1333,6 @@
     "strongs": "4169",
     "morphology": "I-GSF",
     "word": "ποίας"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAI-3S",
-    "word": "ποιεῖ"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAM-2S",
-    "word": "ποίει"
   },
   {
     "strongs": "4160",
@@ -8146,61 +1346,6 @@
   },
   {
     "strongs": "4160",
-    "morphology": "V-PAI-2P",
-    "word": "ποιεῖτε"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAM-2P",
-    "word": "ποιεῖτε"
-  },
-  {
-    "strongs": "4162",
-    "morphology": "N-DSF",
-    "word": "ποιήσει"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-FAI-3S",
-    "word": "ποιήσει"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-AAS-1S",
-    "word": "ποιήσω"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-FAI-1S",
-    "word": "ποιήσω"
-  },
-  {
-    "strongs": "4168",
-    "morphology": "N-ASN",
-    "word": "ποίμνιον"
-  },
-  {
-    "strongs": "4168",
-    "morphology": "N-NSN",
-    "word": "ποίμνιον"
-  },
-  {
-    "strongs": "4169",
-    "morphology": "I-ASM",
-    "word": "ποῖον"
-  },
-  {
-    "strongs": "4169",
-    "morphology": "I-ASN",
-    "word": "ποῖον"
-  },
-  {
-    "strongs": "4169",
-    "morphology": "I-NSN",
-    "word": "ποῖον"
-  },
-  {
-    "strongs": "4160",
     "morphology": "V-PAI-1P",
     "word": "ποιοῦμεν"
   },
@@ -8208,56 +1353,6 @@
     "strongs": "4160",
     "morphology": "V-PAS-1P",
     "word": "ποιοῦμεν"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAP-ASM",
-    "word": "ποιοῦντα"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAP-NPN",
-    "word": "ποιοῦντα"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAP-DSM",
-    "word": "ποιοῦντι"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAP-DSN",
-    "word": "ποιοῦντι"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAI-3P",
-    "word": "ποιοῦσιν"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAP-DPM",
-    "word": "ποιοῦσιν"
-  },
-  {
-    "strongs": "4169",
-    "morphology": "I-DSM",
-    "word": "ποίῳ"
-  },
-  {
-    "strongs": "4169",
-    "morphology": "I-DSN",
-    "word": "ποίῳ"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAI-1S",
-    "word": "ποιῶ"
-  },
-  {
-    "strongs": "4160",
-    "morphology": "V-PAS-1S",
-    "word": "ποιῶ"
   },
   {
     "strongs": "4172",
@@ -8270,176 +1365,6 @@
     "word": "πόλεις"
   },
   {
-    "strongs": "4183",
-    "morphology": "A-APN",
-    "word": "πολλά"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-NPN",
-    "word": "πολλὰ"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-DSF",
-    "word": "πολλῇ"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-NSF",
-    "word": "πολλή"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-DPM",
-    "word": "πολλοῖς"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-DPN",
-    "word": "πολλοῖς"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-GSM",
-    "word": "πολλοῦ"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-GSN",
-    "word": "πολλοῦ"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-DSM",
-    "word": "πολλῷ"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-DSN",
-    "word": "πολλῷ"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-GPF",
-    "word": "πολλῶν"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-GPM",
-    "word": "πολλῶν"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-GPN",
-    "word": "πολλῶν"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-ASN",
-    "word": "πολὺ"
-  },
-  {
-    "strongs": "4183",
-    "morphology": "A-NSN",
-    "word": "πολὺ"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-APN",
-    "word": "πονηρὰ"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-DSF",
-    "word": "πονηρᾷ"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-NPN",
-    "word": "πονηρὰ"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-NSF",
-    "word": "πονηρὰ"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-DPM",
-    "word": "πονηροῖς"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-DPN",
-    "word": "πονηροῖς"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-ASM",
-    "word": "πονηρὸν"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-ASN",
-    "word": "πονηρὸν"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-NSN",
-    "word": "πονηρόν"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-GSM",
-    "word": "πονηροῦ"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-GSN",
-    "word": "πονηροῦ"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-GPM",
-    "word": "πονηρῶν"
-  },
-  {
-    "strongs": "4190",
-    "morphology": "A-GPN",
-    "word": "πονηρῶν"
-  },
-  {
-    "strongs": "4198",
-    "morphology": "V-PNP-ASM",
-    "word": "πορευόμενον"
-  },
-  {
-    "strongs": "4198",
-    "morphology": "V-PNP-NSN",
-    "word": "πορευόμενον"
-  },
-  {
-    "strongs": "4198",
-    "morphology": "V-PNP-GPF",
-    "word": "Πορευομένων"
-  },
-  {
-    "strongs": "4198",
-    "morphology": "V-PNP-GPM",
-    "word": "πορευομένων"
-  },
-  {
-    "strongs": "4202",
-    "morphology": "N-DSF",
-    "word": "πορνείᾳ"
-  },
-  {
-    "strongs": "4202",
-    "morphology": "N-NSF",
-    "word": "πορνεία"
-  },
-  {
     "strongs": "4202",
     "morphology": "N-APF",
     "word": "πορνείας"
@@ -8450,74 +1375,9 @@
     "word": "πορνείας"
   },
   {
-    "strongs": "4204",
-    "morphology": "N-DSF",
-    "word": "πόρνῃ"
-  },
-  {
-    "strongs": "4204",
-    "morphology": "N-NSF",
-    "word": "πόρνη"
-  },
-  {
-    "strongs": "4214",
-    "morphology": "Q-ASN",
-    "word": "Πόσον"
-  },
-  {
-    "strongs": "4214",
-    "morphology": "Q-NSN",
-    "word": "πόσον"
-  },
-  {
-    "strongs": "4218",
-    "morphology": "PRT",
-    "word": "ποτε"
-  },
-  {
-    "strongs": "4219",
-    "morphology": "PRT-I",
-    "word": "πότε"
-  },
-  {
-    "strongs": "4221",
-    "morphology": "N-ASN",
-    "word": "ποτήριον"
-  },
-  {
-    "strongs": "4221",
-    "morphology": "N-NSN",
-    "word": "ποτὴριον"
-  },
-  {
-    "strongs": "4225",
+    "strongs": "4226",
     "morphology": "PRT",
     "word": "ποῦ"
-  },
-  {
-    "strongs": "4226",
-    "morphology": "PRT-I",
-    "word": "Ποῦ"
-  },
-  {
-    "strongs": "4229",
-    "morphology": "N-ASN",
-    "word": "πρᾶγμα"
-  },
-  {
-    "strongs": "4229",
-    "morphology": "N-NSN",
-    "word": "πρᾶγμα"
-  },
-  {
-    "strongs": "4232",
-    "morphology": "N-ASN",
-    "word": "πραιτώριον"
-  },
-  {
-    "strongs": "4232",
-    "morphology": "N-NSN",
-    "word": "πραιτώριον"
   },
   {
     "strongs": "4245",
@@ -8530,36 +1390,6 @@
     "word": "πρεσβύτεροι"
   },
   {
-    "strongs": "4263",
-    "morphology": "N-APN",
-    "word": "πρόβατα"
-  },
-  {
-    "strongs": "4263",
-    "morphology": "N-NPN",
-    "word": "πρόβατα"
-  },
-  {
-    "strongs": "4263",
-    "morphology": "N-ASN",
-    "word": "πρόβατον"
-  },
-  {
-    "strongs": "4263",
-    "morphology": "N-NSN",
-    "word": "πρόβατον"
-  },
-  {
-    "strongs": "4280",
-    "morphology": "V-RPP-GPM",
-    "word": "προειρημένων"
-  },
-  {
-    "strongs": "4280",
-    "morphology": "V-RPP-GPN",
-    "word": "προειρημένων"
-  },
-  {
     "strongs": "4328",
     "morphology": "V-PAI-1P",
     "word": "προσδοκῶμεν"
@@ -8570,126 +1400,6 @@
     "word": "προσδοκῶμεν"
   },
   {
-    "strongs": "4335",
-    "morphology": "N-DSF",
-    "word": "προσευχῇ"
-  },
-  {
-    "strongs": "4335",
-    "morphology": "N-NSF",
-    "word": "προσευχὴ"
-  },
-  {
-    "strongs": "4336",
-    "morphology": "V-PNS-2S",
-    "word": "προσεύχῃ"
-  },
-  {
-    "strongs": "4336",
-    "morphology": "V-PNP-ASM",
-    "word": "προσευχόμενον"
-  },
-  {
-    "strongs": "4336",
-    "morphology": "V-PNP-NSN",
-    "word": "προσευχόμενον"
-  },
-  {
-    "strongs": "4348",
-    "morphology": "N-ASN",
-    "word": "πρόσκομμα"
-  },
-  {
-    "strongs": "4348",
-    "morphology": "N-NSN",
-    "word": "πρόσκομμα"
-  },
-  {
-    "strongs": "4374",
-    "morphology": "V-PAI-3P",
-    "word": "προσφέρουσιν"
-  },
-  {
-    "strongs": "4374",
-    "morphology": "V-PAP-DPM",
-    "word": "προσφέρουσιν"
-  },
-  {
-    "strongs": "4376",
-    "morphology": "N-DSF",
-    "word": "προσφορᾷ"
-  },
-  {
-    "strongs": "4376",
-    "morphology": "N-NSF",
-    "word": "προσφορά"
-  },
-  {
-    "strongs": "4376",
-    "morphology": "N-APF",
-    "word": "προσφοράς"
-  },
-  {
-    "strongs": "4376",
-    "morphology": "N-GSF",
-    "word": "προσφορᾶς"
-  },
-  {
-    "strongs": "4377",
-    "morphology": "V-PAI-3P",
-    "word": "προσφωνοῦσιν"
-  },
-  {
-    "strongs": "4377",
-    "morphology": "V-PAP-DPM",
-    "word": "προσφωνοῦσιν"
-  },
-  {
-    "strongs": "4383",
-    "morphology": "N-APN",
-    "word": "πρόσωπα"
-  },
-  {
-    "strongs": "4383",
-    "morphology": "N-NPN",
-    "word": "πρόσωπα"
-  },
-  {
-    "strongs": "4383",
-    "morphology": "N-ASN",
-    "word": "πρόσωπόν"
-  },
-  {
-    "strongs": "4383",
-    "morphology": "N-NSN",
-    "word": "πρόσωπον"
-  },
-  {
-    "strongs": "4386",
-    "morphology": "A-ASN",
-    "word": "πρότερον"
-  },
-  {
-    "strongs": "4386",
-    "morphology": "A-NSN",
-    "word": "πρότερον"
-  },
-  {
-    "strongs": "4386",
-    "morphology": "ADV",
-    "word": "πρότερον"
-  },
-  {
-    "strongs": "4394",
-    "morphology": "N-DSF",
-    "word": "προφητείᾳ"
-  },
-  {
-    "strongs": "4394",
-    "morphology": "N-NSF",
-    "word": "προφητεία"
-  },
-  {
     "strongs": "4394",
     "morphology": "N-APF",
     "word": "προφητείας"
@@ -8698,21 +1408,6 @@
     "strongs": "4394",
     "morphology": "N-GSF",
     "word": "προφητείας"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-APN",
-    "word": "πρῶτα"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-NPN",
-    "word": "πρῶτα"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-DSF",
-    "word": "πρώτῃ"
   },
   {
     "strongs": "4413",
@@ -8735,106 +1430,6 @@
     "word": "πρῶτον"
   },
   {
-    "strongs": "4413",
-    "morphology": "A-ASN",
-    "word": "πρῶτον"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-NSN",
-    "word": "πρῶτον"
-  },
-  {
-    "strongs": "4412",
-    "morphology": "ADV",
-    "word": "πρῶτον"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-GSM",
-    "word": "πρώτου"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-GSN",
-    "word": "πρώτου"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-DSM",
-    "word": "πρώτῳ"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-DSN",
-    "word": "πρώτῳ"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-GPF",
-    "word": "πρώτων"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-GPM",
-    "word": "πρώτων"
-  },
-  {
-    "strongs": "4413",
-    "morphology": "A-GPN",
-    "word": "πρώτων"
-  },
-  {
-    "strongs": "4430",
-    "morphology": "N-ASN",
-    "word": "πτῶμα"
-  },
-  {
-    "strongs": "4430",
-    "morphology": "N-NSN",
-    "word": "πτῶμα"
-  },
-  {
-    "strongs": "4430",
-    "morphology": "N-APN",
-    "word": "πτώματα"
-  },
-  {
-    "strongs": "4430",
-    "morphology": "N-NPN",
-    "word": "πτῶματα"
-  },
-  {
-    "strongs": "4432",
-    "morphology": "N-DSF",
-    "word": "πτωχείᾳ"
-  },
-  {
-    "strongs": "4432",
-    "morphology": "N-NSF",
-    "word": "πτωχεία"
-  },
-  {
-    "strongs": "4439",
-    "morphology": "N-DSF",
-    "word": "πύλῃ"
-  },
-  {
-    "strongs": "4439",
-    "morphology": "N-NSF",
-    "word": "πύλη"
-  },
-  {
-    "strongs": "4442",
-    "morphology": "N-ASN",
-    "word": "πῦρ"
-  },
-  {
-    "strongs": "4442",
-    "morphology": "N-NSN",
-    "word": "πῦρ"
-  },
-  {
     "strongs": "4459",
     "morphology": "ADV",
     "word": "πῶς"
@@ -8845,181 +1440,6 @@
     "word": "πῶς"
   },
   {
-    "strongs": "4459",
-    "morphology": "PRT-I",
-    "word": "πως"
-  },
-  {
-    "strongs": "4483",
-    "morphology": "V-APP-ASN",
-    "word": "ῥηθὲν"
-  },
-  {
-    "strongs": "4483",
-    "morphology": "V-APP-NSN",
-    "word": "ῥηθὲν"
-  },
-  {
-    "strongs": "4487",
-    "morphology": "N-ASN",
-    "word": "ῥῆμα"
-  },
-  {
-    "strongs": "4487",
-    "morphology": "N-NSN",
-    "word": "ῥῆμα"
-  },
-  {
-    "strongs": "4487",
-    "morphology": "N-APN",
-    "word": "ῥήματα"
-  },
-  {
-    "strongs": "4487",
-    "morphology": "N-NPN",
-    "word": "ῥήματα"
-  },
-  {
-    "strongs": "4501",
-    "morphology": "N-DSF",
-    "word": "ῥομφαίᾳ"
-  },
-  {
-    "strongs": "4501",
-    "morphology": "N-NSF",
-    "word": "ῥομφαία"
-  },
-  {
-    "strongs": "4674",
-    "morphology": "S-2APN",
-    "word": "σὰ"
-  },
-  {
-    "strongs": "4674",
-    "morphology": "S-2NPN",
-    "word": "σά"
-  },
-  {
-    "strongs": "4521",
-    "morphology": "N-ASN",
-    "word": "σάββατον"
-  },
-  {
-    "strongs": "4521",
-    "morphology": "N-NSN",
-    "word": "σάββατον"
-  },
-  {
-    "strongs": "4540",
-    "morphology": "N-DSF",
-    "word": "Σαμαρείᾳ"
-  },
-  {
-    "strongs": "4540",
-    "morphology": "N-NSF",
-    "word": "Σαμάρεια"
-  },
-  {
-    "strongs": "4550",
-    "morphology": "A-ASM",
-    "word": "σαπρόν"
-  },
-  {
-    "strongs": "4550",
-    "morphology": "A-ASN",
-    "word": "σαπρὸν"
-  },
-  {
-    "strongs": "4550",
-    "morphology": "A-NSN",
-    "word": "σαπρὸν"
-  },
-  {
-    "strongs": "4559",
-    "morphology": "A-APN",
-    "word": "σαρκικὰ"
-  },
-  {
-    "strongs": "4559",
-    "morphology": "A-NPN",
-    "word": "σαρκικὰ"
-  },
-  {
-    "strongs": "4559",
-    "morphology": "A-DPM",
-    "word": "σαρκικοῖς"
-  },
-  {
-    "strongs": "4559",
-    "morphology": "A-DPN",
-    "word": "σαρκικοῖς"
-  },
-  {
-    "strongs": "4564",
-    "morphology": "N-DSF",
-    "word": "Σάῤῥᾳ"
-  },
-  {
-    "strongs": "4564",
-    "morphology": "N-NSF",
-    "word": "Σάῤῥα"
-  },
-  {
-    "strongs": "4567",
-    "morphology": "N-DSM",
-    "word": "Σατανᾷ"
-  },
-  {
-    "strongs": "4567",
-    "morphology": "N-GSM",
-    "word": "Σατανᾶ"
-  },
-  {
-    "strongs": "4567",
-    "morphology": "N-VSM",
-    "word": "Σατανᾶ"
-  },
-  {
-    "strongs": "4582",
-    "morphology": "N-DSF",
-    "word": "σελήνῃ"
-  },
-  {
-    "strongs": "4582",
-    "morphology": "N-NSF",
-    "word": "σελήνη"
-  },
-  {
-    "strongs": "4592",
-    "morphology": "N-APN",
-    "word": "σημεῖα"
-  },
-  {
-    "strongs": "4592",
-    "morphology": "N-NPN",
-    "word": "σημεῖα"
-  },
-  {
-    "strongs": "4592",
-    "morphology": "N-ASN",
-    "word": "σημεῖον"
-  },
-  {
-    "strongs": "4592",
-    "morphology": "N-NSN",
-    "word": "σημεῖον"
-  },
-  {
-    "strongs": "4597",
-    "morphology": "N-NSM",
-    "word": "σὴς"
-  },
-  {
-    "strongs": "4674",
-    "morphology": "S-2GSF",
-    "word": "σῆς"
-  },
-  {
     "strongs": "4613",
     "morphology": "N-NSM",
     "word": "Σίμων"
@@ -9028,171 +1448,6 @@
     "strongs": "4613",
     "morphology": "N-VSM",
     "word": "Σίμων"
-  },
-  {
-    "strongs": "4625",
-    "morphology": "N-ASN",
-    "word": "σκάνδαλον"
-  },
-  {
-    "strongs": "4625",
-    "morphology": "N-NSN",
-    "word": "σκάνδαλον"
-  },
-  {
-    "strongs": "4628",
-    "morphology": "N-APN",
-    "word": "σκέλη"
-  },
-  {
-    "strongs": "4628",
-    "morphology": "N-NPN",
-    "word": "σκέλη"
-  },
-  {
-    "strongs": "4632",
-    "morphology": "N-APN",
-    "word": "σκεύη"
-  },
-  {
-    "strongs": "4632",
-    "morphology": "N-NPN",
-    "word": "σκεύη"
-  },
-  {
-    "strongs": "4632",
-    "morphology": "N-ASN",
-    "word": "σκεῦος"
-  },
-  {
-    "strongs": "4632",
-    "morphology": "N-NSN",
-    "word": "σκεῦος"
-  },
-  {
-    "strongs": "4633",
-    "morphology": "N-DSF",
-    "word": "σκηνῇ"
-  },
-  {
-    "strongs": "4633",
-    "morphology": "N-NSF",
-    "word": "σκηνὴ"
-  },
-  {
-    "strongs": "4639",
-    "morphology": "N-DSF",
-    "word": "σκιᾷ"
-  },
-  {
-    "strongs": "4639",
-    "morphology": "N-NSF",
-    "word": "σκιὰ"
-  },
-  {
-    "strongs": "4642",
-    "morphology": "A-GPM",
-    "word": "σκληρῶν"
-  },
-  {
-    "strongs": "4642",
-    "morphology": "A-GPN",
-    "word": "σκληρῶν"
-  },
-  {
-    "strongs": "4652",
-    "morphology": "A-ASN",
-    "word": "σκοτεινόν"
-  },
-  {
-    "strongs": "4652",
-    "morphology": "A-NSN",
-    "word": "σκοτεινὸν"
-  },
-  {
-    "strongs": "4653",
-    "morphology": "N-DSF",
-    "word": "σκοτίᾳ"
-  },
-  {
-    "strongs": "4653",
-    "morphology": "N-NSF",
-    "word": "σκοτία"
-  },
-  {
-    "strongs": "4655",
-    "morphology": "N-ASN",
-    "word": "σκότος"
-  },
-  {
-    "strongs": "4655",
-    "morphology": "N-NSN",
-    "word": "σκότος"
-  },
-  {
-    "strongs": "4671",
-    "morphology": "P-2DS",
-    "word": "σοί"
-  },
-  {
-    "strongs": "4674",
-    "morphology": "S-2NPM",
-    "word": "σοὶ"
-  },
-  {
-    "strongs": "4674",
-    "morphology": "S-2ASN",
-    "word": "σὸν"
-  },
-  {
-    "strongs": "4674",
-    "morphology": "S-2NSN",
-    "word": "σὸν"
-  },
-  {
-    "strongs": "4678",
-    "morphology": "N-DSF",
-    "word": "σοφίᾳ"
-  },
-  {
-    "strongs": "4678",
-    "morphology": "N-NSF",
-    "word": "σοφία"
-  },
-  {
-    "strongs": "4690",
-    "morphology": "N-ASN",
-    "word": "σπέρμα"
-  },
-  {
-    "strongs": "4690",
-    "morphology": "N-NSN",
-    "word": "σπέρμα"
-  },
-  {
-    "strongs": "4693",
-    "morphology": "N-ASN",
-    "word": "σπήλαιον"
-  },
-  {
-    "strongs": "4693",
-    "morphology": "N-NSN",
-    "word": "σπήλαιον"
-  },
-  {
-    "strongs": "4698",
-    "morphology": "N-APN",
-    "word": "σπλάγχνα"
-  },
-  {
-    "strongs": "4698",
-    "morphology": "N-NPN",
-    "word": "σπλάγχνα"
-  },
-  {
-    "strongs": "4723",
-    "morphology": "N-DSF",
-    "word": "στείρᾳ"
   },
   {
     "strongs": "4723",
@@ -9205,16 +1460,6 @@
     "word": "στεῖρα"
   },
   {
-    "strongs": "4739",
-    "morphology": "V-PAI-2P",
-    "word": "στήκετε"
-  },
-  {
-    "strongs": "4739",
-    "morphology": "V-PAM-2P",
-    "word": "στήκετε"
-  },
-  {
     "strongs": "4741",
     "morphology": "V-AAN",
     "word": "στηρίξαι"
@@ -9225,46 +1470,6 @@
     "word": "στηρίξαι"
   },
   {
-    "strongs": "2476",
-    "morphology": "V-2AAM-2P",
-    "word": "στῆτε"
-  },
-  {
-    "strongs": "2476",
-    "morphology": "V-2AAS-2P",
-    "word": "στῆτε"
-  },
-  {
-    "strongs": "4747",
-    "morphology": "N-APN",
-    "word": "στοιχεῖα"
-  },
-  {
-    "strongs": "4747",
-    "morphology": "N-NPN",
-    "word": "στοιχεῖα"
-  },
-  {
-    "strongs": "4750",
-    "morphology": "N-ASN",
-    "word": "στόμα"
-  },
-  {
-    "strongs": "4750",
-    "morphology": "N-NSN",
-    "word": "στόμα"
-  },
-  {
-    "strongs": "4753",
-    "morphology": "N-APN",
-    "word": "στρατεύματα"
-  },
-  {
-    "strongs": "4753",
-    "morphology": "N-NPN",
-    "word": "στρατεύματα"
-  },
-  {
     "strongs": "4773",
     "morphology": "A-APM",
     "word": "συγγενεῖς"
@@ -9273,116 +1478,6 @@
     "strongs": "4773",
     "morphology": "A-NPM",
     "word": "συγγενεῖς"
-  },
-  {
-    "strongs": "4773",
-    "morphology": "A-NSF",
-    "word": "συγγενής"
-  },
-  {
-    "strongs": "4773",
-    "morphology": "A-NSM",
-    "word": "συγγενὴς"
-  },
-  {
-    "strongs": "4808",
-    "morphology": "N-DSF",
-    "word": "συκῇ"
-  },
-  {
-    "strongs": "4808",
-    "morphology": "N-NSF",
-    "word": "συκῆ"
-  },
-  {
-    "strongs": "4864",
-    "morphology": "N-DSF",
-    "word": "συναγωγῇ"
-  },
-  {
-    "strongs": "4864",
-    "morphology": "N-NSF",
-    "word": "συναγωγὴ"
-  },
-  {
-    "strongs": "4892",
-    "morphology": "N-ASN",
-    "word": "συνέδριον"
-  },
-  {
-    "strongs": "4892",
-    "morphology": "N-NSN",
-    "word": "συνέδριον"
-  },
-  {
-    "strongs": "4920",
-    "morphology": "V-PAI-2P",
-    "word": "συνίετε"
-  },
-  {
-    "strongs": "4920",
-    "morphology": "V-PAM-2P",
-    "word": "συνίετε"
-  },
-  {
-    "strongs": "4930",
-    "morphology": "N-DSF",
-    "word": "συντελείᾳ"
-  },
-  {
-    "strongs": "4930",
-    "morphology": "N-NSF",
-    "word": "συντέλεια"
-  },
-  {
-    "strongs": "4978",
-    "morphology": "N-APN",
-    "word": "σχίσματα"
-  },
-  {
-    "strongs": "4978",
-    "morphology": "N-NPN",
-    "word": "σχίσματα"
-  },
-  {
-    "strongs": "4982",
-    "morphology": "V-APM-2P",
-    "word": "Σώθητε"
-  },
-  {
-    "strongs": "4982",
-    "morphology": "V-APS-2P",
-    "word": "σωθῆτε"
-  },
-  {
-    "strongs": "4983",
-    "morphology": "N-ASN",
-    "word": "σῶμα"
-  },
-  {
-    "strongs": "4983",
-    "morphology": "N-NSN",
-    "word": "σῶμά"
-  },
-  {
-    "strongs": "4983",
-    "morphology": "N-APN",
-    "word": "σώματα"
-  },
-  {
-    "strongs": "4983",
-    "morphology": "N-NPN",
-    "word": "σώματα"
-  },
-  {
-    "strongs": "4992",
-    "morphology": "A-ASN",
-    "word": "σωτήριόν"
-  },
-  {
-    "strongs": "4992",
-    "morphology": "A-NSN",
-    "word": "σωτήριον"
   },
   {
     "strongs": "4998",
@@ -9396,26 +1491,6 @@
   },
   {
     "strongs": "3588",
-    "morphology": "T-APN",
-    "word": "τὰ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-NPN",
-    "word": "τὰ"
-  },
-  {
-    "strongs": "5014",
-    "morphology": "N-DSF",
-    "word": "ταπεινώσει"
-  },
-  {
-    "strongs": "5013",
-    "morphology": "V-FAI-3S",
-    "word": "ταπεινώσει"
-  },
-  {
-    "strongs": "3588",
     "morphology": "N-APF",
     "word": "τὰς"
   },
@@ -9423,116 +1498,6 @@
     "strongs": "3588",
     "morphology": "T-APF",
     "word": "τὰς"
-  },
-  {
-    "strongs": "5023",
-    "morphology": "D-APN",
-    "word": "ταῦτα"
-  },
-  {
-    "strongs": "5023",
-    "morphology": "D-NPN",
-    "word": "ταῦτα"
-  },
-  {
-    "strongs": "5024",
-    "morphology": "N-APN-C",
-    "word": "ταῦτα"
-  },
-  {
-    "strongs": "5038",
-    "morphology": "N-ASN",
-    "word": "τεῖχος"
-  },
-  {
-    "strongs": "5038",
-    "morphology": "N-NSN",
-    "word": "τεῖχος"
-  },
-  {
-    "strongs": "5043",
-    "morphology": "N-APN",
-    "word": "τέκνα"
-  },
-  {
-    "strongs": "5043",
-    "morphology": "N-NPN",
-    "word": "τέκνα"
-  },
-  {
-    "strongs": "5043",
-    "morphology": "N-VPN",
-    "word": "Τέκνα"
-  },
-  {
-    "strongs": "5043",
-    "morphology": "N-ASN",
-    "word": "τέκνον"
-  },
-  {
-    "strongs": "5043",
-    "morphology": "N-NSN",
-    "word": "τέκνον"
-  },
-  {
-    "strongs": "5043",
-    "morphology": "N-VSN",
-    "word": "τέκνον"
-  },
-  {
-    "strongs": "5046",
-    "morphology": "A-ASM",
-    "word": "τέλειον"
-  },
-  {
-    "strongs": "5046",
-    "morphology": "A-ASN",
-    "word": "τέλειον"
-  },
-  {
-    "strongs": "5046",
-    "morphology": "A-NSN",
-    "word": "τέλειον"
-  },
-  {
-    "strongs": "5056",
-    "morphology": "N-APN",
-    "word": "τέλη"
-  },
-  {
-    "strongs": "5056",
-    "morphology": "N-NPN",
-    "word": "τέλη"
-  },
-  {
-    "strongs": "5056",
-    "morphology": "N-ASN",
-    "word": "τέλος"
-  },
-  {
-    "strongs": "5056",
-    "morphology": "N-NSN",
-    "word": "τέλος"
-  },
-  {
-    "strongs": "5059",
-    "morphology": "N-APN",
-    "word": "τέρατα"
-  },
-  {
-    "strongs": "5059",
-    "morphology": "N-NPN",
-    "word": "τέρατα"
-  },
-  {
-    "strongs": "5064",
-    "morphology": "A-APN",
-    "word": "τέσσαρα"
-  },
-  {
-    "strongs": "5064",
-    "morphology": "A-NPN",
-    "word": "τέσσαρα"
   },
   {
     "strongs": "5064",
@@ -9553,126 +1518,6 @@
     "strongs": "5064",
     "morphology": "A-NPM",
     "word": "τέσσαρες"
-  },
-  {
-    "strongs": "5064",
-    "morphology": "A-DPF",
-    "word": "τέσσαρσιν"
-  },
-  {
-    "strongs": "5064",
-    "morphology": "A-DPM",
-    "word": "τέσσαρσιν"
-  },
-  {
-    "strongs": "5064",
-    "morphology": "A-DPN",
-    "word": "τέσσαρσιν"
-  },
-  {
-    "strongs": "5064",
-    "morphology": "A-GPM",
-    "word": "τεσσάρων"
-  },
-  {
-    "strongs": "5064",
-    "morphology": "A-GPN",
-    "word": "τεσσάρων"
-  },
-  {
-    "strongs": "5067",
-    "morphology": "A-ASN",
-    "word": "τέταρτον"
-  },
-  {
-    "strongs": "5067",
-    "morphology": "A-NSN",
-    "word": "τέταρτον"
-  },
-  {
-    "strongs": "5074",
-    "morphology": "A-APN",
-    "word": "τετράποδα"
-  },
-  {
-    "strongs": "5074",
-    "morphology": "A-NPN",
-    "word": "τετράποδα"
-  },
-  {
-    "strongs": "5083",
-    "morphology": "V-PAI-3S",
-    "word": "τηρεῖ"
-  },
-  {
-    "strongs": "5083",
-    "morphology": "V-PAM-2S",
-    "word": "τήρει"
-  },
-  {
-    "strongs": "5084",
-    "morphology": "N-DSF",
-    "word": "τηρήσει"
-  },
-  {
-    "strongs": "5083",
-    "morphology": "V-FAI-3S",
-    "word": "τηρήσει"
-  },
-  {
-    "strongs": "2444",
-    "morphology": "ADV-I",
-    "word": "τί"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-ASN",
-    "word": "τί"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-NSN",
-    "word": "Τί"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-ASN",
-    "word": "τι"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-NSN",
-    "word": "τί"
-  },
-  {
-    "strongs": "5091",
-    "morphology": "V-PAI-3S",
-    "word": "τιμᾷ"
-  },
-  {
-    "strongs": "5091",
-    "morphology": "V-PAM-2S",
-    "word": "Τίμα"
-  },
-  {
-    "strongs": "5092",
-    "morphology": "N-DSF",
-    "word": "τιμῇ"
-  },
-  {
-    "strongs": "5092",
-    "morphology": "N-NSF",
-    "word": "τιμὴ"
-  },
-  {
-    "strongs": "5093",
-    "morphology": "A-DSM",
-    "word": "τιμίῳ"
-  },
-  {
-    "strongs": "5093",
-    "morphology": "A-DSN",
-    "word": "τιμίῳ"
   },
   {
     "strongs": "5091",
@@ -9695,64 +1540,19 @@
     "word": "τίνα"
   },
   {
-    "strongs": "5101",
-    "morphology": "I-NPN",
-    "word": "τίνα"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-APN",
-    "word": "τινα"
-  },
-  {
     "strongs": "5100",
     "morphology": "X-ASF",
-    "word": "τινά"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-NPN",
-    "word": "τινά"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-ASM",
     "word": "τινὰ"
   },
   {
     "strongs": "5100",
-    "morphology": "X-NPN",
-    "word": "τινα"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-APF",
-    "word": "τίνας"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-APM",
-    "word": "τίνας"
-  },
-  {
-    "strongs": "5100",
     "morphology": "X-APF",
-    "word": "τινάς"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-APM",
-    "word": "τινάς"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-APM",
     "word": "τινὰς"
   },
   {
-    "strongs": "5101",
-    "morphology": "I-NPM",
-    "word": "τίνες"
+    "strongs": "5100",
+    "morphology": "X-APM",
+    "word": "τινάς"
   },
   {
     "strongs": "5100",
@@ -9763,111 +1563,6 @@
     "strongs": "5100",
     "morphology": "X-NPM",
     "word": "τινες"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-DSM",
-    "word": "τίνι"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-DSN",
-    "word": "τίνι"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-DSF",
-    "word": "τίνι"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DSF",
-    "word": "τινι"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DSM",
-    "word": "τινι"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DSN",
-    "word": "τινι"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-GSM",
-    "word": "Τίνος"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-GSN",
-    "word": "τίνος"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-GSF",
-    "word": "τίνος"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GSF",
-    "word": "τινος"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GSM",
-    "word": "τινος"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GSN",
-    "word": "τινος"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-GPM",
-    "word": "τίνων"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-GPN",
-    "word": "τίνων"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-GPF",
-    "word": "τίνων"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GPF",
-    "word": "τινῶν"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GPM",
-    "word": "τινῶν"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GPN",
-    "word": "τινῶν"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GPM",
-    "word": "τινων"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GPN",
-    "word": "τινων"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GPF",
-    "word": "τινων"
   },
   {
     "strongs": "5101",
@@ -9890,111 +1585,6 @@
     "word": "τις"
   },
   {
-    "strongs": "5100",
-    "morphology": "X-NSN",
-    "word": "τις"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GSM",
-    "word": "τινός"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GSN",
-    "word": "τινός"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-GSF",
-    "word": "τινός"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DSM",
-    "word": "τινί"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DSN",
-    "word": "τινί"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DSF",
-    "word": "τινί"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-DPM",
-    "word": "τίσιν"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-DPF",
-    "word": "τίσιν"
-  },
-  {
-    "strongs": "5101",
-    "morphology": "I-DPN",
-    "word": "τίσιν"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DPM",
-    "word": "τισιν"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DPN",
-    "word": "τισιν"
-  },
-  {
-    "strongs": "5100",
-    "morphology": "X-DPF",
-    "word": "τισιν"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-ASN",
-    "word": "τὸ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-NSN",
-    "word": "τὸ"
-  },
-  {
-    "strongs": "5108",
-    "morphology": "D-DPM",
-    "word": "τοιούτοις"
-  },
-  {
-    "strongs": "5108",
-    "morphology": "D-DPN",
-    "word": "τοιούτοις"
-  },
-  {
-    "strongs": "5108",
-    "morphology": "D-ASM",
-    "word": "τοιοῦτον"
-  },
-  {
-    "strongs": "5108",
-    "morphology": "D-ASN",
-    "word": "τοιοῦτον"
-  },
-  {
-    "strongs": "5108",
-    "morphology": "D-GPM",
-    "word": "τοιούτων"
-  },
-  {
-    "strongs": "5108",
-    "morphology": "D-GPN",
-    "word": "τοιούτων"
-  },
-  {
     "strongs": "5111",
     "morphology": "V-PAI-3S",
     "word": "τολμᾷ"
@@ -10003,96 +1593,6 @@
     "strongs": "5111",
     "morphology": "V-PAS-3S",
     "word": "τολμᾷ"
-  },
-  {
-    "strongs": "5118",
-    "morphology": "D-APN",
-    "word": "τοσαῦτα"
-  },
-  {
-    "strongs": "5118",
-    "morphology": "D-NPN",
-    "word": "τοσαῦτα"
-  },
-  {
-    "strongs": "5118",
-    "morphology": "D-ASM",
-    "word": "τοσοῦτον"
-  },
-  {
-    "strongs": "5118",
-    "morphology": "D-ASN",
-    "word": "τοσοῦτον"
-  },
-  {
-    "strongs": "5118",
-    "morphology": "D-NSN",
-    "word": "τοσοῦτόν"
-  },
-  {
-    "strongs": "5118",
-    "morphology": "D-DSM",
-    "word": "τοσούτῳ"
-  },
-  {
-    "strongs": "5118",
-    "morphology": "D-DSN",
-    "word": "τοσούτῳ"
-  },
-  {
-    "strongs": "5124",
-    "morphology": "D-ASN",
-    "word": "τοῦτο"
-  },
-  {
-    "strongs": "5124",
-    "morphology": "D-NSN",
-    "word": "Τοῦτο"
-  },
-  {
-    "strongs": "5125",
-    "morphology": "D-DPM",
-    "word": "τούτοις"
-  },
-  {
-    "strongs": "5125",
-    "morphology": "D-DPN",
-    "word": "τούτοις"
-  },
-  {
-    "strongs": "5127",
-    "morphology": "D-GSM",
-    "word": "τούτου"
-  },
-  {
-    "strongs": "5127",
-    "morphology": "D-GSN",
-    "word": "τούτου"
-  },
-  {
-    "strongs": "5129",
-    "morphology": "D-DSM",
-    "word": "τούτῳ"
-  },
-  {
-    "strongs": "5129",
-    "morphology": "D-DSN",
-    "word": "τούτῳ"
-  },
-  {
-    "strongs": "5130",
-    "morphology": "D-GPF",
-    "word": "τούτων"
-  },
-  {
-    "strongs": "5130",
-    "morphology": "D-GPM",
-    "word": "τούτων"
-  },
-  {
-    "strongs": "5130",
-    "morphology": "D-GPN",
-    "word": "τούτων"
   },
   {
     "strongs": "5140",
@@ -10110,84 +1610,14 @@
     "word": "τρεῖς"
   },
   {
-    "strongs": "5143",
-    "morphology": "V-PAI-1S",
-    "word": "τρέχω"
-  },
-  {
-    "strongs": "5143",
-    "morphology": "V-PAS-1S",
-    "word": "τρέχω"
-  },
-  {
-    "strongs": "5140",
-    "morphology": "A-APN",
-    "word": "τρία"
-  },
-  {
-    "strongs": "5140",
-    "morphology": "A-NPN",
-    "word": "τρία"
-  },
-  {
-    "strongs": "5140",
-    "morphology": "A-DPF",
-    "word": "τρισὶν"
-  },
-  {
-    "strongs": "5140",
-    "morphology": "A-DPM",
-    "word": "τρισίν"
-  },
-  {
-    "strongs": "5154",
-    "morphology": "A-DSF",
-    "word": "τρίτῃ"
-  },
-  {
-    "strongs": "5154",
-    "morphology": "A-NSF",
-    "word": "τρίτη"
-  },
-  {
     "strongs": "5154",
     "morphology": "A-ASM",
     "word": "τρίτον"
   },
   {
     "strongs": "5154",
-    "morphology": "A-ASN",
-    "word": "τρίτον"
-  },
-  {
-    "strongs": "5154",
-    "morphology": "A-NSN",
-    "word": "τρίτον"
-  },
-  {
-    "strongs": "5154",
     "morphology": "ADV",
     "word": "τρίτον"
-  },
-  {
-    "strongs": "5154",
-    "morphology": "A-GSM",
-    "word": "τρίτου"
-  },
-  {
-    "strongs": "5154",
-    "morphology": "A-GSN",
-    "word": "τρίτου"
-  },
-  {
-    "strongs": "5140",
-    "morphology": "A-GPF",
-    "word": "τριῶν"
-  },
-  {
-    "strongs": "5140",
-    "morphology": "A-GPM",
-    "word": "τριῶν"
   },
   {
     "strongs": "5185",
@@ -10200,31 +1630,6 @@
     "word": "τυφλοὶ"
   },
   {
-    "strongs": "3588",
-    "morphology": "T-DSM",
-    "word": "τῷ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-DSN",
-    "word": "τῷ"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-GPF",
-    "word": "τῶν"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-GPM",
-    "word": "τῶν"
-  },
-  {
-    "strongs": "3588",
-    "morphology": "T-GPN",
-    "word": "τῶν"
-  },
-  {
     "strongs": "5199",
     "morphology": "A-NSF",
     "word": "ὑγιὴς"
@@ -10235,26 +1640,6 @@
     "word": "ὑγιὴς"
   },
   {
-    "strongs": "5204",
-    "morphology": "N-APN",
-    "word": "ὕδατα"
-  },
-  {
-    "strongs": "5204",
-    "morphology": "N-NPN",
-    "word": "ὕδατα"
-  },
-  {
-    "strongs": "5204",
-    "morphology": "N-ASN",
-    "word": "ὕδωρ"
-  },
-  {
-    "strongs": "5204",
-    "morphology": "N-NSN",
-    "word": "ὕδωρ"
-  },
-  {
     "strongs": "5207",
     "morphology": "N-NPM",
     "word": "υἱοὶ"
@@ -10265,236 +1650,11 @@
     "word": "υἱοὶ"
   },
   {
-    "strongs": "5209",
-    "morphology": "P-2AP",
-    "word": "ὑμᾶς"
-  },
-  {
-    "strongs": "5213",
-    "morphology": "P-2DP",
-    "word": "ὑμᾶς"
-  },
-  {
-    "strongs": "5212",
-    "morphology": "S-2DPF",
-    "word": "ὑμετέρᾳ"
-  },
-  {
-    "strongs": "5212",
-    "morphology": "S-2NPF",
-    "word": "ὑμετέρα"
-  },
-  {
-    "strongs": "5212",
-    "morphology": "S-2APM",
-    "word": "ὑμέτερον"
-  },
-  {
-    "strongs": "5212",
-    "morphology": "S-2APN",
-    "word": "ὑμέτερον"
-  },
-  {
-    "strongs": "5218",
-    "morphology": "N-DSF",
-    "word": "ὑπακοῇ"
-  },
-  {
-    "strongs": "5218",
-    "morphology": "N-NSF",
-    "word": "ὑπακοὴ"
-  },
-  {
-    "strongs": "5219",
-    "morphology": "V-PAI-2P",
-    "word": "ὑπακούετε"
-  },
-  {
-    "strongs": "5219",
-    "morphology": "V-PAM-2P",
-    "word": "ὑπακούετε"
-  },
-  {
-    "strongs": "5219",
-    "morphology": "V-PAI-3P",
-    "word": "ὑπακούουσιν"
-  },
-  {
-    "strongs": "5219",
-    "morphology": "V-PAP-DPM",
-    "word": "ὑπακούουσιν"
-  },
-  {
-    "strongs": "5224",
-    "morphology": "V-PAP-APN",
-    "word": "ὑπάρχοντα"
-  },
-  {
-    "strongs": "5225",
-    "morphology": "V-PAP-ASM",
-    "word": "ὑπάρχοντα"
-  },
-  {
-    "strongs": "5224",
-    "morphology": "V-PAP-NPN",
-    "word": "ὑπάρχοντα"
-  },
-  {
-    "strongs": "5225",
-    "morphology": "V-PAP-GSM",
-    "word": "ὑπάρχοντος"
-  },
-  {
-    "strongs": "5225",
-    "morphology": "V-PAP-GSN",
-    "word": "ὑπάρχοντος"
-  },
-  {
-    "strongs": "5225",
-    "morphology": "V-PAI-3P",
-    "word": "ὑπάρχουσιν"
-  },
-  {
-    "strongs": "5224",
-    "morphology": "V-PAP-DPN",
-    "word": "ὑπάρχουσιν"
-  },
-  {
-    "strongs": "5282",
-    "morphology": "V-IAI-1S",
-    "word": "ὑπενόουν"
-  },
-  {
-    "strongs": "5282",
-    "morphology": "V-IAI-3P",
-    "word": "ὑπενόουν"
-  },
-  {
-    "strongs": "5236",
-    "morphology": "N-DSF",
-    "word": "ὑπερβολῇ"
-  },
-  {
-    "strongs": "5236",
-    "morphology": "N-NSF",
-    "word": "ὑπερβολὴ"
-  },
-  {
     "strongs": "5273",
     "morphology": "N-NPM",
-    "word": "ὑποκριταὶ"
-  },
-  {
-    "strongs": "5273",
-    "morphology": "N-VPM",
     "word": "ὑποκριταί"
   },
   {
-    "strongs": "5280",
-    "morphology": "N-DSF",
-    "word": "ὑπομνήσει"
-  },
-  {
-    "strongs": "5279",
-    "morphology": "V-FAI-3S",
-    "word": "ὑπομνήσει"
-  },
-  {
-    "strongs": "5281",
-    "morphology": "N-DSF",
-    "word": "ὑπομονῇ"
-  },
-  {
-    "strongs": "5281",
-    "morphology": "N-NSF",
-    "word": "ὑπομονὴ"
-  },
-  {
-    "strongs": "5286",
-    "morphology": "N-ASN",
-    "word": "ὑποπόδιον"
-  },
-  {
-    "strongs": "5286",
-    "morphology": "N-NSN",
-    "word": "ὑποπόδιόν"
-  },
-  {
-    "strongs": "5292",
-    "morphology": "N-DSF",
-    "word": "ὑποταγῇ"
-  },
-  {
-    "strongs": "5293",
-    "morphology": "V-2APS-3S",
-    "word": "ὑποταγῇ"
-  },
-  {
-    "strongs": "5308",
-    "morphology": "A-ASN",
-    "word": "ὑψηλὸν"
-  },
-  {
-    "strongs": "5308",
-    "morphology": "A-NSN",
-    "word": "ὑψηλὸν"
-  },
-  {
-    "strongs": "5311",
-    "morphology": "N-ASN",
-    "word": "ὕψος"
-  },
-  {
-    "strongs": "5311",
-    "morphology": "N-NSN",
-    "word": "ὕψος"
-  },
-  {
-    "strongs": "5313",
-    "morphology": "N-ASN",
-    "word": "ὕψωμα"
-  },
-  {
-    "strongs": "5313",
-    "morphology": "N-NSN",
-    "word": "ὕψωμα"
-  },
-  {
-    "strongs": "5318",
-    "morphology": "A-NPN",
-    "word": "φανερὰ"
-  },
-  {
-    "strongs": "5318",
-    "morphology": "A-NSF",
-    "word": "φανερὰ"
-  },
-  {
-    "strongs": "5318",
-    "morphology": "A-ASM",
-    "word": "φανερὸν"
-  },
-  {
-    "strongs": "5318",
-    "morphology": "A-ASN",
-    "word": "φανερὸν"
-  },
-  {
-    "strongs": "5318",
-    "morphology": "A-NSN",
-    "word": "φανερὸν"
-  },
-  {
-    "strongs": "5321",
-    "morphology": "N-DSF",
-    "word": "φανερώσει"
-  },
-  {
-    "strongs": "5319",
-    "morphology": "V-FAI-3S",
-    "word": "φανερώσει"
-  },
-  {
     "strongs": "5330",
     "morphology": "N-NPM",
     "word": "Φαρισαῖοι"
@@ -10503,36 +1663,6 @@
     "strongs": "5330",
     "morphology": "N-VPM",
     "word": "Φαρισαῖοι"
-  },
-  {
-    "strongs": "5331",
-    "morphology": "N-DSF",
-    "word": "φαρμακείᾳ"
-  },
-  {
-    "strongs": "5331",
-    "morphology": "N-NSF",
-    "word": "φαρμακεία"
-  },
-  {
-    "strongs": "5337",
-    "morphology": "A-ASN",
-    "word": "φαῦλον"
-  },
-  {
-    "strongs": "5337",
-    "morphology": "A-NSN",
-    "word": "φαῦλον"
-  },
-  {
-    "strongs": "5342",
-    "morphology": "V-PAI-2P",
-    "word": "φέρετε"
-  },
-  {
-    "strongs": "5342",
-    "morphology": "V-PAM-2P",
-    "word": "Φέρετέ"
   },
   {
     "strongs": "5344",
@@ -10543,56 +1673,6 @@
     "strongs": "5344",
     "morphology": "N-VSM",
     "word": "Φῆλιξ"
-  },
-  {
-    "strongs": "5349",
-    "morphology": "A-ASM",
-    "word": "φθαρτὸν"
-  },
-  {
-    "strongs": "5349",
-    "morphology": "A-NSN",
-    "word": "φθαρτὸν"
-  },
-  {
-    "strongs": "5356",
-    "morphology": "N-DSF",
-    "word": "φθορᾷ"
-  },
-  {
-    "strongs": "5356",
-    "morphology": "N-NSF",
-    "word": "φθορὰ"
-  },
-  {
-    "strongs": "5360",
-    "morphology": "N-DSF",
-    "word": "φιλαδελφίᾳ"
-  },
-  {
-    "strongs": "5360",
-    "morphology": "N-NSF",
-    "word": "φιλαδελφία"
-  },
-  {
-    "strongs": "5368",
-    "morphology": "V-PAI-1S",
-    "word": "φιλῶ"
-  },
-  {
-    "strongs": "5368",
-    "morphology": "V-PAS-1S",
-    "word": "φιλῶ"
-  },
-  {
-    "strongs": "5384",
-    "morphology": "A-GPM",
-    "word": "φίλων"
-  },
-  {
-    "strongs": "5368",
-    "morphology": "V-PAP-NSM",
-    "word": "φιλῶν"
   },
   {
     "strongs": "5395",
@@ -10615,16 +1695,6 @@
     "word": "φοβηθῆτε"
   },
   {
-    "strongs": "5401",
-    "morphology": "N-GSM",
-    "word": "φόβου"
-  },
-  {
-    "strongs": "5399",
-    "morphology": "V-PNM-2S",
-    "word": "φοβοῦ"
-  },
-  {
     "strongs": "5406",
     "morphology": "N-APM",
     "word": "φονεῖς"
@@ -10633,36 +1703,6 @@
     "strongs": "5406",
     "morphology": "N-NPM",
     "word": "φονεῖς"
-  },
-  {
-    "strongs": "5413",
-    "morphology": "N-ASN",
-    "word": "φορτίον"
-  },
-  {
-    "strongs": "5413",
-    "morphology": "N-NSN",
-    "word": "φορτίον"
-  },
-  {
-    "strongs": "5421",
-    "morphology": "N-ASN",
-    "word": "φρέαρ"
-  },
-  {
-    "strongs": "5421",
-    "morphology": "N-NSN",
-    "word": "φρέαρ"
-  },
-  {
-    "strongs": "5426",
-    "morphology": "V-PAI-2P",
-    "word": "φρονεῖτε"
-  },
-  {
-    "strongs": "5426",
-    "morphology": "V-PAM-2P",
-    "word": "φρονεῖτε"
   },
   {
     "strongs": "5429",
@@ -10675,136 +1715,6 @@
     "word": "φρόνιμοι"
   },
   {
-    "strongs": "5429",
-    "morphology": "A-DPF",
-    "word": "φρονίμοις"
-  },
-  {
-    "strongs": "5429",
-    "morphology": "A-DPM",
-    "word": "φρονίμοις"
-  },
-  {
-    "strongs": "5438",
-    "morphology": "N-APF",
-    "word": "φυλακὰς"
-  },
-  {
-    "strongs": "5441",
-    "morphology": "N-APM",
-    "word": "φύλακας"
-  },
-  {
-    "strongs": "5438",
-    "morphology": "N-DSF",
-    "word": "φυλακῇ"
-  },
-  {
-    "strongs": "5438",
-    "morphology": "N-NSF",
-    "word": "φυλακὴ"
-  },
-  {
-    "strongs": "5444",
-    "morphology": "N-APN",
-    "word": "φύλλα"
-  },
-  {
-    "strongs": "5444",
-    "morphology": "N-NPN",
-    "word": "φύλλα"
-  },
-  {
-    "strongs": "5445",
-    "morphology": "N-ASN",
-    "word": "φύραμα"
-  },
-  {
-    "strongs": "5445",
-    "morphology": "N-NSN",
-    "word": "φύραμα"
-  },
-  {
-    "strongs": "5455",
-    "morphology": "V-PAI-3S",
-    "word": "φωνεῖ"
-  },
-  {
-    "strongs": "5455",
-    "morphology": "V-PAM-2S",
-    "word": "φώνει"
-  },
-  {
-    "strongs": "5456",
-    "morphology": "N-DSF",
-    "word": "φωνῇ"
-  },
-  {
-    "strongs": "5456",
-    "morphology": "N-NSF",
-    "word": "Φωνὴ"
-  },
-  {
-    "strongs": "5457",
-    "morphology": "N-ASN",
-    "word": "φῶς"
-  },
-  {
-    "strongs": "5457",
-    "morphology": "N-NSN",
-    "word": "φῶς"
-  },
-  {
-    "strongs": "5479",
-    "morphology": "N-DSF",
-    "word": "χαρᾷ"
-  },
-  {
-    "strongs": "5479",
-    "morphology": "N-NSF",
-    "word": "χαρά"
-  },
-  {
-    "strongs": "5484",
-    "morphology": "ADV",
-    "word": "χάριν"
-  },
-  {
-    "strongs": "5485",
-    "morphology": "N-ASF",
-    "word": "χάριν"
-  },
-  {
-    "strongs": "5486",
-    "morphology": "N-ASN",
-    "word": "χάρισμα"
-  },
-  {
-    "strongs": "5486",
-    "morphology": "N-NSN",
-    "word": "χάρισμα"
-  },
-  {
-    "strongs": "5486",
-    "morphology": "N-APN",
-    "word": "χαρίσματα"
-  },
-  {
-    "strongs": "5486",
-    "morphology": "N-NPN",
-    "word": "χαρίσματα"
-  },
-  {
-    "strongs": "5501",
-    "morphology": "A-ASN",
-    "word": "χεῖρον"
-  },
-  {
-    "strongs": "5501",
-    "morphology": "A-NSN",
-    "word": "χεῖρον"
-  },
-  {
     "strongs": "5501",
     "morphology": "A-NSF-C",
     "word": "χείρων"
@@ -10815,21 +1725,6 @@
     "word": "χείρων"
   },
   {
-    "strongs": "5495",
-    "morphology": "N-GPF",
-    "word": "χειρῶν"
-  },
-  {
-    "strongs": "5507",
-    "morphology": "A-APN",
-    "word": "χίλια"
-  },
-  {
-    "strongs": "5507",
-    "morphology": "A-NPN",
-    "word": "χίλια"
-  },
-  {
     "strongs": "5532",
     "morphology": "N-APF",
     "word": "χρείας"
@@ -10838,76 +1733,6 @@
     "strongs": "5532",
     "morphology": "N-GSF",
     "word": "χρείας"
-  },
-  {
-    "strongs": "5545",
-    "morphology": "N-ASN",
-    "word": "χρῖσμα"
-  },
-  {
-    "strongs": "5545",
-    "morphology": "N-NSN",
-    "word": "χρῖσμα"
-  },
-  {
-    "strongs": "5552",
-    "morphology": "A-APN",
-    "word": "χρυσᾶ"
-  },
-  {
-    "strongs": "5552",
-    "morphology": "A-NPN",
-    "word": "χρυσᾶ"
-  },
-  {
-    "strongs": "5553",
-    "morphology": "N-ASN",
-    "word": "χρυσίον"
-  },
-  {
-    "strongs": "5553",
-    "morphology": "N-NSN",
-    "word": "χρυσίον"
-  },
-  {
-    "strongs": "5552",
-    "morphology": "A-GSN",
-    "word": "χρυσοῦ"
-  },
-  {
-    "strongs": "5557",
-    "morphology": "N-GSM",
-    "word": "χρυσοῦ"
-  },
-  {
-    "strongs": "5552",
-    "morphology": "A-ASM",
-    "word": "χρυσοῦν"
-  },
-  {
-    "strongs": "5552",
-    "morphology": "A-ASN",
-    "word": "χρυσοῦν"
-  },
-  {
-    "strongs": "5560",
-    "morphology": "A-ASM",
-    "word": "χωλόν"
-  },
-  {
-    "strongs": "5560",
-    "morphology": "A-NSN",
-    "word": "χωλὸν"
-  },
-  {
-    "strongs": "5561",
-    "morphology": "N-DSF",
-    "word": "χώρᾳ"
-  },
-  {
-    "strongs": "5561",
-    "morphology": "N-NSF",
-    "word": "χώρα"
   },
   {
     "strongs": "5561",
@@ -10920,94 +1745,9 @@
     "word": "χώρας"
   },
   {
-    "strongs": "5579",
-    "morphology": "N-ASN",
-    "word": "ψεῦδος"
-  },
-  {
-    "strongs": "5579",
-    "morphology": "N-NSN",
-    "word": "ψεῦδος"
-  },
-  {
-    "strongs": "5590",
-    "morphology": "N-DSF",
-    "word": "ψυχῇ"
-  },
-  {
     "strongs": "5590",
     "morphology": "N-NSF",
-    "word": "ψυχὴ"
-  },
-  {
-    "strongs": "5590",
-    "morphology": "N-VSF",
-    "word": "Ψυχή"
-  },
-  {
-    "strongs": "5592",
-    "morphology": "N-ASN",
-    "word": "ψῦχος"
-  },
-  {
-    "strongs": "5592",
-    "morphology": "N-NSN",
-    "word": "ψῦχος"
-  },
-  {
-    "strongs": "5599",
-    "morphology": "INJ",
-    "word": "Ὦ"
-  },
-  {
-    "strongs": "5598",
-    "morphology": "N-LI",
-    "word": "Ω"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-DSM",
-    "word": "ᾧ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-DSN",
-    "word": "ᾧ"
-  },
-  {
-    "strongs": "5600",
-    "morphology": "V-PXS-1S",
-    "word": "ὦ"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-GPF",
-    "word": "ὧν"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-GPM",
-    "word": "ὧν"
-  },
-  {
-    "strongs": "3739",
-    "morphology": "R-GPN",
-    "word": "ὧν"
-  },
-  {
-    "strongs": "5607",
-    "morphology": "V-PXP-NSM",
-    "word": "ὢν"
-  },
-  {
-    "strongs": "5610",
-    "morphology": "N-DSF",
-    "word": "ὥρᾳ"
-  },
-  {
-    "strongs": "5610",
-    "morphology": "N-NSF",
-    "word": "ὥρα"
+    "word": "ψυχή"
   },
   {
     "strongs": "5610",
@@ -11018,25 +1758,5 @@
     "strongs": "5610",
     "morphology": "N-GSF",
     "word": "ὥρας"
-  },
-  {
-    "strongs": "3775",
-    "morphology": "N-DPN",
-    "word": "ὠσὶν"
-  },
-  {
-    "strongs": "5600",
-    "morphology": "V-PXS-3P",
-    "word": "ὦσιν"
-  },
-  {
-    "strongs": "3775",
-    "morphology": "N-APN",
-    "word": "ὦτα"
-  },
-  {
-    "strongs": "3775",
-    "morphology": "N-NPN",
-    "word": "ὦτα"
   }
 ]

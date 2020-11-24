@@ -1,11 +1,10 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {WordModel} from '../models/word.model';
+import {Word} from '../models/word';
 import {MorphologyGenerator} from '../etc/morphology-generator';
 import {WordPart} from '../models/word-part';
-import * as  __ from 'lodash-es';
 import {StateService} from '../state.service';
-import {allSuffixes, allTenses, allTypesOfPronouns, WordParts} from '../etc/word-type-constants';
+import {HintsHelper} from '../etc/hints-helper';
 
 @Component({
   selector: 'app-parse-answer-dialog',
@@ -14,7 +13,7 @@ import {allSuffixes, allTenses, allTypesOfPronouns, WordParts} from '../etc/word
 })
 export class ParseAnswerDialogComponent {
 
-  currentWord: WordModel;
+  currentWord: Word;
   givenAnswer: WordPart[];
   answerIsRight: boolean;
   morphologyGenerator = MorphologyGenerator;
@@ -30,8 +29,7 @@ export class ParseAnswerDialogComponent {
   secondaryTenses: boolean;
 
   constructor(private dialogRef: MatDialogRef<ParseAnswerDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any,
-              private state: StateService) {
+              @Inject(MAT_DIALOG_DATA) public data: any) {
     this.data = data;
     this.currentWord = data.currentWord;
     this.givenAnswer = data.givenAnswer;
@@ -51,47 +49,10 @@ export class ParseAnswerDialogComponent {
   }
 
   private generateHints(): void {
-    let partOfTheRightAnswer: WordPart[] = null;
-    let wrongPartsOfGivenAnswer: WordPart[] = null;
-
     if (!this.answerIsRight) {
-
-      if (this.secondaryTenses) {
-        partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
-          return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined && !allTenses.includes(x)
-            ? x.headCategory.name
-            : x.name);
-        });
-        
-        partOfTheRightAnswer.forEach(x => x.type === WordParts.tense ? x.headCategory = undefined : x);
-      } else {
-        partOfTheRightAnswer = this.currentWord.partsOfSpeech.filter(x => {
-          return !this.givenAnswer.map(y => y.name).includes(x.headCategory !== undefined
-            ? x.headCategory.name
-            : x.name);
-        });
-      }
-
-      partOfTheRightAnswer = partOfTheRightAnswer.filter(x => !allSuffixes.includes(x));
-      if (partOfTheRightAnswer.length === 0) {
-        wrongPartsOfGivenAnswer = __.differenceWith(this.givenAnswer, this.currentWord.partsOfSpeech, __.isEqual);
-        if (this.useAllPronouns || this.secondaryTenses) {
-          const foundType = wrongPartsOfGivenAnswer.find(x => x.type === WordParts.type);
-          // pronoun is found as part of wrong answer
-          if (foundType !== undefined && allTypesOfPronouns.find(x => __.isEqual(x, foundType)) !== undefined) {
-            const type = this.currentWord.partsOfSpeech.find(x => x.type === WordParts.type);
-            type.headCategory = undefined;
-            this.hintRightPartOfAnswer = type;
-          }
-        } else {
-          this.hintWrongPartOfAnswer = __.sample(wrongPartsOfGivenAnswer);
-        }
-      } else {
-        if (partOfTheRightAnswer.find(x => x.type === WordParts.type) !== undefined) {
-          this.hintRightPartOfAnswer = partOfTheRightAnswer.find(x => x.type === WordParts.type);
-        } else {
-          this.hintRightPartOfAnswer = __.sample(partOfTheRightAnswer);
-        }
+      this.hintRightPartOfAnswer = HintsHelper.giveMeRightPartHint(this.currentWord, this.givenAnswer, this.secondaryTenses, this.useAllPronouns);
+      if (this.hintRightPartOfAnswer === undefined) { // the word does not have X type
+        this.hintWrongPartOfAnswer = HintsHelper.giveMeWrongPartHint(this.currentWord, this.givenAnswer);
       }
     }
   }

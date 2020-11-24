@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
 import {WordPart} from '../models/word-part';
-import {conditionalType, indeclinable} from '../etc/word-type-constants';
+import {conditionalType} from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
 import {BibleReference} from '../models/bible-reference';
@@ -164,13 +164,10 @@ export class BibleRangeComponent implements OnInit {
     const bibleReference = this.createBibleReference();
     return this.service.getWords(filters, bibleReference)
       .subscribe(
-        (response) => {
+        (words) => {
           this.router.navigate(['parsing'], {
             relativeTo: this.route.parent
           });
-
-          // exclude indeclinable words
-          const words = response.filter(x => !x.partsOfSpeech.includes(indeclinable));
 
           this.state.setSecondaryTensesEnabled(this.verbSecondaryTenses);
           this.state.setUseAllPronouns(this.useAllPronouns);

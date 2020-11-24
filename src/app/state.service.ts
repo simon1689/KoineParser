@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {WordModel} from './models/word.model';
-import {Book} from './etc/bible';
+import {Word} from './models/word';
 import * as __ from 'lodash-es';
 import {LocalStorageSession} from './models/local-storage-session';
 import {BibleReference} from './models/bible-reference';
@@ -9,7 +8,7 @@ import {BibleReference} from './models/bible-reference';
   providedIn: 'root'
 })
 export class StateService {
-  wordsForParsing: WordModel[] = [];
+  wordsForParsing: Word[] = [];
   bibleReference: BibleReference;
   verbSecondaryTensesEnabled = false;
   usingAllPronouns = false;
@@ -18,7 +17,7 @@ export class StateService {
   constructor() {
   }
 
-  setWordsForParsing(words: WordModel[], amountOfWords: number, shuffle: boolean = true): void {
+  setWordsForParsing(words: Word[], amountOfWords: number, shuffle: boolean = true): void {
     if (shuffle) {
       this.wordsForParsing = __.shuffle(words);
     } else {
@@ -28,7 +27,7 @@ export class StateService {
     this.wordsForParsing = __.slice(this.wordsForParsing, 0, amountOfWords);
   }
 
-  getWordsForParsing(): WordModel[] {
+  getWordsForParsing(): Word[] {
     return this.wordsForParsing;
   }
 

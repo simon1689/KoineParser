@@ -18,7 +18,7 @@ export const noun: WordPart = {name: 'Noun', abbreviation: 'N', type: WordParts.
 export const adverb: WordPart = {name: 'Adverb', abbreviation: 'ADV', type: WordParts.type};
 export const adjective: WordPart = {name: 'Adjective', abbreviation: 'A', type: WordParts.type};
 export const article: WordPart = {name: 'Definite article', abbreviation: 'T', type: WordParts.type};
-export const personalPronoun: WordPart = {name: 'Personal pronoun', abbreviation: 'P', type: WordParts.type};
+export const personalPronoun: WordPart = {name: 'Pronoun', abbreviation: 'P', type: WordParts.type};
 export const conjunction: WordPart = {name: 'Conjunction', abbreviation: 'CONJ', type: WordParts.type};
 export const relativePronoun: WordPart = {name: 'Relative pronoun', abbreviation: 'R', headCategory: personalPronoun, type: WordParts.type};
 export const reciprocalPronoun: WordPart = {name: 'Reciprocal pronoun', abbreviation: 'C', headCategory: personalPronoun, type: WordParts.type};
@@ -69,10 +69,9 @@ export const passiveVoice: WordPart = {name: 'Passive', abbreviation: 'P', type:
 export const noVoice: WordPart = {name: 'No voice', abbreviation: 'X', type: WordParts.voice};
 export const eitherMiddleOrPassiveVoice: WordPart = {name: 'Middle or passive', abbreviation: 'E', type: WordParts.voice};
 
-///// deponents
+/// deponents
 export const deponentVoice: WordPart = {name: 'Deponent', abbreviation: 'D', type: WordParts.voice, headCategory: middleVoice};
 export const passiveDeponentVoice: WordPart = {name: 'Passive deponent', abbreviation: 'O', headCategory: passiveVoice, type: WordParts.voice};
-// export const eitherMiddleOrPassiveVoice: WordPart = {name: 'Middle or passive', abbreviation: 'E', headCategory: deponentVoice, type: WordParts.voice};
 export const middlePassiveDeponentVoice: WordPart = {name: 'Middle or passive deponent', abbreviation: 'N', headCategory: eitherMiddleOrPassiveVoice, type: WordParts.voice};
 
 export const impersonalActiveVoice: WordPart = {name: 'Impersonal active', abbreviation: 'Q', type: WordParts.voice, headCategory: activeVoice};

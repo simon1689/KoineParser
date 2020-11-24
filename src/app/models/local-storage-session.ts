@@ -1,16 +1,16 @@
-import {WordModel} from './word.model';
+import {Word} from './word';
 import {WrongAnswer} from '../parse/parse.component';
 
 export interface LocalStorageSession {
   key: string;
   range: string;
   date: string;
-  currentWord: WordModel;
+  currentWord: Word;
   wordIndex: number;
-  words: WordModel[];
+  words: Word[];
   wrongAnswers: WrongAnswer[];
-  goodAnswers: WordModel[];
-  skippedWords: WordModel[];
-  usedWords: WordModel[];
+  goodAnswers: Word[];
+  skippedWords: Word[];
+  usedWords: Word[];
   secondaryTensesEnabled: boolean;
 }

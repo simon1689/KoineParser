@@ -38,12 +38,24 @@
       <mat-expansion-panel style="background: #e2e3e5; color: black" togglePosition="before" #answerExpansionPanel>
         <mat-expansion-panel-header>
           <mat-panel-title
-            style="display: block; text-align: center; color: black">Answer
+            style="display: block; text-align: center; color: black">Answer(s)
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p class="font-weight-bold text-center">{{word.morphologyUpdated}}</p>
-        <div class="text-center"
-             [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.partsOfSpeech, true, false)"></div>
+        <div class="text-center">
+             <span
+               class="font-weight-bold text-center">{{word.morphologies[0]}}</span>
+          <div
+            [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.possiblePartsOfSpeech[0], true, false)"></div>
+
+          <div *ngIf="word.possiblePartsOfSpeech.length>1" style="margin-top: 15px">
+            <p>These answers are also possible:</p>
+            <div class="text-center" *ngFor="let partsOfSpeech of word.possiblePartsOfSpeech.slice(1)">
+            <span
+              class="font-weight-bold text-center">{{this.morphologyGenerator.generateMorphologyCodeFromWordParts(partsOfSpeech)}}</span>
+              <div [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(partsOfSpeech, true, false)"></div>
+            </div>
+          </div>
+        </div>
       </mat-expansion-panel>
     </mat-expansion-panel>
   </mat-accordion>

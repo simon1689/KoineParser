@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Genders, Moods, NounCases, Numbers, Persons, Types, VerbTenses, Voices} from '../models/part-of-speech-objects';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
-import {WordModel} from '../models/word.model';
+import {Word} from '../models/word';
 import {StateService} from '../state.service';
 import {faExclamationCircle, faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import {WordPart} from '../models/word-part';
@@ -35,7 +35,7 @@ import {Helper} from '../etc/helper';
 import {SessionsComponent} from '../sessions/sessions.component';
 
 export interface WrongAnswer {
-  word: WordModel;
+  word: Word;
   given_answer: string;
 }
 
@@ -47,14 +47,13 @@ export interface WrongAnswer {
 export class ParseComponent implements OnInit {
   // words and answers
   wordIndex = 0;
-  word: WordModel = null;
-  words: WordModel[] = [];
-  usedWords: WordModel[] = [];
-  goodAnswers: WordModel[] = [];
-  skippedWords: WordModel[] = [];
+  word: Word = null;
+  words: Word[] = [];
+  usedWords: Word[] = [];
+  goodAnswers: Word[] = [];
+  skippedWords: Word[] = [];
   wrongAnswers: WrongAnswer[] = [];
   wrongAnswerObject: WrongAnswer;
-  partsOfSpeech: string[] = ['type', 'tense', 'voice', 'mood', 'person', 'case', 'number', 'gender'];
   answer: string;
   currentWordIsUnanswered = true;
   sessionSaved: boolean;
@@ -170,7 +169,7 @@ export class ParseComponent implements OnInit {
     }
   }
 
-  private goToNextWord(wordShouldBeAddedHere: WordModel[], reset: boolean = false): void {
+  private goToNextWord(wordShouldBeAddedHere: Word[], reset: boolean = false): void {
     if (this.wordIndex < this.words.length) {
       this.word = this.words[this.wordIndex];
       wordShouldBeAddedHere.push(this.word);
@@ -217,10 +216,7 @@ export class ParseComponent implements OnInit {
 
       if (answerParts === undefined || answerParts.length > 0) {
         this.currentWordIsUnanswered = false;
-        const comparable = new Comparable(this.dialog, this.state, this.service);
-        comparable.secondaryTenses = this.state.getSecondaryTensesEnabled();
-        comparable.useAllPronouns = this.state.getUseAllPronouns();
-
+        const comparable = new Comparable(this.dialog, this.state.getSecondaryTensesEnabled(), this.state.getUseAllPronouns());
         const answer: AnswerChecked = await comparable.checkAnswer(this.word, answerParts, this);
         comparable.openDialog(answer);
 
@@ -233,8 +229,9 @@ export class ParseComponent implements OnInit {
 
   formulateAnswerParts(): WordPart[] {
     this.answer = '';
+    const partsOfSpeech: string[] = ['type', 'tense', 'voice', 'mood', 'person', 'case', 'number', 'gender'];
     const answerParts: WordPart[] = [];
-    for (const part of this.partsOfSpeech) {
+    for (const part of partsOfSpeech) {
       const control = this.parsingForm.get(part);
       if (control.dirty && control.value !== this.defaultControlValue && !control.disabled) {
         answerParts.push(allWordParts.find(x => x.abbreviation === control.value && x.type.toLowerCase() === part.toLowerCase()));
