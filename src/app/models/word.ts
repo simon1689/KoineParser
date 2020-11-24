@@ -4,6 +4,12 @@ import {MorphologyGenerator} from '../etc/morphology-generator';
 import {Paradigm} from '../paradigms/paradigm';
 import {atticSuffix} from '../etc/word-type-constants';
 
+export class MultipleMorphologyWord {
+  strongs: string;
+  morphology: string;
+  word: string;
+}
+
 export class Word {
   book: string;
   chapter: number;
@@ -45,10 +51,4 @@ export class Word {
       }
     }
   }
-}
-
-export class MultipleMorphologyWord {
-  strongs: string;
-  morphology: string;
-  word: string;
 }
