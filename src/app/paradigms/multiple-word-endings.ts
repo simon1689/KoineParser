@@ -1,5 +1,14 @@
 export const multipleWordEndings = {
 
+  // Nouns
+  'N-ASN': ['N-NSN'],
+  'N-NSN': ['N-ASN'],
+  'N-APN': ['N-NPN'],
+  'N-NPN': ['N-APN'],
+  // 'N-GPN': ['N-GPM', 'N-GPF'],
+  // 'N-GPM': ['N-GPN', 'N-GPF'],
+  // 'N-GPF': ['N-GPM', 'N-GPN'],
+
   // Articles
   'T-NSN': ['T-ASN'],
   'T-ASN': ['T-NSN'],
