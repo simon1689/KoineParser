@@ -48,7 +48,6 @@
             [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.possiblePartsOfSpeech[0], true, false)"></div>
 
           <div *ngIf="word.possiblePartsOfSpeech.length>1" style="margin-top: 15px">
-            <p>These answers are also possible:</p>
             <div class="text-center" *ngFor="let partsOfSpeech of word.possiblePartsOfSpeech.slice(1)">
             <span
               class="font-weight-bold text-center">{{this.morphologyGenerator.generateMorphologyCodeFromWordParts(partsOfSpeech)}}</span>
