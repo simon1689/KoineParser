@@ -5,7 +5,7 @@ import {atticSuffix} from '../etc/word-type-constants';
 import {multipleWordEndings} from '../paradigms/multiple-word-endings';
 
 export class MultipleMorphologyWord {
-  strongs: string;
+  strongs: number;
   morphology: string;
   word: string;
 }
@@ -13,15 +13,14 @@ export class MultipleMorphologyWord {
 export class Word {
   book: string;
   chapter: number;
-  // morphology: string;
-  morphologies: string[];
-  strongsNr: string;
   verse: number;
+  morphology: string;
+  morphologies: string[];
+  strongsNr: number;
   word: string;
   lexiconEntry: LexiconEntry;
   wordComplete: string;
   possiblePartsOfSpeech: WordPart[][] = [];
-
 
   setAllPartsOfSpeech(mainMorphology: string): WordPart[][] {
     // main
@@ -30,7 +29,7 @@ export class Word {
     this.morphologies.push(MorphologyGenerator.generateMorphologyCodeFromWordParts(this.possiblePartsOfSpeech[0].filter(x => x !== atticSuffix)));
 
     // alternate paradigms
-    const alternate: [WordPart[]] = this.alternateMorphologyGiveWordParts(this.morphologies[0]);
+    const alternate: WordPart[][] = this.alternateMorphologyGiveWordParts(this.morphologies[0]);
     if (alternate !== null) {
       alternate.forEach(x => {
         this.possiblePartsOfSpeech.push(x);
@@ -53,8 +52,8 @@ export class Word {
     }
   }
 
-  alternateMorphologyGiveWordParts(morphology: string): [WordPart[]] {
-    const result: [WordPart[]] = [[]];
+  alternateMorphologyGiveWordParts(morphology: string): WordPart[][] {
+    const result: WordPart[][] = [];
     const search: string[] = multipleWordEndings[morphology];
     if (search !== undefined) {
       for (const morph of search) {
