@@ -30,3 +30,7 @@ body {
   letter-spacing: 2px;
   /*color: red;*/
 }
+
+.greek-normal-size {
+  font-family: 'SBL Greek', serif;
+}
