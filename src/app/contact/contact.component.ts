@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {KoineParserService} from '../koine-parser.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +12,9 @@ export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   messageSent: boolean;
 
-  constructor(private service: KoineParserService) {
+  constructor(private service: KoineParserService,
+              private titleService: Title) {
+    titleService.setTitle('Contact page - KoineParser');
   }
 
   ngOnInit(): void {

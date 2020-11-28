@@ -25,3 +25,7 @@
 th {
   /*text-align: center;*/
 }
+
+h2, h3, h4 {
+  margin: 15px auto;
+}

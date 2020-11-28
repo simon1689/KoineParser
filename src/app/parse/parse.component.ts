@@ -33,6 +33,7 @@ import {ReportErrorOnPageDialogComponent} from '../report-error-on-page/report-e
 import {AnswerChecked, Comparable} from '../comparable';
 import {Helper} from '../etc/helper';
 import {SessionsComponent} from '../sessions/sessions.component';
+import {Title} from '@angular/platform-browser';
 
 export interface WrongAnswer {
   word: Word;
@@ -97,12 +98,13 @@ export class ParseComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               public state: StateService,
               private service: KoineParserService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private titleService: Title) {
+    titleService.setTitle(state.getBibleReference().toString() + ' - KoineParser');
   }
 
   ngOnInit(): void {
     this.initForm();
-
     if (this.state.getCurrentSession()) {
       this.setCurrentSession();
     } else {
@@ -218,7 +220,9 @@ export class ParseComponent implements OnInit {
         this.currentWordIsUnanswered = false;
         const comparable = new Comparable(this.dialog, this.state.getSecondaryTensesEnabled(), this.state.getUseAllPronouns());
         const answer: AnswerChecked = await comparable.checkAnswer(this.word, answerParts, this);
-        comparable.openDialog(answer);
+        if (answer !== undefined) {
+          comparable.openDialog(answer);
+        }
 
         if (this.wordIndex === this.words.length) {
           this.helper.registerScores(this);
@@ -355,5 +359,31 @@ export class ParseComponent implements OnInit {
 
   goToStep(tenseStep: any): void {
     this.stepper.selectedIndex = this.stepper.steps.toArray().indexOf(tenseStep);
+  }
+
+  linkToParadigm(morphology: string): string {
+    if (morphology.startsWith('V-')) {
+      let result;
+      if (morphology.match('[-]').length > 1) {
+        result = morphology;
+      } else {
+        let shortenedMorph;
+
+        let encounteredDash = 0;
+        for (let i = 0; i < morphology.length; i++) {
+          if (morphology[i] === '-' && encounteredDash === 1) {
+            shortenedMorph = morphology.slice(0, i);
+          } else if (morphology[i] === '-') {
+            encounteredDash++;
+          }
+        }
+
+        result = shortenedMorph;
+      }
+
+      return '<a href=\'/paradigms#' + result + '\' target=\'_blank\' title="See the full paradigm">' + morphology + '</a>';
+    } else {
+      return morphology;
+    }
   }
 }

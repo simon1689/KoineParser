@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-resources',
@@ -7,7 +8,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ResourcesComponent implements OnInit {
 
-  constructor() {
+  constructor(private titleService: Title) {
+    titleService.setTitle('Resources for Koine Greek - KoineParser');
   }
 
   ngOnInit(): void {

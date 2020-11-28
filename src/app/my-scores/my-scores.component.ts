@@ -1,8 +1,9 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Score} from '../models/score';
-import {faExclamation, faExclamationCircle, faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import {faExclamationCircle, faForward, faThumbsDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-my-scores',
@@ -21,7 +22,8 @@ export class MyScoresComponent implements OnInit, AfterViewInit {
   thumbsDown = faThumbsDown;
   skip = faForward;
 
-  constructor() {
+  constructor(private titleService: Title) {
+    titleService.setTitle('My scores - KoineParser');
   }
 
   ngOnInit(): void {
