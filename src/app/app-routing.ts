@@ -6,9 +6,11 @@ import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {MyScoresComponent} from './my-scores/my-scores.component';
 import {ResourcesComponent} from './resources/resources.component';
+import {ParadigmsComponent} from './paradigms/paradigms.component';
 
 export const routes: Routes = [
   {path: '', component: BibleRangeComponent},
+  {path: 'paradigms', component: ParadigmsComponent},
   {path: 'resources', component: ResourcesComponent},
   {path: 'scores', component: MyScoresComponent},
   {path: 'about', component: AboutComponent},

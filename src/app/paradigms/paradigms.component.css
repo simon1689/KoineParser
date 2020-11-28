@@ -1,0 +1,27 @@
+.personal-ending {
+  color: #00B0F0;
+}
+
+.connecting-vowel {
+  color: red;
+}
+
+.tense-formative {
+  color: #33CC33;
+}
+
+.augment {
+  color: orange;
+}
+
+.reduplication {
+  color: mediumpurple;
+}
+
+.participle-morpheme {
+  color: lightcoral;
+}
+
+th {
+  /*text-align: center;*/
+}

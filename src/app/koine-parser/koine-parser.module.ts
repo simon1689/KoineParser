@@ -46,6 +46,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {GreekStylerPipe} from '../greek-styler.pipe';
 import {ResourcesComponent} from '../resources/resources.component';
+import {ParadigmsComponent} from '../paradigms/paradigms.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {ResourcesComponent} from '../resources/resources.component';
     MyScoresComponent,
     GreekStylerPipe,
     ResourcesComponent,
+    ParadigmsComponent,
   ],
   imports: [
     CommonModule,

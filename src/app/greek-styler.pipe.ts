@@ -9,7 +9,7 @@ export class GreekStylerPipe implements PipeTransform {
     const matches = value.match(/(?!\s)([^{IsGreek}{InGreekExtended}{.,(){}:;’*<>'!/\/}\w])*(?=\s)*/gim).filter(x => x !== '');
 
     for (const match of matches) {
-      value = value.replace(match, '<span class=\'greek\'>' + match + '</span>');
+      value = value.replace(match, '<span class=\'greek-normal-size\'>' + match + '</span>');
     }
 
     return value;
