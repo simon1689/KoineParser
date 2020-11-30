@@ -1,7 +1,7 @@
 import {LexiconEntry} from './lexicon.entry';
 import {WordPart} from './word-part';
 import {MorphologyGenerator} from '../etc/morphology-generator';
-import {atticSuffix, middleVoice, participleMood, passiveVoice, perfectTense, presentTense, verb, WordParts} from '../etc/word-type-constants';
+import {atticSuffix, middleVoice, participleMood, passiveVoice, perfectTense, presentTense, WordParts} from '../etc/word-type-constants';
 import {multipleWordEndings} from '../paradigms/multiple-word-endings';
 
 export class MultipleMorphologyWord {
@@ -33,11 +33,10 @@ export class Word {
     if (alternate !== null) {
       alternate.forEach(x => {
         this.possiblePartsOfSpeech.push(x);
-        // this.morphologies.push(MorphologyGenerator.generateMorphologyCodeFromWordParts(x));
       });
     }
 
-    this.setMorphologiesForParticiples();
+    this.setMiddlePassiveMorphologies();
     this.updateMorphologyCodes();
 
     return this.possiblePartsOfSpeech.filter(x => x.length !== 0);
@@ -70,34 +69,41 @@ export class Word {
     return null;
   }
 
-  private setMorphologiesForParticiples(): void {
+  private setMiddlePassiveMorphologies(): void {
     const toBeAdded: WordPart[][] = [];
+    let newMorph: WordPart[] = null;
     const partsOfSpeechWithParticiples = this.possiblePartsOfSpeech.filter(x => x.filter(y => y === participleMood));
     if (partsOfSpeechWithParticiples !== undefined) {
       for (const morph of partsOfSpeechWithParticiples) {
-        if (morph.includes(presentTense) && morph.includes(middleVoice)) {
-          toBeAdded.push([verb, presentTense, passiveVoice, participleMood,
-            morph.find(x => x.type === WordParts.case),
-            morph.find(x => x.type === WordParts.number),
-            morph.find(x => x.type === WordParts.gender)]);
-        } else if (morph.includes(presentTense) && morph.includes(passiveVoice)) {
-          toBeAdded.push([verb, presentTense, middleVoice, participleMood,
-            morph.find(x => x.type === WordParts.case),
-            morph.find(x => x.type === WordParts.number),
-            morph.find(x => x.type === WordParts.gender)]);
-        } else if (morph.includes(perfectTense) && morph.includes(middleVoice)) {
-          toBeAdded.push([verb, perfectTense, passiveVoice, participleMood,
-            morph.find(x => x.type === WordParts.case),
-            morph.find(x => x.type === WordParts.number),
-            morph.find(x => x.type === WordParts.gender)]);
-        } else if (morph.includes(perfectTense) && morph.includes(passiveVoice)) {
-          toBeAdded.push([verb, perfectTense, middleVoice, participleMood,
-            morph.find(x => x.type === WordParts.case),
-            morph.find(x => x.type === WordParts.number),
-            morph.find(x => x.type === WordParts.gender)]);
+        if ((morph.includes(presentTense) || morph.includes(perfectTense)) && morph.includes(middleVoice)) {
+          newMorph = morph.filter(x => x.type !== WordParts.voice);
+          newMorph.push(passiveVoice);
+          toBeAdded.push(newMorph);
+        } else if ((morph.includes(presentTense) || morph.includes(perfectTense)) && morph.includes(passiveVoice)) {
+          newMorph = morph.filter(x => x.type !== WordParts.voice);
+          newMorph.push(middleVoice);
+          toBeAdded.push(newMorph);
         }
       }
     }
+
+    // const presentMiddlePassive = this.possiblePartsOfSpeech.filter(x =>
+    //   x.filter(y =>
+    //     (__.isEqual(y, verb) && __.isEqual(y, presentTense))
+    //     && (__.isEqual(y, middleVoice) || __.isEqual(y, passiveVoice))));
+    // if (presentMiddlePassive !== undefined) {
+    //   for (const morph of presentMiddlePassive) {
+    //     if (morph.includes(middleVoice)) {
+    //       newMorph = morph.filter(x => x.type !== WordParts.voice);
+    //       newMorph.push(passiveVoice);
+    //       toBeAdded.push(newMorph);
+    //     } else if (morph.includes(passiveVoice)) {
+    //       newMorph = morph.filter(x => x.type !== WordParts.voice);
+    //       newMorph.push(middleVoice);
+    //       toBeAdded.push(newMorph);
+    //     }
+    //   }
+    // }
 
     if (toBeAdded.length > 0) {
       toBeAdded.forEach(x => this.possiblePartsOfSpeech.push(x));
