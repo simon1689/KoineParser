@@ -269,13 +269,6 @@ export const multipleWordEndings = {
   'V-PMP-GPF': ['V-PMP-GPM', 'V-PMP-GPN'],
   'V-PMP-GPN': ['V-PMP-GPF', 'V-PMP-GPM'],
 
-  // PPP and PMP
-  // 'V-PMP-NSM': ['V-PPP-NSN'],
-  // 'V-PPP-NSM': ['V-PMP-NSN'],
-  // 'V-PMP-GSM': ['V-PPP-GSN'],
-  // 'V-PPP-GSM': ['V-PMP-GSN'],
-  // 'V-PMP-DSM': [''],
-
   // FIRST AORIST ACTIVE PARTICIPLES
   // AAP | masculine and neuter
   'V-AAP-GSM': ['V-AAP-GSN'],

@@ -100,7 +100,6 @@ export class ParseComponent implements OnInit {
               private service: KoineParserService,
               private dialog: MatDialog,
               private titleService: Title) {
-    titleService.setTitle(state.getBibleReference().toString() + ' - KoineParser');
   }
 
   ngOnInit(): void {
@@ -114,6 +113,7 @@ export class ParseComponent implements OnInit {
 
     this.determineSecondaryTenses();
     this.determineUsingAllPronouns();
+    this.titleService.setTitle(this.state.getBibleReference().toString() + ' - KoineParser');
   }
 
   startRoute(): void {

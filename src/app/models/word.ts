@@ -1,7 +1,7 @@
 import {LexiconEntry} from './lexicon.entry';
 import {WordPart} from './word-part';
 import {MorphologyGenerator} from '../etc/morphology-generator';
-import {atticSuffix} from '../etc/word-type-constants';
+import {atticSuffix, middleVoice, participleMood, passiveVoice, perfectTense, presentTense, verb, WordParts} from '../etc/word-type-constants';
 import {multipleWordEndings} from '../paradigms/multiple-word-endings';
 
 export class MultipleMorphologyWord {
@@ -26,16 +26,19 @@ export class Word {
     // main
     this.morphologies = [];
     this.possiblePartsOfSpeech.push(MorphologyGenerator.generateWordPartsFromMorphologyCode(mainMorphology));
-    this.morphologies.push(MorphologyGenerator.generateMorphologyCodeFromWordParts(this.possiblePartsOfSpeech[0].filter(x => x !== atticSuffix)));
+    const morphologyCode = MorphologyGenerator.generateMorphologyCodeFromWordParts(this.possiblePartsOfSpeech[0].filter(x => x !== atticSuffix));
 
     // alternate paradigms
-    const alternate: WordPart[][] = this.alternateMorphologyGiveWordParts(this.morphologies[0]);
+    const alternate: WordPart[][] = this.alternateMorphologyGiveWordParts(morphologyCode);
     if (alternate !== null) {
       alternate.forEach(x => {
         this.possiblePartsOfSpeech.push(x);
-        this.morphologies.push(MorphologyGenerator.generateMorphologyCodeFromWordParts(x));
+        // this.morphologies.push(MorphologyGenerator.generateMorphologyCodeFromWordParts(x));
       });
     }
+
+    this.setMorphologiesForParticiples();
+    this.updateMorphologyCodes();
 
     return this.possiblePartsOfSpeech.filter(x => x.length !== 0);
   }
@@ -65,5 +68,44 @@ export class Word {
     }
 
     return null;
+  }
+
+  private setMorphologiesForParticiples(): void {
+    const toBeAdded: WordPart[][] = [];
+    const partsOfSpeechWithParticiples = this.possiblePartsOfSpeech.filter(x => x.filter(y => y === participleMood));
+    if (partsOfSpeechWithParticiples !== undefined) {
+      for (const morph of partsOfSpeechWithParticiples) {
+        if (morph.includes(presentTense) && morph.includes(middleVoice)) {
+          toBeAdded.push([verb, presentTense, passiveVoice, participleMood,
+            morph.find(x => x.type === WordParts.case),
+            morph.find(x => x.type === WordParts.number),
+            morph.find(x => x.type === WordParts.gender)]);
+        } else if (morph.includes(presentTense) && morph.includes(passiveVoice)) {
+          toBeAdded.push([verb, presentTense, middleVoice, participleMood,
+            morph.find(x => x.type === WordParts.case),
+            morph.find(x => x.type === WordParts.number),
+            morph.find(x => x.type === WordParts.gender)]);
+        } else if (morph.includes(perfectTense) && morph.includes(middleVoice)) {
+          toBeAdded.push([verb, perfectTense, passiveVoice, participleMood,
+            morph.find(x => x.type === WordParts.case),
+            morph.find(x => x.type === WordParts.number),
+            morph.find(x => x.type === WordParts.gender)]);
+        } else if (morph.includes(perfectTense) && morph.includes(passiveVoice)) {
+          toBeAdded.push([verb, perfectTense, middleVoice, participleMood,
+            morph.find(x => x.type === WordParts.case),
+            morph.find(x => x.type === WordParts.number),
+            morph.find(x => x.type === WordParts.gender)]);
+        }
+      }
+    }
+
+    if (toBeAdded.length > 0) {
+      toBeAdded.forEach(x => this.possiblePartsOfSpeech.push(x));
+    }
+  }
+
+  updateMorphologyCodes(): void {
+    this.morphologies = [];
+    this.possiblePartsOfSpeech.forEach(x => this.morphologies.push(MorphologyGenerator.generateMorphologyCodeFromWordParts(x)));
   }
 }
