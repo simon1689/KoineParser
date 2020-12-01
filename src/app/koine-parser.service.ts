@@ -24,7 +24,6 @@ import {
   WordParts
 } from './etc/word-type-constants';
 import {BibleReference} from './models/bible-reference';
-import {BibleBooks} from './etc/bible';
 
 @Injectable({
   providedIn: 'root'
@@ -53,12 +52,13 @@ export class KoineParserService {
       .pipe(
         map((data: any[]) => data.map((item: any) => {
           const model = new Word();
-          model.word = item.word;
           model.reference = new BibleReference(Number(item.book), item.chapter, item.verse, 0, 0);
           model.strongsNr = Number(item.strongsNr);
           model.lexiconEntry = this.lexiconEntries.find(x => x.strongsNr === model.strongsNr);
           model.setAllPartsOfSpeech(item.morphology);
           model.setMultipleMorphologies(this.multipleMorphologiesOfWords.filter(x => x.word === model.word && x.strongs === model.strongsNr));
+          model.word = (model.primaryMorphologyTag.code.startsWith('N-') ? item.word : item.word.toLowerCase());
+
           return model;
         })));
   }

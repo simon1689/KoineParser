@@ -364,9 +364,7 @@ export class ParseComponent implements OnInit {
   linkToParadigm(morphology: string): string {
     if (morphology.startsWith('V-')) {
       let result;
-      if (morphology.match('[-]').length > 1) {
-        result = morphology;
-      } else {
+      if (morphology.match(/-/g).length > 1) {
         let shortenedMorph;
 
         let encounteredDash = 0;
@@ -379,6 +377,12 @@ export class ParseComponent implements OnInit {
         }
 
         result = shortenedMorph;
+      } else {
+        if (morphology[morphology.length - 1] === infinitiveMood.abbreviation) {
+          result = 'inf';
+        } else {
+          result = morphology;
+        }
       }
 
       return '<a href=\'/paradigms#' + result + '\' target=\'_blank\' title="See the full paradigm">' + morphology + '</a>';

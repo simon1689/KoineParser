@@ -28,7 +28,7 @@ import {
   masculineGender,
   middleVoice,
   neuterGender,
-  nominativeCase,
+  nominativeCase, noStatedTense,
   noun,
   noVoice,
   optativeMood,
@@ -99,7 +99,8 @@ export const VerbTenses: PartOfSpeech[] = [
   {name: 'Perfect', abbreviation: 'R', secondary: false, controlId: 'PerfectTenseCtrl', wordPart: perfectTense},
   {name: '2nd Perfect', abbreviation: '2R', secondary: true, controlId: 'SecondPerfectTenseCtrl', wordPart: secondPerfectTense},
   {name: 'Pluperfect', abbreviation: 'L', secondary: false, controlId: 'PluperfectTenseCtrl', wordPart: pluperfectTense},
-  {name: '2nd Pluperfect', abbreviation: '2Pf', secondary: true, controlId: 'SecondPluperfectTenseCtrl', wordPart: secondPluperfectTense},
+  {name: '2nd Pluperfect', abbreviation: '2L', secondary: true, controlId: 'SecondPluperfectTenseCtrl', wordPart: secondPluperfectTense},
+  {name: 'No stated tense', abbreviation: 'X', secondary: false, controlId: 'NoStatedTenseCtrl', wordPart: noStatedTense},
 ];
 
 export const Persons: PartOfSpeech[] = [
