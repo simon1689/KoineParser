@@ -9,7 +9,7 @@ import {MatTooltip} from '@angular/material/tooltip';
 })
 export class ParadigmsComponent implements OnInit {
   constructor(private titleService: Title) {
-    titleService.setTitle('Verb paradigms - KoineParser');
+    titleService.setTitle('Paradigms - KoineParser');
   }
 
   ngOnInit(): void {
