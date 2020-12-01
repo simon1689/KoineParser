@@ -34,8 +34,8 @@ export class Comparable {
     const answerMorphologyCode = MorphologyGenerator.generateMorphologyCodeFromWordParts(answerParts);
 
     let answer = false;
-    for (const parts of word.possiblePartsOfSpeech) {
-      if (this.answerEqualsComparable(parts.filter(x => !allSuffixes.includes(x) && x !== noStatedTense),
+    for (const tag of word.morphologyTags) {
+      if (this.answerEqualsComparable(tag.partsOfSpeech.filter(x => !allSuffixes.includes(x) && x !== noStatedTense),
         answerParts)) {
         answer = true;
         break;

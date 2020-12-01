@@ -4,19 +4,20 @@ import {Word} from '../models/word';
 import * as __ from 'lodash-es';
 import {MorphologyGenerator} from './morphology-generator';
 import {closest} from 'fastest-levenshtein';
+import {MorphologyTag} from '../models/morphology-tag';
 
 export class HintsHelper {
 
   public static giveMeWrongPartHint(word: Word, givenAnswer: WordPart[]): WordPart {
-    const focusMorphology = this.closestWordPartsCollectionToAnswer(word.possiblePartsOfSpeech, givenAnswer);
+    const focusMorphology = this.closestWordPartsCollectionToAnswer(word.morphologyTags, givenAnswer);
     const doesNotHave = __.differenceWith(givenAnswer.map(x => x.type), focusMorphology.map(x => x.type), __.isEqual);
 
     return givenAnswer.find(x => x.type === doesNotHave[0]);
   }
 
   public static giveMeRightPartHint(word: Word, givenAnswer: WordPart[], secondaryTenses: boolean, useAllPronouns: boolean): WordPart {
-    const focusMorphology = (word.possiblePartsOfSpeech.length > 1) ?
-      this.closestWordPartsCollectionToAnswer(word.possiblePartsOfSpeech, givenAnswer) : word.possiblePartsOfSpeech[0];
+    const focusMorphology = (word.morphologyTags.length > 1) ?
+      this.closestWordPartsCollectionToAnswer(word.morphologyTags, givenAnswer) : word.primaryMorphologyTag.partsOfSpeech;
     let partOfTheRightAnswer: WordPart[] = __.differenceWith(focusMorphology, givenAnswer, __.isEqual);
 
     if (secondaryTenses) {
@@ -51,10 +52,9 @@ export class HintsHelper {
     return this.giveMePriorityWordPart(partOfTheRightAnswer);
   }
 
-  private static closestWordPartsCollectionToAnswer(wordPartsCollection: WordPart[][], givenAnswer: WordPart[]): WordPart[] {
+  private static closestWordPartsCollectionToAnswer(morphologyTags: MorphologyTag[], givenAnswer: WordPart[]): WordPart[] {
     const givenAnswerCode = MorphologyGenerator.generateMorphologyCodeFromWordParts(givenAnswer);
-    const rightAnswers = [];
-    wordPartsCollection.forEach(x => rightAnswers.push(MorphologyGenerator.generateMorphologyCodeFromWordParts(x)));
+    const rightAnswers = morphologyTags.map(x => x.code);
 
     return MorphologyGenerator.generateWordPartsFromMorphologyCode(closest(givenAnswerCode, rightAnswers));
   }

@@ -6,10 +6,10 @@
     </div>
     <br/>
     <div *ngIf="!dontShowTheAnswer">
-      <p *ngIf="currentWord.possiblePartsOfSpeech.length>1">This is one of the answers. To see all possible answers
+      <p *ngIf="currentWord.morphologyTags.length>1">This is one of the answers. To see all possible answers
         click on the word.</p>
       <div
-        [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.possiblePartsOfSpeech[0], true)"
+        [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(currentWord.primaryMorphologyTag.partsOfSpeech, true)"
         style="margin-left: 25px">
       </div>
     </div>

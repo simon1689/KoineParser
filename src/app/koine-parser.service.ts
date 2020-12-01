@@ -53,11 +53,8 @@ export class KoineParserService {
       .pipe(
         map((data: any[]) => data.map((item: any) => {
           const model = new Word();
-          // Object.assign(model, item);
           model.word = item.word;
-          model.book = BibleBooks.find(x => x.number === Number(item.book)).name;
-          model.chapter = Number(item.chapter);
-          model.verse = Number(item.verse);
+          model.reference = new BibleReference(Number(item.book), item.chapter, item.verse, 0, 0);
           model.strongsNr = Number(item.strongsNr);
           model.lexiconEntry = this.lexiconEntries.find(x => x.strongsNr === model.strongsNr);
           model.setAllPartsOfSpeech(item.morphology);
