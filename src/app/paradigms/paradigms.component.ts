@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-paradigms',

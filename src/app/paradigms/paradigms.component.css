@@ -29,3 +29,7 @@ th {
 h2, h3, h4 {
   margin: 15px auto;
 }
+
+#noun-paradigms tbody td, #noun-paradigms thead th {
+  text-align: center;
+}

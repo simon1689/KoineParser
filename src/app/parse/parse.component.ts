@@ -382,6 +382,8 @@ export class ParseComponent implements OnInit {
       }
 
       return '<a href=\'/paradigms#' + result + '\' target=\'_blank\' title="See the full paradigm">' + morphology + '</a>';
+    } else if (morphology.startsWith('N-')) {
+      return '<a href=\'/paradigms#' + 'nouns' + '\' target=\'_blank\' title="See the full paradigm">' + morphology + '</a>';
     } else {
       return morphology;
     }
