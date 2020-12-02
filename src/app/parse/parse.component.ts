@@ -34,6 +34,7 @@ import {AnswerChecked, Comparable} from '../comparable';
 import {Helper} from '../etc/helper';
 import {SessionsComponent} from '../sessions/sessions.component';
 import {Title} from '@angular/platform-browser';
+import {BibleReference} from '../models/bible-reference';
 
 export interface WrongAnswer {
   word: Word;
@@ -113,7 +114,11 @@ export class ParseComponent implements OnInit {
 
     this.determineSecondaryTenses();
     this.determineUsingAllPronouns();
-    this.titleService.setTitle(this.state.getBibleReference().toString() + ' - KoineParser');
+    if (this.state.getBibleReference() === undefined) {
+      this.titleService.setTitle('KoineParser');
+    } else {
+      this.titleService.setTitle(this.state.getBibleReference().toString() + ' - KoineParser');
+    }
   }
 
   startRoute(): void {
@@ -141,10 +146,18 @@ export class ParseComponent implements OnInit {
 
   // sets data from LocalStorageSession and also from reported email data
   setData(data: any): void {
-    this.words = data.words;
+    this.words = [];
+    data.words.forEach(x => {
+      const model = new Word();
+      this.words.push(Object.assign(model, x));
+    });
+
     this.wordIndex = data.wordIndex;
-    this.word = data.words[data.wordIndex - 1];
-    this.state.bibleReference = data.range;
+    this.word = this.words[data.wordIndex - 1];
+
+    const bibleReference = JSON.parse(data.range) as BibleReference;
+    this.state.setBibleReference(new BibleReference(bibleReference.bibleBook.number, bibleReference.beginningChapter,
+      bibleReference.beginningVerse, bibleReference.endingChapter, bibleReference.endingVerse));
     this.state.setSecondaryTensesEnabled(data.secondaryTensesEnabled);
     this.state.setUseAllPronouns(data.useAllPronouns);
     this.skippedWords = (data.skippedWords === undefined) ? [] : data.skippedWords;

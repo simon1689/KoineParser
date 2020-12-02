@@ -27,7 +27,7 @@ export class SessionsComponent implements OnInit {
       wordIndex: component.wordIndex,
       currentWord: component.word,
       date: new Date().toDateString(),
-      range: component.state.getBibleReference().toString(),
+      range: component.state.getBibleReference(),
       goodAnswers: component.goodAnswers,
       wrongAnswers: component.wrongAnswers,
       skippedWords: component.skippedWords,

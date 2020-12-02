@@ -1,9 +1,10 @@
 import {Word} from './word';
 import {WrongAnswer} from '../parse/parse.component';
+import {BibleReference} from './bible-reference';
 
 export interface LocalStorageSession {
   key: string;
-  range: string;
+  range: BibleReference;
   date: string;
   currentWord: Word;
   wordIndex: number;
