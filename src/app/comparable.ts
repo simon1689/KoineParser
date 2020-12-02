@@ -1,6 +1,6 @@
 import {WordPart} from './models/word-part';
 import * as __ from 'lodash-es';
-import {allSuffixes, eitherMiddleOrPassiveVoice, middleVoice, noStatedTense, passiveVoice, WordParts} from './etc/word-type-constants';
+import {allSuffixes, eitherMiddleOrPassiveVoice, middleVoice, noStatedTense, passiveVoice, PartsOfSpeech} from './etc/word-type-constants';
 import {Word} from './models/word';
 import {ParseComponent} from './parse/parse.component';
 import {MorphologyGenerator} from './etc/morphology-generator';
@@ -75,7 +75,7 @@ export class Comparable {
       if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
 
         // accept 'middle' or 'passive', as answer for 'Middle or passive'
-        if (wordPartsOfSpeech[i].type === WordParts.voice) {
+        if (wordPartsOfSpeech[i].type === PartsOfSpeech.voice) {
           if (__.isEqual(wordPartsOfSpeech[i], eitherMiddleOrPassiveVoice)) {
             if ((__.isEqual(middleVoice, givenAnswer[i]) === false)
               && (__.isEqual(passiveVoice, givenAnswer[i]) === false)) {
@@ -87,11 +87,11 @@ export class Comparable {
         }    // if they are not the same, then check the headCategories
         else if (wordPartsOfSpeech[i].headCategory !== undefined) {
           try {
-            if (this.secondaryTenses && wordPartsOfSpeech[i].type === WordParts.tense) {
+            if (this.secondaryTenses && wordPartsOfSpeech[i].type === PartsOfSpeech.tense) {
               if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
                 return false;
               }
-            } else if (this.useAllPronouns && wordPartsOfSpeech[i].type === WordParts.type) {
+            } else if (this.useAllPronouns && wordPartsOfSpeech[i].type === PartsOfSpeech.type) {
               if (!__.isEqual(wordPartsOfSpeech[i], givenAnswer[i])) {
                 return false;
               }

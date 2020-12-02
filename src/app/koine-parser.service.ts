@@ -21,7 +21,7 @@ import {
   preposition,
   subjunctiveMood,
   verb,
-  WordParts
+  PartsOfSpeech
 } from './etc/word-type-constants';
 import {BibleReference} from './models/bible-reference';
 
@@ -76,9 +76,9 @@ export class KoineParserService {
   }
 
   getFiltersQueryString(filters: WordPart[]): string {
-    const types = filters.filter(x => x.type === WordParts.type);
-    const moods = filters.filter(x => x.type === WordParts.mood);
-    const tenses = filters.filter(x => x.type === WordParts.tense);
+    const types = filters.filter(x => x.type === PartsOfSpeech.type);
+    const moods = filters.filter(x => x.type === PartsOfSpeech.mood);
+    const tenses = filters.filter(x => x.type === PartsOfSpeech.tense);
     let result = '';
 
     if (types.length !== 0) {

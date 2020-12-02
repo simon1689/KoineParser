@@ -1,4 +1,4 @@
-import {allTenses, allTypesOfPronouns, personalPronoun, WordParts} from './word-type-constants';
+import {allTenses, allTypesOfPronouns, PartsOfSpeech, personalPronoun} from './word-type-constants';
 import {WordPart} from '../models/word-part';
 import {Word} from '../models/word';
 import * as __ from 'lodash-es';
@@ -12,7 +12,7 @@ export class HintsHelper {
     const focusMorphology = this.closestWordPartsCollectionToAnswer(word.morphologyTags, givenAnswer);
     const doesNotHave = __.differenceWith(givenAnswer.map(x => x.type), focusMorphology.map(x => x.type), __.isEqual);
 
-    return givenAnswer.find(x => x.type === doesNotHave[0]);
+    return givenAnswer.find(x => __.isEqual(x.type, doesNotHave[0]));
   }
 
   public static giveMeRightPartHint(word: Word, givenAnswer: WordPart[], secondaryTenses: boolean, useAllPronouns: boolean): WordPart {
@@ -27,11 +27,11 @@ export class HintsHelper {
           : x.name);
       });
 
-      partOfTheRightAnswer.forEach(x => x.type === WordParts.tense ? x.headCategory = undefined : x);
+      partOfTheRightAnswer.forEach(x => x.type === PartsOfSpeech.tense ? x.headCategory = undefined : x);
     }
 
     if (useAllPronouns) {
-      partOfTheRightAnswer.filter(x => x.type === WordParts.type).forEach(x => {
+      partOfTheRightAnswer.filter(x => x.type === PartsOfSpeech.type).forEach(x => {
         if (allTypesOfPronouns.includes(x)) {
           x.headCategory = undefined;
         }
@@ -61,20 +61,20 @@ export class HintsHelper {
 
   private static giveMePriorityWordPart(parts: WordPart[]): WordPart {
     // 1 - type
-    if (parts.find(x => x.type === WordParts.type)) {
-      return parts.find(x => x.type === WordParts.type);
+    if (parts.find(x => x.type === PartsOfSpeech.type)) {
+      return parts.find(x => x.type === PartsOfSpeech.type);
     }
     // 2 - tense
-    else if (parts.find(x => x.type === WordParts.tense)) {
-      return parts.find(x => x.type === WordParts.tense);
+    else if (parts.find(x => x.type === PartsOfSpeech.tense)) {
+      return parts.find(x => x.type === PartsOfSpeech.tense);
     }
     // 3 - voice
-    else if (parts.find(x => x.type === WordParts.voice)) {
-      return parts.find(x => x.type === WordParts.voice);
+    else if (parts.find(x => x.type === PartsOfSpeech.voice)) {
+      return parts.find(x => x.type === PartsOfSpeech.voice);
     }
     // 4 - mood
-    else if (parts.find(x => x.type === WordParts.mood)) {
-      return parts.find(x => x.type === WordParts.mood);
+    else if (parts.find(x => x.type === PartsOfSpeech.mood)) {
+      return parts.find(x => x.type === PartsOfSpeech.mood);
     } else {
       return __.sample(parts);
     }

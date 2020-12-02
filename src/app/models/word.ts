@@ -1,7 +1,7 @@
 import {LexiconEntry} from './lexicon.entry';
 import {WordPart} from './word-part';
 import {MorphologyGenerator} from '../etc/morphology-generator';
-import {atticSuffix, middleVoice, participleMood, passiveVoice, perfectTense, presentTense, WordParts} from '../etc/word-type-constants';
+import {atticSuffix, middleVoice, participleMood, passiveVoice, perfectTense, presentTense, PartsOfSpeech} from '../etc/word-type-constants';
 import {multipleWordEndings} from '../paradigms/multiple-word-endings';
 import {BibleReference} from './bible-reference';
 import {MorphologyTag} from './morphology-tag';
@@ -79,11 +79,11 @@ export class Word {
     if (partsOfSpeechWithParticiples !== undefined) {
       for (const morph of partsOfSpeechWithParticiples) {
         if ((morph.includes(presentTense) || morph.includes(perfectTense)) && morph.includes(middleVoice)) {
-          newMorph = morph.filter(x => x.type !== WordParts.voice);
+          newMorph = morph.filter(x => x.type !== PartsOfSpeech.voice);
           newMorph.push(passiveVoice);
           toBeAdded.push(newMorph);
         } else if ((morph.includes(presentTense) || morph.includes(perfectTense)) && morph.includes(passiveVoice)) {
-          newMorph = morph.filter(x => x.type !== WordParts.voice);
+          newMorph = morph.filter(x => x.type !== PartsOfSpeech.voice);
           newMorph.push(middleVoice);
           toBeAdded.push(newMorph);
         }
