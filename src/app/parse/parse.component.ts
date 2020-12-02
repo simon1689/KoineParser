@@ -155,9 +155,16 @@ export class ParseComponent implements OnInit {
     this.wordIndex = data.wordIndex;
     this.word = this.words[data.wordIndex - 1];
 
-    const bibleReference = JSON.parse(data.range) as BibleReference;
-    this.state.setBibleReference(new BibleReference(bibleReference.bibleBook.number, bibleReference.beginningChapter,
-      bibleReference.beginningVerse, bibleReference.endingChapter, bibleReference.endingVerse));
+    try {
+      const bibleReference = JSON.parse(data.range) as BibleReference;
+      const bibleRef = new BibleReference(bibleReference.bibleBook.number, bibleReference.beginningChapter,
+        bibleReference.beginningVerse, bibleReference.endingChapter, bibleReference.endingVerse);
+      this.state.setBibleReference(bibleRef);
+    } catch (e) {
+      this.state.setBibleReference(new BibleReference(data.range.bibleBook.number, data.range.beginningChapter,
+        data.range.beginningVerse, data.range.endingChapter, data.range.endingVerse));
+    }
+
     this.state.setSecondaryTensesEnabled(data.secondaryTensesEnabled);
     this.state.setUseAllPronouns(data.useAllPronouns);
     this.skippedWords = (data.skippedWords === undefined) ? [] : data.skippedWords;

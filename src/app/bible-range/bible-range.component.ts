@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {StateService} from '../state.service';
 import {Subscription} from 'rxjs';
 import {WordPart} from '../models/word-part';
-import {conditionalType} from '../etc/word-type-constants';
+import {conditionalType, noStatedTense} from '../etc/word-type-constants';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import {Chapter} from '../etc/chapters';
 import {BibleReference} from '../models/bible-reference';
@@ -28,7 +28,7 @@ export class BibleRangeComponent implements OnInit {
 
   types = Types.filter(x => x.wordPart !== conditionalType && !x.secondary);
   moods = Moods.filter(x => !x.secondary);
-  tenses = VerbTenses.filter(x => !x.secondary);
+  tenses = VerbTenses.filter(x => !x.secondary && x.wordPart !== noStatedTense);
 
   zoomIcon = faSearch;
 
@@ -48,7 +48,6 @@ export class BibleRangeComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) {
     this.state = state;
-
     this.selectedBook = BibleBooks[0];
     this.beginningChapter = this.endingChapter = this.selectedBook.chapters[0];
   }

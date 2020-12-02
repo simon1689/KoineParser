@@ -18,8 +18,9 @@ export const multipleWordEndings = {
   'T-GSN': ['T-GSM'],
   'T-DSM': ['T-DSN'],
   'T-DSN': ['T-DSM'],
-  'T-GPM': ['T-GPN'],
-  'T-GPN': ['T-GPM'],
+  'T-GPM': ['T-GPN', 'T-GPF'],
+  'T-GPN': ['T-GPM', 'T-GPF'],
+  'T-GPF': ['T-GPM', 'T-GPN'],
   'T-DPM': ['T-DPN'],
   'T-DPN': ['T-DPM'],
 
