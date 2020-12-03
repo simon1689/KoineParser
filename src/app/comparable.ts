@@ -1,6 +1,6 @@
 import {WordPart} from './models/word-part';
 import * as __ from 'lodash-es';
-import {allSuffixes, eitherMiddleOrPassiveVoice, middleVoice, noStatedTense, passiveVoice, PartsOfSpeech} from './etc/word-type-constants';
+import {allSuffixes, eitherMiddleOrPassiveVoice, middleVoice, PartsOfSpeech, passiveVoice} from './etc/word-type-constants';
 import {Word} from './models/word';
 import {ParseComponent} from './parse/parse.component';
 import {MorphologyGenerator} from './etc/morphology-generator';
@@ -33,10 +33,14 @@ export class Comparable {
     this.component = component;
     const answerMorphologyCode = MorphologyGenerator.generateMorphologyCodeFromWordParts(answerParts);
 
+    // fastest way to check the answer
+    if (word.morphologyTags.map(x => x.code).find(x => x === answerMorphologyCode)) {
+      return this.registerAnswer(word, answerParts, true);
+    }
+
     let answer = false;
     for (const tag of word.morphologyTags) {
-      if (this.answerEqualsComparable(tag.partsOfSpeech.filter(x => !allSuffixes.includes(x) && x !== noStatedTense),
-        answerParts)) {
+      if (this.answerEqualsComparable(tag.partsOfSpeech.filter(x => !allSuffixes.includes(x)), answerParts)) {
         answer = true;
         break;
       }
