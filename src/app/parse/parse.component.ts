@@ -380,36 +380,4 @@ export class ParseComponent implements OnInit {
   goToStep(tenseStep: any): void {
     this.stepper.selectedIndex = this.stepper.steps.toArray().indexOf(tenseStep);
   }
-
-  linkToParadigm(morphology: string): string {
-    if (morphology.startsWith('V-')) {
-      let result;
-      if (morphology.match(/-/g).length > 1) {
-        let shortenedMorph;
-
-        let encounteredDash = 0;
-        for (let i = 0; i < morphology.length; i++) {
-          if (morphology[i] === '-' && encounteredDash === 1) {
-            shortenedMorph = morphology.slice(0, i);
-          } else if (morphology[i] === '-') {
-            encounteredDash++;
-          }
-        }
-
-        result = shortenedMorph;
-      } else {
-        if (morphology[morphology.length - 1] === infinitiveMood.abbreviation) {
-          result = 'inf';
-        } else {
-          result = morphology;
-        }
-      }
-
-      return '<a href=\'/paradigms#' + result + '\' target=\'_blank\' title="See the full paradigm">' + morphology + '</a>';
-    } else if (morphology.startsWith('N-')) {
-      return '<a href=\'/paradigms#' + 'nouns' + '\' target=\'_blank\' title="See the full paradigm">' + morphology + '</a>';
-    } else {
-      return morphology;
-    }
-  }
 }

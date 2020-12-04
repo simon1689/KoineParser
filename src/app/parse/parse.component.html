@@ -42,8 +42,8 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="text-center">
-             <span
-               class="font-weight-bold text-center" [innerHTML]="linkToParadigm(word.primaryMorphologyTag.code)"></span>
+          <span class="font-weight-bold text-center"
+                [innerHTML]="word.primaryMorphologyTag.code | morphologyCodeLink"></span>
           <div
             [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.primaryMorphologyTag.partsOfSpeech, true, false)"></div>
 
@@ -51,7 +51,7 @@
             <div class="text-center" *ngFor="let morphologyTag of word.morphologyTags.slice(1)">
             <span
               class="font-weight-bold text-center"
-              [innerHTML]="linkToParadigm(morphologyTag.code)"></span>
+              [innerHTML]="word.primaryMorphologyTag.code | morphologyCodeLink"></span>
               <div
                 [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(morphologyTag.partsOfSpeech, true, false)"></div>
               <br/>

@@ -23,6 +23,7 @@ export class Word {
   wordComplete: string;
   morphologyTags: MorphologyTag[];
   reference: BibleReference;
+  mainType: WordPart;
 
   setAllPartsOfSpeech(mainMorphology: string): void {
     // main
@@ -38,6 +39,7 @@ export class Word {
     }
 
     this.setMiddlePassiveMorphologies();
+    this.mainType = this.primaryMorphologyTag.partsOfSpeech.filter(x => x.type === PartsOfSpeech.type)[0];
   }
 
   setMultipleMorphologies(multipleMorphologies: MultipleMorphologyWord[]): void {

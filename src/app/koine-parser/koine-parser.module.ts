@@ -47,6 +47,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {GreekStylerPipe} from '../greek-styler.pipe';
 import {ResourcesComponent} from '../resources/resources.component';
 import {ParadigmsComponent} from '../paradigms/paradigms.component';
+import {MorphologyCodeLinkPipe} from '../morphology-code-link.pipe';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import {ParadigmsComponent} from '../paradigms/paradigms.component';
     GreekStylerPipe,
     ResourcesComponent,
     ParadigmsComponent,
+    MorphologyCodeLinkPipe,
   ],
   imports: [
     CommonModule,
