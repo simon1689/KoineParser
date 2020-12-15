@@ -41,22 +41,13 @@
             style="display: block; text-align: center; color: black">Answer(s)
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <div class="text-center">
-          <span class="font-weight-bold text-center"
-                [innerHTML]="word.primaryMorphologyTag.code | morphologyCodeLink"></span>
-          <div
-            [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(word.primaryMorphologyTag.partsOfSpeech, true, false)"></div>
-
-          <div *ngIf="word.morphologyTags.length > 1" style="margin-top: 15px">
-            <div class="text-center" *ngFor="let morphologyTag of word.morphologyTags.slice(1)">
+        <div class="text-center" style="margin-bottom: 15px"
+             *ngFor="let morphologyTag of word.morphologyTags">
             <span
               class="font-weight-bold text-center"
-              [innerHTML]="word.primaryMorphologyTag.code | morphologyCodeLink"></span>
-              <div
-                [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(morphologyTag.partsOfSpeech, true, false)"></div>
-              <br/>
-            </div>
-          </div>
+              [innerHTML]="morphologyTag.code | morphologyCodeLink"></span>
+          <div
+            [innerHTML]="morphologyGenerator.convertWordPartsToReadableForm(morphologyTag.partsOfSpeech, true, false)"></div>
         </div>
       </mat-expansion-panel>
     </mat-expansion-panel>
