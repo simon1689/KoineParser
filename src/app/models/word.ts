@@ -42,12 +42,12 @@ export class Word {
     this.mainType = this.primaryMorphologyTag.partsOfSpeech.filter(x => x.type === PartsOfSpeech.type)[0];
   }
 
-  setMultipleMorphologies(multipleMorphologies: MultipleMorphologyWord[]): void {
-    if (multipleMorphologies.length > 0) {
-      for (const morph of multipleMorphologies) {
-        if (this.morphologyTags.find(x => x.code === morph.morphology) === undefined) {
-          this.addWordPartsToMorphologyTag(MorphologyGenerator.generateWordPartsFromMorphologyCode(morph.morphology));
-        }
+  setMultipleMorphologies(multipleMorphologies: MultipleMorphologyWord[], word: Word): void {
+    // tslint:disable-next-line:triple-equals
+    for (const morph of multipleMorphologies.filter(x => x.word == word.word && x.strongs == word.strongsNr)) {
+      console.log('from setMultipleMorphologies', multipleMorphologies);
+      if (this.morphologyTags.find(x => x.code === morph.morphology) === undefined) {
+        this.addWordPartsToMorphologyTag(MorphologyGenerator.generateWordPartsFromMorphologyCode(morph.morphology));
       }
     }
   }

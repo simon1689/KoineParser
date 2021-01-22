@@ -17,11 +17,11 @@ import {
   optativeMood,
   participleMood,
   particleType,
+  PartsOfSpeech,
   personalPronoun,
   preposition,
   subjunctiveMood,
-  verb,
-  PartsOfSpeech
+  verb
 } from './etc/word-type-constants';
 import {BibleReference} from './models/bible-reference';
 
@@ -56,9 +56,8 @@ export class KoineParserService {
           model.strongsNr = Number(item.strongsNr);
           model.lexiconEntry = this.lexiconEntries.find(x => x.strongsNr === model.strongsNr);
           model.setAllPartsOfSpeech(item.morphology);
-          model.setMultipleMorphologies(this.multipleMorphologiesOfWords.filter(x => x.word === model.word && x.strongs === model.strongsNr));
           model.word = (model.primaryMorphologyTag.code.startsWith('N-') ? item.word : item.word.toLowerCase());
-
+          model.setMultipleMorphologies(this.multipleMorphologiesOfWords, model);
           return model;
         })));
   }

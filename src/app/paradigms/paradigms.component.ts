@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {MatTooltip} from '@angular/material/tooltip';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-paradigms',
@@ -8,6 +8,9 @@ import {MatTooltip} from '@angular/material/tooltip';
   styleUrls: ['./paradigms.component.css']
 })
 export class ParadigmsComponent implements OnInit {
+  tocHidden = true;
+  tocIcon = faBars;
+
   constructor(private titleService: Title) {
     titleService.setTitle('Paradigms - KoineParser');
   }
