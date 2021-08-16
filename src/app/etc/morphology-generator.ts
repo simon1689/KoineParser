@@ -303,8 +303,60 @@ export class MorphologyGenerator {
 
     let result = '';
     const newLiner = formatting ? (newLine) ? '\n' : '<br />' : '';
-    for (const wordPart of wordParts) {
+    for (const wordPart of this.sortWordParts(wordParts)) {
       result += `${wordPart.type}: ${wordPart.name}${newLiner}`;
+    }
+
+    return result;
+  }
+
+  public static sortWordParts(wordParts: WordPart[]): WordPart[] {
+    const result: WordPart[] = [];
+
+    const type = wordParts.find(x => allWordTypes.includes(x));
+    const tense = wordParts.find(x => allTenses.includes(x));
+    const voice = wordParts.find(x => allVoices.includes(x));
+    const mood = wordParts.find(x => allMoods.includes(x));
+    const person = wordParts.find(x => allPersons.includes(x));
+    const numbers = wordParts.find(x => allNumbers.includes(x));
+    const cases = wordParts.find(x => allCases.includes(x));
+    const gender = wordParts.find(x => allGenders.includes(x));
+    const suffix = wordParts.find(x => allSuffixes.includes(x));
+
+    if (type) {
+      result.push(type);
+    }
+
+    if (tense) {
+      result.push(tense);
+    }
+
+    if (voice) {
+      result.push(voice);
+    }
+
+    if (mood) {
+      result.push(mood);
+    }
+
+    if (person) {
+      result.push(person);
+    }
+
+    if (numbers) {
+      result.push(numbers);
+    }
+
+    if (cases) {
+      result.push(cases);
+    }
+
+    if (gender) {
+      result.push(gender);
+    }
+
+    if (suffix) {
+      result.push(suffix);
     }
 
     return result;
